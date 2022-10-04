@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 37644565}
   - component: {fileID: 37644564}
   - component: {fileID: 37644563}
+  - component: {fileID: 37644566}
   m_Layer: 5
   m_Name: YesButton
   m_TagString: Untagged
@@ -206,7 +207,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 37644564}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 37644566}
+        m_TargetAssemblyTypeName: YesButton, Assembly-CSharp
+        m_MethodName: YesButtonDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &37644564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +258,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37644561}
   m_CullTransparentMesh: 1
+--- !u!114 &37644566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37644561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f0051442edabe488b827ae8a40bc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &54891087
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,11 +860,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -1638,7 +1663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1512799349}
   m_Layer: 5
-  m_Name: SceneView
+  m_Name: DefaultUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1881,7 +1906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1880132988}
   m_Layer: 5
-  m_Name: StartButton_PopUp
+  m_Name: Start_PopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2198,7 +2223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC544\uB2C8\uC624\n"
+  m_text: "\uC608"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ae251a657df83b4aab09a6643a187b4, type: 2}
   m_sharedMaterial: {fileID: 674606041592806734, guid: 4ae251a657df83b4aab09a6643a187b4, type: 2}
@@ -2374,7 +2399,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2147394469}
         m_TargetAssemblyTypeName: NoButton, Assembly-CSharp
-        m_MethodName: NoButtonClick
+        m_MethodName: NoButtonDown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
