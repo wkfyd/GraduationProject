@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class Stage01 : MonoBehaviour
 {
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("클릭");
-        }
-        
-    }
+    private GameObject Stage01_PopUp;
     public void OnClicked()
     {
-        Debug.Log("클릭");
+        Stage01_PopUp = GameObject.Find("Canvas").transform.Find("Stage01_PopUp").gameObject;
+        Stage01_PopUp.SetActive(true);
     }
 }
