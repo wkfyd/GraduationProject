@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class ScaleScript : MonoBehaviour
 {
-    [Header("scale speed")]
-    [Range(1f, 5f)] public float scaleSpeed = 1f;
-
+    [Header("scale speed")]  //인스펙터창 제목
+    [Range(1f, 10f)] public float size = 1f;   //오브젝트 크기
+    [Range(1f, 10f)] public float scaleSpeed = 1f; //크기변경 속도
+    float timer = 0;
     void Update()
     {
-        transform.localScale = new Vector3(transform.localScale.x + scaleSpeed * Time.deltaTime,
-                            transform.localScale.y + scaleSpeed * Time.deltaTime, 0);
-
-        /*timer += Time.deltaTime;    //삼각함수 기록용
-        transform.localScale = new Vector3(10.0f * Mathf.Cos(timer), 10.0f * Mathf.Cos(timer), 0);*/
+        timer += Time.deltaTime;
+        transform.localScale = new Vector3(Mathf.Cos(timer* scaleSpeed) +size,
+                                            Mathf.Cos(timer* scaleSpeed) +size, 0); //크기 증감 삼각함수로 인한 반복
     }
 }
