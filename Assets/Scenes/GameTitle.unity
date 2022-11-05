@@ -209,8 +209,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 37644566}
-        m_TargetAssemblyTypeName: YesButton, Assembly-CSharp
-        m_MethodName: YesButtonDown
+        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_MethodName: LoadSelectStageScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
