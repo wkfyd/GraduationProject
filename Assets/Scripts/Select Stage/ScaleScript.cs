@@ -10,7 +10,7 @@ public class ScaleScript : MonoBehaviour
     [Range(1f, 10f)] public float scaleSpeed = 1f; //크기변경 속도
     private Button stage_Btn;
     float timer = 0;
-    void Start()
+    void Awake()
     {
         stage_Btn = gameObject.GetComponent<Button>();
     }
