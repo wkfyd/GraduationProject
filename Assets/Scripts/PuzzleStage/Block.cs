@@ -4,36 +4,16 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    public bool isec = false;
-    public bool isDrag;
-    Rigidbody2D rigid;
+    public bool select = false;
     Vector3 mousePos;
-
-   /* void Awake()
-    {
-        rigid = GetComponent<Rigidbody2D>();
-    }*/
 
     void Update()
     {
         
     }
-
-    /*public void Drag()
-    {
-            isDrag = true;
-            rigid.simulated = false;
-    }
-
-    public void Drop()
-    {
-        isDrag = false;
-        rigid.simulated = true;
-    }*/
-
     public void OnMouseDown()
     {
-        isec = true;
+        select = true;
     }
     public void OnMouseDrag()
     {
@@ -43,6 +23,11 @@ public class Block : MonoBehaviour
     }
     public void OnMouseUp()
     {
-        isec = false;
+        select = false;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+     
     }
 }
