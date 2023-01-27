@@ -42,3 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Character
+    uniqueID: 1863748065
+    locked: 0
+  - name: PuzzleBG
+    uniqueID: 2343698383
+    locked: 0
+  - name: Block
+    uniqueID: 2999976903
+    locked: 0
