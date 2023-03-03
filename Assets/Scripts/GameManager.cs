@@ -39,18 +39,13 @@ public class GameManager : MonoBehaviour
         lastBlock.level = Random.Range(0, maxLevel); //maxLevel값은 포함 안 됨
         lastBlock.gameObject.SetActive(true);
 
-        StartCoroutine("WaitNext");
+        StartCoroutine(WaitNext(i));
     }
 
-    IEnumerator WaitNext()
+    IEnumerator WaitNext(int i)
     {
         yield return new WaitForSeconds(10f);
 
-        NextBlock(0);
-        NextBlock(1);
-        NextBlock(2);
-        NextBlock(3);
-        NextBlock(4);
-        NextBlock(5);
+        NextBlock(i);
     }
 }
