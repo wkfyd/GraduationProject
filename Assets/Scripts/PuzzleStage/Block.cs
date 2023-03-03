@@ -13,7 +13,7 @@ public class Block : MonoBehaviour
     Animator anim;
     BoxCollider2D box;
 
-    void Awake()
+    void Awake() 
     {
         rigid = GetComponent<Rigidbody2D>();
         box = GetComponent<BoxCollider2D>();
@@ -22,7 +22,7 @@ public class Block : MonoBehaviour
 
     private void OnEnable() //스크립트가 활성화 될 때 실행되는 이벤트함수
     {
-        anim.SetInteger("Level", level);
+        anim.SetInteger("Level", level); //애니메이터 int형 파라미터
     }
 
     public void OnMouseDown()
@@ -71,25 +71,25 @@ public class Block : MonoBehaviour
 
     }
 
-    public void Hide(Vector3 targetPos)
+    public void Hide(Vector3 targetPos) //숨기기 함수
     {
         isMerge = true;
 
         rigid.simulated = false;
         box.enabled = false;
 
-        StartCoroutine(HideRoutine(targetPos));
+        StartCoroutine(HideRoutine(targetPos)); //애니메이션 주기 위한 코루틴
     }
 
-    IEnumerator HideRoutine(Vector3 targetPos)
+    IEnumerator HideRoutine(Vector3 targetPos) //머지 애니메이션
     {
         int frameCount = 0;
 
-        while (frameCount < 20)
+        while (frameCount < 20) //이동
         {
             frameCount++;
-            transform.position = Vector3.Lerp(transform.position, targetPos, 0.2f);
-            yield return null;
+            transform.position = Vector3.Lerp(transform.position, targetPos, 0.2f); //target까지 이동
+            yield return null; //이게 없으면 한 프레임 안에서 반복문이 돌아서 의미X
         }
 
         isMerge = false;
@@ -97,17 +97,17 @@ public class Block : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void LevelUp()
+    void LevelUp() //레벨업을 위한 함수
     {
         isMerge = true;
 
-        rigid.velocity = Vector2.zero;
-        rigid.angularVelocity = 0;
+        rigid.velocity = Vector2.zero; //레벨업 중 방해될 수 있는 물리속도 제거 이동속도=velocity, 2d라서 vector2
+        rigid.angularVelocity = 0; //회전속도 초기화, +시계, -반시계
 
-        StartCoroutine(LevelUpRoutine());
+        StartCoroutine(LevelUpRoutine()); //애니메이션주기 위한 코루틴
     }
 
-    IEnumerator LevelUpRoutine()
+    IEnumerator LevelUpRoutine() //레벨업 애니메이션
     {
         yield return new WaitForSeconds(0.2f);
 
