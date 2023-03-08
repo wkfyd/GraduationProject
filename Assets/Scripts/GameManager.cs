@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Snap snap;
     public Block lastBlock;
     public GameObject BlockPrefab;
-    public Transform BlockGroup;
+    public Transform[] BlockGroup;
 
     public int maxLevel;
 
@@ -16,7 +15,6 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        snap = new Snap();
         NextBlock(0);
         NextBlock(1);
         NextBlock(2);
@@ -26,7 +24,7 @@ public class GameManager : MonoBehaviour
     }
     Block GetBlock(int i)        //블럭생성
     {     
-        GameObject instant = Instantiate(BlockPrefab, snap.gridPos[i], Quaternion.identity); //오브젝트 생성
+        GameObject instant = Instantiate(BlockPrefab, BlockGroup[i]); //오브젝트 생성
         Block instantBlock = instant.GetComponent<Block>(); //반환값을 Block하기위한 변환
         return instantBlock;
     }
@@ -39,18 +37,13 @@ public class GameManager : MonoBehaviour
         lastBlock.level = Random.Range(0, maxLevel); //maxLevel값은 포함 안 됨
         lastBlock.gameObject.SetActive(true);
 
-        StartCoroutine("WaitNext");
+        StartCoroutine(WaitNext(i));
     }
 
-    IEnumerator WaitNext()
+    IEnumerator WaitNext(int i)
     {
         yield return new WaitForSeconds(10f);
 
-        NextBlock(0);
-        NextBlock(1);
-        NextBlock(2);
-        NextBlock(3);
-        NextBlock(4);
-        NextBlock(5);
+        NextBlock(i);
     }
 }
