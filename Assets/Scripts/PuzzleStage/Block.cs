@@ -5,13 +5,18 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     public GameManager manager;
+    public Snap snap = new Snap();
+
     public int level;
     public bool select = false;
     public bool isMerge;
 
+    Vector3 mousePos;
+
     Rigidbody2D rigid;
     Animator anim;
     BoxCollider2D box;
+
 
     void Awake() 
     {
@@ -32,12 +37,15 @@ public class Block : MonoBehaviour
     }
     public void OnMouseDrag()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
         mousePos.z = 0;
         transform.position = Vector3.Lerp(transform.position, mousePos, 0.1f);
     }
     public void OnMouseUp()
     {
+        //BlockGroup중에 몇 번째에 가까운지
+        Debug.Log(snap.BlockGroupPos[0].x);
+
         select = false;
         rigid.simulated = true;
     }
@@ -64,11 +72,8 @@ public class Block : MonoBehaviour
                     //나는 레벨업
                     LevelUp();
                 }
-
             }
-
         }
-
     }
 
     public void Hide(Vector3 targetPos) //숨기기 함수
@@ -116,7 +121,7 @@ public class Block : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         level++;
 
-        manager.maxLevel = Mathf.Max(level, manager.maxLevel);
+        manager.maxLevel = Mathf.Max(level, manager.maxLevel); //maxLevel 설정
 
         isMerge = false;
     }
