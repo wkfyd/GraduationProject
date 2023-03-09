@@ -44,6 +44,20 @@ public class Block : MonoBehaviour
     public void OnMouseUp()
     {
         //BlockGroup중에 몇 번째에 가까운지
+        float snapPos, snapPos1, result;
+        int i = 0;
+        while (i < 5)
+        {
+            snapPos = transform.position.x - snap.BlockGroupPos[i].x; // -1.8
+            snapPos1 = transform.position.x - snap.BlockGroupPos[i+1].x; // -0.6
+            if(snapPos < snapPos1)
+            {
+                break;
+            }
+        }
+
+        snapPos1 = transform.position.x - snap.BlockGroupPos[1].x;//이게 가장 적은 걸 찾아야 돼 
+
         Debug.Log(snap.BlockGroupPos[0].x);
 
         select = false;
