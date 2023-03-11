@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,30 +40,12 @@ public class Block : MonoBehaviour
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
         mousePos.z = 0;
-        transform.position = Vector3.Lerp(transform.position, mousePos, 0.1f);
+        transform.position = Vector3.Lerp(transform.position, mousePos, 0.2f); //선형보간
     }
     public void OnMouseUp()
     {
-        //BlockGroup중에 몇 번째에 가까운지
-        float snapPos, snapPos1, temp;
-        int i = 0;
-        while (i < 5)
-        {
-            snapPos = transform.position.x - snap.BlockGroupPos[i].x; // -1.8
-            snapPos1 = transform.position.x - snap.BlockGroupPos[i+1].x; // -0.6
-            if(snapPos < snapPos1)
-            {
-                temp = snapPos;
-                snapPos = snapPos1;
-                snapPos1 = temp;
-            }
-            i++;
-        }
-        
-
-        snapPos1 = transform.position.x - snap.BlockGroupPos[1].x;//이게 가장 적은 걸 찾아야 돼 
-
-        Debug.Log(snap.BlockGroupPos[0].x + " " + snapPos1);
+        //스냅기능
+        Snap();
 
         select = false;
         rigid.simulated = true;
@@ -142,5 +125,28 @@ public class Block : MonoBehaviour
         manager.maxLevel = Mathf.Max(level, manager.maxLevel); //maxLevel 설정
 
         isMerge = false;
+    }
+
+    void Snap()     //스냅함수
+    {
+        float[] distanceArray = new float[6];  //오브젝트 거리와 라인별 거리차이를 저장할 배열선언
+        float min;
+
+        for (int i = 0; i < snap.BlockGroupPos.Length; i++)  //오브젝트 거리계산 후 배열에 값 저장
+        {
+            distanceArray[i] = Vector3.Distance(transform.position, snap.BlockGroupPos[i]);
+        }
+
+        min = distanceArray[0];     //min 기본값설정
+
+        for (int i = 1; i < snap.BlockGroupPos.Length; i++)     //배열에서 가장 작은 값 찾기 = 가장 가까운 라인찾기
+        {
+            if (min > distanceArray[i])
+            {
+                min = distanceArray[i];
+            }
+        }
+        transform.position = new Vector3(snap.BlockGroupPos[Array.IndexOf(distanceArray, min)].x,
+                                                transform.position.y, 0); //오브젝트 위치를 가장 가까운 라인의 x값만 대입
     }
 }
