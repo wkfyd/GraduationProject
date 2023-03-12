@@ -10,17 +10,9 @@ public class GameManager : MonoBehaviour
 
     public int maxLevel;
 
-    void Awake()
-    {
-    }
     void Start()
     {
-        NextBlock(0);
-        NextBlock(1);
-        NextBlock(2);
-        NextBlock(3);
-        NextBlock(4);
-        NextBlock(5);
+        Spawn();
     }
     Block GetBlock(int i)        //블럭생성
     {     
@@ -42,8 +34,18 @@ public class GameManager : MonoBehaviour
 
     IEnumerator WaitNext(int i)
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(4f);
 
         NextBlock(i);
+    }
+
+    void Spawn()
+    {
+        NextBlock(0);
+        NextBlock(1);
+        NextBlock(2);
+        NextBlock(3);
+        NextBlock(4);
+        NextBlock(5);
     }
 }

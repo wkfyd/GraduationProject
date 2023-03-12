@@ -18,7 +18,6 @@ public class Block : MonoBehaviour
     Animator anim;
     BoxCollider2D box;
 
-
     void Awake() 
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -29,6 +28,9 @@ public class Block : MonoBehaviour
     private void OnEnable() //스크립트가 활성화 될 때 실행되는 이벤트함수
     {
         anim.SetInteger("Level", level); //애니메이터 int형 파라미터
+        
+        rigid.constraints = RigidbodyConstraints2D.FreezePositionX |
+                              RigidbodyConstraints2D.FreezeRotation; //오브젝트 Rotation값, x값 고정
     }
 
     public void OnMouseDown()
