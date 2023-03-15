@@ -46,17 +46,21 @@ public class Block : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
         mousePos.z = 0;
         transform.position = Vector3.Lerp(transform.position, mousePos, 0.2f); //선형보간
-        if (transform.position.x >= 3.0)
+        if (transform.position.x >= 2.8)
         {
-            transform.position = new Vector3(3.0f, transform.position.y, 0);
+            transform.position = new Vector3(2.8f, transform.position.y, 0);
         }
-        if(transform.position.x <= -3.0)
+        if(transform.position.x <= -2.8)
         {
-            transform.position = new Vector3(-3.0f, transform.position.y, 0);
+            transform.position = new Vector3(-2.8f, transform.position.y, 0);
         }
-        if (transform.position.y >= 3.45)
+        if (transform.position.y >= 3.36)
         {
-            transform.position = new Vector3(transform.position.x, 3.45f, 0);
+            transform.position = new Vector3(transform.position.x, 3.36f, 0);
+        }
+        if (transform.position.y <= -3.36)
+        {
+            transform.position = new Vector3(transform.position.x, -3.36f, 0);
         }
     }
     public void OnMouseUp()
