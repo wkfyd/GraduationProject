@@ -30,11 +30,14 @@ public class Block : MonoBehaviour
         anim.SetInteger("Level", level); //애니메이터 int형 파라미터
         
         rigid.constraints = RigidbodyConstraints2D.FreezePositionX |
-                              RigidbodyConstraints2D.FreezeRotation; //오브젝트 Rotation값, x값 고정
+        //    RigidbodyConstraints2D.FreezePositionY|
+        RigidbodyConstraints2D.FreezeRotation; //오브젝트 Rotation값, x값 고정
     }
 
     public void OnMouseDown()
     {
+
+
         select = true;
         rigid.simulated = false;
     }
@@ -43,6 +46,18 @@ public class Block : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
         mousePos.z = 0;
         transform.position = Vector3.Lerp(transform.position, mousePos, 0.2f); //선형보간
+        if (transform.position.x >= 3.0)
+        {
+            transform.position = new Vector3(3.0f, transform.position.y, 0);
+        }
+        if(transform.position.x <= -3.0)
+        {
+            transform.position = new Vector3(-3.0f, transform.position.y, 0);
+        }
+        if (transform.position.y >= 3.45)
+        {
+            transform.position = new Vector3(transform.position.x, 3.45f, 0);
+        }
     }
     public void OnMouseUp()
     {
