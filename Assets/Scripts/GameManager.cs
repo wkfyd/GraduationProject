@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//지수님 이거 보이시나요
 public class GameManager : MonoBehaviour
 {
     public Block lastBlock;
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(WaitNext(i));
     }
+
 
     IEnumerator WaitNext(int i)
     {
