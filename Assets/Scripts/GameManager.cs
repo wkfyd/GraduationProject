@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//지수님 이거 보이시나요
 public class GameManager : MonoBehaviour
 {
-    public Block lastBlock;
     public GameObject BlockPrefab;
-    public Transform[] BlockGroup;
+    public Block lastBlock;
+    GameBoard gameBoard;
 
     public int maxLevel;
 
+    void Awake()
+    {
+        gameBoard = new GameBoard();
+    }
     void Start()
     {
         Spawn();
     }
-    Block GetBlock(int i)        //블럭생성
+    Block GetBlock(int i)  //블럭생성
     {     
-        GameObject instant = Instantiate(BlockPrefab, BlockGroup[i]); //오브젝트 생성
+        //오브젝트 생성
+        GameObject instant = Instantiate(BlockPrefab, gameBoard.blockGridPos[0,i], Quaternion.identity);
         Block instantBlock = instant.GetComponent<Block>(); //반환값을 Block하기위한 변환
         return instantBlock;
     }
@@ -34,6 +38,17 @@ public class GameManager : MonoBehaviour
         StartCoroutine(WaitNext(i));
     }
 
+    /*void test()
+    {
+        GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
+
+        for (int j = 0; j < blocks.Length; j++)
+        {
+            Vector3 newPos = blocks[j].transform.position;
+            newPos.y += 1.12f;
+            blocks[j].transform.position = newPos;
+        }
+    }*/
 
     IEnumerator WaitNext(int i)
     {
@@ -41,14 +56,16 @@ public class GameManager : MonoBehaviour
 
         NextBlock(i);
     }
+    void StartSpawn()
+    {
+
+    }
 
     void Spawn()
     {
-        NextBlock(0);
-        NextBlock(1);
-        NextBlock(2);
-        NextBlock(3);
-        NextBlock(4);
-        NextBlock(5);
+        for (int i = 0; i < 6; i++)
+            {
+                NextBlock(i);
+            }
     }
 }

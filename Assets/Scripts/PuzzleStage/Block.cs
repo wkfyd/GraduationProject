@@ -6,7 +6,7 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     public GameManager manager;
-    public Snap snap = new Snap();
+    public GameBoard gameBoard;
 
     public int level;
     public bool select = false;
@@ -23,6 +23,7 @@ public class Block : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         box = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+        gameBoard = new GameBoard();
     }
 
     private void OnEnable() //스크립트가 활성화 될 때 실행되는 이벤트함수
@@ -30,14 +31,11 @@ public class Block : MonoBehaviour
         anim.SetInteger("Level", level); //애니메이터 int형 파라미터
         
         rigid.constraints = RigidbodyConstraints2D.FreezePositionX |
-        //    RigidbodyConstraints2D.FreezePositionY|
         RigidbodyConstraints2D.FreezeRotation; //오브젝트 Rotation값, x값 고정
     }
 
     public void OnMouseDown()
     {
-
-
         select = true;
         rigid.simulated = false;
     }
@@ -46,6 +44,8 @@ public class Block : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
         mousePos.z = 0;
         transform.position = Vector3.Lerp(transform.position, mousePos, 0.2f); //선형보간
+
+        //보드판 밖으로 못 나가게
         if (transform.position.x >= 2.8)
         {
             transform.position = new Vector3(2.8f, transform.position.y, 0);
@@ -68,6 +68,10 @@ public class Block : MonoBehaviour
         //스냅기능
         Snap();
 
+        //3초 동안만 중력 on
+        rigid.gravityScale = 8f;
+        Invoke("ChangeGravityScale", 1f);
+
         select = false;
         rigid.simulated = true;
     }
@@ -85,8 +89,7 @@ public class Block : MonoBehaviour
                 float meY = transform.position.y;
                 float otherX = other.transform.position.x;
                 float otherY = other.transform.position.y;
-                //1. 내가 아래에 있을때
-                //2. 동일한 높이일 때, 내가 오른쪽에 있을 때
+                //동일한 높이일 때, 내가 오른쪽에 있을 때
                 if(meY < otherY || (meY == otherY && meX > otherX))
                 {
                     //상대방은 숨기기
@@ -153,21 +156,26 @@ public class Block : MonoBehaviour
         float[] distanceArray = new float[6];  //오브젝트 거리와 라인별 거리차이를 저장할 배열선언
         float min;
 
-        for (int i = 0; i < snap.BlockGroupPos.Length; i++)  //오브젝트 거리계산 후 배열에 값 저장
+        for (int i = 0; i < 6; i++)  //오브젝트 거리계산 후 배열에 값 저장
         {
-            distanceArray[i] = Vector3.Distance(transform.position, snap.BlockGroupPos[i]);
+            distanceArray[i] = Vector3.Distance(transform.position, gameBoard.blockGridPos[0, i]);
         }
 
         min = distanceArray[0];     //min 기본값설정
 
-        for (int i = 1; i < snap.BlockGroupPos.Length; i++)     //배열에서 가장 작은 값 찾기 = 가장 가까운 라인찾기
+        for (int i = 1; i < 6; i++)     //배열에서 가장 작은 값 찾기 = 가장 가까운 라인찾기
         {
             if (min > distanceArray[i])
             {
                 min = distanceArray[i];
             }
         }
-        transform.position = new Vector3(snap.BlockGroupPos[Array.IndexOf(distanceArray, min)].x,
+        transform.position = new Vector3(gameBoard.blockGridPos[0, Array.IndexOf(distanceArray, min)].x,
                                                 transform.position.y, 0); //오브젝트 위치를 가장 가까운 라인의 x값만 대입
+    }
+
+    void ChangeGravityScale()
+    {
+        rigid.gravityScale = 0f;
     }
 }
