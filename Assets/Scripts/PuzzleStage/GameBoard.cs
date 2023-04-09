@@ -12,7 +12,7 @@ public class GameBoard
         {
             for (int y = 0; y < 6; y++)
             {
-                blockGridPos[x, y] = new Vector3(1.12f * y - 2.8f , 1.12f * x - 3.36f, 0);
+                blockGridPos[x, y] = new Vector3(1.12f * y - 2.8f , 3.36f - 1.12f * x , 0);
             }
         }
     }

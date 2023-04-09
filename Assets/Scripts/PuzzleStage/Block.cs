@@ -146,7 +146,7 @@ public class Block : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         level++;
 
-        manager.maxLevel = Mathf.Max(level, manager.maxLevel); //maxLevel 설정
+        manager.maxLevel = Mathf.Max(level, manager.maxLevel); //Mathf(인자값 중 최대값반환);maxLevel 설정
 
         isMerge = false;
     }
