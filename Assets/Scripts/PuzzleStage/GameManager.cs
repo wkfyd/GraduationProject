@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject BlockPrefab;
     public Block lastBlock;
     public int maxLevel;
+    public GameObject[,] blocks = new GameObject[7, 6]; //오브젝트 2차원배열선언,초기화
 
     GameBoard gameBoard = new GameBoard();
     
@@ -21,12 +22,21 @@ public class GameManager : MonoBehaviour
     {
         StartSpawn();
     }
+
+    void Update()
+    {
+        
+    }
     //시작스폰
     public void StartSpawn()
     {
-        GameObject[,] blocks = new GameObject[7, 6]; //오브젝트 2차원배열선언,초기화
         //기존블럭삭제
         GameObject[] destroyBlock = GameObject.FindGameObjectsWithTag("Block");
+        for(int i = 5; i < 7; i++) {
+            for(int j = 0; j < 6; j++){
+                blocks[i, j] = null;
+            }
+        }
 
         for (int j=0; j< destroyBlock.Length; j++)
             Destroy(destroyBlock[j]);

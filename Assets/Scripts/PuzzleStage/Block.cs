@@ -23,9 +23,15 @@ public class Block : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         box = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+    }
+    void Start()
+    {
         gameBoard = new GameBoard();
     }
-
+    void Update()
+    {
+        
+    }
     private void OnEnable() //스크립트가 활성화 될 때 실행되는 이벤트함수
     {
         anim.SetInteger("Level", level); //애니메이터 int형 파라미터
@@ -45,20 +51,23 @@ public class Block : MonoBehaviour
         mousePos.z = 0;
         transform.position = Vector3.Lerp(transform.position, mousePos, 0.2f); //선형보간
 
+        //이동시 2차원배열에서의 좌표업데이트
+       
+
         //보드판 밖으로 못 나가게
-        if (transform.position.x >= 2.8)
+        if (transform.position.x >= gameBoard.blockGridPos[0, gameBoard.blockGridPos.GetLength(1)-1].x)
         {
             transform.position = new Vector3(2.8f, transform.position.y, 0);
         }
-        if(transform.position.x <= -2.8)
+        if(transform.position.x <= gameBoard.blockGridPos[0, 0].x)
         {
             transform.position = new Vector3(-2.8f, transform.position.y, 0);
         }
-        if (transform.position.y >= 3.36)
+        if (transform.position.y >= gameBoard.blockGridPos[0, 0].y)
         {
             transform.position = new Vector3(transform.position.x, 3.36f, 0);
         }
-        if (transform.position.y <= -3.36)
+        if (transform.position.y <= gameBoard.blockGridPos[gameBoard.blockGridPos.GetLength(0)-1, 0].y)
         {
             transform.position = new Vector3(transform.position.x, -3.36f, 0);
         }
@@ -68,12 +77,38 @@ public class Block : MonoBehaviour
         //스냅기능
         Snap();
 
-        //3초 동안만 중력 on
+        //1초 동안만 중력 on
         rigid.gravityScale = 8f;
         Invoke("ChangeGravityScale", 1f);
 
+        for (int i = 0; i < manager.blocks.GetLength(0); i++)
+        {
+            for (int j = 0; j < manager.blocks.GetLength(1); j++)
+            {
+                if (manager.blocks[i, j] != null)
+                {
+                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 있습니다.");
+                }
+                if (manager.blocks[i, j] == null)
+                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 XXXX");
+            }
+        }
+        /*for (int k = 0; k < 7; k++)
+        {
+            for (int l = 0; l < 6; l++)
+            {
+                Debug.Log(k + "," + l);
+                if (manager.blocks[k, l] != null)
+                    Debug.Log("[ok]");
+                if (manager.blocks[k, l] == null)
+                    Debug.Log("null");
+            }
+        }*/
+
         select = false;
         rigid.simulated = true;
+
+        
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -118,7 +153,7 @@ public class Block : MonoBehaviour
         while (frameCount < 20) //이동
         {
             frameCount++;
-            transform.position = Vector3.Lerp(transform.position, targetPos, 0.2f); //target까지 이동
+            transform.position = Vector3.Lerp(transform.position, targetPos, 0.2f); //target까지 부드럽게 이동
             yield return null; //이게 없으면 한 프레임 안에서 반복문이 돌아서 의미X
         }
 
@@ -170,8 +205,10 @@ public class Block : MonoBehaviour
                 min = distanceArray[i];
             }
         }
+        //오브젝트 위치를 가장 가까운 라인의 x값만 대입 array.IndexOf(배열, 찾는값)
+        //밑의 코드에서는 가장작은 값을 찾고 위치 반환
         transform.position = new Vector3(gameBoard.blockGridPos[0, Array.IndexOf(distanceArray, min)].x,
-                                                transform.position.y, 0); //오브젝트 위치를 가장 가까운 라인의 x값만 대입
+                                                transform.position.y, 0);
     }
 
     void ChangeGravityScale()
