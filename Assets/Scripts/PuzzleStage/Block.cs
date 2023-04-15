@@ -8,7 +8,7 @@ public class Block : MonoBehaviour
     public GameManager manager;
     public GameBoard gameBoard;
 
-    public int level;
+    public int level, gridX, gridY;
     public bool select = false;
     public bool isMerge;
 
@@ -52,7 +52,7 @@ public class Block : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, mousePos, 0.2f); //선형보간
 
         //이동시 2차원배열에서의 좌표업데이트
-       
+
 
         //보드판 밖으로 못 나가게
         if (transform.position.x >= gameBoard.blockGridPos[0, gameBoard.blockGridPos.GetLength(1)-1].x)
@@ -214,5 +214,41 @@ public class Block : MonoBehaviour
     void ChangeGravityScale()
     {
         rigid.gravityScale = 0f;
+
+        OnChangedGridPos();
+        
+    }
+
+    public void OnChangedGridPos()
+    {
+        int newX = int.MaxValue;
+        float minDis = float.MaxValue;
+        for (int i = 0; i < 6; i++) {
+            var distance = Mathf.Abs(transform.position.x - gameBoard.blockGridPos[0, i].x);
+            if (minDis > distance)
+            {
+                minDis = distance;
+                newX = i;
+            }
+        }
+
+        minDis = float.MaxValue;
+        int newY = int.MaxValue;
+        for (int i = 6; i >= 0; i--)
+        {
+            float distance = Mathf.Abs(transform.position.y - gameBoard.blockGridPos[i, 0].y);
+            if (minDis > distance)
+            {
+                minDis = distance;
+                newY = i;
+            }
+        }
+
+
+        manager.blocks[gridY, gridX] = null;
+        manager.blocks[newY, newX] = gameObject;
+        gridX = newX;
+        gridY = newY;
+        gameObject.transform.position = gameBoard.blockGridPos[gridY, gridX];
     }
 }
