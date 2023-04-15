@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour
 
             lastBlock.manager = this;
             lastBlock.level = Random.Range(0, maxLevel); //일정범위 랜덤 레벨
+            lastBlock.gridX = y;
+            lastBlock.gridY = x;
             levels[i] = lastBlock.level; //레벨 배열
             //최소 두 쌍 같은 레벨
             if (i == 1)
