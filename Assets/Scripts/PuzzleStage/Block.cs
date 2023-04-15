@@ -43,16 +43,21 @@ public class Block : MonoBehaviour
     public void OnMouseDown()
     {
         select = true;
-        rigid.simulated = false;
-    }
+        rigid.gravityScale = 0f;
+        rigid.velocity = Vector3.zero;
+        CancelInvoke("ChangeGravityScale");
+        //rigid.simulated = false;
+    } //BoxCast();
     public void OnMouseDrag()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
         mousePos.z = 0;
         transform.position = Vector3.Lerp(transform.position, mousePos, 0.2f); //선형보간
 
-        //이동시 2차원배열에서의 좌표업데이트
+        //드래그하고있어, 근데? [5,6] 이쪽으로 보내, 그러면은 if(this.transform.pos[5,6] = true)
+                                                                //transform.position x >= [5,6]
 
+        //이동시 2차원배열에서의 좌표업데이트
 
         //보드판 밖으로 못 나가게
         if (transform.position.x >= gameBoard.blockGridPos[0, gameBoard.blockGridPos.GetLength(1)-1].x)
@@ -79,6 +84,7 @@ public class Block : MonoBehaviour
 
         //1초 동안만 중력 on
         rigid.gravityScale = 8f;
+
         Invoke("ChangeGravityScale", 1f);
 
         for (int i = 0; i < manager.blocks.GetLength(0); i++)
@@ -211,12 +217,14 @@ public class Block : MonoBehaviour
                                                 transform.position.y, 0);
     }
 
+    //옮길때 그 자리에 블럭이 있으면 부딪혀서 그쪽으로 못가게하고싶었던건데
+    //
+    
     void ChangeGravityScale()
     {
         rigid.gravityScale = 0f;
 
         OnChangedGridPos();
-        
     }
 
     public void OnChangedGridPos()
@@ -243,7 +251,6 @@ public class Block : MonoBehaviour
                 newY = i;
             }
         }
-
 
         manager.blocks[gridY, gridX] = null;
         manager.blocks[newY, newX] = gameObject;
