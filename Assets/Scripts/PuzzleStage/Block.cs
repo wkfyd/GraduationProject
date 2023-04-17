@@ -27,6 +27,19 @@ public class Block : MonoBehaviour
     void Start()
     {
         gameBoard = new GameBoard();
+
+        for (int i = 0; i < manager.blocks.GetLength(0); i++)
+        {
+            for (int j = 0; j < manager.blocks.GetLength(1); j++)
+            {
+                if (manager.blocks[i, j] != null)
+                {
+                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 있습니다.");
+                }
+                if (manager.blocks[i, j] == null)
+                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 XXXX");
+            }
+        }
     }
     void Update()
     {
@@ -84,7 +97,6 @@ public class Block : MonoBehaviour
 
         //1초 동안만 중력 on
         rigid.gravityScale = 8f;
-
         Invoke("ChangeGravityScale", 1f);
 
         for (int i = 0; i < manager.blocks.GetLength(0); i++)
@@ -99,22 +111,9 @@ public class Block : MonoBehaviour
                     Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 XXXX");
             }
         }
-        /*for (int k = 0; k < 7; k++)
-        {
-            for (int l = 0; l < 6; l++)
-            {
-                Debug.Log(k + "," + l);
-                if (manager.blocks[k, l] != null)
-                    Debug.Log("[ok]");
-                if (manager.blocks[k, l] == null)
-                    Debug.Log("null");
-            }
-        }*/
 
         select = false;
-        rigid.simulated = true;
-
-        
+        rigid.simulated = true;    
     }
 
     void OnCollisionStay2D(Collision2D collision)
