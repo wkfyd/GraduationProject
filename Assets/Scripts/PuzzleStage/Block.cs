@@ -41,10 +41,6 @@ public class Block : MonoBehaviour
             }
         }
     }
-    void Update()
-    {
-        
-    }
     private void OnEnable() //스크립트가 활성화 될 때 실행되는 이벤트함수
     {
         anim.SetInteger("Level", level); //애니메이터 int형 파라미터
@@ -58,19 +54,12 @@ public class Block : MonoBehaviour
         select = true;
         rigid.gravityScale = 0f;
         rigid.velocity = Vector3.zero;
-        CancelInvoke("ChangeGravityScale");
-        //rigid.simulated = false;
-    } //BoxCast();
+    }   //BoxCast();
     public void OnMouseDrag()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
         mousePos.z = 0;
         transform.position = Vector3.Lerp(transform.position, mousePos, 0.2f); //선형보간
-
-        //드래그하고있어, 근데? [5,6] 이쪽으로 보내, 그러면은 if(this.transform.pos[5,6] = true)
-                                                                //transform.position x >= [5,6]
-
-        //이동시 2차원배열에서의 좌표업데이트
 
         //보드판 밖으로 못 나가게
         if (transform.position.x >= gameBoard.blockGridPos[0, gameBoard.blockGridPos.GetLength(1)-1].x)
@@ -95,9 +84,8 @@ public class Block : MonoBehaviour
         //스냅기능
         Snap();
 
-        //1초 동안만 중력 on
-        rigid.gravityScale = 8f;
-        Invoke("ChangeGravityScale", 1f);
+        //2차원 배열 좌표변경 후 위치변경
+        OnChangedGridPos();
 
         for (int i = 0; i < manager.blocks.GetLength(0); i++)
         {
@@ -112,8 +100,7 @@ public class Block : MonoBehaviour
             }
         }
 
-        select = false;
-        rigid.simulated = true;    
+        select = false;   
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -122,7 +109,7 @@ public class Block : MonoBehaviour
         {
             Block other = collision.gameObject.GetComponent<Block>();
 
-            if(level == other.level && !isMerge && !other.isMerge && level < 7)
+            if(level == other.level && !isMerge && !other.isMerge && level < 23)
             {
                 //나와 상대 위치값 가져오기
                 float meX = transform.position.x;
@@ -201,8 +188,7 @@ public class Block : MonoBehaviour
             distanceArray[i] = Vector3.Distance(transform.position, gameBoard.blockGridPos[0, i]);
         }
 
-        min = distanceArray[0];     //min 기본값설정
-
+        min = distanceArray[0];
         for (int i = 1; i < 6; i++)     //배열에서 가장 작은 값 찾기 = 가장 가까운 라인찾기
         {
             if (min > distanceArray[i])
@@ -210,27 +196,19 @@ public class Block : MonoBehaviour
                 min = distanceArray[i];
             }
         }
+
         //오브젝트 위치를 가장 가까운 라인의 x값만 대입 array.IndexOf(배열, 찾는값)
         //밑의 코드에서는 가장작은 값을 찾고 위치 반환
         transform.position = new Vector3(gameBoard.blockGridPos[0, Array.IndexOf(distanceArray, min)].x,
                                                 transform.position.y, 0);
     }
 
-    //옮길때 그 자리에 블럭이 있으면 부딪혀서 그쪽으로 못가게하고싶었던건데
-    //
-    
-    void ChangeGravityScale()
-    {
-        rigid.gravityScale = 0f;
-
-        OnChangedGridPos();
-    }
-
-    public void OnChangedGridPos()
+    void OnChangedGridPos()
     {
         int newX = int.MaxValue;
         float minDis = float.MaxValue;
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 6; i++)
+        {
             var distance = Mathf.Abs(transform.position.x - gameBoard.blockGridPos[0, i].x);
             if (minDis > distance)
             {
@@ -239,15 +217,13 @@ public class Block : MonoBehaviour
             }
         }
 
-        minDis = float.MaxValue;
         int newY = int.MaxValue;
         for (int i = 6; i >= 0; i--)
         {
-            float distance = Mathf.Abs(transform.position.y - gameBoard.blockGridPos[i, 0].y);
-            if (minDis > distance)
+            if (manager.blocks[i, newX] == null)
             {
-                minDis = distance;
                 newY = i;
+                break;
             }
         }
 
@@ -255,6 +231,20 @@ public class Block : MonoBehaviour
         manager.blocks[newY, newX] = gameObject;
         gridX = newX;
         gridY = newY;
-        gameObject.transform.position = gameBoard.blockGridPos[gridY, gridX];
+
+        StartCoroutine("MoveRoutine");  //중력 애니메이션
+    }
+
+    IEnumerator MoveRoutine()   //중력 애니메이션 코루틴으로 구현
+    {
+        int frameCount = 0;
+
+        while(frameCount < 400)
+        {
+            transform.position = Vector3.MoveTowards(transform.position,
+                                        gameBoard.blockGridPos[gridY, gridX], 0.03f);
+            frameCount++;
+            yield return null;
+        }
     }
 }

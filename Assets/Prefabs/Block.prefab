@@ -169,5 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   level: 0
+  gridX: 0
+  gridY: 0
   select: 0
   isMerge: 0
