@@ -27,19 +27,6 @@ public class Block : MonoBehaviour
     void Start()
     {
         gameBoard = new GameBoard();
-
-        for (int i = 0; i < manager.blocks.GetLength(0); i++)
-        {
-            for (int j = 0; j < manager.blocks.GetLength(1); j++)
-            {
-                if (manager.blocks[i, j] != null)
-                {
-                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 OOO");
-                }
-                if (manager.blocks[i, j] == null)
-                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 XXXX");
-            }
-        }
     }
     private void OnEnable() //스크립트가 활성화 될 때 실행되는 이벤트함수
     {
@@ -52,7 +39,6 @@ public class Block : MonoBehaviour
     public void OnMouseDown()
     {
         select = true;
-        rigid.gravityScale = 0f;
         rigid.velocity = Vector3.zero;
     }   //BoxCast();
     public void OnMouseDrag()
@@ -86,20 +72,6 @@ public class Block : MonoBehaviour
 
         //2차원 배열 좌표변경 후 위치변경
         OnChangedGridPos();
-
-
-        for (int i = 0; i < manager.blocks.GetLength(0); i++)
-        {
-            for (int j = 0; j < manager.blocks.GetLength(1); j++)
-            {
-                if (manager.blocks[i, j] != null)
-                {
-                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 OOO");
-                }
-                if (manager.blocks[i, j] == null)
-                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 XXXX");
-            }
-        }
 
         select = false;   
     }
@@ -221,18 +193,13 @@ public class Block : MonoBehaviour
         int newY = int.MaxValue;
         for (int i = 6; i >= 0; i--)
         {
-            if (manager.blocks[i, newX] == null)
-            {
-                newY = i;
-                break;
-            }
-            else if(manager.blocks[i, newX] == this.gameObject)
+            if (manager.blocks[i, newX] == null || manager.blocks[i, newX] == this.gameObject)
             {
                 newY = i;
                 break;
             }
         }
-        Debug.Log("나실행대쓰");
+
         manager.blocks[gridY, gridX] = null;
         manager.blocks[newY, newX] = gameObject;
         gridX = newX;
