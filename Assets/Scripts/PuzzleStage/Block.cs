@@ -34,7 +34,7 @@ public class Block : MonoBehaviour
             {
                 if (manager.blocks[i, j] != null)
                 {
-                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 있습니다.");
+                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 OOO");
                 }
                 if (manager.blocks[i, j] == null)
                     Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 XXXX");
@@ -87,13 +87,14 @@ public class Block : MonoBehaviour
         //2차원 배열 좌표변경 후 위치변경
         OnChangedGridPos();
 
+
         for (int i = 0; i < manager.blocks.GetLength(0); i++)
         {
             for (int j = 0; j < manager.blocks.GetLength(1); j++)
             {
                 if (manager.blocks[i, j] != null)
                 {
-                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 있습니다.");
+                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 OOO");
                 }
                 if (manager.blocks[i, j] == null)
                     Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 XXXX");
@@ -103,7 +104,7 @@ public class Block : MonoBehaviour
         select = false;   
     }
 
-    void OnCollisionStay2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Block")
         {
@@ -225,8 +226,13 @@ public class Block : MonoBehaviour
                 newY = i;
                 break;
             }
+            else if(manager.blocks[i, newX] == this.gameObject)
+            {
+                newY = i;
+                break;
+            }
         }
-
+        Debug.Log("나실행대쓰");
         manager.blocks[gridY, gridX] = null;
         manager.blocks[newY, newX] = gameObject;
         gridX = newX;
