@@ -94,17 +94,17 @@ public class Block : MonoBehaviour
             {
                 if (manager.blocks[i, j] != null)
                 {
-                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 O");
+                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 OOO");
                 }
                 if (manager.blocks[i, j] == null)
-                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치 X");
+                    Debug.Log("현재 블록 오브젝트는 (" + i + ", " + j + ") 위치에 XXXX");
             }
         }
 
         select = false;   
     }
 
-    void OnCollisionStay2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Block")
         {
@@ -221,13 +221,18 @@ public class Block : MonoBehaviour
         int newY = int.MaxValue;
         for (int i = 6; i >= 0; i--)
         {
-            if (manager.blocks[i, newX] == null || manager.blocks[i, newX] == this.gameObject)
+            if (manager.blocks[i, newX] == null)
+            {
+                newY = i;
+                break;
+            }
+            else if(manager.blocks[i, newX] == this.gameObject)
             {
                 newY = i;
                 break;
             }
         }
-
+        Debug.Log("나실행대쓰");
         manager.blocks[gridY, gridX] = null;
         manager.blocks[newY, newX] = gameObject;
         gridX = newX;
