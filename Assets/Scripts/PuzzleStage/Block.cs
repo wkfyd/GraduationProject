@@ -98,6 +98,12 @@ public class Block : MonoBehaviour
                     LevelUp();
                 }
             }
+
+            if(level != other.level)
+            {
+                transform.position = transform.position;
+            }
+
         }
     }
 
@@ -212,10 +218,10 @@ public class Block : MonoBehaviour
     {
         int frameCount = 0;
 
-        while(frameCount < 400)
+        while(frameCount < 80)
         {
             transform.position = Vector3.MoveTowards(transform.position,
-                                        gameBoard.blockGridPos[gridY, gridX], 0.03f);
+                                        gameBoard.blockGridPos[gridY, gridX], 0.2f);
             frameCount++;
             yield return null;
         }
