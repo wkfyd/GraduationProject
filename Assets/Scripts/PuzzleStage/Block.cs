@@ -14,17 +14,22 @@ public class Block : MonoBehaviour
     public bool select = false;
     public bool isMerge;
 
-    Vector3 mousePos;
 
     Rigidbody2D rigid;
     Animator anim;
     BoxCollider2D box;
 
+    Vector3 mousePos;
+    Bounds bounds;  //Bounds 잘은 모르겠는데 콜라이더의 크기를 position기준으로 가져옴
+
+    //프리펩 크기가 1.155 2.205  0.525가 프리팹 반절의 크기  프리팹가로길이 1.05
     void Awake() 
     {
         rigid = GetComponent<Rigidbody2D>();
-        box = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+
+        box = GetComponent<BoxCollider2D>();
+        bounds = box.bounds;
 
         enemyUI = GameObject.Find("Slider").GetComponent<EnemyUI>();
     }
@@ -34,7 +39,7 @@ public class Block : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(box.size);
+        Debug.Log(bounds.size.x);
     }
     private void OnEnable() //스크립트가 활성화 될 때 실행되는 이벤트함수
     {
@@ -56,6 +61,8 @@ public class Block : MonoBehaviour
 
         transform.position = mousePos;
         //transform.position = Vector3.Lerp(transform.position, mousePos, 0.2f); //선형보간
+
+        Debug.Log(transform.position);
 
         //보드판 밖으로 못 나가게
         if (transform.position.x >= gameBoard.blockGridPos[0, gameBoard.blockGridPos.GetLength(1)-1].x)
@@ -87,10 +94,13 @@ public class Block : MonoBehaviour
         //2차원 배열 좌표변경 후 위치변경
         OnChangedGridPos();
 
+        //머지
+
+
         select = false;   
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    /*void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Block")
         {
@@ -115,7 +125,7 @@ public class Block : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 
     public void Merge(Vector3 targetPos) //머지 함수
     {

@@ -8,12 +8,13 @@ public class GameManager : MonoBehaviour
 {
     public GameObject BlockPrefab;
     public Block lastBlock;
-    public int maxLevel;
+
     public GameObject[,] blocks = new GameObject[7, 6]; //오브젝트 2차원배열선언,초기화
+
+    public int maxLevel;
 
     GameBoard gameBoard = new GameBoard();
     
-
     void Awake()
     {
 
@@ -45,7 +46,7 @@ public class GameManager : MonoBehaviour
         int x=0, y=0;
         int[] levels = new int[6];
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 1; i++)
         {
             //좌표 지정
             while (true) { x = Random.Range(5, 7); y = Random.Range(0, 6); if (blocks[x, y] == null) break; }
