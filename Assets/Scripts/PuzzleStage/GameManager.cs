@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         int x=0, y=0;
         int[] levels = new int[6];
 
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 2; i++)
         {
             //ÁÂÇ¥ ÁöÁ¤
             while (true) { x = Random.Range(5, 7); y = Random.Range(0, 6); if (blocks[x, y] == null) break; }
