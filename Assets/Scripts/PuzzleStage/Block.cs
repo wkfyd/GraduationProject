@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Block : MonoBehaviour
@@ -10,21 +9,16 @@ public class Block : MonoBehaviour
     public EnemyUI enemyUI;
 
     public int level, gridX, gridY;
-    public bool select = false;
-    public bool isMerge;
+    public bool select, isMerge;
 
-
-    Rigidbody2D rigid;
     Animator anim;
     BoxCollider2D box;
 
     Vector3 mousePos;
     Bounds bounds;  //Bounds 잘은 모르겠는데 콜라이더의 크기를 position기준으로 가져옴
 
-    //프리펩 크기가 1.155 2.205  0.525가 프리팹 반절의 크기  프리팹가로길이 1.05
-    void Awake() 
+    void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
         box = GetComponent<BoxCollider2D>();
@@ -38,41 +32,17 @@ public class Block : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log("blocks[" + gridY + ", " + gridX + "]");
-
-        Block other = manager.blocks[6, 0].gameObject.GetComponent<Block>();
-
-
-        if (manager.blocks[gridY, gridX].GetComponent<Block>().level == level)
-        {
-            //나와 상대 위치값 가져오기
-            float meX = transform.position.x;
-            float meY = transform.position.y;
-            float otherX = other.transform.position.x;
-            float otherY = other.transform.position.y;
-
-            //동일한 높이일 때, 내가 오른쪽에 있을 때
-            if (meY < otherY || (meY == otherY && meX > otherX))
-            {
-                //상대방은 숨기기
-                other.Merge(transform.position);
-
-                //나는 레벨업
-                LevelUp();
-            }
-        }
+        Debug.Log("blocks[" + gridX + ", " + gridY + "]");
     }
+
     private void OnEnable() //스크립트가 활성화 될 때 실행되는 이벤트함수
     {
         anim.SetInteger("Level", level); //애니메이터 int형 파라미터
-        
-        rigid.constraints =  RigidbodyConstraints2D.FreezeRotation; //오브젝트 Rotation값, x값 고정
     }
 
     public void OnMouseDown()
     {
         select = true;
-        rigid.velocity = Vector3.zero;
     }   //BoxCast();
 
     public void OnMouseDrag()
@@ -83,15 +53,16 @@ public class Block : MonoBehaviour
         transform.position = mousePos;
         //transform.position = Vector3.Lerp(transform.position, mousePos, 0.2f); //선형보간
 
-        ChangedGridPos();
+        //좌표변경 함수 + 드래그머지
+        DragChangedGridPos();
 
         //보드판 밖으로 못 나가게
-        if (transform.position.x >= gameBoard.blockGridPos[0, gameBoard.blockGridPos.GetLength(1)-1].x)
+        if (transform.position.x >= gameBoard.blockGridPos[0, gameBoard.blockGridPos.GetLength(1) - 1].x)
         {
             transform.position = new Vector3(2.8f, transform.position.y, 0);
         }
 
-        if(transform.position.x <= gameBoard.blockGridPos[0, 0].x)
+        if (transform.position.x <= gameBoard.blockGridPos[0, 0].x)
         {
             transform.position = new Vector3(-2.8f, transform.position.y, 0);
         }
@@ -101,7 +72,7 @@ public class Block : MonoBehaviour
             transform.position = new Vector3(transform.position.x, 3.36f, 0);
         }
 
-        if (transform.position.y <= gameBoard.blockGridPos[gameBoard.blockGridPos.GetLength(0)-1, 0].y)
+        if (transform.position.y <= gameBoard.blockGridPos[gameBoard.blockGridPos.GetLength(0) - 1, 0].y)
         {
             transform.position = new Vector3(transform.position.x, -3.36f, 0);
         }
@@ -117,13 +88,12 @@ public class Block : MonoBehaviour
 
         //머지
 
-
-        select = false;   
+        select = false;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Block")
+        if (collision.gameObject.tag == "Block")
         {
             Block other = collision.gameObject.GetComponent<Block>();
 
@@ -148,7 +118,7 @@ public class Block : MonoBehaviour
         }
     }
 
-    void ChangedGridPos()
+    void DragChangedGridPos() //좌표 변경
     {
         for (int i = 0; i < gameBoard.blockGridPos.GetLength(0); i++)
         {
@@ -159,28 +129,45 @@ public class Block : MonoBehaviour
                 if (transform.position.x >= gameBoard.blockGridPos[i, j].x - bounds.size.x / 2 &&
                     transform.position.x <= gameBoard.blockGridPos[i, j].x + bounds.size.x / 2 &&
                     transform.position.y <= gameBoard.blockGridPos[i, j].y + bounds.size.y / 2 &&
-                    transform.position.y >= gameBoard.blockGridPos[i, j].y - bounds.size.y / 2)
+                    transform.position.y >= gameBoard.blockGridPos[i, j].y - bounds.size.y / 2 &&
+                    manager.blocks[i, j] == null)
                 {
-                    newY = i;
-                    newX = j;
+                    newX = i;
+                    newY = j;
 
-                    manager.blocks[gridY, gridX] = null;
-                    manager.blocks[newY, newX] = gameObject;
+                    manager.blocks[gridX, gridY] = null;
+                    manager.blocks[newX, newY] = gameObject;
 
                     gridX = newX;
                     gridY = newY;
                 }
+
+                else if (transform.position.x >= gameBoard.blockGridPos[i, j].x - bounds.size.x / 2 &&
+                    transform.position.x <= gameBoard.blockGridPos[i, j].x + bounds.size.x / 2 &&
+                    transform.position.y <= gameBoard.blockGridPos[i, j].y + bounds.size.y / 2 &&
+                    transform.position.y >= gameBoard.blockGridPos[i, j].y - bounds.size.y / 2 &&
+                    manager.blocks[i, j] != gameObject &&
+                    manager.blocks[i, j].gameObject.GetComponent<Block>().level == level)
+                {
+                    Block other = manager.blocks[i, j].gameObject.GetComponent<Block>();
+
+                    manager.blocks[gridX, gridY] = null;
+
+                    //드래그상태인 블럭 숨기기
+                    Merge(other.transform.position);
+
+                    //상대블럭 레벨업
+                    other.LevelUp();
+                }
             }
         }
+
     }
 
-    public void Merge(Vector3 targetPos) //머지 함수
+    void Merge(Vector3 targetPos) //머지 함수
     {
         isMerge = true;
 
-        enemyUI.curHp -= 10;
-
-        rigid.simulated = false;
         box.enabled = false;
 
         StartCoroutine(MergeRoutine(targetPos)); //애니메이션 주기 위한 코루틴
@@ -202,59 +189,9 @@ public class Block : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void DropChangedGridPos()
-    {
-        int newX = int.MaxValue;
-        float minDis = float.MaxValue;
-        for (int i = 0; i < 6; i++)
-        {
-            var distance = Mathf.Abs(transform.position.x - gameBoard.blockGridPos[0, i].x);
-            if (minDis > distance)
-            {
-                minDis = distance;
-                newX = i;
-            }
-        }
-
-        int newY = int.MaxValue;
-        for (int i = 6; i >= 0; i--)
-        {
-            if (manager.blocks[i, newX] == null || manager.blocks[i, newX].GetComponent<Block>().level == level)
-            {
-                newY = i;
-                break;
-            }
-        }
-
-        manager.blocks[gridY, gridX] = null;
-        manager.blocks[newY, newX] = gameObject;
-        gridX = newX;
-        gridY = newY;
-
-        StartCoroutine("GravityRoutine");  //중력 애니메이션
-    }
-
-    IEnumerator GravityRoutine()   //중력 애니메이션 코루틴으로 구현
-    {
-        int frameCount = 0;
-
-        while (frameCount < 100)
-        {
-            transform.position = Vector3.MoveTowards(transform.position,
-                                        gameBoard.blockGridPos[gridY, gridX], 35f * Time.deltaTime);
-            frameCount++;
-            yield return Time.deltaTime;
-        }
-    }
-
-    
-
     void LevelUp() //레벨업을 위한 함수
     {
         isMerge = true;
-
-        rigid.velocity = Vector2.zero; //레벨업 중 방해될 수 있는 물리속도 제거 이동속도=velocity, 2d라서 vector2
-        rigid.angularVelocity = 0; //회전속도 초기화, +시계, -반시계
 
         StartCoroutine(LevelUpRoutine()); //애니메이션주기 위한 코루틴
     }
@@ -271,6 +208,51 @@ public class Block : MonoBehaviour
         manager.maxLevel = Mathf.Max(level, manager.maxLevel); //Mathf(인자값 중 최대값반환);maxLevel 설정
 
         isMerge = false;
+    }
+
+    void DropChangedGridPos()
+    {
+        int newY = int.MaxValue;
+        float minDis = float.MaxValue;
+        for (int i = 0; i < 6; i++)
+        {
+            var distance = Mathf.Abs(transform.position.x - gameBoard.blockGridPos[0, i].x);
+            if (minDis > distance)
+            {
+                minDis = distance;
+                newY = i;
+            }
+        }
+
+        int newX = int.MaxValue;
+        for (int i = 6; i >= 0; i--)
+        {
+            if (manager.blocks[i, newY] == null || manager.blocks[i, newY].GetComponent<Block>().level == level)
+            {
+                newX = i;
+                break;
+            }
+        }
+
+        manager.blocks[gridX, gridY] = null;
+        manager.blocks[newX, newY] = gameObject;
+        gridX = newX;
+        gridY = newY;
+
+        StartCoroutine("GravityRoutine");  //중력 애니메이션
+    }
+
+    IEnumerator GravityRoutine()   //중력 애니메이션 코루틴으로 구현
+    {
+        int frameCount = 0;
+
+        while (frameCount < 100)
+        {
+            transform.position = Vector3.MoveTowards(transform.position,
+                                        gameBoard.blockGridPos[gridX, gridY], 0.11f);
+            frameCount++;
+            yield return Time.deltaTime;
+        }
     }
 
     void Snap()     //스냅함수
@@ -298,5 +280,5 @@ public class Block : MonoBehaviour
                                                 transform.position.y, 0);
     }
 
-    
+
 }

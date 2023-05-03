@@ -26,21 +26,27 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        for (int i = 0; i < blocks.GetLength(0); i++) {
+            for (int j = 0; j < blocks.GetLength(1); j++) {
+
+            }
+        }
     }
+
     //시작스폰
     public void StartSpawn()
     {
         //기존블럭삭제
         GameObject[] destroyBlock = GameObject.FindGameObjectsWithTag("Block");
-        for(int i = 5; i < 7; i++) {
-            for(int j = 0; j < 6; j++){
+        
+        for (int j=0; j< destroyBlock.Length; j++)
+            Destroy(destroyBlock[j]);
+
+        for (int i = 5; i < 7; i++) {
+            for (int j = 0; j < 6; j++) {
                 blocks[i, j] = null;
             }
         }
-
-        for (int j=0; j< destroyBlock.Length; j++)
-            Destroy(destroyBlock[j]);
 
         //블럭 스폰
         int x=0, y=0;
@@ -50,20 +56,25 @@ public class GameManager : MonoBehaviour
         {
             //좌표 지정
             while (true) { x = Random.Range(5, 7); y = Random.Range(0, 6); if (blocks[x, y] == null) break; }
+
             //블럭 생성 및 생성좌표의 밑 칸에 블럭이 없으면 밑 칸에 생성
             if (x == 5 && blocks[x + 1, y] == null) {
                 blocks[x + 1, y] = Instantiate(BlockPrefab, 
                                         gameBoard.blockGridPos[x + 1, y], Quaternion.identity);
+
                 lastBlock = blocks[x + 1, y].GetComponent<Block>();
-                lastBlock.gridX = y;
-                lastBlock.gridY = x + 1;
+
+                lastBlock.gridY = y;
+                lastBlock.gridX = x + 1;
             }
             else { 
                 blocks[x, y] = Instantiate(BlockPrefab, 
                                         gameBoard.blockGridPos[x, y], Quaternion.identity);
+
                 lastBlock = blocks[x, y].GetComponent<Block>();
-                lastBlock.gridX = y;
-                lastBlock.gridY = x;
+
+                lastBlock.gridY = y;
+                lastBlock.gridX = x;
             }
 
             lastBlock.manager = this;
