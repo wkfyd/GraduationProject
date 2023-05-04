@@ -88,34 +88,8 @@ public class Block : MonoBehaviour
 
         //머지
 
+
         select = false;
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Block")
-        {
-            Block other = collision.gameObject.GetComponent<Block>();
-
-            if (level == other.level && !isMerge && !other.isMerge && level < 23)
-            {
-                //나와 상대 위치값 가져오기
-                float meX = transform.position.x;
-                float meY = transform.position.y;
-                float otherX = other.transform.position.x;
-                float otherY = other.transform.position.y;
-
-                //동일한 높이일 때, 내가 오른쪽에 있을 때
-                if (meY < otherY || (meY == otherY && meX > otherX))
-                {
-                    //상대방은 숨기기
-                    other.Merge(transform.position);
-
-                    //나는 레벨업
-                    LevelUp();
-                }
-            }
-        }
     }
 
     void DragChangedGridPos() //좌표 변경
@@ -161,7 +135,6 @@ public class Block : MonoBehaviour
                 }
             }
         }
-
     }
 
     void Merge(Vector3 targetPos) //머지 함수
@@ -213,7 +186,7 @@ public class Block : MonoBehaviour
     void DropChangedGridPos()
     {
         int newY = int.MaxValue;
-        float minDis = float.MaxValue;
+        float minDis = float.MaxValue; 
         for (int i = 0; i < 6; i++)
         {
             var distance = Mathf.Abs(transform.position.x - gameBoard.blockGridPos[0, i].x);
@@ -227,19 +200,78 @@ public class Block : MonoBehaviour
         int newX = int.MaxValue;
         for (int i = 6; i >= 0; i--)
         {
-            if (manager.blocks[i, newY] == null || manager.blocks[i, newY].GetComponent<Block>().level == level)
+            if (manager.blocks[i, newY] == null)
             {
                 newX = i;
+
+                manager.blocks[gridX, gridY] = null;
+                manager.blocks[newX, newY] = gameObject;
+                gridX = newX;
+                gridY = newY;
+
+                StartCoroutine(GravityRoutine());  //중력 애니메이션
+                break;
+            }
+
+            else if (manager.blocks[i, newY].GetComponent<Block>().level == level)
+            {
+                Block other = manager.blocks[i, newY].gameObject.GetComponent<Block>();
+
+                newX = i;
+
+                manager.blocks[gridX, gridY] = null;
+                manager.blocks[newX, newY] = gameObject;
+                gridX = newX;
+                gridY = newY;
+
+                StartCoroutine(GravityRoutine());
+
+                //나 숨기기
+                DropMerge(other.transform.position);
+
+                //상대 레벨업
+                other.DropLevelUp();
                 break;
             }
         }
+    }
 
-        manager.blocks[gridX, gridY] = null;
-        manager.blocks[newX, newY] = gameObject;
-        gridX = newX;
-        gridY = newY;
+    void DropMerge(Vector3 targetPos) //머지 함수
+    {
+        isMerge = true;
 
-        StartCoroutine("GravityRoutine");  //중력 애니메이션
+        box.enabled = false;
+
+        StartCoroutine(DropMergeRoutine(targetPos)); //애니메이션 주기 위한 코루틴
+    }
+
+    IEnumerator DropMergeRoutine(Vector3 targetPos) //머지 애니메이션
+    {
+        yield return new WaitForSeconds(1f);
+
+        isMerge = false;
+        gameObject.SetActive(false);
+        Destroy(gameObject);
+    }
+    void DropLevelUp() //레벨업을 위한 함수
+    {
+        isMerge = true;
+
+        StartCoroutine(DropLevelUpRoutine()); //애니메이션주기 위한 코루틴
+    }
+
+    IEnumerator DropLevelUpRoutine() //레벨업 애니메이션
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        anim.SetInteger("Level", level + 1);
+
+        yield return new WaitForSeconds(0.3f);
+        level++;
+
+        manager.maxLevel = Mathf.Max(level, manager.maxLevel); //Mathf(인자값 중 최대값반환);maxLevel 설정
+
+        isMerge = false;
     }
 
     IEnumerator GravityRoutine()   //중력 애니메이션 코루틴으로 구현
@@ -249,8 +281,9 @@ public class Block : MonoBehaviour
         while (frameCount < 100)
         {
             transform.position = Vector3.MoveTowards(transform.position,
-                                        gameBoard.blockGridPos[gridX, gridY], 0.11f);
+                                        gameBoard.blockGridPos[gridX, gridY], 0.1f);
             frameCount++;
+
             yield return Time.deltaTime;
         }
     }
@@ -279,6 +312,5 @@ public class Block : MonoBehaviour
         transform.position = new Vector3(gameBoard.blockGridPos[0, Array.IndexOf(distanceArray, min)].x,
                                                 transform.position.y, 0);
     }
-
 
 }
