@@ -152,3 +152,4 @@ MonoBehaviour:
   gridY: 0
   select: 0
   isMerge: 0
+  levelUpOnce: 0
