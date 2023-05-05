@@ -83,11 +83,8 @@ public class Block : MonoBehaviour
         //스냅기능
         Snap();
 
-        //2차원 배열 좌표변경 후 위치변경
+        //2차원 배열 좌표변경 후 위치변경 + 머지
         DropChangedGridPos();
-
-        //머지
-
 
         select = false;
     }
@@ -128,29 +125,29 @@ public class Block : MonoBehaviour
                     manager.blocks[gridX, gridY] = null;
 
                     //드래그상태인 블럭 숨기기
-                    Merge(other.transform.position);
+                    DragMerge(other.transform.position);
 
                     //상대블럭 레벨업
-                    other.LevelUp();
+                    other.DragLevelUp();
                 }
             }
         }
     }
 
-    void Merge(Vector3 targetPos) //머지 함수
+    void DragMerge(Vector3 targetPos) //머지 함수
     {
         isMerge = true;
 
         box.enabled = false;
 
-        StartCoroutine(MergeRoutine(targetPos)); //애니메이션 주기 위한 코루틴
+        StartCoroutine(DragMergeRoutine(targetPos)); //애니메이션 주기 위한 코루틴
     }
 
-    IEnumerator MergeRoutine(Vector3 targetPos) //머지 애니메이션
+    IEnumerator DragMergeRoutine(Vector3 targetPos) //머지 애니메이션
     {
         int frameCount = 0;
 
-        while (frameCount < 20) //이동
+        while (frameCount < 20) //이동 ********현재 이놈이 문제 고쳐야됨 level이 20번 더해짐 얘떄매
         {
             frameCount++;
             transform.position = Vector3.Lerp(transform.position, targetPos, 0.2f); //target까지 부드럽게 이동
@@ -162,14 +159,14 @@ public class Block : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void LevelUp() //레벨업을 위한 함수
+    void DragLevelUp() //레벨업을 위한 함수
     {
         isMerge = true;
 
-        StartCoroutine(LevelUpRoutine()); //애니메이션주기 위한 코루틴
+        StartCoroutine(DragLevelUpRoutine()); //애니메이션주기 위한 코루틴
     }
 
-    IEnumerator LevelUpRoutine() //레벨업 애니메이션
+    IEnumerator DragLevelUpRoutine() //레벨업 애니메이션
     {
         yield return new WaitForSeconds(0.2f);
 
@@ -185,54 +182,60 @@ public class Block : MonoBehaviour
 
     void DropChangedGridPos()
     {
-        int newY = int.MaxValue;
-        float minDis = float.MaxValue; 
-        for (int i = 0; i < 6; i++)
+        try
         {
-            var distance = Mathf.Abs(transform.position.x - gameBoard.blockGridPos[0, i].x);
-            if (minDis > distance)
+            int newY = int.MaxValue;
+            float minDis = float.MaxValue;
+            for (int i = 0; i < 6; i++)
             {
-                minDis = distance;
-                newY = i;
+                var distance = Mathf.Abs(transform.position.x - gameBoard.blockGridPos[0, i].x);
+                if (minDis > distance)
+                {
+                    minDis = distance;
+                    newY = i;
+                }
+            }
+
+            int newX = int.MaxValue;
+            for (int i = 6; i >= 0; i--)
+            {
+                if (manager.blocks[i, newY] == null || manager.blocks[i, newY] == gameObject)
+                {
+                    newX = i;
+
+                    manager.blocks[gridX, gridY] = null;
+                    manager.blocks[newX, newY] = gameObject;
+                    gridX = newX;
+                    gridY = newY;
+
+                    StartCoroutine(GravityRoutine());  //중력 애니메이션
+                    break;
+                }
+
+                else if (manager.blocks[i - 1, newY] == null && manager.blocks[i, newY].GetComponent<Block>().level == level)
+                {
+                    Block other = manager.blocks[i, newY].gameObject.GetComponent<Block>();
+
+                    newX = i;
+
+                    manager.blocks[gridX, gridY] = null;
+                    gridX = newX;
+                    gridY = newY;
+
+                    StartCoroutine(GravityRoutine());
+
+                    //나 숨기기
+                    DropMerge(other.transform.position);
+
+                    //상대 레벨업
+                    other.DropLevelUp();
+                    break;
+                }
             }
         }
-
-        int newX = int.MaxValue;
-        for (int i = 6; i >= 0; i--)
+        catch (IndexOutOfRangeException ex)
         {
-            if (manager.blocks[i, newY] == null)
-            {
-                newX = i;
-
-                manager.blocks[gridX, gridY] = null;
-                manager.blocks[newX, newY] = gameObject;
-                gridX = newX;
-                gridY = newY;
-
-                StartCoroutine(GravityRoutine());  //중력 애니메이션
-                break;
-            }
-
-            else if (manager.blocks[i, newY].GetComponent<Block>().level == level)
-            {
-                Block other = manager.blocks[i, newY].gameObject.GetComponent<Block>();
-
-                newX = i;
-
-                manager.blocks[gridX, gridY] = null;
-                manager.blocks[newX, newY] = gameObject;
-                gridX = newX;
-                gridY = newY;
-
-                StartCoroutine(GravityRoutine());
-
-                //나 숨기기
-                DropMerge(other.transform.position);
-
-                //상대 레벨업
-                other.DropLevelUp();
-                break;
-            }
+            manager.gameOver = true;
         }
     }
 
@@ -247,12 +250,13 @@ public class Block : MonoBehaviour
 
     IEnumerator DropMergeRoutine(Vector3 targetPos) //머지 애니메이션
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
 
         isMerge = false;
         gameObject.SetActive(false);
         Destroy(gameObject);
     }
+
     void DropLevelUp() //레벨업을 위한 함수
     {
         isMerge = true;
@@ -262,7 +266,7 @@ public class Block : MonoBehaviour
 
     IEnumerator DropLevelUpRoutine() //레벨업 애니메이션
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
 
         anim.SetInteger("Level", level + 1);
 

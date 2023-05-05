@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject[,] blocks = new GameObject[7, 6]; //오브젝트 2차원배열선언,초기화
 
     public int maxLevel;
+    public bool gameOver;
 
     GameBoard gameBoard = new GameBoard();
     
@@ -26,11 +27,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        for (int i = 0; i < blocks.GetLength(0); i++) {
-            for (int j = 0; j < blocks.GetLength(1); j++) {
-
-            }
-        }
+        Debug.Log(gameOver);
     }
 
     //시작스폰
