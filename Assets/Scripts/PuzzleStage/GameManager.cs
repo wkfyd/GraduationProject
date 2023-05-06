@@ -6,12 +6,11 @@ public class GameManager : MonoBehaviour
     public GameObject BlockPrefab;
     public Block lastBlock;
 
+    public GameObject[] currentBlock;
     public GameObject[,] blocks = new GameObject[9, 6]; //오브젝트 2차원배열선언,초기화
 
     public int maxLevel;
     public bool gameOver;
-
-    private int i = 0;
 
     GameBoard gameBoard = new GameBoard();
 
@@ -26,31 +25,48 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        //블럭 밑 칸 비어있으면 계속 내려주기
-        if (!lastBlock.select)
+        currentBlock = GameObject.FindGameObjectsWithTag("Block");
+
+        for(int i = 0; i < currentBlock.Length; i++)
         {
-            for (int i = 2; i < blocks.GetLength(0) - 2; i++)
+            Block block = currentBlock[i].gameObject.GetComponent<Block>();
+
+            if (block.gridX <= 6 && blocks[block.gridX + 1, block.gridY] == null)
             {
-                for (int j = 0; j < blocks.GetLength(1); j++)
+                block.transform.position = Vector3.MoveTowards(block.transform.position,
+                                                gameBoard.blockGridPos[block.gridX + 1, block.gridY], 0.2f);
+
+                Debug.Log("없어유");
+            }
+
+            Debug.Log(block.level);
+        }
+
+        /*//블럭 밑 칸 비어있으면 계속 내려주기
+        if (!lastblock.select)
+        {
+            for (int i = 2; i < blocks.getlength(0) - 2; i++)
+            {
+                for (int j = 0; j < blocks.getlength(1); j++)
                 {
                     if (blocks[i, j] != null && blocks[i + 1, j] == null)
                     {
-                        Block block = blocks[i, j].gameObject.GetComponent<Block>();
+                        block block = blocks[i, j].gameobject.getcomponent<block>();
 
                         blocks[i, j] = null;
-                        blocks[i + 1, j] = block.gameObject;
+                        blocks[i + 1, j] = block.gameobject;
 
-                        block.gridX = i + 1;
-                        block.gridY = j;
+                        block.gridx = i + 1;
+                        block.gridy = j;
 
-                        block.transform.position = Vector3.MoveTowards(block.transform.position,
-                                                                        gameBoard.blockGridPos[i+1, j], 20f * Time.deltaTime);
+                        block.transform.position = vector3.movetowards(block.transform.position,
+                                                                        gameboard.blockgridpos[i + 1, j], 20f * time.deltatime);
 
-                        Debug.Log("[" + block.gridX + ", " + block.gridY + "]");
+                        debug.log("[" + block.gridx + ", " + block.gridy + "]");
                     }
                 }
             }
-        }
+        }*/
 
     }
 

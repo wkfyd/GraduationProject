@@ -8,7 +8,7 @@ public class GameBoard
     public Vector3[,] blockGridPos = new Vector3[9, 6];
     public GameBoard()
     {
-        for (int x = 0; x < 8; x++)
+        for (int x = 0; x < 9; x++)
         {
             for (int y = 0; y < 6; y++)
             {
