@@ -326,7 +326,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7461627624685137738, guid: 901838e064d975646b5cdd54ffb930f5, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 901838e064d975646b5cdd54ffb930f5, type: 3}
 --- !u!1 &436177926
@@ -749,6 +750,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b11e2ecbec866141a7a701a4c4efe45, type: 3}
+--- !u!1 &1170198557 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8315448825692855375, guid: 901838e064d975646b5cdd54ffb930f5, type: 3}
+  m_PrefabInstance: {fileID: 361874440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1170198558
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170198557}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9999998, y: 2.9999998, z: 0.19999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1184821107
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BlockPrefab: {fileID: 8315448825692855375, guid: 901838e064d975646b5cdd54ffb930f5, type: 3}
   lastBlock: {fileID: 0}
+  currentBlock: []
   maxLevel: 8
   gameOver: 0
 --- !u!4 &1451915580

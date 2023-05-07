@@ -52,13 +52,16 @@ public class Block : MonoBehaviour
 
         transform.position = mouse_Pos;
 
+        //블럭이 있으면 부딪히게
+        BumpBlock();
+
         //보드판 밖으로 못 나가게
-        if (transform.position.x >= gameBoard.blockGridPos[0, gameBoard.blockGridPos.GetLength(1) - 1].x)
+        if (transform.position.x >= gameBoard.blockGridPos[0, gameBoard.blockGridPos.GetLength(1) - 2].x)
         {
             transform.position = new Vector3(2.8f, transform.position.y, 0);
         }
 
-        if (transform.position.x <= gameBoard.blockGridPos[0, 0].x)
+        if (transform.position.x <= gameBoard.blockGridPos[0, 1].x)
         {
             transform.position = new Vector3(-2.8f, transform.position.y, 0);
         }
@@ -86,6 +89,7 @@ public class Block : MonoBehaviour
         DropChangedGridPos();
 
         select = false;
+        levelUpOnce = false;
     }
 
     void DragChangedGridPos() //드래그 좌표 변경 + 머지
@@ -133,6 +137,18 @@ public class Block : MonoBehaviour
 
                         levelUpOnce = false;
                     }
+
+                    //윗 칸 블럭들 내리기
+                    for (int k = gridX - 1; k >= 1; k--)
+                    {
+                        if (manager.blocks[k, gridY] != null)
+                        {
+                            Block upBlock = manager.blocks[k, gridY].gameObject.GetComponent<Block>();
+
+                            upBlock.transform.position = Vector3.MoveTowards(upBlock.transform.position,
+                                                                gameBoard.blockGridPos[k + 1, gridY], 12f * Time.deltaTime);
+                        }
+                    }
                 }
             }
         }
@@ -151,16 +167,71 @@ public class Block : MonoBehaviour
     {
         int frameCount = 0;
 
-        while (frameCount < 20)
+        while (frameCount < 50)
         {
             frameCount++;
             transform.position = Vector3.Lerp(transform.position, targetPos, 0.2f); //target까지 부드럽게 이동
-            yield return null; //이게 없으면 한 프레임 안에서 반복문이 돌아서 의미X, null은 프레임마다 실행
+            yield return Time.deltaTime; //이게 없으면 한 프레임 안에서 반복문이 돌아서 의미X, null은 프레임마다 실행
         }
 
         isMerge = false;
         gameObject.SetActive(false);
         Destroy(gameObject);
+    }
+
+    void BumpBlock() //블럭 부딪히기
+    {
+        //왼쪽 블럭
+        if (manager.blocks[gridX, gridY - 1] != null && manager.blocks[gridX, gridY - 1] != gameObject &&
+            manager.blocks[gridX, gridY - 1].gameObject.GetComponent<Block>().level != level)
+        {
+            Block otherBlock = manager.blocks[gridX, gridY - 1].gameObject.GetComponent<Block>();
+
+            if (transform.position.x <= otherBlock.transform.position.x + bounds.size.x - 0.1f)
+            {
+                transform.position = new Vector3(otherBlock.transform.position.x + bounds.size.x - 0.1f,
+                                               transform.position.y, 0f);
+            }
+        }
+
+        //아래쪽 블럭
+        if (manager.blocks[gridX + 1, gridY] != null && manager.blocks[gridX + 1, gridY] != gameObject &&
+            manager.blocks[gridX + 1, gridY].gameObject.GetComponent<Block>().level != level)
+        {
+            Block otherBlock = manager.blocks[gridX + 1, gridY].gameObject.GetComponent<Block>();
+
+            if (transform.position.y <= otherBlock.transform.position.y + bounds.size.y - 0.1f)
+            {
+                transform.position =
+                    new Vector3(transform.position.x, otherBlock.transform.position.y + bounds.size.y - 0.1f, 0f);
+            }
+        }
+
+        //오른쪽 블럭
+        if (manager.blocks[gridX, gridY + 1] != null && manager.blocks[gridX, gridY + 1] != gameObject &&
+            manager.blocks[gridX, gridY + 1].gameObject.GetComponent<Block>().level != level)
+        {
+            Block otherBlock = manager.blocks[gridX, gridY + 1].gameObject.GetComponent<Block>();
+
+            if (transform.position.x >= otherBlock.transform.position.x - bounds.size.x + 0.1f)
+            {
+                transform.position = new Vector3(otherBlock.transform.position.x - bounds.size.x + 0.1f,
+                                               transform.position.y, 0f);
+            }
+        }
+
+        //위쪽 블럭
+        if (manager.blocks[gridX - 1, gridY] != null && manager.blocks[gridX - 1, gridY] != gameObject &&
+            manager.blocks[gridX - 1, gridY].gameObject.GetComponent<Block>().level != level)
+        {
+            Block otherBlock = manager.blocks[gridX - 1, gridY].gameObject.GetComponent<Block>();
+
+            if (transform.position.y >= otherBlock.transform.position.y - bounds.size.y + 0.1f)
+            {
+                transform.position =
+                    new Vector3(transform.position.x, otherBlock.transform.position.y - bounds.size.y + 0.1f, 0f);
+            }
+        }
     }
 
     void DragLevelUp() //레벨업을 위한 함수
@@ -189,7 +260,7 @@ public class Block : MonoBehaviour
     {
         int newY = int.MaxValue;
         float minDis = float.MaxValue;
-        for (int i = 0; i < 6; i++)
+        for (int i = 1; i < 7; i++)
         {
             var distance = Mathf.Abs(transform.position.x - gameBoard.blockGridPos[0, i].x);
             if (minDis > distance)
@@ -308,7 +379,7 @@ public class Block : MonoBehaviour
         while (frameCount < 100)
         {
             transform.position = Vector3.MoveTowards(transform.position,
-                                        gameBoard.blockGridPos[gridX, gridY], 0.1f);
+                                        gameBoard.blockGridPos[gridX, gridY], 0.08f);
             frameCount++;
 
             yield return Time.deltaTime;
@@ -322,7 +393,7 @@ public class Block : MonoBehaviour
 
         for (int i = 0; i < 6; i++)  //오브젝트 거리계산 후 배열에 값 저장
         {
-            distanceArray[i] = Vector3.Distance(transform.position, gameBoard.blockGridPos[0, i]);
+            distanceArray[i] = Vector3.Distance(transform.position, gameBoard.blockGridPos[0, i + 1]);
         }
 
         min = distanceArray[0];
@@ -336,8 +407,8 @@ public class Block : MonoBehaviour
 
         //오브젝트 위치를 가장 가까운 라인의 x값만 대입 array.IndexOf(배열, 찾는값)
         //밑의 코드에서는 가장작은 값을 찾고 위치 반환
-        transform.position = new Vector3(gameBoard.blockGridPos[0, Array.IndexOf(distanceArray, min)].x,
+        transform.position = new Vector3(gameBoard.blockGridPos[0, Array.IndexOf(distanceArray, min) + 1].x,
                                                 transform.position.y, 0);
+        
     }
-
 }
