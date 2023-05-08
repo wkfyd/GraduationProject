@@ -124,8 +124,6 @@ public class GameManager : MonoBehaviour
             Block block = currentBlock[i].gameObject.GetComponent<Block>();
 
             levels[i] = block.level;
-            Debug.Log(levels[i]);
-
         }
 
         //중복된 값이 있는지 없는지 확인
@@ -152,7 +150,27 @@ public class GameManager : MonoBehaviour
         }
 
         //중복 없다면 스폰실행
-        
+        if(isSpawn){
+            Debug.Log("스폰 할거야");
+
+            for (int i = 1; i <= 6; i++)
+            {
+                blocks[blocks.GetLength(0) - 1, i] = Instantiate(BlockPrefab, gameBoard.blockGridPos[blocks.GetLength(0) - 1, i], Quaternion.identity);
+                Debug.Log("스폰 해쓰");
+
+                lastBlock = blocks[blocks.GetLength(0) - 1, i].GetComponent<Block>();
+
+                lastBlock.gridX = blocks.GetLength(0) - 1;
+                lastBlock.gridY = i;
+
+                lastBlock.manager = this;
+                lastBlock.level = random.Next(0, maxLevel);
+
+                lastBlock.gameObject.SetActive(true);
+            }
+
+            isSpawn = false;
+        }
     }
 
     void BlockDown()
@@ -164,24 +182,12 @@ public class GameManager : MonoBehaviour
             //선택중이 아닌 블럭과 그 블럭 밑 칸이 null이면
             if (!block.select && block.gridX <= 6 && blocks[block.gridX + 1, block.gridY] == null)
             {
-                for (int j = 0; j < currentBlock.Length; j++)                     //select가 true인 블럭 찾기
-                {
-                    if (currentBlock[j].gameObject.GetComponent<Block>().select) //select가 true인 블럭 찾기
-                    {
-                        Block underBlock = currentBlock[j].gameObject.GetComponent<Block>();
+                StartCoroutine(DownRoutine(block, block.gridX + 1, block.gridY));
 
-                        //block과 underBlock의 x값 차이가 1.05(박스가로길이)보다 커지면 block 한 칸 내리기
-                        if (1.05f < Mathf.Abs(block.transform.position.x - underBlock.transform.position.x))
-                        {
-                            StartCoroutine(DownRoutine(block, block.gridX + 1, block.gridY));
+                blocks[block.gridX, block.gridY] = null;
+                blocks[block.gridX + 1, block.gridY] = block.gameObject;
 
-                            blocks[block.gridX, block.gridY] = null;
-                            blocks[block.gridX + 1, block.gridY] = block.gameObject;
-
-                            block.gridX++;
-                        }
-                    }
-                }
+                block.gridX++;
             }
         }
     }
