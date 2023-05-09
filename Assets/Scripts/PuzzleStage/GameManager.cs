@@ -35,7 +35,19 @@ public class GameManager : MonoBehaviour
         //블럭 리스폰
         Spawn();
     }
-
+    public void Check()
+    {
+        for (int i = 1; i <= 8; i++)
+        {
+            for (int j = 1; j <= 6; j++)
+            {
+                if (blocks[i, j] == null)
+                    Debug.Log(i + ", " + j + "에 X");
+                if (blocks[i, j] != null)
+                    Debug.Log(i + ", " + j + "에 O");
+            }
+        }
+    }
     //시작스폰
     public void StartSpawn()
     {
@@ -143,8 +155,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        Debug.Log(hasDuplicates);
-
         if (!hasDuplicates) {
             isSpawn = true;
         }
@@ -153,10 +163,10 @@ public class GameManager : MonoBehaviour
         if(isSpawn){
             Debug.Log("스폰 할거야");
 
+            //맨 밑 줄에 6개 생성
             for (int i = 1; i <= 6; i++)
             {
                 blocks[blocks.GetLength(0) - 1, i] = Instantiate(BlockPrefab, gameBoard.blockGridPos[blocks.GetLength(0) - 1, i], Quaternion.identity);
-                Debug.Log("스폰 해쓰");
 
                 lastBlock = blocks[blocks.GetLength(0) - 1, i].GetComponent<Block>();
 
@@ -169,8 +179,43 @@ public class GameManager : MonoBehaviour
                 lastBlock.gameObject.SetActive(true);
             }
 
+            //스폰 한 다음 블럭 한 칸씩 올려주기
+            for (int i = 1; i <= 8; i++)
+            {
+                for (int j = 1; j <= 6; j++)
+                {
+                    if (blocks[i, j] != null)
+                    {
+                        Block block = blocks[i, j].gameObject.GetComponent<Block>();
+
+                        blocks[block.gridX, block.gridY] = null;
+                        blocks[block.gridX - 1, block.gridY] = block.gameObject;
+
+                        StartCoroutine(UpSpawnBlock(block, block.gridX - 1, block.gridY));
+
+                        block.gridX -= 1;
+                    }
+                }
+            }
+
             isSpawn = false;
         }
+    }
+
+    IEnumerator UpSpawnBlock(Block currentBlock, int x, int y)
+    {
+        int frameCount = 0;
+
+        while (frameCount <= 60)
+        {
+            currentBlock.transform.position = Vector3.MoveTowards(currentBlock.transform.position,
+                                                                    gameBoard.blockGridPos[x, y], 10f * Time.deltaTime);
+
+            frameCount++;
+
+            yield return null;
+        }
+        
     }
 
     void BlockDown()
@@ -192,17 +237,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    IEnumerator DownRoutine(Block myPos, int x, int y)
+    IEnumerator DownRoutine(Block currentBlock, int x, int y)
     {
         int frameCount = 0;
 
-        while (frameCount <= 60)
+        while (frameCount <= 35)
         {
-            myPos.transform.position = Vector3.MoveTowards(myPos.transform.position, gameBoard.blockGridPos[x, y], 0.02f);
+            currentBlock.transform.position = Vector3.MoveTowards(currentBlock.transform.position,
+                                                                    gameBoard.blockGridPos[x, y], 30f * Time.deltaTime);
 
             frameCount++;
 
-            yield return Time.deltaTime;
+            yield return null;
         }
 
     }

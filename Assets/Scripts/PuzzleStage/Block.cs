@@ -9,6 +9,7 @@ public class Block : MonoBehaviour
     public EnemyUI enemyUI;
 
     public int level, gridX, gridY;
+    public int downGrid_X, downGrid_Y;
     public bool select, isMerge, levelUpOnce; //레벨업 한번만 시켜주기위함
 
     public Bounds bounds;  //Bounds 잘은 모르겠는데 콜라이더의 크기를 position기준으로 가져옴
@@ -41,6 +42,9 @@ public class Block : MonoBehaviour
 
     public void OnMouseDown()
     {
+        downGrid_X = gridX;
+        downGrid_Y = gridY;
+
         levelUpOnce = true;
         select = true;
     }
@@ -50,12 +54,37 @@ public class Block : MonoBehaviour
         mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
         mouse_Pos.z = 0;
 
-        transform.position = mouse_Pos;
+        transform.position = Vector3.Lerp(transform.position, mouse_Pos, 50f * Time.deltaTime);
 
         //블럭이 있으면 부딪히게
         BumpBlock();
 
         //보드판 밖으로 못 나가게
+        outOfRangeBoard();
+
+        //좌표변경 함수 + 드래그머지
+        DragChangedGridPos();
+    }
+
+    public void OnMouseUp()
+    {
+        //스냅기능
+        Snap();
+
+        //2차원 배열 좌표변경 후 위치변경 + 머지
+        if ((downGrid_X != gridX || downGrid_Y != gridY) || manager.blocks[gridX + 1, gridY] != null &&
+            manager.blocks[gridX + 1, gridY].gameObject.GetComponent<Block>().level == level)
+        {
+        DropChangedGridPos();
+        }
+        
+
+        select = false;
+        levelUpOnce = false;
+    }
+
+    void outOfRangeBoard()
+    {
         if (transform.position.x >= gameBoard.blockGridPos[0, gameBoard.blockGridPos.GetLength(1) - 2].x)
         {
             transform.position = new Vector3(2.8f, transform.position.y, 0);
@@ -75,23 +104,7 @@ public class Block : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, -3.36f, 0);
         }
-
-        //좌표변경 함수 + 드래그머지
-        DragChangedGridPos();
     }
-
-    public void OnMouseUp()
-    {
-        //스냅기능
-        Snap();
-
-        //2차원 배열 좌표변경 후 위치변경 + 머지
-        DropChangedGridPos();
-
-        select = false;
-        levelUpOnce = false;
-    }
-
     void DragChangedGridPos() //드래그 좌표 변경 + 머지
     {
         for (int i = 0; i < gameBoard.blockGridPos.GetLength(0); i++)
@@ -137,18 +150,6 @@ public class Block : MonoBehaviour
 
                         levelUpOnce = false;
                     }
-
-                    //윗 칸 블럭들 내리기
-                    for (int k = gridX - 1; k >= 1; k--)
-                    {
-                        if (manager.blocks[k, gridY] != null)
-                        {
-                            Block upBlock = manager.blocks[k, gridY].gameObject.GetComponent<Block>();
-
-                            upBlock.transform.position = Vector3.MoveTowards(upBlock.transform.position,
-                                                                gameBoard.blockGridPos[k + 1, gridY], 12f * Time.deltaTime);
-                        }
-                    }
                 }
             }
         }
@@ -167,11 +168,13 @@ public class Block : MonoBehaviour
     {
         int frameCount = 0;
 
-        while (frameCount < 50)
+        while (frameCount < 5)
         {
+            transform.position = Vector3.Lerp(transform.position, targetPos, 0.5f); //target까지 부드럽게 이동
+
             frameCount++;
-            transform.position = Vector3.Lerp(transform.position, targetPos, 0.2f); //target까지 부드럽게 이동
-            yield return Time.deltaTime; //이게 없으면 한 프레임 안에서 반복문이 돌아서 의미X, null은 프레임마다 실행
+
+            yield return null; //이게 없으면 한 프레임 안에서 반복문이 돌아서 의미X, null은 프레임마다 실행
         }
 
         isMerge = false;
@@ -243,15 +246,13 @@ public class Block : MonoBehaviour
 
     IEnumerator DragLevelUpRoutine() //레벨업 애니메이션
     {
-        yield return new WaitForSeconds(0.2f);
-
-        anim.SetInteger("Level", level + 1);
-
-        yield return new WaitForSeconds(0.3f);
-
         level++;
 
         manager.maxLevel = Mathf.Max(level, manager.maxLevel); //Mathf(인자값 중 최대값반환);maxLevel 설정
+
+        yield return new WaitForSeconds(0.1f);
+
+        anim.SetInteger("Level", level);
 
         isMerge = false;
     }
@@ -274,9 +275,7 @@ public class Block : MonoBehaviour
         for (int i = 7; i >= 0; i--)
         {
             if (manager.blocks[i, newY] == null ||   //칸이 null일때
-                manager.blocks[i + 1, newY] != null && manager.blocks[i, newY] == gameObject && //null이 아니고 i가 자기자신이면서
-                manager.blocks[i + 1, newY].gameObject.GetComponent<Block>().level != level ||  //밑 블럭 레벨이 다를 때 (같으면 내려가야하기때문)
-                manager.blocks[i + 1, newY] == null && manager.blocks[i, newY] == gameObject) // 밑 칸이 null이고 i는 자기자신일 때
+                manager.blocks[i + 1, newY] == null && manager.blocks[i, newY] == gameObject) // or 밑 칸이 null이고 i는 자기자신일 때
             {
                 newX = i;
 
@@ -286,6 +285,15 @@ public class Block : MonoBehaviour
                 gridY = newY;
 
                 StartCoroutine(GravityRoutine());  //중력 애니메이션
+
+                break;
+            }
+
+            else if(manager.blocks[i + 1, newY] != null && manager.blocks[i, newY] == gameObject && //밑 칸이null이 아니고 i가 자기자신이면서
+                manager.blocks[i + 1, newY].gameObject.GetComponent<Block>().level != level)  //밑 블럭 레벨이 다를 때 (같으면 내려가야하기때문
+            {
+                transform.position = new Vector3(gameBoard.blockGridPos[i, newY].x, gameBoard.blockGridPos[i, newY].y, 0);
+
                 break;
             }
 
@@ -307,10 +315,11 @@ public class Block : MonoBehaviour
 
                 //상대 레벨업
                 other.DropLevelUp();
+
                 break;
             }
 
-            else if (manager.blocks[i, newY] == gameObject && manager.blocks[i + 1, newY] != gameObject &&  //
+            else if (manager.blocks[i, newY] == gameObject &&  //
                      manager.blocks[i + 1, newY].gameObject.GetComponent<Block>().level == level)           //자신이 아니면서 같은 레벨일때
             {
                 Block other = manager.blocks[i + 1, newY].gameObject.GetComponent<Block>();
@@ -328,6 +337,7 @@ public class Block : MonoBehaviour
 
                 //상대 레벨업
                 other.DropLevelUp();
+
                 break;
             }
         }
@@ -379,10 +389,11 @@ public class Block : MonoBehaviour
         while (frameCount < 100)
         {
             transform.position = Vector3.MoveTowards(transform.position,
-                                        gameBoard.blockGridPos[gridX, gridY], 0.08f);
+                                        gameBoard.blockGridPos[gridX, gridY], 30f * Time.deltaTime);
+
             frameCount++;
 
-            yield return Time.deltaTime;
+            yield return null;
         }
     }
 
@@ -408,7 +419,7 @@ public class Block : MonoBehaviour
         //오브젝트 위치를 가장 가까운 라인의 x값만 대입 array.IndexOf(배열, 찾는값)
         //밑의 코드에서는 가장작은 값을 찾고 위치 반환
         transform.position = new Vector3(gameBoard.blockGridPos[0, Array.IndexOf(distanceArray, min) + 1].x,
-                                                transform.position.y, 0);
+                                                gameBoard.blockGridPos[gridX, 0].y, 0);
         
     }
 }
