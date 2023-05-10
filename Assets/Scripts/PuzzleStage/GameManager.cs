@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
 
         //블럭 리스폰
         Spawn();
+
+        Debug.Log(blocks[7, 6]);
     }
     public void Check()
     {
@@ -131,7 +133,7 @@ public class GameManager : MonoBehaviour
         int[] levels = new int[currentBlock.Length];
 
         //현재 블럭들 레벨배열에 참조
-        for (int i = 0; i < currentBlock.Length; i++)   
+        for (int i = 0; i < currentBlock.Length; i++)
         {
             Block block = currentBlock[i].gameObject.GetComponent<Block>();
 
@@ -139,7 +141,7 @@ public class GameManager : MonoBehaviour
         }
 
         //중복된 값이 있는지 없는지 확인
-        for (int i = 0; i < levels.Length; i++)   
+        for (int i = 0; i < levels.Length; i++)
         {
             for (int j = i + 1; j < levels.Length; j++)
             {
@@ -155,14 +157,14 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (!hasDuplicates) {
+        if (!hasDuplicates)
+        {
             isSpawn = true;
         }
 
         //중복 없다면 스폰실행
-        if(isSpawn){
-            Debug.Log("스폰 할거야");
-
+        if (isSpawn)
+        {
             //맨 밑 줄에 6개 생성
             for (int i = 1; i <= 6; i++)
             {
@@ -199,7 +201,9 @@ public class GameManager : MonoBehaviour
             }
 
             isSpawn = false;
+            Debug.Log("스폰 할거야");
         }
+        
     }
 
     IEnumerator UpSpawnBlock(Block currentBlock, int x, int y)
@@ -215,7 +219,7 @@ public class GameManager : MonoBehaviour
 
             yield return null;
         }
-        
+
     }
 
     void BlockDown()

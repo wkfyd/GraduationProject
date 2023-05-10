@@ -32,7 +32,6 @@ public class Block : MonoBehaviour
     }
     void Update()
     {
-
     }
 
     private void OnEnable() //스크립트가 활성화 될 때 실행되는 이벤트함수
@@ -107,11 +106,11 @@ public class Block : MonoBehaviour
     }
     void DragChangedGridPos() //드래그 좌표 변경 + 머지
     {
-        for (int i = 0; i < gameBoard.blockGridPos.GetLength(0); i++)
+        for (int i = 1; i < gameBoard.blockGridPos.GetLength(0); i++)
         {
             int newX = 0, newY = 0;
 
-            for (int j = 0; j < gameBoard.blockGridPos.GetLength(1); j++)
+            for (int j = 1; j < gameBoard.blockGridPos.GetLength(1); j++)
             {
                 if (transform.position.x >= gameBoard.blockGridPos[i, j].x - bounds.size.x / 2 &&
                     transform.position.x <= gameBoard.blockGridPos[i, j].x + bounds.size.x / 2 &&
@@ -133,7 +132,7 @@ public class Block : MonoBehaviour
                     transform.position.x <= gameBoard.blockGridPos[i, j].x + bounds.size.x / 2 &&
                     transform.position.y <= gameBoard.blockGridPos[i, j].y + bounds.size.y / 2 &&
                     transform.position.y >= gameBoard.blockGridPos[i, j].y - bounds.size.y / 2 &&
-                    manager.blocks[i, j] != gameObject &&
+                    manager.blocks[i, j] != gameObject && 
                     manager.blocks[i, j].gameObject.GetComponent<Block>().level == level)
                 {
                     Block other = manager.blocks[i, j].gameObject.GetComponent<Block>();
