@@ -30,9 +30,6 @@ public class Block : MonoBehaviour
     {
         gameBoard = new GameBoard();
     }
-    void Update()
-    {
-    }
 
     private void OnEnable() //스크립트가 활성화 될 때 실행되는 이벤트함수
     {
@@ -50,6 +47,7 @@ public class Block : MonoBehaviour
 
     public void OnMouseDrag()
     {
+
         mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
         mouse_Pos.z = 0;
 
@@ -128,6 +126,7 @@ public class Block : MonoBehaviour
                     gridY = newY;
                 }
 
+                //내가 가는 칸에 같은 레벨의 블럭이 있으면 머지
                 else if (transform.position.x >= gameBoard.blockGridPos[i, j].x - bounds.size.x / 2 &&
                     transform.position.x <= gameBoard.blockGridPos[i, j].x + bounds.size.x / 2 &&
                     transform.position.y <= gameBoard.blockGridPos[i, j].y + bounds.size.y / 2 &&
@@ -139,46 +138,34 @@ public class Block : MonoBehaviour
 
                     manager.blocks[gridX, gridY] = null;
 
-                    //드래그상태인 블럭 숨기기
-                    DragMerge(other.transform.position);
+                    //드래그상태인 블럭 없애기
+                    DragMerge();
 
                     //상대블럭 레벨업
-                    if (levelUpOnce) //현재 여러번 레벨업하여 한번만 시켜주기위함
-                    {
-                        other.DragLevelUp();
-
-                        levelUpOnce = false;
-                    }
+                    other.DragLevelUp();
+                    
                 }
             }
         }
     }
 
-    void DragMerge(Vector3 targetPos) //머지 함수
+    void DragMerge() //머지 함수
+    {
+        isMerge = true;
+        Destroy(gameObject);
+    }
+
+    void DragLevelUp() //레벨업을 위한 함수
     {
         isMerge = true;
 
-        box.enabled = false;
+        level++;
 
-        StartCoroutine(DragMergeRoutine(targetPos)); //애니메이션 주기 위한 코루틴
-    }
+        manager.maxLevel = Mathf.Max(level, manager.maxLevel); //Mathf(인자값 중 최대값반환);maxLevel 설정
 
-    IEnumerator DragMergeRoutine(Vector3 targetPos) //머지 애니메이션
-    {
-        int frameCount = 0;
-
-        while (frameCount < 5)
-        {
-            transform.position = Vector3.Lerp(transform.position, targetPos, 0.5f); //target까지 부드럽게 이동
-
-            frameCount++;
-
-            yield return null; //이게 없으면 한 프레임 안에서 반복문이 돌아서 의미X, null은 프레임마다 실행
-        }
+        anim.SetInteger("Level", level);
 
         isMerge = false;
-        gameObject.SetActive(false);
-        Destroy(gameObject);
     }
 
     void BumpBlock() //블럭 부딪히기
@@ -236,30 +223,11 @@ public class Block : MonoBehaviour
         }
     }
 
-    void DragLevelUp() //레벨업을 위한 함수
-    {
-        isMerge = true;
-
-        StartCoroutine(DragLevelUpRoutine()); //애니메이션주기 위한 코루틴
-    }
-
-    IEnumerator DragLevelUpRoutine() //레벨업 애니메이션
-    {
-        level++;
-
-        manager.maxLevel = Mathf.Max(level, manager.maxLevel); //Mathf(인자값 중 최대값반환);maxLevel 설정
-
-        yield return new WaitForSeconds(0.1f);
-
-        anim.SetInteger("Level", level);
-
-        isMerge = false;
-    }
-
     void DropChangedGridPos() //드랍 좌표 변경 + 머지
     {
         int newY = int.MaxValue;
         float minDis = float.MaxValue;
+
         for (int i = 1; i < 7; i++)
         {
             var distance = Mathf.Abs(transform.position.x - gameBoard.blockGridPos[0, i].x);
@@ -271,6 +239,7 @@ public class Block : MonoBehaviour
         }
 
         int newX = int.MaxValue;
+
         for (int i = 7; i >= 0; i--)
         {
             if (manager.blocks[i, newY] == null ||   //칸이 null일때
