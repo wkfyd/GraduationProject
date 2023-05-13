@@ -19,6 +19,7 @@ public class ScaleScript : MonoBehaviour
         if (stage_Btn.interactable == true)
         {
             timer += Time.deltaTime;
+
             transform.localScale = new Vector3(Mathf.Cos(timer * scaleSpeed) + size,
                                                 Mathf.Cos(timer * scaleSpeed) + size, 0); //크기 증감 삼각함수로 인한 반복
         }

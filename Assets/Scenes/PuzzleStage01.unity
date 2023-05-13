@@ -1091,7 +1091,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1451915579}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: Check
         m_Mode: 1
@@ -1150,7 +1150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1451915580}
-  - component: {fileID: 1451915579}
+  - component: {fileID: 1451915581}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1158,25 +1158,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1451915579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451915578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d06c15118f35574dbe4c654f4f5fc74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BlockPrefab: {fileID: 8315448825692855375, guid: 901838e064d975646b5cdd54ffb930f5, type: 3}
-  lastBlock: {fileID: 0}
-  currentBlock: []
-  maxLevel: 5
-  gameOver: 0
-  isSpawn: 0
-  spawnTrigger: 0
 --- !u!4 &1451915580
 Transform:
   m_ObjectHideFlags: 0
@@ -1192,6 +1173,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1451915581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451915578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d06c15118f35574dbe4c654f4f5fc74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlockPrefab: {fileID: 8315448825692855375, guid: 901838e064d975646b5cdd54ffb930f5, type: 3}
+  lastBlock: {fileID: 0}
+  currentBlock: []
+  maxLevel: 4
+  gameOver: 0
+  isSpawn: 0
+  spawnTrigger: 0
+  currentLevels: 
 --- !u!1 &1874006857
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    public void LoadSelectStageScene() //On Click()함수
+    //onClick 사용중
+    public void LoadIntroScene()
     {
-        SceneManager.LoadScene("Select Stage"); //Select Stage씬으로 전환
+        SceneManager.LoadScene("Intro");
     }
-    public void LoadPuzzleStage01() //On Click()함수
+
+    public void LoadPuzzleStage01()
     {
-        SceneManager.LoadScene("PuzzleStage01"); //Select Stage씬으로 전환
+        SceneManager.LoadScene("PuzzleStage01");
     }
 }
