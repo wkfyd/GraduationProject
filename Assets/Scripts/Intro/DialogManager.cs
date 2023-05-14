@@ -22,12 +22,20 @@ public class DialogManager : MonoBehaviour
 
     public void Action()
     {
+        Debug.Log(talkIndex);
         Talk();
     }
 
     void Talk()
     {
         string talkData = talkManager.GetTalk(talkIndex);
+
+        //타이핑효과중이면 return으로 종료
+        if (talk.isAnim)
+        {
+            talk.SetMsg(""); //빈 값을 넣어도 되지만 SetMsg를 실행해서 타이핑완료를 시켜야하기 때문에
+            return;
+        }
 
         if (talkData == null)
         {
@@ -41,11 +49,13 @@ public class DialogManager : MonoBehaviour
             talkPanel.SetTrigger("Talk Up And Down");
             StartCoroutine(TextTiming(talkData));
         }
+
         else
         {
             talk.SetMsg(talkData.Split(':')[0]);
             talkIndex++;
         }
+
     }
 
     IEnumerator TextTiming(string talkData)

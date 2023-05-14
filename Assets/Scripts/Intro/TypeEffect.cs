@@ -11,10 +11,12 @@ public class TypeEffect : MonoBehaviour
     TextMeshProUGUI msgText;
 
     public int CharPerSeconds;
+    public bool isAnim;
+
     string targetMsg;
     int index;
     float interval;
-
+    
     void Awake()
     {
         msgText = GetComponent<TextMeshProUGUI>();
@@ -22,8 +24,19 @@ public class TypeEffect : MonoBehaviour
 
     public void SetMsg(string msg)
     {
-        targetMsg = msg;
-        EffectStart();
+        if (isAnim)
+        {
+            msgText.text = targetMsg;
+
+            CancelInvoke();
+
+            EffectEnd();
+        }
+        else
+        {
+            targetMsg = msg;
+            EffectStart();
+        }
     }
 
     void EffectStart()
@@ -31,6 +44,8 @@ public class TypeEffect : MonoBehaviour
         msgText.text = "";
         index = 0;
         endCursor.SetActive(false);
+
+        isAnim = true;
 
         interval = 1.0f / CharPerSeconds;
         Invoke("Effecting", interval);
@@ -43,6 +58,7 @@ public class TypeEffect : MonoBehaviour
             EffectEnd();
             return;
         }
+
         msgText.text += targetMsg[index];
         index++;
 
@@ -51,6 +67,7 @@ public class TypeEffect : MonoBehaviour
 
     void EffectEnd()
     {
+        isAnim = false;
         endCursor.SetActive(true);
     }
 }
