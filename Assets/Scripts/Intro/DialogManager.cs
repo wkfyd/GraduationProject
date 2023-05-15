@@ -7,16 +7,17 @@ using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
-    public TypeEffect talk;
     public TalkManager talkManager;
+    public TypeEffect talk;
     public Animator talkPanel;
     public Image portraitImg;
+    public CameraShake cameraShake;
 
     public int talkIndex;
 
     void Start()
     {
-        talk.SetMsg(talkManager.GetTalk(0).Split(':')[0]);
+        talk.SetMsg(talkManager.GetTalk(0).Split(':')[0], talkIndex);
         talkIndex = 1;
     }
 
@@ -33,7 +34,7 @@ public class DialogManager : MonoBehaviour
         //타이핑효과중이면 return으로 종료
         if (talk.isAnim)
         {
-            talk.SetMsg(""); //빈 값을 넣어도 되지만 SetMsg를 실행해서 타이핑완료를 시켜야하기 때문에
+            talk.SetMsg("", talkIndex); //빈 값을 넣어도 되지만 SetMsg를 실행해서 타이핑완료를 시켜야하기 때문에
             return;
         }
 
@@ -44,34 +45,40 @@ public class DialogManager : MonoBehaviour
         }
 
         //대화창 애니메이션이 있으면 재생 후 타이밍맞게 텍스트 띄워주기위해
-        if (talkIndex == 2 || talkIndex == 4 || talkIndex == 5 || talkIndex == 6 || talkIndex == 8 ||talkIndex == 9)
+        if (talkIndex == 2 ||  talkIndex == 5 || talkIndex == 6 || talkIndex == 8 ||talkIndex == 9)
         {
+            cameraShake.gameObject.SetActive(false);
             talkPanel.SetTrigger("Talk Up And Down");
-            StartCoroutine(TextTiming(talkData));
+            StartCoroutine(TextTiming(talkData, talkIndex));
         }
-
+        else if (talkIndex == 4)
+        {
+            cameraShake.gameObject.SetActive(true);
+            talkPanel.SetTrigger("Talk Up And Down");
+            StartCoroutine(TextTiming(talkData, talkIndex));
+        }
         else
         {
-            talk.SetMsg(talkData.Split(':')[0]);
+            talk.SetMsg(talkData.Split(':')[0], talkIndex);
             talkIndex++;
         }
 
     }
 
-    IEnumerator TextTiming(string talkData)
+    IEnumerator TextTiming(string talkData, int subTalkIndex)
     {
         yield return new WaitForSeconds(0.08f);
 
-        talk.SetMsg(talkData.Split(':')[0]);
+        talk.SetMsg(talkData.Split(':')[0], subTalkIndex);
 
-        //초상화
-        if (talkIndex == 2 || talkIndex == 3)
+        //초상화 talkManager -> PortraitImg[]
+        if (subTalkIndex == 2 || subTalkIndex == 3)
         {
             portraitImg.sprite = talkManager.GetPortrait(0);
             portraitImg.color = new Color(1, 1, 1, 1);
 
         }
-        else if (talkIndex == 8 || talkIndex == 9)
+        else if (subTalkIndex == 8 || subTalkIndex == 9)
         {
             portraitImg.sprite = talkManager.GetPortrait(1);
             portraitImg.color = new Color(1, 1, 1, 1);

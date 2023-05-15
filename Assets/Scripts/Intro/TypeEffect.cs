@@ -22,7 +22,7 @@ public class TypeEffect : MonoBehaviour
         msgText = GetComponent<TextMeshProUGUI>();
     }
 
-    public void SetMsg(string msg)
+    public void SetMsg(string msg, int talkIndex)
     {
         if (isAnim)
         {
@@ -32,16 +32,26 @@ public class TypeEffect : MonoBehaviour
 
             EffectEnd();
         }
-        else
+         else
         {
             targetMsg = msg;
-            EffectStart();
-        }
+            EffectStart(talkIndex);
+        }  
     }
 
-    void EffectStart()
+    void EffectStart(int talkIndex)
     {
         msgText.text = "";
+
+        if (talkIndex == 4 || talkIndex == 9)
+        {
+            msgText.fontSize = 70;
+        }
+        else
+        {
+            msgText.fontSize = 36;
+        }
+
         index = 0;
         endCursor.SetActive(false);
 
