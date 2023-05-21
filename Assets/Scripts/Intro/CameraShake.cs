@@ -26,7 +26,6 @@ public class CameraShake : MonoBehaviour
             // 뒤흔들기 효과를 위해 무작위로 값을 생성하여 카메라 위치를 변경
             Vector3 shakeOffset = Random.insideUnitSphere * shakeIntensity;
             obj.transform.position = initialPosition + shakeOffset;
-            Debug.Log(1);
         }
     }
 }

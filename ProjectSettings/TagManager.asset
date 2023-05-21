@@ -42,10 +42,10 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Character
+  - name: PuzzleBG
     uniqueID: 1863748065
     locked: 0
-  - name: PuzzleBG
+  - name: Character
     uniqueID: 2343698383
     locked: 0
   - name: Block

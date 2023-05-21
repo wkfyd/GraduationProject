@@ -3,35 +3,126 @@ using UnityEngine;
 public class BookManager : MonoBehaviour
 {
     public GameObject bookCanvas;
-    public Animator anim;
+
+    public int currentPage;
+
     public GameObject[] layout;
+    public GameObject[] pageButton;
 
-    void Awake()
+    public void Page_1()
     {
-        anim = GetComponent<Animator>();
+        for (int i = 0; i < 4; i++)
+        {
+            pageButton[i].SetActive(true);
+            layout[i].SetActive(false);
+        }
+
+        currentPage = 1;
+
+        pageButton[0].SetActive(false);
+        layout[0].SetActive(true);
     }
-    void Start()
-    {
 
+    public void Page_2()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            pageButton[i].SetActive(true);
+            layout[i].SetActive(false);
+        }
+
+        currentPage = 2;
+
+        pageButton[1].SetActive(false);
+        layout[1].SetActive(true);
     }
 
-    void Update()
+    public void Page_3()
     {
+        for (int i = 0; i < 4; i++)
+        {
+            pageButton[i].SetActive(true);
+            layout[i].SetActive(false);
+        }
 
+        currentPage = 3;
+
+        pageButton[2].SetActive(false);
+        layout[2].SetActive(true);
     }
 
-    public void openBook()
+    public void Page_4()
     {
-        bookCanvas.gameObject.SetActive(true);
+        for (int i = 0; i < 4; i++)
+        {
+            pageButton[i].SetActive(true);
+            layout[i].SetActive(false);
+        }
+
+        currentPage = 4;
+
+        pageButton[3].SetActive(false);
+        layout[3].SetActive(true);
+    }
+
+    public void Page_Left()
+    {
+        for (int i = 1; i <= 4; i++)
+        {
+            if (currentPage == 1)
+                return;
+            else if (currentPage == i)
+            {
+                pageButton[i - 1].SetActive(true);
+                layout[i - 1].SetActive(false);
+
+                pageButton[i - 2].SetActive(false);
+                layout[i - 2].SetActive(true);
+
+                currentPage = i - 1;
+                break;
+            }
+        }
+    }
+
+    public void Page_Right()
+    {
+        for (int i = 1; i <= 4; i++)
+        {
+            if (currentPage == 4)
+                return;
+            else if (currentPage == i)
+            {
+                pageButton[i - 1].SetActive(true);
+                layout[i - 1].SetActive(false);
+
+                pageButton[i].SetActive(false);
+                layout[i].SetActive(true);
+
+                currentPage = i + 1;
+                break;
+            }
+        }
+    }
+
+    public void OpenBook()
+    {
+        bookCanvas.SetActive(true);
+
+        for (int i = 0; i < 4; i++)
+        {
+            layout[i].SetActive(false);
+            pageButton[i].SetActive(true);
+        }
+
+        currentPage = 1;
+
+        pageButton[0].SetActive(false);
+        layout[0].SetActive(true);
     }
 
     public void BackButton()
     {
-        anim.SetBool("isTrigger", false);
-    }
-
-    public void CanvasAnim()
-    {
-
+        bookCanvas.SetActive(false);
     }
 }

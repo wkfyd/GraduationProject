@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ScaleScript : MonoBehaviour
 {
     [Header("scale speed")]  //인스펙터창 제목
-    [Range(1f, 10f)] public float size = 1f;   //오브젝트 크기
-    [Range(1f, 10f)] public float scaleSpeed = 1f; //크기변경 속도
-    private Button stage_Btn;
+    [Range(0.1f, 10f)] public float size = 1f;   //오브젝트 크기
+    [Range(0.1f, 10f)] public float scaleSpeed = 1f; //크기변경 속도
+
+    public Button stage_Btn;
+
     float timer = 0;
+
     void Awake()
     {
         stage_Btn = gameObject.GetComponent<Button>();

@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PopUpDownButton : MonoBehaviour
+public class ObjFalse : MonoBehaviour
 {
-    public GameObject PopUp; //게임오브젝트 변수 선언
-    public void PopUpButtonDown() //On Click() 함수
+    public GameObject obj; //게임오브젝트 변수 선언
+
+    public void objDown() //On Click() 함수
     {
-        PopUp.SetActive(false); //startPopUp오브젝트 비활성화
+        obj.SetActive(false); //obj오브젝트 비활성화
     }
 }

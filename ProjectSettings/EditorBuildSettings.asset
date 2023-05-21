@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Select Stage.unity
     guid: 052f8b45c7bfdad4b8364447d5981276
   - enabled: 1
-    path: Assets/Scenes/PuzzleStage01.unity
+    path: Assets/Scenes/PuzzleStage.unity
     guid: 362bbf12267be4c4496398044e3faf6a
   - enabled: 1
     path: Assets/Scenes/Intro.unity

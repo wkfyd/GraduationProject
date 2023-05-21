@@ -23,7 +23,6 @@ public class DialogManager : MonoBehaviour
 
     public void Action()
     {
-        Debug.Log(talkIndex);
         Talk();
     }
 
