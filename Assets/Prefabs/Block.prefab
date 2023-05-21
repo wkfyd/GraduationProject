@@ -147,9 +147,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   enemyUI: {fileID: 0}
+  particle: {fileID: 2094230120151847677, guid: 5b11e2ecbec866141a7a701a4c4efe45, type: 3}
   level: 0
   gridX: 0
   gridY: 0
+  downGrid_X: 0
+  downGrid_Y: 0
+  isParticle: 0
   select: 0
   isMerge: 0
   levelUpOnce: 0

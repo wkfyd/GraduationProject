@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
     public GameObject BlockPrefab;
     public Block lastBlock;
 
+    public GameObject effectPrefab;
+    public Transform effectGroup;
+
     public GameObject[] currentBlock;
     public GameObject[,] blocks = new GameObject[9, 8]; //오브젝트 2차원배열선언,초기화
 
@@ -70,6 +73,9 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 6; i++)
         {
+            GameObject instantEffectobj = Instantiate(effectPrefab, effectGroup);
+            ParticleSystem instantEffect = instantEffectobj.GetComponent<ParticleSystem>();
+
             //좌표 지정
             while (true) { x = random.Next(6, 8); y = random.Next(1, 7); if (blocks[x, y] == null) break; }
 
@@ -111,6 +117,7 @@ public class GameManager : MonoBehaviour
                 lastBlock.level = startLevels[2];
             }
 
+            lastBlock.particle = instantEffect;
             lastBlock.gameObject.SetActive(true);
         }
     }
@@ -192,6 +199,9 @@ public class GameManager : MonoBehaviour
         //맨 밑 줄에 6개 생성
         for (int i = 0; i < 6; i++)
         {
+            GameObject instantEffectobj = Instantiate(effectPrefab, effectGroup);
+            ParticleSystem instantEffect = instantEffectobj.GetComponent<ParticleSystem>();
+
             blocks[blocks.GetLength(0) - 1, i + 1] =
                 Instantiate(BlockPrefab, gameBoard.blockGridPos[blocks.GetLength(0) - 1, i + 1], Quaternion.identity);
 
@@ -234,6 +244,7 @@ public class GameManager : MonoBehaviour
             }
 
             lastBlock.manager = this;
+            lastBlock.particle = instantEffect;
             lastBlock.gameObject.SetActive(true);
         }
 

@@ -222,7 +222,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11480293}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: LoadPuzzleStage04
+        m_MethodName: LoadPuzzleStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2869,7 +2869,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 265117135}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: LoadPuzzleStage06
+        m_MethodName: LoadPuzzleStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5587,7 +5587,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 668362932}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: LoadPuzzleStage01
+        m_MethodName: LoadPuzzleStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7116,7 +7116,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 893120303}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: LoadPuzzleStage03
+        m_MethodName: LoadPuzzleStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7913,7 +7913,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 937624259}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: LoadPuzzleStage01
+        m_MethodName: LoadFreeStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13752,7 +13752,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1759472589}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: LoadPuzzleStage02
+        m_MethodName: LoadPuzzleStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15004,7 +15004,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1944935927}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: LoadPuzzleStage05
+        m_MethodName: LoadPuzzleStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

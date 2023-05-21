@@ -21,11 +21,15 @@ public class TutorialManager : MonoBehaviour
     {
         language.SetActive(false);
         start.SetActive(true);
+
+        Invoke("TutorialText", 1f);
     }
 
     public void SelectGreekLanguage()
     {
         language.SetActive(false);
         start.SetActive(true);
+
+        Invoke("TutorialText", 1f);
     }
 }

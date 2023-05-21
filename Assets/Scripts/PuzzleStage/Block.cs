@@ -7,9 +7,11 @@ public class Block : MonoBehaviour
     public GameManager manager;
     public GameBoard gameBoard;
     public EnemyUI enemyUI;
+    public ParticleSystem particle;
 
     public int level, gridX, gridY;
     public int downGrid_X, downGrid_Y;
+    public bool isParticle;
     public bool select, isMerge, levelUpOnce; //레벨업 한번만 시켜주기위함
 
     public Bounds bounds;  //Bounds 잘은 모르겠는데 콜라이더의 크기를 position기준으로 가져옴
@@ -152,6 +154,9 @@ public class Block : MonoBehaviour
     void DragMerge() //머지 함수
     {
         isMerge = true;
+
+        EffectPlay();
+
         Destroy(gameObject);
     }
 
@@ -317,6 +322,8 @@ public class Block : MonoBehaviour
 
         box.enabled = false;
 
+        EffectPlay();
+
         StartCoroutine(DropMergeRoutine(targetPos)); //애니메이션 주기 위한 코루틴
     }
 
@@ -389,5 +396,12 @@ public class Block : MonoBehaviour
         transform.position = new Vector3(gameBoard.blockGridPos[0, Array.IndexOf(distanceArray, min) + 1].x,
                                                 gameBoard.blockGridPos[gridX, 0].y, 0);
         
+    }
+
+    void EffectPlay()
+    {
+        particle.transform.position = transform.position;
+        particle.transform.localScale = transform.localScale;
+        particle.Play();
     }
 }
