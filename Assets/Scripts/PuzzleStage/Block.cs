@@ -6,11 +6,13 @@ public class Block : MonoBehaviour
 {
     public GameManager manager;
     public GameBoard gameBoard;
-    public EnemyUI enemyUI;
+
+    public EnemyManager enemy;
     public ParticleSystem particle;
 
     public int level, gridX, gridY;
     public int downGrid_X, downGrid_Y;
+    public int blockDamage;
     public bool isParticle;
     public bool select, isMerge, levelUpOnce; //레벨업 한번만 시켜주기위함
 
@@ -33,7 +35,7 @@ public class Block : MonoBehaviour
         gameBoard = new GameBoard();
     }
 
-    private void OnEnable() //스크립트가 활성화 될 때 실행되는 이벤트함수
+    void OnEnable() //스크립트가 활성화 될 때 실행되는 이벤트함수
     {
         anim.SetInteger("Level", level); //애니메이터 int형 파라미터
     }
@@ -74,12 +76,116 @@ public class Block : MonoBehaviour
         if ((downGrid_X != gridX || downGrid_Y != gridY) || manager.blocks[gridX + 1, gridY] != null &&
             manager.blocks[gridX + 1, gridY].gameObject.GetComponent<Block>().level == level)
         {
-        DropChangedGridPos();
+            DropChangedGridPos();
         }
-        
+
 
         select = false;
         levelUpOnce = false;
+    }
+
+    int GetDamage()
+    {
+        switch (level)
+        {
+            case 0:
+                blockDamage = 1;
+                break;
+
+            case 1:
+                blockDamage = 2;
+                break;
+
+            case 2:
+                blockDamage = 4;
+                break;
+
+            case 3:
+                blockDamage = 8;
+                break;
+
+            case 4:
+                blockDamage = 16;
+                break;
+
+            case 5:
+                blockDamage = 80;
+                break;
+
+            case 6:
+                blockDamage = 240;
+                break;
+
+            case 7:
+                blockDamage = 520;
+                break;
+
+            case 8:
+                blockDamage = 2080;
+                break;
+
+            case 9:
+                blockDamage = 5000;
+                break;
+
+            case 10:
+                blockDamage = 15000;
+                break;
+
+            case 11:
+                blockDamage = 45000;
+                break;
+
+            case 12:
+                blockDamage = 89000;
+                break;
+
+            case 13:
+                blockDamage = 165000;
+                break;
+
+            case 14:
+                blockDamage = 337000;
+                break;
+
+            case 15:
+                blockDamage = 503400;
+                break;
+
+            case 16:
+                blockDamage = 875600;
+                break;
+
+            case 17:
+                blockDamage = 1034000;
+                break;
+
+            case 18:
+                blockDamage = 1578900;
+                break;
+
+            case 19:
+                blockDamage = 1867800;
+                break;
+
+            case 20:
+                blockDamage = 2346700;
+                break;
+
+            case 21:
+                blockDamage = 2789900;
+                break;
+
+            case 22:
+                blockDamage = 3134500;
+                break;
+
+            case 23:
+                blockDamage = 9999999;
+                break;
+        }
+
+        return blockDamage;
     }
 
     void outOfRangeBoard()
@@ -133,7 +239,7 @@ public class Block : MonoBehaviour
                     transform.position.x <= gameBoard.blockGridPos[i, j].x + bounds.size.x / 2 &&
                     transform.position.y <= gameBoard.blockGridPos[i, j].y + bounds.size.y / 2 &&
                     transform.position.y >= gameBoard.blockGridPos[i, j].y - bounds.size.y / 2 &&
-                    manager.blocks[i, j] != gameObject && 
+                    manager.blocks[i, j] != gameObject &&
                     manager.blocks[i, j].gameObject.GetComponent<Block>().level == level)
                 {
                     Block other = manager.blocks[i, j].gameObject.GetComponent<Block>();
@@ -145,7 +251,7 @@ public class Block : MonoBehaviour
 
                     //상대블럭 레벨업
                     other.DragLevelUp();
-                    
+
                 }
             }
         }
@@ -162,10 +268,13 @@ public class Block : MonoBehaviour
 
     void DragLevelUp() //레벨업을 위한 함수
     {
-        isMerge = true;
+        EffectPlay();
+
+        GetDamage();
+        enemy.enemy_health = enemy.enemy_health - blockDamage;
+        manager.turns++;
 
         level++;
-
         manager.maxLevel = Mathf.Max(level, manager.maxLevel); //Mathf(인자값 중 최대값반환);maxLevel 설정
 
         anim.SetInteger("Level", level);
@@ -262,7 +371,7 @@ public class Block : MonoBehaviour
                 break;
             }
 
-            else if(manager.blocks[i + 1, newY] != null && manager.blocks[i, newY] == gameObject && //밑 칸이null이 아니고 i가 자기자신이면서
+            else if (manager.blocks[i + 1, newY] != null && manager.blocks[i, newY] == gameObject && //밑 칸이null이 아니고 i가 자기자신이면서
                 manager.blocks[i + 1, newY].gameObject.GetComponent<Block>().level != level)  //밑 블럭 레벨이 다를 때 (같으면 내려가야하기때문
             {
                 transform.position = new Vector3(gameBoard.blockGridPos[i, newY].x, gameBoard.blockGridPos[i, newY].y, 0);
@@ -322,8 +431,6 @@ public class Block : MonoBehaviour
 
         box.enabled = false;
 
-        EffectPlay();
-
         StartCoroutine(DropMergeRoutine(targetPos)); //애니메이션 주기 위한 코루틴
     }
 
@@ -340,16 +447,21 @@ public class Block : MonoBehaviour
     {
         isMerge = true;
 
-        StartCoroutine(DropLevelUpRoutine()); //애니메이션주기 위한 코루틴
+        StartCoroutine(DropLevelUpRoutine());
     }
 
-    IEnumerator DropLevelUpRoutine() //레벨업 애니메이션
+    IEnumerator DropLevelUpRoutine() //애니메이션 기다리기
     {
         yield return new WaitForSeconds(0.2f);
 
+        GetDamage();
+        enemy.enemy_health = enemy.enemy_health - blockDamage;
+        manager.turns++;
+
+        EffectPlay();
+
         anim.SetInteger("Level", level + 1);
 
-        yield return new WaitForSeconds(0.3f);
         level++;
 
         manager.maxLevel = Mathf.Max(level, manager.maxLevel); //Mathf(인자값 중 최대값반환);maxLevel 설정
@@ -395,7 +507,7 @@ public class Block : MonoBehaviour
         //밑의 코드에서는 가장작은 값을 찾고 위치 반환
         transform.position = new Vector3(gameBoard.blockGridPos[0, Array.IndexOf(distanceArray, min) + 1].x,
                                                 gameBoard.blockGridPos[gridX, 0].y, 0);
-        
+
     }
 
     void EffectPlay()

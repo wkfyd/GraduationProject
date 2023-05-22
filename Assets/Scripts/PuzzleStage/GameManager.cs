@@ -9,13 +9,20 @@ public class GameManager : MonoBehaviour
     public GameObject effectPrefab;
     public Transform effectGroup;
 
-    public GameObject[] currentBlock;
-    public GameObject[,] blocks = new GameObject[9, 8]; //오브젝트 2차원배열선언,초기화
+    public EnemyManager enemyManager;
+    public GameObject winImg;
 
+    public Animator overAim;
+
+    public int turns;
     public int maxLevel;
     public bool gameOver;
+    public bool gameWin;
     public bool isSpawn;
     public bool spawnTrigger;
+
+    public GameObject[] currentBlock;
+    public GameObject[,] blocks = new GameObject[9, 8]; //오브젝트 2차원배열선언,초기화
 
     public int[] currentLevels;
 
@@ -24,8 +31,9 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-
+        overAim = GameObject.FindWithTag("Enemy").GetComponent<Animator>();
     }
+
     void Start()
     {
         spawnTrigger = true;
@@ -37,6 +45,8 @@ public class GameManager : MonoBehaviour
     {
         currentBlock = GameObject.FindGameObjectsWithTag("Block"); //현재 블럭들 배열
 
+        Debug.Log(turns);
+
         //밑 칸에 블럭이 없으면 내려주기
         BlockDown();
 
@@ -45,11 +55,12 @@ public class GameManager : MonoBehaviour
 
         //머지 할 수 있는 블럭이 없다면 스폰 실행
         if (isSpawn)
-        {
             Spawn();
-        }
-    }
 
+        //게임오버
+        if (enemyManager.enemy_health <= 0)
+            GameWin();
+    }
     //시작스폰
     void StartSpawn()
     {
@@ -102,6 +113,7 @@ public class GameManager : MonoBehaviour
             }
 
             lastBlock.manager = this;
+            lastBlock.enemy = enemyManager;
             lastBlock.level = random.Next(0, maxLevel); //일정범위 랜덤 레벨
 
             startLevels[i] = lastBlock.level; //레벨 배열
@@ -244,6 +256,7 @@ public class GameManager : MonoBehaviour
             }
 
             lastBlock.manager = this;
+            lastBlock.enemy = enemyManager;
             lastBlock.particle = instantEffect;
             lastBlock.gameObject.SetActive(true);
         }
@@ -318,5 +331,17 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
+    }
+
+    public void GameWin()
+    {
+        gameWin = true;
+        overAim.SetBool("isWin", true);
+        Invoke("InvokeWinImg", 4.0f);
+    }
+
+    void InvokeWinImg()
+    {
+        winImg.SetActive(true);
     }
 }

@@ -167,6 +167,9 @@ MonoBehaviour:
   talkPanel: {fileID: 1464366968}
   portraitImg: {fileID: 1671914357}
   cameraShake: {fileID: 2073430810}
+  backGround:
+  - {fileID: 1057434374}
+  - {fileID: 1156668427}
   talkIndex: 0
 --- !u!4 &482691063
 Transform:

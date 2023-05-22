@@ -13,6 +13,8 @@ public class DialogManager : MonoBehaviour
     public Image portraitImg;
     public CameraShake cameraShake;
 
+    public GameObject[] backGround;
+
     public int talkIndex;
 
     void Start()
@@ -43,6 +45,18 @@ public class DialogManager : MonoBehaviour
             return;
         }
 
+        if (talkIndex == 5)
+            backGround[0].SetActive(true);
+
+        if (talkIndex == 8)
+            backGround[1].SetActive(true);
+
+        if (talkIndex == 9)
+        {
+            backGround[0].SetActive(false);
+            backGround[1].SetActive(false);
+        }
+            
         //대화창 애니메이션이 있으면 재생 후 타이밍맞게 텍스트 띄워주기위해
         if (talkIndex == 2 ||  talkIndex == 5 || talkIndex == 6 || talkIndex == 8 ||talkIndex == 9)
         {
@@ -62,6 +76,8 @@ public class DialogManager : MonoBehaviour
             talkIndex++;
         }
 
+        
+            
     }
 
     IEnumerator TextTiming(string talkData, int subTalkIndex)
