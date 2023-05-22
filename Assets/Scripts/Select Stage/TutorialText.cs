@@ -11,8 +11,8 @@ public class TutorialText : MonoBehaviour
 
     void Start()
     {
-        text = "아니야. 당황하지말고 침착하자!\n난 몸과 마음이 건강한 철학자니까!" +
-                "\n파피루스 든 녀석들을 전부 때려잡으면 내 발표 자료를 되착을 수 있을거야!";
+        text = "아니야. 당황하지 말고 침착하자!\n난 몸과 마음이 건강한 철학자니까!" +
+                "\n파피루스 든 녀석들을 전부 때려잡으면 내 발표 자료를 되찾을 수 있을 거야!";
 
         StartText();
     }
@@ -23,7 +23,7 @@ public class TutorialText : MonoBehaviour
     void StartText()
     {
         talk.SetMsg("시간이 없어. 서둘러 내 발표 자료를 되찾아야 해!" +
-            "\n그런데 왜 오늘따라 너도나도 파피루스 두루마리를 들고 다니는거지?", 0);
+            "\n그런데 왜 오늘따라 너도나도 파피루스 두루마리를 들고 다니는 거지?", 0);
     }
 
     void Talk()
@@ -34,8 +34,8 @@ public class TutorialText : MonoBehaviour
         }
         else
         {
-            talk.SetMsg("아니야. 당황하지말고 침착하자!\n난 몸과 마음이 건강한 철학자니까!" +
-                "\n파피루스 든 녀석들을 전부 때려잡으면 내 발표 자료를 되착을 수 있을거야!", 0);
+            talk.SetMsg("아니야. 당황하지 말고 침착하자!\n난 몸과 마음이 건강한 철학자니까!" +
+                "\n파피루스 든 녀석들을 전부 때려잡으면 내 발표 자료를 되찾을 수 있을 거야!", 0);
         }
     }
 }

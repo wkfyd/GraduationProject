@@ -347,7 +347,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -111, y: -189}
+  m_AnchoredPosition: {x: -111, y: -166.8}
   m_SizeDelta: {x: 800, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &16106337
@@ -370,25 +370,27 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6 \u2018\uCD5C\uCD08\uC758 \uCCA0\uD559\uC790\u2019\uC774\uC790 \uADF8\uB9AC\uC2A4\uC758
-    7\uD604\uC778 \uC911 \uD55C \uBA85\uC73C\uB85C \uC54C\uB824\uC838 \uC788\uB2E4.\r\n\n\u25B6 
-    \u2018\uB85C\uACE0\uC2A4(Logos, \uD569\uB9AC\uC801\uC778 \uC774\uC131)\u2019\uC758
-    \uC911\uC694\uC131\uC744 \uB0B4\uC138\uC6B0\uBA70 \uC2E0\uD654\uC5D0\n    \uC758\uC874\uD558\uC9C0
-    \uC54A\uB294 \uC0AC\uC720\uB97C \uC2DC\uC791\uD55C \uBC00\uB808\uD1A0\uC2A4 \uD559\uD30C\uC758
-    \uC2DC\uCD08\uB2E4.\r\n\n\u25B6 \uB9CC\uBB3C\uC758 \u2018\uADFC\uC6D0(\uC544\uB974\uCF00)\u2019\uC774
-    \uBB3C\uB85C \uC774\uB8E8\uC5B4\uC838 \uC788\uB2E4\uACE0 \uC0DD\uAC01\uD588\uB2E4.
-    \uC138\uC0C1\uC758\n    \uB2E4\uC591\uD55C \uD604\uC0C1\uC744 \uD558\uB098\uC758
-    \uC6D0\uB9AC\uB85C \uC0DD\uAC01\uD558\uACE0 \uC124\uBA85\uD558\uB824 \uD588\uB2E4.\r\n\n\u25B6
+  m_text: "<color=#431900>\u25B6</color=#431900> \u2018\uCD5C\uCD08\uC758 \uCCA0\uD559\uC790\u2019\uC774\uC790
+    \uADF8\uB9AC\uC2A4\uC758 7\uD604\uC778 \uC911 \uD55C \uBA85\uC73C\uB85C \uC54C\uB824\uC838
+    \uC788\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>  \u2018\uB85C\uACE0\uC2A4(Logos,
+    \uD569\uB9AC\uC801\uC778 \uC774\uC131)\u2019\uC758 \uC911\uC694\uC131\uC744 \uB0B4\uC138\uC6B0\uBA70\n   
+    \uC2E0\uD654\uC5D0 \uC758\uC874\uD558\uC9C0 \uC54A\uB294 \uC0AC\uC720\uB97C \uC2DC\uC791\uD55C
+    \uBC00\uB808\uD1A0\uC2A4 \uD559\uD30C\uC758 \uC2DC\uCD08\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
+    \uB9CC\uBB3C\uC758 \u2018\uADFC\uC6D0(\uC544\uB974\uCF00)\u2019\uC774 \uBB3C\uB85C
+    \uC774\uB8E8\uC5B4\uC838 \uC788\uB2E4\uACE0 \uC0DD\uAC01\uD588\uB2E4. \n    \uC138\uC0C1\uC758
+    \uB2E4\uC591\uD55C \uD604\uC0C1\uC744 \uD558\uB098\uC758 \uC6D0\uB9AC\uB85C \uC0DD\uAC01\uD558\uACE0
+    \uC124\uBA85\uD558\uB824 \uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
     \uC138\uC0C1\uC5D0 \uC874\uC7AC\uD558\uB294 \uBAA8\uB4E0 \uAC83\uB4E4\uC740 \u2018\uC2E0\uB4E4(gods,
-    \uC790\uC5F0 \uBC95\uCE59)\u2019\uB85C \uAC00\uB4DD \uCC28\n    \uC788\uB2E4\uACE0
+    \uC790\uC5F0 \uBC95\uCE59)\u2019\uB85C\n    \uAC00\uB4DD \uCC28 \uC788\uB2E4\uACE0
     \uC8FC\uC7A5\uD588\uB2E4. \uC790\uC5F0 \uCCA0\uD559\uC758 \uCC3D\uC2DC\uC790\uB85C
-    \uBD88\uB9B0\uB2E4.\r\n\n\u25B6 \uC9C0\uAD6C\uAC00 \uBB3C \uC704\uC5D0 \uB5A0
-    \uC788\uB294 \uB3D9\uADF8\uB780 \uAD6C\uCCB4\uB77C\uACE0 \uC0DD\uAC01\uD588\uC73C\uBA70,
-    \uADF8 \uBB3C\uC758\n    \uD30C\uC7A5\uC73C\uB85C \uC778\uD574 \uC9C0\uAD6C\uC5D0
-    \uC9C0\uC9C4\uC774 \uC77C\uC5B4\uB09C\uB2E4\uACE0 \uC0DD\uAC01\uD588\uB2E4.\r\n\n\u25B6
-    \uC774\uC9D1\uD2B8\uC5D0\uC11C \uBC30\uC6B4 \uAE30\uD558\uD559\uC744 \uADF8\uB9AC\uC2A4\uC5D0
-    \uB3C4\uC785\uD558\uACE0 \uBA87 \uAC00\uC9C0 \uAE30\uD558\uD559\uC801\n    \uC0AC\uC2E4\uC744
-    \uC815\uB9AC\uD55C \uC5C5\uC801\uC774 \uC788\uB2E4."
+    \uBD88\uB9B0\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900> \uC9C0\uAD6C\uAC00
+    \uBB3C \uC704\uC5D0 \uB5A0 \uC788\uB294 \uB3D9\uADF8\uB780 \uAD6C\uCCB4\uB77C\uACE0
+    \uC0DD\uAC01\uD588\uC73C\uBA70,\n    \uADF8 \uBB3C\uC758 \uD30C\uC7A5\uC73C\uB85C
+    \uC778\uD574 \uC9C0\uAD6C\uC5D0 \uC9C0\uC9C4\uC774 \uC77C\uC5B4\uB09C\uB2E4\uACE0
+    \uC0DD\uAC01\uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900> \uC774\uC9D1\uD2B8\uC5D0\uC11C
+    \uBC30\uC6B4 \uAE30\uD558\uD559\uC744 \uADF8\uB9AC\uC2A4\uC5D0 \uB3C4\uC785\uD558\uACE0
+    \uBA87 \uAC00\uC9C0 \uAE30\uD558\uD559\uC801\n    \uC0AC\uC2E4\uC744 \uC815\uB9AC\uD55C
+    \uC5C5\uC801\uC774 \uC788\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -397,8 +399,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -518,6 +520,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1556123256}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &22190004
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1343,7 +1347,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 17.9}
   m_SizeDelta: {x: 0, y: 70}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &63578864
@@ -1393,8 +1397,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 38
+  m_fontSizeBase: 38
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1767,6 +1771,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 776856682}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!114 &81759257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1919,8 +1925,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6<b> \uC774\uB984:</b> \uD2B8\uB77C\uC2DC\uB9C8\uCF54\uC2A4\n\u25B6<b>
-    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> B.C. 459? ~ B.C. 400?"
+  m_text: "\u25B6<b> \uC774\uB984:</b> <color=#000>\uD2B8\uB77C\uC2DC\uB9C8\uCF54\uC2A4</color=#000>\n\u25B6<b>
+    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> <color=#000>B.C. 459? ~ B.C. 400?</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -1929,8 +1935,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2895,7 +2901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 108, y: -45.922}
+  m_AnchoredPosition: {x: 108, y: -19.47}
   m_SizeDelta: {x: 551.8632, y: 648.1567}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &144835980
@@ -2989,6 +2995,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1692602199}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &154978545
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3091,7 +3099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -105.624146, y: -131}
+  m_AnchoredPosition: {x: -105.624146, y: -166.8}
   m_SizeDelta: {x: 805.3759, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &157663744
@@ -3114,27 +3122,29 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\u25B6 \uD50C\uB77C\uD1A4\uC758 \uC2A4\uC2B9\uC73C\uB85C \uC798 \uC54C\uB824\uC838
-    \uC788\uB2E4.\n\n\u25B6 \u2018\uC54E\uACFC \uC2E4\uCC9C\uC758 \uC77C\uCE58\u2019\uC640
-    \u2018\uBB34\uC9C0(\u7121\u77E5)\uB97C \uC778\uC815\uD560 \uC904 \uC544\uB294
-    \uC9C0\uD61C\u2019\uB97C \uC911\uC694\n    \uD558\uAC8C \uC5EC\uACBC\uB2E4. \uB378\uD3EC\uC774
-    \uC2E0\uD0C1\uC744 \uACC4\uAE30\uB85C \uC5EC\uB7EC \uC0AC\uB78C\uB4E4\uC758 \uC9C0\uD61C\uB97C
-    \uC2DC\uD5D8\n    \uD558\uC5EC \uADF8\uB4E4\uC774 \uC790\uC2E0\uC758 \uBB34\uC9C0\uB97C
-    \uC790\uAC01\uD558\uAC8C \uD558\uB294 \uB370 \uC5F4\uC815\uC744 \uC3DF\uC558\uB2E4\uACE0\n   
-    \uD55C\uB2E4. \uC774\uB85C \uB9CE\uC740 \uC0AC\uB78C\uB4E4\uC758 \uBBF8\uC6C0\uC744
-    \uC0C0\uB2E4.\n\n\u25B6 \u201C\uC808\uB300\uC801\uC73C\uB85C \uC62C\uBC14\uB978
-    \uC724\uB9AC \uADDC\uBC94\uC740 \uC874\uC7AC\uD558\uC9C0 \uC54A\uB294\uB2E4\u201D\uB294
-    \uC18C\uD53C\uC2A4\uD2B8\n    \uB4E4\uC758 \u2018\uC724\uB9AC\uC801 \uC0C1\uB300\uC8FC\uC758\u2019\uB97C
-    \uBE44\uD310\uD588\uB2E4. \uC18C\uD06C\uB77C\uD14C\uC2A4\uB294 \uBCF4\uD3B8\uC801\uC774\uACE0\n   
-    \uD0C0\uB2F9\uD55C \uC724\uB9AC\uAC00 \uC874\uC7AC\uD55C\uB2E4\uACE0 \uBBFF\uC5C8\uB2E4.\n\n\u25B6
-    \uCF54\uC2A4\uBAA8\uC2A4(Cosmos)\uB77C\uB294 \uB2E8\uC5B4\uB97C \uAC00\uC7A5
-    \uBA3C\uC800 \uC0AC\uC6A9\uD55C \uCCA0\uD559\uC790\uC774\uC790\n    \uBC30\uC74C\uC758
-    \uC6D0\uB9AC\uB97C \uBC1C\uACAC\uD574\uB0B8 \uC0AC\uB78C\uC73C\uB85C \uC720\uBA85\uD558\uB2E4.\n   
-    \uD53C\uD0C0\uACE0\uB77C\uC2A4\uC758 \uC815\uB9AC(a\xB2+b\xB2=c\xB2)\uB97C \uBC1C\uACAC\uD574\uB0B8
-    \uAC83\uC73C\uB85C\uB3C4 \uC720\uBA85\uD558\uC9C0\uB9CC\n    \uC774\uB294 \uD53C\uD0C0\uACE0\uB77C\uC2A4\uAC00
-    \uBC1C\uACAC\uD588\uB2E4\uB294 \uBA85\uD655\uD55C \uC99D\uAC70\uB294 \uC5C6\uB2E4.\n\n\u25B6
+  m_text: "<color=#431900>\u25B6</color=#431900> \uD50C\uB77C\uD1A4\uC758 \uC2A4\uC2B9\uC73C\uB85C
+    \uC798 \uC54C\uB824\uC838 \uC788\uB2E4.\n\n<color=#431900>\u25B6</color=#431900>
+    \u2018\uC54E\uACFC \uC2E4\uCC9C\uC758 \uC77C\uCE58\u2019\uC640 \u2018\uBB34\uC9C0(\u7121\u77E5)\uB97C
+    \uC778\uC815\uD560 \uC904 \uC544\uB294 \uC9C0\uD61C\u2019\uB97C \n    \uC911\uC694\uD558\uAC8C
+    \uC5EC\uACBC\uB2E4. \uB378\uD3EC\uC774 \uC2E0\uD0C1\uC744 \uACC4\uAE30\uB85C
+    \uC5EC\uB7EC \uC0AC\uB78C\uB4E4\uC758 \uC9C0\uD61C\uB97C\n    \uC2DC\uD5D8\uD558\uC5EC
+    \uADF8\uB4E4\uC774 \uC790\uC2E0\uC758 \uBB34\uC9C0\uB97C \uC790\uAC01\uD558\uAC8C
+    \uD558\uB294\uB370 \uC5F4\uC815\uC744\n    \uC3DF\uC558\uB2E4\uACE0 \uD55C\uB2E4.
+    \uC774\uB85C \uB9CE\uC740 \uC0AC\uB78C\uB4E4\uC758 \uBBF8\uC6C0\uC744 \uC0C0\uB2E4.\n\n<color=#431900>\u25B6</color=#431900>
+    \uACB0\uAD6D \uC544\uD14C\uB124\uC758 \uC80A\uC740\uC774\uB4E4\uC744 \uD0C0\uB77D\uC2DC\uD0A4\uACE0
+    \uC2E0\uC758 \uC874\uC7AC\uB97C \uBD80\uC815\uD588\uB2E4\uB294\n    \uBA85\uBD84\uC73C\uB85C
+    \uC7AC\uD310\uC5D0 \uD68C\uBD80\uB418\uC5B4 \uC0AC\uD615 \uD310\uACB0\uC744 \uBC1B\uACE0
+    \uC0AC\uB9DD\uD55C\uB2E4.\n    \uCC38\uACE0\uB85C, \uC18C\uD06C\uB77C\uD14C\uC2A4
+    \uBCF8\uC778\uC740 \uC2E0\uC758 \uC874\uC7AC\uB97C \uBD80\uC815\uD558\uC9C4 \uC54A\uC558\uC73C\uB098\n   
+    \uADF8\uAC83\uC740 \uC544\uD14C\uB124\uAC00 \uBBFF\uB358 \uADF8\uB9AC\uC2A4 \uC2E0\uB4E4\uACFC\uB294
+    \uBD84\uBA85\uD788 \uB2E4\uB978 \uC874\uC7AC\uC600\uB2E4.\n\n<color=#431900>\u25B6</color=#431900>
+    \u201C\uC808\uB300\uC801\uC73C\uB85C \uC62C\uBC14\uB978 \uC724\uB9AC \uADDC\uBC94\uC740
+    \uC874\uC7AC\uD558\uC9C0 \uC54A\uB294\uB2E4\u201D\uB294\n    \uC18C\uD53C\uC2A4\uD2B8\uB4E4\uC758
+    \u2018\uC724\uB9AC\uC801 \uC0C1\uB300\uC8FC\uC758\u2019\uB97C \uBE44\uD310\uD588\uB2E4.
+    \uC18C\uD06C\uB77C\uD14C\uC2A4\uB294\n    \uBCF4\uD3B8\uC801\uC774\uACE0 \uD0C0\uB2F9\uD55C
+    \uC724\uB9AC\uAC00 \uC874\uC7AC\uD55C\uB2E4\uACE0 \uBBFF\uC5C8\uB2E4.\n\n<color=#431900>\u25B6</color=#431900>
     \uC774\uC131\uC744 \uD1B5\uD574 \uC5BB\uC740 \uBC14\uB978 \uC9C0\uC2DD\uC740
-    \uB355\uC774 \uB418\uACE0, \uB355 \uC788\uB294 \uC0AC\uB78C\uC740 \uD589\uBCF5\uD55C\n   
+    \uB355\uC774 \uB418\uACE0,\n    \uB355 \uC788\uB294 \uC0AC\uB78C\uC740 \uD589\uBCF5\uD55C
     \uC0B6\uC744 \uC0B4 \uC218 \uC788\uB2E4\uACE0 \uC0DD\uAC01\uD588\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -3144,8 +3154,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3247,7 +3257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -111, y: -203}
+  m_AnchoredPosition: {x: -111, y: -137}
   m_SizeDelta: {x: 800, y: 630}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &157792380
@@ -3270,14 +3280,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6 B.C. 5\uC138\uAE30 ~ B.C. 4\uC138\uAE30 \uACBD \uD65C\uB3D9\uD55C
+  m_text: "\u25B6 <color=#000>B.C. 5\uC138\uAE30 ~ B.C. 4\uC138\uAE30 \uACBD \uD65C\uB3D9\uD55C
     \uAD50\uC721\uC790\uC774\uC790 \uCCA0\uD559\uC790\uB4E4\uC744\n    \uBD80\uB974\uB294
     \uBA85\uCE6D\uC774\uB2E4. \uC774\uB4E4\uC740 \uC790\uAE30 \uC790\uC2E0\uC744
     \u2018\uC9C0\uD61C\uB85C\uC6B4 \uC2A4\uC2B9\u2019\uC73C\uB85C\n    \uCE6D\uD558\uACE0
-    \uB2E4\uB154\uB2E4.\r\n\n\u25B6 \uC774\uB4E4\uC740 \u2018\uC808\uB300\uC801\uC778
+    \uB2E4\uB154\uB2E4.\r</color=#000>\n\n\u25B6 <color=#000>\uC774\uB4E4\uC740 \u2018\uC808\uB300\uC801\uC778
     \uC9C4\uB9AC\uC640 \uC815\uC758\u2019\uAC00 \uC5C6\uB2E4\uACE0 \uC0DD\uAC01\uD588\uC73C\uBA70,
     \uB9CE\uC740\n    \uBCF4\uC218\uB97C \uBC1B\uACE0 \uB17C\uBCC0\uC220\uACFC \uC608\uC220
-    \uB4F1\uC758 \uD3ED\uB113\uC740 \uC9C0\uC2DD\uC744 \uAC00\uB974\uCCE4\uB2E4."
+    \uB4F1\uC758 \uD3ED\uB113\uC740 \uC9C0\uC2DD\uC744 \uAC00\uB974\uCCE4\uB2E4.</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -3286,8 +3296,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3407,6 +3417,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 245394585}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &161491155
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4249,7 +4261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: -420}
+  m_AnchoredPosition: {x: 400, y: -420}
   m_SizeDelta: {x: 340, y: 80}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &204298599
@@ -4388,6 +4400,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 97685999}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!114 &224525767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5811,7 +5825,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: -420}
+  m_AnchoredPosition: {x: 400, y: -420}
   m_SizeDelta: {x: 340, y: 80}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &306597238
@@ -6280,7 +6294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -30}
+  m_AnchoredPosition: {x: 203, y: -43}
   m_SizeDelta: {x: 750, y: 740}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &332658391
@@ -6524,7 +6538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -30}
+  m_AnchoredPosition: {x: 197, y: -43}
   m_SizeDelta: {x: 750, y: 740}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &348654972
@@ -6843,6 +6857,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1845275813}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &372502710
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7326,6 +7342,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 224543466}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &384675654
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7944,7 +7962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 7.0762, y: 0}
+  m_AnchoredPosition: {x: 24.9, y: 0}
   m_SizeDelta: {x: 316.2452, y: 574.2599}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &417797438
@@ -8038,6 +8056,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1523331543}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &420050365
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8660,6 +8680,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1523331543}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &456844468
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9136,8 +9158,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 44
+  m_fontSizeBase: 44
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9539,8 +9561,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6<b> \uC774\uB984:</b> \uC544\uB9AC\uC2A4\uD1A0\uD154\uB808\uC2A4\n\u25B6<b>
-    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> B.C. 384? ~ B.C. 322?"
+  m_text: "\u25B6<b> \uC774\uB984:</b> <color=#000>\uC544\uB9AC\uC2A4\uD1A0\uD154\uB808\uC2A4</color=#000>\n\u25B6<b>
+    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> <color=#000>B.C. 384? ~ B.C. 322?</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -9549,8 +9571,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9881,6 +9903,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 776856682}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &536218824
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10270,7 +10294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -76.72778, y: -185}
+  m_AnchoredPosition: {x: -76.72778, y: -166.8}
   m_SizeDelta: {x: 834.2722, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &558351671
@@ -10293,24 +10317,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6 \uC12D\uB9AC, \uC774\uC131(Logos)\uC744 \uB530\uB974\uB294 \uC2A4\uD1A0\uC544
-    \uD559\uD30C\uC758 \uC2DC\uCD08\uB85C \uC54C\uB824\uC838 \uC788\uB2E4.\n    \uD0A4\uD504\uB85C\uC2A4\uC758
-    \uD0A4\uD2F0\uC6C0 \uCD9C\uC2E0 \uCCA0\uD559\uC790\uB85C, \uC5D8\uB808\uC544
-    \uD559\uD30C\uC758 \uC81C\uB17C\uACFC\uB294 \uB2E4\uB978\n    \uC778\uBB3C\uC774\uB2E4.
-    \uC18C\uD06C\uB77C\uD14C\uC2A4\uC640 \uACAC\uC720\uD559\uD30C \uB4F1\uC5D0 \uC601\uD5A5\uC744
-    \uBC1B\uC558\uB2E4.\r\n\n\u25B6 \uC790\uC5F0\uACFC \uC77C\uCE58\uD558\uB294 \uC0B6,
-    \uC808\uC81C\uD558\uACE0 \uAC80\uC18C\uD558\uAC8C \uC0AC\uB294 \uC0B6\uC744 \uBC14\uB78C\uC9C1\uD558\uAC8C\n   
+  m_text: "<color=#431900>\u25B6</color=#431900> \uC12D\uB9AC, \uC774\uC131(Logos)\uC744
+    \uB530\uB974\uB294 \uC2A4\uD1A0\uC544 \uD559\uD30C\uC758 \uC2DC\uCD08\uB85C \uC54C\uB824\uC838
+    \uC788\uB2E4.\n    \uD0A4\uD504\uB85C\uC2A4\uC758 \uD0A4\uD2F0\uC6C0 \uCD9C\uC2E0
+    \uCCA0\uD559\uC790\uB85C, \uC5D8\uB808\uC544 \uD559\uD30C\uC758 \uC81C\uB17C\uACFC\uB294\n   
+    \uB2E4\uB978 \uC778\uBB3C\uC774\uB2E4. \uC18C\uD06C\uB77C\uD14C\uC2A4\uC640 \uACAC\uC720\uD559\uD30C
+    \uB4F1\uC5D0 \uC601\uD5A5\uC744 \uBC1B\uC558\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
+    \uC790\uC5F0\uACFC \uC77C\uCE58\uD558\uB294 \uC0B6, \uC808\uC81C\uD558\uACE0
+    \uAC80\uC18C\uD558\uAC8C \uC0AC\uB294 \uC0B6\uC744 \uBC14\uB78C\uC9C1\uD558\uAC8C\n   
     \uC5EC\uACBC\uB2E4. \uC2A4\uD1A0\uC544 \uD3EC\uC774\uD0AC\uB808(\uCC44\uC0C9\uC8FC\uB791)\uC5D0\uC11C
     \uCCA0\uD559\uC744 \uB17C\uD558\uB358 \uAC83\uC744\n    \uACC4\uAE30\uB85C \uC2A4\uD1A0\uC544
-    \uD559\uD30C\uAC00 \uD0C4\uC0DD\uD588\uB2E4.\r\n\n\u25B6 \uBB34\uD654\uACFC\uC640
-    \uB9D0\uB9B0 \uBB34\uD654\uACFC\uB97C \uC990\uACA8 \uBA39\uC5C8\uC73C\uBA70,
+    \uD559\uD30C\uAC00 \uD0C4\uC0DD\uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
+    \uBB34\uD654\uACFC\uC640 \uB9D0\uB9B0 \uBB34\uD654\uACFC\uB97C \uC990\uACA8 \uBA39\uC5C8\uC73C\uBA70,
     \uC0AC\uB78C\uB4E4\uC5D0\uAC8C \uB9CE\uC740 \uC874\uACBD\uC744\n    \uBC1B\uC558\uB2E4.
     \uADF8 \uC778\uAE30\uAC00 \uC5C4\uCCAD\uB098 \uC544\uD14C\uB124 \uC0AC\uB78C\uB4E4\uC774
     \uADF8\uB97C \uAE30\uB9AC\uAE30 \uC704\uD55C \uB3D9\uC0C1\uC744\n    \uC138\uC6E0\uB2E4\uACE0\uB3C4
-    \uC804\uD574\uC9C4\uB2E4.\r\n\n\u25B6 \uADF8\uB7FC\uC5D0\uB3C4 \uC81C\uB17C\uC740
-    \uB9CE\uC740 \uC0AC\uB78C\uC5D0\uAC8C \uB458\uB7EC\uC2F8\uC5EC \uC778\uAE30\uB97C
-    \uB204\uB9AC\uAC70\uB098\n    \uD638\uD654\uB86D\uAC8C \uC0B4\uAE30\uB97C \uAE30\uD53C\uD588\uB2E4\uACE0
-    \uC804\uD574\uC9C4\uB2E4."
+    \uC804\uD574\uC9C4\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900> \uADF8\uB7FC\uC5D0\uB3C4
+    \uC81C\uB17C\uC740 \uB9CE\uC740 \uC0AC\uB78C\uC5D0\uAC8C \uB458\uB7EC\uC2F8\uC5EC
+    \uC778\uAE30\uB97C \uB204\uB9AC\uAC70\uB098\n    \uD638\uD654\uB86D\uAC8C \uC0B4\uAE30\uB97C
+    \uAE30\uD53C\uD588\uB2E4\uACE0 \uC804\uD574\uC9C4\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -10319,8 +10344,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11381,7 +11406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: -420}
+  m_AnchoredPosition: {x: 400, y: -420}
   m_SizeDelta: {x: 340, y: 80}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &621131403
@@ -11796,7 +11821,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -111, y: -185}
+  m_AnchoredPosition: {x: -111, y: -166.8}
   m_SizeDelta: {x: 800, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &654611276
@@ -11819,22 +11844,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6 \uC0AC\uBAA8\uC2A4 \uC12C \uCD9C\uC2E0\uC758 \uCCA0\uD559\uC790\uB85C,
-    \uC5D0\uD53C\uCFE0\uB85C\uC2A4 \uD559\uD30C\uC758 \uC2DC\uCD08\uB2E4.\r\n\n\u25B6
+  m_text: "<color=#431900>\u25B6</color=#431900> \uC0AC\uBAA8\uC2A4 \uC12C \uCD9C\uC2E0\uC758
+    \uCCA0\uD559\uC790\uB85C, \uC5D0\uD53C\uCFE0\uB85C\uC2A4 \uD559\uD30C\uC758 \uC2DC\uCD08\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
     \uC5D0\uD53C\uCFE0\uB85C\uC2A4\uB294 \uC0AC\uB78C\uC758 \uC695\uB9DD\uC744 \u2018\uD544\uC218\uC801\uC778
-    \uC695\uB9DD\u2019, \u2018\uD544\uC218\uC801\uC774\uC9C0 \uC54A\uC740\n    \uC695\uB9DD\u2019,
-    \u2018\uACF5\uD5C8\uD55C \uC695\uB9DD\u2019\uC73C\uB85C \uB098\uB204\uC5B4 \uC124\uBA85\uD588\uB2E4.\r\n\n\u25B6
+    \uC695\uB9DD\u2019,\n    \u2018\uD544\uC218\uC801\uC774\uC9C0 \uC54A\uC740\uC695\uB9DD\u2019,
+    \u2018\uACF5\uD5C8\uD55C \uC695\uB9DD\u2019\uC73C\uB85C \uB098\uB204\uC5B4 \uC124\uBA85\uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
     \uADF8\uB294 \uBD88\uD544\uC694\uD55C \uC695\uB9DD\uC744 \uCD94\uAD6C\uD558\uB294
     \uC0AC\uB78C\uC740 \uBD88\uD589\uACFC \uACE0\uD1B5\uC5D0 \uBE60\uC9C0\uAC8C\n   
     \uB41C\uB2E4\uACE0 \uC0DD\uAC01\uD588\uB2E4. \uBC18\uB300\uB85C \u2018\uD544\uC218\uC801\uC778
     \uC695\uB9DD\u2019\uB9CC\uC744 \uCD94\uAD6C\uD558\uB294 \uC0AC\uB78C\uC740\n   
     \uC695\uB9DD\uC5D0 \uD718\uB458\uB9AC\uC9C0 \uC54A\uACE0 \uACE0\uD1B5 \uC5C6\uB294
     \uC0C1\uD0DC\uC778 \u2018\uC544\uD0C0\uB77D\uC2DC\uC544\u2019\uC5D0 \uC774\uB97C
-    \uC218\n    \uC788\uB2E4\uACE0 \uC8FC\uC7A5\uD588\uB2E4.\r\n\n\u25B6 \uC5D0\uD53C\uCFE0\uB85C\uC2A4\uB294
-    \uC790\uC2E0\uC758 \uC774\uC0C1\uC744 \uC2E4\uD604\uD558\uAE30 \uC704\uD574 \uB2E4\uC591\uD55C
-    \uC0AC\uB78C\uB4E4\uACFC\n    \uD568\uAED8\uD558\uB294 \uCCA0\uD559 \uACF5\uB3D9\uCCB4\uB97C
-    \uB9CC\uB4E4\uC5C8\uC73C\uBA70, \uC18C\uBC15\uD55C \uC740\uAC70 \uC0DD\uD65C\uC744
-    \uD588\uB2E4."
+    \uC218\n    \uC788\uB2E4\uACE0 \uC8FC\uC7A5\uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
+    \uC5D0\uD53C\uCFE0\uB85C\uC2A4\uB294 \uC790\uC2E0\uC758 \uC774\uC0C1\uC744 \uC2E4\uD604\uD558\uAE30
+    \uC704\uD574 \uB2E4\uC591\uD55C \uC0AC\uB78C\uB4E4\uACFC\n    \uD568\uAED8\uD558\uB294
+    \uCCA0\uD559 \uACF5\uB3D9\uCCB4\uB97C \uB9CC\uB4E4\uC5C8\uC73C\uBA70, \uC18C\uBC15\uD55C
+    \uC740\uAC70 \uC0DD\uD65C\uC744 \uD588\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -11843,8 +11868,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12118,7 +12143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: -420}
+  m_AnchoredPosition: {x: 400, y: -420}
   m_SizeDelta: {x: 340, y: 80}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &671591102
@@ -12280,7 +12305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -30}
+  m_AnchoredPosition: {x: 197, y: -43}
   m_SizeDelta: {x: 750, y: 740}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &676317597
@@ -13294,7 +13319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6<b> \uC774\uB984:</b> \uC18C\uD53C\uC2A4\uD2B8"
+  m_text: "\u25B6<b> \uC774\uB984:</b> <color=#000>\uC18C\uD53C\uC2A4\uD2B8</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -13303,8 +13328,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13447,7 +13472,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: -420}
+  m_AnchoredPosition: {x: 400, y: -420}
   m_SizeDelta: {x: 340, y: 80}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &782531785
@@ -13567,7 +13592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -95.21814, y: -164}
+  m_AnchoredPosition: {x: -95.21814, y: -166.8}
   m_SizeDelta: {x: 815.7818, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &791628193
@@ -13590,29 +13615,30 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6 \uC0AC\uBAA8\uC2A4 \uC12C \uCD9C\uC2E0\uC758 \uC218\uD559\uC790\uC774\uC790
-    \uCCA0\uD559\uC790. \uD53C\uD0C0\uACE0\uB77C\uC2A4 \uD559\uD30C\uB97C \uC138\uC6CC\n   
-    \uC0AC\uB78C\uB4E4\uC5D0\uAC8C \uC218\uD559, \uCCA0\uD559 \uB4F1\uC744 \uAC00\uB974\uCCE4\uB2E4.
-    \uC774 \uD559\uD30C\uC758 \uC0C1\uC9D5 \uB9C8\uD06C\uB294\n    \uC624\uAC01\uD615,
-    \uBCC4\uC774 \uADF8\uB824\uC9C4 \uC624\uAC01\uD615\uC774\uC5C8\uB2E4\uACE0 \uD55C\uB2E4.\r\n\n\u25B6
+  m_text: "<color=#431900>\u25B6</color=#431900> \uC0AC\uBAA8\uC2A4 \uC12C \uCD9C\uC2E0\uC758
+    \uC218\uD559\uC790\uC774\uC790 \uCCA0\uD559\uC790. \uD53C\uD0C0\uACE0\uB77C\uC2A4
+    \uD559\uD30C\uB97C \uC138\uC6CC\n    \uC0AC\uB78C\uB4E4\uC5D0\uAC8C \uC218\uD559,
+    \uCCA0\uD559 \uB4F1\uC744 \uAC00\uB974\uCCE4\uB2E4. \uC774 \uD559\uD30C\uC758
+    \uC0C1\uC9D5 \uB9C8\uD06C\uB294\n    \uC624\uAC01\uD615, \uBCC4\uC774 \uADF8\uB824\uC9C4
+    \uC624\uAC01\uD615\uC774\uC5C8\uB2E4\uACE0 \uD55C\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
     \uC774\uB4E4\uC740 \uC138\uC0C1\uC758 \uADFC\uC6D0\uC774 \uC790\uC5F0\uC218\uB85C
     \uC774\uB8E8\uC5B4\uC838 \uC788\uB2E4\uACE0 \uC0DD\uAC01\uD588\uACE0\n    \uC218\uC758
     \uC870\uD654\uAC00 \uAC74\uAC15, \uC544\uB984\uB2E4\uC6C0 \uB4F1\uACFC \uC9C1\uACB0\uB418\uC5B4
     \uC788\uB2E4\uACE0 \uC0DD\uAC01\uD588\uB2E4.\n    \uD53C\uD0C0\uACE0\uB77C\uC2A4\uB294
     \uC218\uC758 \uBE44\uB840\uB97C \uC774\uC6A9\uD574 \uC6B0\uC8FC\uB97C \uC774\uD574\uD558\uB824
-    \uD588\uB2E4.\r\n\n\u25B6 \uCF54\uC2A4\uBAA8\uC2A4(Cosmos)\uB77C\uB294 \uB2E8\uC5B4\uB97C
-    \uAC00\uC7A5 \uBA3C\uC800 \uC0AC\uC6A9\uD55C \uCCA0\uD559\uC790\uC774\uC790\n   
+    \uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900> \uCF54\uC2A4\uBAA8\uC2A4(Cosmos)\uB77C\uB294
+    \uB2E8\uC5B4\uB97C \uAC00\uC7A5 \uBA3C\uC800 \uC0AC\uC6A9\uD55C \uCCA0\uD559\uC790\uC774\uC790\n   
     \uBC30\uC74C\uC758 \uC6D0\uB9AC\uB97C \uBC1C\uACAC\uD574\uB0B8 \uC0AC\uB78C\uC73C\uB85C
     \uC720\uBA85\uD558\uB2E4. \uD53C\uD0C0\uACE0\uB77C\uC2A4\uC758 \uC815\uB9AC\n   
     (a\xB2+b\xB2=c\xB2)\uB97C \uBC1C\uACAC\uD574\uB0B8 \uAC83\uC73C\uB85C\uB3C4 \uC720\uBA85\uD558\uC9C0\uB9CC
     \uC774\uB294 \uD53C\uD0C0\uACE0\uB77C\uC2A4\uAC00\n    \uBC1C\uACAC\uD588\uB2E4\uB294
-    \uBA85\uD655\uD55C \uC99D\uAC70\uB294 \uC5C6\uB2E4.\r\n\n\u25B6 \uD53C\uD0C0\uACE0\uB77C\uC2A4
-    \uD559\uD30C\uB294 \uBE44\uBC00 \uC5C4\uC218\uB97C \uC911\uC694\uD558\uAC8C \uC5EC\uACBC\uAE30
-    \uB54C\uBB38\uC5D0,\n    \uD53C\uD0C0\uACE0\uB77C\uC2A4\uC758 \uC815\uD655\uD55C
-    \uC0DD\uC560\uC640 \uC0AC\uC0C1\uC740 \uBD88\uBD84\uBA85\uD558\uB2E4. \uBC18\uB300\uD30C
-    \uC0AC\uB78C\uB4E4\uC5D0\n    \uC758\uD574 \uD559\uD30C\uAC00 \uD574\uCCB4\uB418\uACE0
-    \uC0B4\uB358 \uB3C4\uC2DC\uC5D0\uC11C \uCAD3\uACA8\uB098\uAC70\uB098 \uC0B4\uD574\uB418\uC5C8\uB2E4\uB294
-    \uB4F1,\n    \uD53C\uD0C0\uACE0\uB77C\uC2A4\uC758 \uB9D0\uB144\uC5D0 \uB300\uD574\uC120
+    \uBA85\uD655\uD55C \uC99D\uAC70\uB294 \uC5C6\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
+    \uD53C\uD0C0\uACE0\uB77C\uC2A4 \uD559\uD30C\uB294 \uBE44\uBC00 \uC5C4\uC218\uB97C
+    \uC911\uC694\uD558\uAC8C \uC5EC\uACBC\uAE30 \uB54C\uBB38\uC5D0,\n    \uD53C\uD0C0\uACE0\uB77C\uC2A4\uC758
+    \uC815\uD655\uD55C \uC0DD\uC560\uC640 \uC0AC\uC0C1\uC740 \uBD88\uBD84\uBA85\uD558\uB2E4.\n   
+    \uBC18\uB300\uD30C \uC0AC\uB78C\uB4E4\uC5D0 \uC758\uD574 \uD559\uD30C\uAC00 \uD574\uCCB4\uB418\uACE0
+    \uC0B4\uB358 \uB3C4\uC2DC\uC5D0\uC11C \uCAD3\uACA8\uB098\uAC70\uB098\n    \uC0B4\uD574\uB418\uC5C8\uB2E4\uB294
+    \uB4F1, \uD53C\uD0C0\uACE0\uB77C\uC2A4\uC758 \uB9D0\uB144\uC5D0 \uB300\uD574\uC120
     \uB9CE\uC740 \uC18C\uBB38\uC774 \uC788\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -13622,8 +13648,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13883,8 +13909,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6<b> \uC774\uB984:</b> \uD0A4\uD2F0\uC6C0\uC758 \uC81C\uB17C\n\u25B6<b>
-    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> B.C. 335? ~ B.C. 263?"
+  m_text: "\u25B6<b> \uC774\uB984:</b> <color=#000>\uD0A4\uD2F0\uC6C0\uC758 \uC81C\uB17C</color=#000>\n\u25B6<b>
+    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> <color=#000>B.C. 335? ~ B.C. 263?</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -13893,8 +13919,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -14095,8 +14121,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6<b> \uC774\uB984:</b> \uC544\uB974\uD0A4\uBA54\uB370\uC2A4\n\u25B6<b>
-    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> B.C. 287? ~ B.C. 212"
+  m_text: "\u25B6<b> \uC774\uB984:</b> <color=#000>\uC544\uB974\uD0A4\uBA54\uB370\uC2A4</color=#000>\n\u25B6<b>
+    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> <color=#000>B.C. 287? ~ B.C. 212</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -14105,8 +14131,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -14253,7 +14279,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -30}
+  m_AnchoredPosition: {x: 197, y: -43}
   m_SizeDelta: {x: 750, y: 740}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &833178126
@@ -14546,7 +14572,7 @@ RectTransform:
   m_GameObject: {fileID: 861037735}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1215069162}
@@ -14554,7 +14580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -136}
+  m_AnchoredPosition: {x: 0, y: -61.6}
   m_SizeDelta: {x: 469.9858, y: 703.6545}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &861037737
@@ -14608,6 +14634,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 868352994}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!1 &864061394
 GameObject:
   m_ObjectHideFlags: 0
@@ -14646,7 +14674,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -30}
+  m_AnchoredPosition: {x: 197, y: -43}
   m_SizeDelta: {x: 750, y: 740}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &864061396
@@ -14758,8 +14786,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6<b> \uC774\uB984:</b> \uD504\uB85C\uD0C0\uACE0\uB77C\uC2A4\n\u25B6<b>
-    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> B.C. 485? ~ B.C. 414?"
+  m_text: "\u25B6<b> \uC774\uB984:</b> <color=#000>\uD504\uB85C\uD0C0\uACE0\uB77C\uC2A4</color=#000>\n\u25B6<b>
+    \uCD9C\uC0DD & \uC0AC\uB9DD:</b><color=#000> B.C. 485? ~ B.C. 414?</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -14768,8 +14796,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -15355,6 +15383,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1845275813}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!114 &893778380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15757,7 +15787,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: -420}
+  m_AnchoredPosition: {x: 400, y: -420}
   m_SizeDelta: {x: 340, y: 80}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &921615108
@@ -16193,7 +16223,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -30}
+  m_AnchoredPosition: {x: 197, y: -43}
   m_SizeDelta: {x: 750, y: 740}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &932460101
@@ -16358,7 +16388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -55.352295, y: -185}
+  m_AnchoredPosition: {x: -55.352295, y: -166.8}
   m_SizeDelta: {x: 855.6478, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &940482180
@@ -16381,28 +16411,29 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6 \uC2DC\uCE60\uB9AC\uC544\uC758 \uC2DC\uB77C\uCFE0\uC0AC \uCD9C\uC2E0\uC73C\uB85C,
-    \uBC1C\uBA85\uAC00\uC774\uC790 \uAE30\uC220\uC790, \uBB3C\uB9AC\uD559\uC790,\n   
-    \uC218\uD559\uC790\uB2E4.\r\n\n\u25B6 \u2018\uBB3C\uC18D\uC5D0 \uBB3C\uCCB4\uB97C
-    \uB2F4\uADF8\uBA74 \uBB3C\uC774 \uBB3C\uCCB4\uC758 \uBD80\uD53C\uB9CC\uD07C \uD758\uB7EC\uB118\uCE58\uACE0,
-    \uD758\uB7EC\uB118\uCE5C\n    \uBB3C\uC758 \uBB34\uAC8C\uB9CC\uD07C \uBB3C\uCCB4\uAC00
-    \uAC00\uBCBC\uC6CC\uC9C4\uB2E4\u2019\uB294 \uC544\uB974\uD0A4\uBA54\uB370\uC2A4\uC758
-    \uC6D0\uB9AC\uB97C \uBC1C\uACAC\n    \uD588\uB2E4.\r\n\n\u25B6 \uC2DC\uB77C\uCFE0\uC0AC\uC758
-    \uC655 \uD788\uC5D0\uB860\uC758 \uBA85\uB839\uC73C\uB85C \u2018\uC655\uC758 \uAE08\uAD00\uC774
-    \uC628\uC804\uD788 \uAE08\uC73C\uB85C\uB9CC\n    \uC774\uB8E8\uC5B4\uC838 \uC788\uB294\uC9C0\u2019\uB97C
-    \uD310\uBCC4\uD560 \uBC29\uBC95\uC744 \uCC3E\uB2E4\uAC00, \uBAA9\uC695\uD0D5\uC5D0
-    \uBAB8\uC744 \uB2F4\uADFC \uAC83\uC744\n    \uACC4\uAE30\uB85C \u2018\uC544\uB974\uD0A4\uBA54\uB370\uC2A4\uC758
-    \uC6D0\uB9AC\u2019\uB97C \uBC1C\uACAC\uD558\uACE0 \uBC8C\uAC70\uBC97\uC740 \uBAB8\uC73C\uB85C
-    \uAC70\uB9AC\uB85C\n    \uB6F0\uCCD0\uB098\uC640 \u201C\uC720\uB808\uCE74(\uC54C\uC544\uB0C8\uB2E4)\u201D\uB77C\uACE0
-    \uC678\uCE5C \uC77C\uD654\uAC00 \uC720\uBA85\uD558\uB2E4.\r\n\n\u25B6 \uC6D0\uC5D0
-    \uB0B4\uC811\uD558\uB294 \uB2E4\uAC01\uD615\uACFC \uC678\uC811\uD558\uB294 \uB2E4\uAC01\uD615\uC758
-    \uB458\uB808\uB97C \uACC4\uC0B0\uD558\uB294 \uBC29\uC2DD\n    \uC73C\uB85C \uC6D0\uC8FC\uC728(\u03C0)\uC758
-    \uAC12\uC744 \uC54C\uC544\uB0B4\uB824 \uD588\uB358 \uAC83\uC73C\uB85C\uB3C4 \uC720\uBA85\uD558\uB2E4.
-    \uB85C\uB9C8\uC640\uC758\n    \uC804\uC7C1\uC73C\uB85C \uC8FD\uAE30 \uC9C1\uC804\uAE4C\uC9C0\uB3C4
-    \uC6D0\uC8FC\uC728\uC744 \uACC4\uC0B0\uD558\uACE0 \uC788\uC5C8\uB358 \uAC83\uC73C\uB85C
-    \uCD94\uC815\n    \uB41C\uB2E4. \u201C\uB0B4 \uC6D0\uC744 \uBC29\uD574\uD558\uC9C0
-    \uB9D0\uB77C\u201D\uB77C\uB294 \uB9D0\uC744 \uB0A8\uAE30\uACE0 \uC0AC\uB9DD\uD588\uB2E4\uACE0
-    \uC804\uD574\uC9C4\uB2E4."
+  m_text: "<color=#431900>\u25B6</color=#431900> \uC2DC\uCE60\uB9AC\uC544\uC758 \uC2DC\uB77C\uCFE0\uC0AC
+    \uCD9C\uC2E0\uC73C\uB85C,\n    \uBC1C\uBA85\uAC00\uC774\uC790 \uAE30\uC220\uC790,
+    \uBB3C\uB9AC\uD559\uC790, \uC218\uD559\uC790\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
+    \u2018\uBB3C\uC18D\uC5D0 \uBB3C\uCCB4\uB97C \uB2F4\uADF8\uBA74 \uBB3C\uC774 \uBB3C\uCCB4\uC758
+    \uBD80\uD53C\uB9CC\uD07C \uD758\uB7EC\uB118\uCE58\uACE0,\n    \uD758\uB7EC\uB118\uCE5C
+    \uBB3C\uC758 \uBB34\uAC8C\uB9CC\uD07C \uBB3C\uCCB4\uAC00 \uAC00\uBCBC\uC6CC\uC9C4\uB2E4\u2019\uB294\n   
+    \uC544\uB974\uD0A4\uBA54\uB370\uC2A4\uC758 \uC6D0\uB9AC\uB97C \uBC1C\uACAC\uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
+    \uC2DC\uB77C\uCFE0\uC0AC\uC758 \uC655 \uD788\uC5D0\uB860\uC758 \uBA85\uB839\uC73C\uB85C
+    \u2018\uC655\uC758 \uAE08\uAD00\uC774 \uC628\uC804\uD788 \uAE08\uC73C\uB85C\uB9CC\n   
+    \uC774\uB8E8\uC5B4\uC838 \uC788\uB294\uC9C0\u2019\uB97C \uD310\uBCC4\uD560 \uBC29\uBC95\uC744
+    \uCC3E\uB2E4\uAC00, \uBAA9\uC695\uD0D5\uC5D0 \uBAB8\uC744 \uB2F4\uADFC \uAC83\uC744\n   
+    \uACC4\uAE30\uB85C \u2018\uC544\uB974\uD0A4\uBA54\uB370\uC2A4\uC758 \uC6D0\uB9AC\u2019\uB97C
+    \uBC1C\uACAC\uD558\uACE0 \uBC8C\uAC70\uBC97\uC740 \uBAB8\uC73C\uB85C \uAC70\uB9AC\uB85C\n   
+    \uB6F0\uCCD0\uB098\uC640 \u201C\uC720\uB808\uCE74(\uC54C\uC544\uB0C8\uB2E4)\u201D\uB77C\uACE0
+    \uC678\uCE5C \uC77C\uD654\uAC00 \uC720\uBA85\uD558\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
+    \uC6D0\uC5D0 \uB0B4\uC811\uD558\uB294 \uB2E4\uAC01\uD615\uACFC \uC678\uC811\uD558\uB294
+    \uB2E4\uAC01\uD615\uC758 \uB458\uB808\uB97C \uACC4\uC0B0\uD558\uB294\n    \uBC29\uC2DD\uC73C\uB85C
+    \uC6D0\uC8FC\uC728(\u03C0)\uC758 \uAC12\uC744 \uC54C\uC544\uB0B4\uB824 \uD588\uB358
+    \uAC83\uC73C\uB85C\uB3C4 \uC720\uBA85\uD558\uB2E4.\n    \uB85C\uB9C8\uC640\uC758
+    \uC804\uC7C1\uC73C\uB85C \uC8FD\uAE30 \uC9C1\uC804\uAE4C\uC9C0\uB3C4 \uC6D0\uC8FC\uC728\uC744\n   
+    \uACC4\uC0B0\uD558\uACE0 \uC788\uC5C8\uB358 \uAC83\uC73C\uB85C \uCD94\uC815\uB41C\uB2E4.\n   
+    \u201C\uB0B4 \uC6D0\uC744 \uBC29\uD574\uD558\uC9C0 \uB9D0\uB77C\u201D\uB77C\uB294
+    \uB9D0\uC744 \uB0A8\uAE30\uACE0 \uC0AC\uB9DD\uD588\uB2E4\uACE0 \uC804\uD574\uC9C4\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -16411,8 +16442,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16532,6 +16563,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 478483312}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &942445308
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16729,6 +16762,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1344618002}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!114 &943581473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16952,6 +16987,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1344618002}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &945766128
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17450,8 +17487,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 44
+  m_fontSizeBase: 44
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -17554,6 +17591,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1571474821}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!114 &960566868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17686,7 +17725,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -30}
+  m_AnchoredPosition: {x: 197, y: -43}
   m_SizeDelta: {x: 750, y: 740}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &972297705
@@ -18162,8 +18201,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6<b> \uC774\uB984:</b> \uD0C8\uB808\uC2A4\n\u25B6<b> \uCD9C\uC0DD
-    & \uC0AC\uB9DD:</b> B.C. 624? ~ B.C. 545?"
+  m_text: "\u25B6<b> \uC774\uB984:</b> <color=#000>\uD0C8\uB808\uC2A4</color=#000>\n\u25B6<b>
+    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> <color=#000>B.C. 624? ~ B.C. 545?</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -18172,8 +18211,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -18565,7 +18604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -30}
+  m_AnchoredPosition: {x: 197, y: -43}
   m_SizeDelta: {x: 750, y: 740}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1006347179
@@ -18983,8 +19022,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6<b> \uC774\uB984:</b> \uD50C\uB77C\uD1A4\n\u25B6<b> \uCD9C\uC0DD
-    & \uC0AC\uB9DD:</b> B.C. 427? ~ B.C. 347?"
+  m_text: "\u25B6<b> \uC774\uB984:</b> <color=#000>\uD50C\uB77C\uD1A4</color=#000>\n\u25B6<b>
+    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> <color=#000>B.C. 427? ~ B.C. 347?</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -18993,8 +19032,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -19119,8 +19158,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6<b> \uC774\uB984:</b> \uC18C\uD06C\uB77C\uD14C\uC2A4\n\u25B6<b>
-    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> B.C. 470? ~ B.C. 399"
+  m_text: "\u25B6<b> \uC774\uB984:</b> <color=#000>\uC18C\uD06C\uB77C\uD14C\uC2A4</color=#000>\n\u25B6<b>
+    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> <color=#000>B.C. 470? ~ B.C. 399</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -19129,8 +19168,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -19340,7 +19379,7 @@ RectTransform:
   m_GameObject: {fileID: 1036362279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 661315143}
@@ -19348,7 +19387,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.000045776, y: -26}
+  m_AnchoredPosition: {x: 0.000045776, y: 0.6000061}
   m_SizeDelta: {x: 417.008, y: 591.5925}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1036362281
@@ -19712,6 +19751,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 868352994}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!114 &1049522190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20888,7 +20929,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: -420}
+  m_AnchoredPosition: {x: 400, y: -420}
   m_SizeDelta: {x: 340, y: 80}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1153199225
@@ -21087,7 +21128,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: -420}
+  m_AnchoredPosition: {x: 400, y: -420}
   m_SizeDelta: {x: 340, y: 80}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1157442186
@@ -21437,6 +21478,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1571474821}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &1165351168
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21760,7 +21803,7 @@ RectTransform:
   m_GameObject: {fileID: 1183386091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 977183989}
@@ -21768,7 +21811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.0000019073, y: 0}
+  m_AnchoredPosition: {x: 0.0000019073, y: -35.7}
   m_SizeDelta: {x: 283.9199, y: 551.5013}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1183386093
@@ -21985,6 +22028,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1790779729}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!114 &1196188563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22596,7 +22641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -106.983154, y: -176}
+  m_AnchoredPosition: {x: -106.983154, y: -137}
   m_SizeDelta: {x: 804.0168, y: 630}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1243393708
@@ -22619,27 +22664,27 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6 \uC5D0\uD53C\uCFE0\uB85C\uC2A4 \uD559\uD30C\uB294 \uCF8C\uB77D\uC8FC\uC758
-    \uD559\uD30C\uB85C\uB3C4 \uBD88\uB9B0\uB2E4.\r\n\n\u25B6 \uC0AC\uD68C\uC801 \uC815\uC758\uBCF4\uB2E4
-    \uAC1C\uAC1C\uC778\uC758 \uCF8C\uB77D\uC744 \uC911\uC2DC\uD55C \uC774\uB4E4\uC740
-    \uC808\uC81C\uB41C \uCF8C\uB77D\uC744\n    \uD1B5\uD574 \uC778\uC0DD\uC758 \uD589\uBCF5\uACFC
-    \u2018\uC544\uD0C0\uB77D\uC2DC\uC544(\uB9C8\uC74C\uC758 \uC548\uC815)\u2019\uB97C
-    \uC5BB\uC744 \uC218 \uC788\uB2E4\uACE0\n    \uC0DD\uAC01\uD588\uB2E4. \uC774\uB4E4\uC740
-    \uC18C\uBC15\uD55C \uC758\uC2DD\uC8FC\uC640 \uCCA0\uD559\uC801\uC778 \uC6B0\uC815\uC758
-    \uAD50\uB958 \uB4F1\n    \uC0AC\uB78C\uC774 \uC0B4\uC544\uAC00\uB294\uB370 \u2018\uD544\uC218\uC801\uC778\u2019
-    \uC695\uB9DD\uB9CC\uC744 \uCD94\uAD6C\uD558\uACE0 \uADF8\uC5D0 \uB9CC\uC871\uD558\uB294\n   
-    \uD589\uC704\uB85C \uCF8C\uB77D\uC744 \uC5BB\uACE0\uC790 \uD588\uB2E4.\r\n\n\u25B6
-    \uC5D0\uD53C\uCFE0\uB85C\uC2A4 \uD559\uD30C\uB294 \uC885\uAD50\uC801 \uACF5\uD3EC\uC640
-    \uC8FD\uC74C\uC758 \uACF5\uD3EC\uC5D0\uC11C \uBC97\uC5B4\uB098 \uD3C9\uC628\n   
-    \uD558\uACE0 \uC990\uAC70\uC6B4, \uD589\uBCF5\uD55C \uB9C8\uC74C\uC744 \uC720\uC9C0\uD558\uB294
-    \uAC83\uC744 \uC911\uC694\uD788 \uC5EC\uAE30\uAE30\uB3C4 \uD588\uB2E4.\r\n\n\u25B6
-    \uC5D0\uD53C\uCFE0\uB85C\uC2A4 \uD559\uD30C\uC758 \uC8FC\uC694 \uC778\uBB3C\uB85C\uB294
-    \uCCA0\uD559\uC790 \uB8E8\uD06C\uB808\uD2F0\uC6B0\uC2A4\uAC00 \uC788\uB2E4.\n   
-    (\uC6D0\uC790\uC758 \uC6B0\uC5F0\uD55C \uADA4\uB3C4 \uC774\uD0C8\uACFC \uADF8\uB85C
-    \uC778\uD55C \uC6D0\uC790\uC758 \uCDA9\uB3CC \xB7 \uACB0\uD569\uC73C\uB85C\n   
+  m_text: "\u25B6 <color=#000>\uC5D0\uD53C\uCFE0\uB85C\uC2A4 \uD559\uD30C\uB294 \uCF8C\uB77D\uC8FC\uC758
+    \uD559\uD30C\uB85C\uB3C4 \uBD88\uB9B0\uB2E4.\r</color=#000>\n\n\u25B6 <color=#000>\uC0AC\uD68C\uC801
+    \uC815\uC758\uBCF4\uB2E4 \uAC1C\uAC1C\uC778\uC758 \uCF8C\uB77D\uC744 \uC911\uC2DC\uD55C
+    \uC774\uB4E4\uC740 \uC808\uC81C\uB41C\n    \uCF8C\uB77D\uC744 \uD1B5\uD574 \uC778\uC0DD\uC758
+    \uD589\uBCF5\uACFC \u2018\uC544\uD0C0\uB77D\uC2DC\uC544(\uB9C8\uC74C\uC758 \uC548\uC815)\u2019\uB97C\n   
+    \uC5BB\uC744 \uC218 \uC788\uB2E4\uACE0 \uC0DD\uAC01\uD588\uB2E4. \uC774\uB4E4\uC740
+    \uC18C\uBC15\uD55C \uC758\uC2DD\uC8FC\uC640 \uCCA0\uD559\uC801\uC778\n    \uC6B0\uC815\uC758
+    \uAD50\uB958 \uB4F1 \uC0AC\uB78C\uC774 \uC0B4\uC544\uAC00\uB294\uB370 \u2018\uD544\uC218\uC801\uC778\u2019
+    \uC695\uB9DD\uB9CC\uC744 \uCD94\uAD6C\uD558\uACE0\n    \uADF8\uC5D0 \uB9CC\uC871\uD558\uB294
+    \uD589\uC704\uB85C \uCF8C\uB77D\uC744 \uC5BB\uACE0\uC790 \uD588\uB2E4.\r</color=#000>\n\n\u25B6
+    <color=#000>\uC5D0\uD53C\uCFE0\uB85C\uC2A4 \uD559\uD30C\uB294 \uC885\uAD50\uC801
+    \uACF5\uD3EC\uC640 \uC8FD\uC74C\uC758 \uACF5\uD3EC\uC5D0\uC11C \uBC97\uC5B4\uB098\n   
+    \uD3C9\uC628\uD558\uACE0 \uC990\uAC70\uC6B4, \uD589\uBCF5\uD55C \uB9C8\uC74C\uC744
+    \uC720\uC9C0\uD558\uB294 \uAC83\uC744 \n    \uC911\uC694\uD788 \uC5EC\uAE30\uAE30\uB3C4
+    \uD588\uB2E4.\r</color=#000>\n\n\u25B6 <color=#000>\uC5D0\uD53C\uCFE0\uB85C\uC2A4
+    \uD559\uD30C\uC758 \uC8FC\uC694 \uC778\uBB3C\uB85C\uB294 \uCCA0\uD559\uC790 \uB8E8\uD06C\uB808\uD2F0\uC6B0\uC2A4\uAC00
+    \uC788\uB2E4.\n    (\uC6D0\uC790\uC758 \uC6B0\uC5F0\uD55C \uADA4\uB3C4 \uC774\uD0C8\uACFC
+    \uADF8\uB85C \uC778\uD55C \uC6D0\uC790\uC758 \uCDA9\uB3CC \xB7 \uACB0\uD569\uC73C\uB85C\n   
     \uC778\uD574 \uC138\uACC4\uAC00 \uC2DC\uC791\uB418\uC5C8\uB2E4\uACE0 \uC8FC\uC7A5\uD55C
     \uCCA0\uD559\uC790. \uB8E8\uD06C\uB808\uD2F0\uC6B0\uC2A4\uB294\n    \uC5D0\uD53C\uCFE0\uB85C\uC2A4\uC758
-    \uCD94\uC885\uC790\uC600\uB2E4.)"
+    \uCD94\uC885\uC790\uC600\uB2E4.)<color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -22648,8 +22693,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -22769,6 +22814,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1790779729}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &1244252510
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22939,7 +22986,7 @@ RectTransform:
   m_GameObject: {fileID: 1259472736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1485377627}
@@ -22947,7 +22994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.54626, y: 0}
+  m_AnchoredPosition: {x: -0.54626, y: -17.4}
   m_SizeDelta: {x: 364.6074, y: 557.6365}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1259472738
@@ -23462,6 +23509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1692602199}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!114 &1335103043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23583,7 +23632,7 @@ RectTransform:
   m_GameObject: {fileID: 1336319096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 267901963}
@@ -23591,7 +23640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.000031948, y: -134}
+  m_AnchoredPosition: {x: 0.000031948, y: -70.9}
   m_SizeDelta: {x: 404.5726, y: 713.3458}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1336319098
@@ -23801,6 +23850,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 245394585}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!114 &1358259351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24162,7 +24213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -30}
+  m_AnchoredPosition: {x: 197, y: -43}
   m_SizeDelta: {x: 750, y: 740}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1391751100
@@ -24269,6 +24320,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 97685999}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &1394906759
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24450,7 +24503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -30}
+  m_AnchoredPosition: {x: 197, y: -43}
   m_SizeDelta: {x: 750, y: 740}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1417211730
@@ -25011,8 +25064,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -25250,6 +25303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1523331543}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!114 &1440027472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25402,8 +25457,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6<b> \uC774\uB984:</b> \uC5D0\uD53C\uCFE0\uB85C\uC2A4 \uD559\uD30C
-    \uCCA0\uD559\uC790"
+  m_text: "\u25B6<b> \uC774\uB984:</b> <color=#000>\uC5D0\uD53C\uCFE0\uB85C\uC2A4
+    \uD559\uD30C \uCCA0\uD559\uC790</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -25412,8 +25467,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -25830,7 +25885,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -30}
+  m_AnchoredPosition: {x: 197, y: -43}
   m_SizeDelta: {x: 750, y: 740}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1454961363
@@ -26217,7 +26272,7 @@ RectTransform:
   m_GameObject: {fileID: 1489262257}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 181125654}
@@ -26225,7 +26280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.00003624, y: -47}
+  m_AnchoredPosition: {x: 0.00003624, y: 1.0700073}
   m_SizeDelta: {x: 528.6115, y: 620.8475}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1489262259
@@ -26571,7 +26626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -103.97693, y: -185}
+  m_AnchoredPosition: {x: -103.97693, y: -166.8}
   m_SizeDelta: {x: 807.0231, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1503365840
@@ -26594,26 +26649,27 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6 \uD50C\uB77C\uD1A4\uC758 \uC81C\uC790\uC774\uC790 \uC54C\uB809\uC0B0\uB354
-    \uB300\uC655\uC758 \uC655\uC790 \uC2DC\uC808 \uC2A4\uC2B9\uC774\uC5C8\uB2E4.\r\n\n\u25B6
+  m_text: "<color=#431900>\u25B6</color=#431900> \uD50C\uB77C\uD1A4\uC758 \uC81C\uC790\uC774\uC790
+    \uC54C\uB809\uC0B0\uB354 \uB300\uC655\uC758 \uC655\uC790 \uC2DC\uC808 \uC2A4\uC2B9\uC774\uC5C8\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
     \uD50C\uB77C\uD1A4\uC758 \uAD00\uB150\uB860\uC778 \uC774\uB370\uC544\uC640 \uCCA0\uC778
     \uD1B5\uCE58\uB97C \uBE44\uD310\uD588\uB2E4. \uADF8\uB294 \uC138\uC0C1\uC774\n   
     \uC218\uB9CE\uC740 \uC2E4\uCCB4\uB4E4\uB85C \uC774\uB904\uC9C4 \uB2E8 \uD558\uB098\uC758
     \uC138\uACC4\uB77C\uACE0 \uC0DD\uAC01\uD588\uB2E4. \u2018\uC120(\u5584)\u2019\uC740\n   
     \uC774\uB370\uC544\uB85C\uC11C \uC874\uC7AC\uD558\uB294 \uAC00\uCE58\uAC00 \uC544\uB2C8\uBA70,
     \uD604\uC2E4 \uC138\uACC4\uC5D0\uC11C \uC874\uC7AC\uD558\uACE0\n    \uC2E4\uD604\uB418\uC5B4\uC57C
-    \uD558\uB294 \uAC83\uC774\uB77C\uACE0 \uC0DD\uAC01\uD588\uB2E4.\r\n\n\u25B6 \uC544\uB9AC\uC2A4\uD1A0\uD154\uB808\uC2A4\uB294
-    \uCCA0\uD559\uC790\uC758 \uC815\uCE58\uC5D0 \uBD88\uC2E0\uC744 \uAC00\uC84C\uB2E4.
-    \uADF8\uB294 \uCCA0\uD559\uC801\n    \uC9C0\uD61C\uB97C \uC2E4\uCC9C\uC801 \uC9C0\uD61C\uB85C
-    \uBCF4\uC644\uD574\uC57C \uD55C\uB2E4\uACE0 \uC0DD\uAC01\uD588\uACE0, \uC785\uBC95
-    \uC804\uBB38\uAC00\uB97C\n    \uC591\uC131\uD574\uC57C \uD55C\uB2E4\uACE0 \uC8FC\uC7A5\uD588\uB2E4.\r\n\n\u25B6
+    \uD558\uB294 \uAC83\uC774\uB77C\uACE0 \uC0DD\uAC01\uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
+    \uC544\uB9AC\uC2A4\uD1A0\uD154\uB808\uC2A4\uB294 \uCCA0\uD559\uC790\uC758 \uC815\uCE58\uC5D0
+    \uBD88\uC2E0\uC744 \uAC00\uC84C\uB2E4.\n    \uADF8\uB294 \uCCA0\uD559\uC801 \uC9C0\uD61C\uB97C
+    \uC2E4\uCC9C\uC801 \uC9C0\uD61C\uB85C \uBCF4\uC644\uD574\uC57C \uD55C\uB2E4\uACE0
+    \uC0DD\uAC01\uD588\uACE0,\n    \uC785\uBC95 \uC804\uBB38\uAC00\uB97C \uC591\uC131\uD574\uC57C
+    \uD55C\uB2E4\uACE0 \uC8FC\uC7A5\uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
     \uC800\uC11C \u2018\uB2C8\uCF54\uB9C8\uCF54\uC2A4 \uC724\uB9AC\uD559\u2019\uC5D0\uC11C
     \uC778\uAC04\uC758 \uAD81\uADF9\uC801 \uBAA9\uC801\uC740 \uD589\uBCF5\uC774\uBA70,\n   
     \uADF8 \uD589\uBCF5\uC740 \uC774\uC131\uC744 \uD1B5\uD55C \uC911\uC6A9\uC5D0\uC11C
-    \uC624\uB294 \uAC83\uC774\uB77C\uACE0 \uC8FC\uC7A5\uD588\uB2E4.\r\n\n\u25B6 \uC778\uAC04\uC758
-    \uC774\uC131\uC774 \uD0C1\uC6D4\uD558\uAC8C \uBC1C\uD718\uB418\uB294 \uC0C1\uD0DC\uB97C
-    \u2018\uB355\u2019\uC774\uB77C\uACE0 \uADDC\uC815\uD588\uB2E4.\n    \uB355\uC758
-    \uC885\uB958\uB97C \u2018\uC9C0\uC131\uC801 \uB355\u2019\uACFC \u2018\uD488\uC131\uC801
+    \uC624\uB294 \uAC83\uC774\uB77C\uACE0 \uC8FC\uC7A5\uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
+    \uC778\uAC04\uC758 \uC774\uC131\uC774 \uD0C1\uC6D4\uD558\uAC8C \uBC1C\uD718\uB418\uB294
+    \uC0C1\uD0DC\uB97C \u2018\uB355\u2019\uC774\uB77C\uACE0 \uADDC\uC815\uD588\uB2E4.\n   
+    \uB355\uC758 \uC885\uB958\uB97C \u2018\uC9C0\uC131\uC801 \uB355\u2019\uACFC \u2018\uD488\uC131\uC801
     \uB355\u2019\uC73C\uB85C \uB098\uB220 \uC124\uBA85\uD588\uB2E4. \uB3D9\uC2DC\uC5D0\n   
     \uBAA8\uB4E0 \uB355\uC740 \uD6C4\uCC9C\uC801\uC73C\uB85C \uC5BB\uC5B4\uC9C0\uB294
     \uAC83\uC774\uB77C\uACE0 \uC8FC\uC7A5\uD588\uB2E4."
@@ -26625,8 +26681,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -26823,6 +26879,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1556123256}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!114 &1508173177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27242,8 +27300,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -46.06494}
+  m_SizeDelta: {x: 0, y: -92.12999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1520443508
 GameObject:
@@ -27939,7 +27997,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 02fa0c6f7df972846a7d6e98ea7f70c0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -28249,7 +28307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -30}
+  m_AnchoredPosition: {x: 197, y: -43}
   m_SizeDelta: {x: 750, y: 740}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1618992576
@@ -28416,7 +28474,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: -420}
+  m_AnchoredPosition: {x: 400, y: -420}
   m_SizeDelta: {x: 340, y: 80}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1625787459
@@ -28631,6 +28689,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 676224134}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!114 &1632779813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28778,6 +28838,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1523331543}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &1632950958
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28945,7 +29007,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD0A4\uD2F0\uC628\uC758 \uC81C\uB17C\n"
+  m_text: "\uD0A4\uD2F0\uC6C0\uC758 \uC81C\uB17C\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d20b01184961da3449453fa71bb62f9e, type: 2}
   m_sharedMaterial: {fileID: -8143311818084021667, guid: d20b01184961da3449453fa71bb62f9e, type: 2}
@@ -28972,8 +29034,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 43
+  m_fontSizeBase: 43
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -29363,6 +29425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1523331543}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &1650804338
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30581,6 +30645,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 868352994}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!1 &1766823214
 GameObject:
   m_ObjectHideFlags: 0
@@ -30770,7 +30836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: -420}
+  m_AnchoredPosition: {x: 400, y: -420}
   m_SizeDelta: {x: 340, y: 80}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1779142727
@@ -31357,8 +31423,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6<b> \uC774\uB984:</b> \uD53C\uD0C0\uACE0\uB77C\uC2A4\n\u25B6<b>
-    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> B.C. 570? ~ B.C. 490?"
+  m_text: "\u25B6<b> \uC774\uB984:</b> <color=#000>\uD53C\uD0C0\uACE0\uB77C\uC2A4</color=#000>\n\u25B6<b>
+    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> <color=#000>B.C. 570? ~ B.C. 490?</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -31367,8 +31433,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -31470,7 +31536,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -117.99072, y: -185}
+  m_AnchoredPosition: {x: -117.99072, y: -166.8}
   m_SizeDelta: {x: 793.0095, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1799575225
@@ -31493,21 +31559,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6 \uD2B8\uB77C\uD0A4\uC544\uC758 \uC544\uBE0C\uB370\uB77C\uC5D0\uC11C
+  m_text: "<color=#431900>\u25B6</color=#431900> \uD2B8\uB77C\uD0A4\uC544\uC758 \uC544\uBE0C\uB370\uB77C\uC5D0\uC11C
     \uD0DC\uC5B4\uB098 \uADF8\uB9AC\uC2A4 \uC804\uC5ED\uC5D0\uC11C \uD65C\uB3D9\uD558\uBA70\n   
     \uB9CE\uC740 \uC874\uACBD\uACFC \uBD80, \uBA85\uC608\uB97C \uB204\uB9B0 \uC18C\uD53C\uC2A4\uD2B8\uB2E4.
-    \uB17C\uBCC0\uC220\uACFC \uC124\uB4DD \uAE30\uC220\uC744\n    \uC911\uC694\uC2DC\uD588\uB2E4.\r\n\n\u25B6
+    \uB17C\uBCC0\uC220\uACFC \uC124\uB4DD \uAE30\uC220\uC744\n    \uC911\uC694\uC2DC\uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
     \u2018\uCD5C\uCD08\uC758 \uC18C\uD53C\uC2A4\uD2B8\u2019\uB85C \uBD88\uB9B0\uB2E4.
     \uD504\uB85C\uD0C0\uACE0\uB77C\uC2A4\uB294 \uAC1C\uAC1C\uC778\uC774 \uC9C4\uB9AC\uC758\n   
     \uCC99\uB3C4\uB77C\uB294 \uC0DD\uAC01\uC744 \uAC00\uC84C\uB2E4. \uD504\uB85C\uD0C0\uACE0\uB77C\uC2A4\uB294
     \u2018\uC808\uB300\uC801\uC778 \uC9C4\uB9AC\u2019\uB97C\n    \uD68C\uC758\uC801\uC778
-    \uD0DC\uB3C4\uB85C \uBC14\uB77C\uBD24\uB2E4.\r\n\n\u25B6 \uBBFC\uC8FC\uC801\uC778
-    \uB17C\uC758\uC640 \uD1A0\uC758\uB85C \uC5BB\uC5B4\uC9C0\uB294 \u2018\uACF5\uACF5\uC120(\uACF5\uACF5\uC758
-    \uC120)\u2019\uC744\n    \uC120\uD638\uD588\uC73C\uBA70, \uAC01\uAC01\uC758 \uACF5\uB3D9\uCCB4\uAC00
-    \uC790\uC2E0\uB4E4\uB9CC\uC758 \u2018\uACF5\uACF5\uC120\u2019\uC744 \uC2DC\uBBFC\uB4E4\uC5D0\uAC8C\n   
-    \uAC00\uB974\uCCD0\uC57C \uD55C\uB2E4\uACE0 \uC8FC\uC7A5\uD588\uB2E4. \uC774
-    \uB54C\uBB38\uC5D0 \u2018\uCD5C\uCD08\uC758 \uACF5\uB3D9\uCCB4\uC8FC\uC758\uC790\u2019\uB85C\n   
-    \uD3C9\uAC00\uBC1B\uAE30\uB3C4 \uD55C\uB2E4."
+    \uD0DC\uB3C4\uB85C \uBC14\uB77C\uBD24\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
+    \uBBFC\uC8FC\uC801\uC778 \uB17C\uC758\uC640 \uD1A0\uC758\uB85C \uC5BB\uC5B4\uC9C0\uB294
+    \u2018\uACF5\uACF5\uC120(\uACF5\uACF5\uC758 \uC120)\u2019\uC744\n    \uC120\uD638\uD588\uC73C\uBA70,
+    \uAC01\uAC01\uC758 \uACF5\uB3D9\uCCB4\uAC00 \uC790\uC2E0\uB4E4\uB9CC\uC758 \u2018\uACF5\uACF5\uC120\u2019\uC744
+    \uC2DC\uBBFC\uB4E4\uC5D0\uAC8C\n    \uAC00\uB974\uCCD0\uC57C \uD55C\uB2E4\uACE0
+    \uC8FC\uC7A5\uD588\uB2E4. \uC774 \uB54C\uBB38\uC5D0 \u2018\uCD5C\uCD08\uC758
+    \uACF5\uB3D9\uCCB4\uC8FC\uC758\uC790\u2019\uB85C\n    \uD3C9\uAC00\uBC1B\uAE30\uB3C4
+    \uD55C\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -31516,8 +31583,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -32146,7 +32213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: -420}
+  m_AnchoredPosition: {x: 400, y: -420}
   m_SizeDelta: {x: 340, y: 80}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1833671161
@@ -32579,30 +32646,31 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6 \uC2A4\uD1A0\uC544 \uD559\uD30C\uB294 \uAE08\uC695\uC8FC\uC758
-    \uD559\uD30C\uB85C\uB3C4 \uBD88\uB9B0\uB2E4.\r\n\n\u25B6 \uC774\uB4E4\uC740 \uCCA0\uD559\uC744
-    \uC790\uC5F0\uD559, \uC724\uB9AC\uD559, \uB17C\uB9AC\uD559\uC758 \uC138 \uBD80\uBD84\uC73C\uB85C
-    \uB098\uB220 \uC124\uBA85\n    \uD588\uB294\uB370, \uC724\uB9AC\uD559\uC744 \uAC00\uC7A5
-    \uC911\uC694\uD558\uAC8C \uC5EC\uACBC\uB2E4. \uC2A4\uD1A0\uC544 \uD559\uD30C\uB294
-    \uB9CC\uBB3C\uC758\n    \uADFC\uC6D0\uC774 \u2018\uBB3C\uC9C8\u2019\uB85C \uC774\uB8E8\uC5B4\uC838
-    \uC788\uB2E4\uACE0 \uC0DD\uAC01\uD588\uC73C\uBA70, \uC6B0\uC8FC\uB294 \u2018\uC2E0\uC758
-    \uB73B\u2019\uC778\n    \uB85C\uACE0\uC2A4(logos) \uC5D0 \uC758\uD574 \uB2E4\uC2A4\uB824\uC9C4\uB2E4\uACE0
-    \uC8FC\uC7A5\uD588\uB2E4.\r\n\n\u25B6 \uB3D9\uC2DC\uC5D0 \uC778\uAC04\uC758 \uC774\uC131\uACFC
-    \uAC19\uC740 \u2018\uBB3C\uC9C8\u2019\uB4E4\uB9C8\uB2E4 \uB85C\uACE0\uC2A4\uAC00
-    \uB0B4\uC7AC\uB418\uC5B4\n    \uC788\uB2E4\uACE0 \uC0DD\uAC01\uD574 \uBB3C\uC9C8\uACFC
-    \uB85C\uACE0\uC2A4\uC758 \uC77C\uCE58\uB97C \uAC15\uC870\uD588\uB2E4.\r\n\n\u25B6
-    \uC774\uB4E4\uC740 \uC0AC\uB78C\uC774 \uCDA9\uB3D9\uACFC \uC695\uB9DD\uC5D0 \uD718\uB458\uB9AC\uC9C0
-    \uC54A\uACE0 \uAC15\uD55C \uAE08\uC695\uACFC \uC774\uC131\uC744\n    \uBC1C\uD718\uD558\uC5EC,
+  m_text: "\u25B6 <color=#000>\uC2A4\uD1A0\uC544 \uD559\uD30C\uB294 \uAE08\uC695\uC8FC\uC758
+    \uD559\uD30C\uB85C\uB3C4 \uBD88\uB9B0\uB2E4.\r</color=#000>\n\n\u25B6 <color=#000>\uC774\uB4E4\uC740
+    \uCCA0\uD559\uC744 \uC790\uC5F0\uD559, \uC724\uB9AC\uD559, \uB17C\uB9AC\uD559\uC758
+    \uC138 \uBD80\uBD84\uC73C\uB85C \uB098\uB220\n    \uC124\uBA85\uD588\uB294\uB370,
+    \uC724\uB9AC\uD559\uC744 \uAC00\uC7A5 \uC911\uC694\uD558\uAC8C \uC5EC\uACBC\uB2E4.
+    \uC2A4\uD1A0\uC544 \uD559\uD30C\uB294 \uB9CC\uBB3C\uC758\n    \uADFC\uC6D0\uC774
+    \u2018\uBB3C\uC9C8\u2019\uB85C \uC774\uB8E8\uC5B4\uC838 \uC788\uB2E4\uACE0 \uC0DD\uAC01\uD588\uC73C\uBA70,
+    \uC6B0\uC8FC\uB294 \u2018\uC2E0\uC758 \uB73B\u2019\uC778\n    \uB85C\uACE0\uC2A4(logos)
+    \uC5D0 \uC758\uD574 \uB2E4\uC2A4\uB824\uC9C4\uB2E4\uACE0 \uC8FC\uC7A5\uD588\uB2E4.\r</color=#000>\n\n\u25B6
+    <color=#000>\uB3D9\uC2DC\uC5D0 \uC778\uAC04\uC758 \uC774\uC131\uACFC \uAC19\uC740
+    \u2018\uBB3C\uC9C8\u2019\uB4E4\uB9C8\uB2E4 \uB85C\uACE0\uC2A4\uAC00 \n    \uB0B4\uC7AC\uB418\uC5B4
+    \uC788\uB2E4\uACE0 \uC0DD\uAC01\uD574 \uBB3C\uC9C8\uACFC \uB85C\uACE0\uC2A4\uC758
+    \uC77C\uCE58\uB97C \uAC15\uC870\uD588\uB2E4.\r</color=#000>\n\n\u25B6 <color=#000>\uC774\uB4E4\uC740
+    \uC0AC\uB78C\uC774 \uCDA9\uB3D9\uACFC \uC695\uB9DD\uC5D0 \uD718\uB458\uB9AC\uC9C0
+    \uC54A\uACE0 \uAC15\uD55C \uAE08\uC695\uACFC\n    \uC774\uC131\uC744 \uBC1C\uD718\uD558\uC5EC,
     \uC790\uC5F0\uC758 \uC21C\uB9AC, \uC989 \uB85C\uACE0\uC2A4\uC5D0 \uC21C\uC751\uD558\uBA70
-    \uC0B4\uC544\uAC04\uB2E4\uBA74 \u2018\uC544\uD30C\n    \uD14C\uC774\uC544(\uC644\uC804\uD55C
+    \uC0B4\uC544\uAC04\uB2E4\uBA74 \n    \u2018\uC544\uD30C\uD14C\uC774\uC544(\uC644\uC804\uD55C
     \uD3C9\uC628, \uC695\uC2EC\uC774 \uC5C6\uB294 \uC0C1\uD0DC)\u2019\uC5D0 \uB3C4\uB2EC\uD560
-    \uC218 \uC788\uB2E4\uACE0\n    \uC8FC\uC7A5\uD588\uB2E4.\r\n\n\u25B6 \uD6C4\uAE30
-    \uC2A4\uD1A0\uC544 \uD559\uD30C\uC758 \uC8FC\uC694 \uC778\uBB3C\uB85C\uB294 \uB85C\uB9C8
-    \uC81C\uAD6D \uB124\uB85C \uD669\uC81C\uC758 \uC2A4\uC2B9\n    \uC774\uC5C8\uB358
+    \uC218 \uC788\uB2E4\uACE0\n    \uC8FC\uC7A5\uD588\uB2E4.\r</color=#000>\n\n\u25B6
+    <color=#000>\uD6C4\uAE30 \uC2A4\uD1A0\uC544 \uD559\uD30C\uC758 \uC8FC\uC694 \uC778\uBB3C\uB85C\uB294
+    \uB85C\uB9C8 \uC81C\uAD6D \uB124\uB85C \uD669\uC81C\uC758 \n    \uC2A4\uC2B9\uC774\uC5C8\uB358
     \uC138\uB124\uCE74\uC640, \uB85C\uB9C8\uC758 \uB178\uC608 \uCD9C\uC2E0 \uCCA0\uD559\uC790
     \uC5D0\uD53D\uD14C\uD1A0\uC2A4, \uADF8\uB9AC\uACE0\n    \uC5D0\uD53D\uD14C\uD1A0\uC2A4\uC5D0\uAC8C
     \uC601\uD5A5\uC744 \uBC1B\uC740 \uB85C\uB9C8\uC758 \uD669\uC81C \uB9C8\uB974\uCFE0\uC2A4
-    \uC544\uC6B0\uB810\uB9AC\uC6B0\uC2A4\uAC00\n    \uC788\uB2E4."
+    \uC544\uC6B0\uB810\uB9AC\uC6B0\uC2A4\uAC00\n    \uC788\uB2E4.</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -32611,8 +32679,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -32716,7 +32784,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: -420}
+  m_AnchoredPosition: {x: 400, y: -420}
   m_SizeDelta: {x: 340, y: 80}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1902543645
@@ -33463,6 +33531,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 478483312}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!114 &1943614040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33610,6 +33680,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 676224134}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!222 &1949185155
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -33995,7 +34067,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -30}
+  m_AnchoredPosition: {x: 197, y: -43}
   m_SizeDelta: {x: 750, y: 740}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1976449543
@@ -34260,8 +34332,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6<b> \uC774\uB984:</b> \uACE0\uB974\uAE30\uC544\uC2A4\n\u25B6<b>
-    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> B.C. 483? ~ B.C. 376?"
+  m_text: "\u25B6<b> \uC774\uB984:</b> <color=#000>\uACE0\uB974\uAE30\uC544\uC2A4</color=#000>\n\u25B6<b>
+    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> <color=#000>B.C. 483? ~ B.C. 376?</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -34270,8 +34342,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -34511,6 +34583,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 224543466}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!114 &2001696692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34640,7 +34714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -94.02161, y: -205}
+  m_AnchoredPosition: {x: -94.02161, y: -166.8}
   m_SizeDelta: {x: 816.9784, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &2015184440
@@ -34663,19 +34737,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6 \uCE7C\uCF00\uB3C8\uC758 \uC2DC\uBBFC\uC73C\uB85C, \uC544\uD14C\uB124\uC5D0\uC11C
-    \uC18C\uD53C\uC2A4\uD2B8\uB85C \uD65C\uB3D9\uD588\uB2E4. \uD50C\uB77C\uD1A4\uC758\n   
-    \uC800\uC11C \u2018\uAD6D\uAC00\u2019\uC5D0\uC11C \uB4F1\uC7A5\uD55C\uB2E4.\r\n\n\u25B6
+  m_text: "<color=#431900>\u25B6</color=#431900> \uCE7C\uCF00\uB3C8\uC758 \uC2DC\uBBFC\uC73C\uB85C,
+    \uC544\uD14C\uB124\uC5D0\uC11C \uC18C\uD53C\uC2A4\uD2B8\uB85C \uD65C\uB3D9\uD588\uB2E4.\n   
+    \uD50C\uB77C\uD1A4\uC758 \uC800\uC11C \u2018\uAD6D\uAC00\u2019\uC5D0\uC11C \uB4F1\uC7A5\uD55C\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
     \uD2B8\uB77C\uC2DC\uB9C8\uCF54\uC2A4\uB294 \u2018\uC815\uC758\uB780 \uACE7 \uAC15\uC790\uC758
-    \uC774\uC775\u2019\uC774\uB77C\uACE0 \uC0DD\uAC01\uD588\uB2E4. \uADF8\uB294\n   
-    \uBC95\uB960\uC744 \u2018\uAC15\uC790\uB4E4\uC774 \uC790\uC2E0\uC758 \uC774\uC775\uC744
-    \uC704\uD574 \uC81C\uC815\uD558\uB294 \uAC83\u2019\uC73C\uB85C \uC0DD\uAC01\uD588\uB2E4.\n   
+    \uC774\uC775\u2019\uC774\uB77C\uACE0 \uC0DD\uAC01\uD588\uACE0,\n    \uBC95\uB960\uC744
+    \u2018\uAC15\uC790\uB4E4\uC774 \uC790\uC2E0\uC758 \uC774\uC775\uC744 \uC704\uD574
+    \uC81C\uC815\uD558\uB294 \uAC83\u2019\uC73C\uB85C \uC0DD\uAC01\uD588\uB2E4.\n   
     \uADF8\uB294 \uD1B5\uCE58\uC790\uC5D0\uAC8C \uBCF5\uC885\uD558\uB294 \uAC83\uC774
-    \uACE7 \u2018\uC815\uC758\u2019\uC758 \uC758\uBBF8\uB77C\uACE0 \uBC14\uB77C\uBD24\uB2E4.\r\n\n\u25B6
+    \uACE7 \u2018\uC815\uC758\u2019\uC758 \uC758\uBBF8\uB77C\uACE0 \uBC14\uB77C\uBD24\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
     \uB3D9\uC2DC\uC5D0, \uC815\uC758\uB86D\uC9C0 \uBABB\uD55C \uC0AC\uB78C\uC740
     \uAE08\uC804\uC801\uC774\uACE0 \uBB3C\uB9AC\uC801\uC778 \uBA74\uC5D0\uC11C\n   
     \uC815\uC758\uB85C\uC6B4 \uC0AC\uB78C\uBCF4\uB2E4 \uC5B8\uC81C\uB098 \uB354 \uB9CE\uC740
-    \uC774\uB4DD\uC744 \uCDE8\uD558\uAE30 \uB54C\uBB38\uC5D0 \uC815\uC758\uB85C\uC6B4\n   
+    \uC774\uB4DD\uC744 \uCDE8\uD558\uAE30 \uB54C\uBB38\uC5D0\n    \uC815\uC758\uB85C\uC6B4
     \uC0B6\uBCF4\uB2E4 \uC815\uC758\uB86D\uC9C0 \uBABB\uD55C \uC0B6\uC774 \uB354
     \uB0AB\uB2E4\uACE0 \uC8FC\uC7A5\uD588\uB2E4."
   m_isRightToLeft: 0
@@ -34686,8 +34760,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -35561,7 +35635,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6<b> \uC774\uB984:</b> \uC2A4\uD1A0\uC544 \uD559\uD30C \uCCA0\uD559\uC790"
+  m_text: "\u25B6<b> \uC774\uB984:</b> <color=#000>\uC2A4\uD1A0\uC544 \uD559\uD30C
+    \uCCA0\uD559\uC790</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -35570,8 +35645,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -35718,7 +35793,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -88.02319, y: -192}
+  m_AnchoredPosition: {x: -88.02319, y: -157}
   m_SizeDelta: {x: 822.9768, y: 630}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &2079337350
@@ -35741,16 +35816,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6 \uC2DC\uCE60\uB9AC\uC544 \uC12C \uB808\uC628\uD2F0\uB2C8 \uCD9C\uC0DD\uC758
-    \uC18C\uD53C\uC2A4\uD2B8\uB85C, \uD50C\uB77C\uD1A4\uC758 \uC800\uC11C \u2018\uACE0\uB974\uAE30\n   
-    \uC544\uC2A4\u2019\uC5D0\uC11C \uB4F1\uC7A5\uD55C\uB2E4.\r\n\n\u25B6 \uC6C5\uBCC0\uC220\uACFC
-    \uBCC0\uB860\uC220\uC5D0 \uB9E4\uC6B0 \uB6F0\uC5B4\uB0AC\uB2E4. \uADF8\uB9AC\uC2A4
-    \uC804\uC5ED\uC5D0\uC11C \uC6C5\uBCC0\uC220\uACFC\n    \uCCA0\uD559\uC744 \uAC00\uB974\uCCE4\uB2E4.
-    \uC218\uC0AC\uD559\uC73C\uB85C \uD2B9\uD788 \uC720\uBA85\uD55C \uD559\uC790\uB2E4.\r\n\n\u25B6
-    \uB85C\uACE0\uC2A4(logos)\uC758 \uC911\uC694\uC131\uC744 \uAC15\uC870\uD55C \uD559\uC790
-    \uC911 \uD55C \uBA85\uC774\uB2E4.\r\n\n\u25B6 \uD68C\uC758\uC8FC\uC758\uC801
-    \uAD00\uC810\uC73C\uB85C \uBCF4\uD3B8\uC801 \uC9C4\uB9AC\uC640 \uADF8\uC5D0 \uB300\uD55C
-    \uAC1D\uAD00\uC801\uC778 \uC778\uC2DD\uC744\n    \uBD80\uC815\uD588\uB2E4.\r\n\n\u25B6
+  m_text: "<color=#431900>\u25B6</color=#431900> \uC2DC\uCE60\uB9AC\uC544 \uC12C
+    \uB808\uC628\uD2F0\uB2C8 \uCD9C\uC0DD\uC758 \uC18C\uD53C\uC2A4\uD2B8\uB85C, \uD50C\uB77C\uD1A4\uC758
+    \uC800\uC11C \n    \u2018\uACE0\uB974\uAE30\uC544\uC2A4\u2019\uC5D0\uC11C \uB4F1\uC7A5\uD55C\uB2E4.\n\n<color=#431900>\u25B6</color=#431900>
+    \uC6C5\uBCC0\uC220\uACFC \uBCC0\uB860\uC220\uC5D0 \uB9E4\uC6B0 \uB6F0\uC5B4\uB0AC\uB2E4.
+    \uADF8\uB9AC\uC2A4 \uC804\uC5ED\uC5D0\uC11C\n    \uC6C5\uBCC0\uC220\uACFC \uCCA0\uD559\uC744
+    \uAC00\uB974\uCCE4\uB2E4. \uC218\uC0AC\uD559\uC73C\uB85C \uD2B9\uD788 \uC720\uBA85\uD55C
+    \uD559\uC790\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900> \uB85C\uACE0\uC2A4(logos)\uC758
+    \uC911\uC694\uC131\uC744 \uAC15\uC870\uD55C \uD559\uC790 \uC911 \uD55C \uBA85\uC774\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
+    \uD68C\uC758\uC8FC\uC758\uC801 \uAD00\uC810\uC73C\uB85C \uBCF4\uD3B8\uC801 \uC9C4\uB9AC\uC640
+    \uADF8\uC5D0 \uB300\uD55C \uAC1D\uAD00\uC801\uC778 \uC778\uC2DD\uC744\n    \uBD80\uC815\uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
     \uC778\uAC04\uC740 \uC720\uD55C\uD55C \uD55C\uACC4\uAC00 \uC788\uB294 \uC874\uC7AC\uC774\uAE30
     \uB54C\uBB38\uC5D0 \uBAA8\uB4E0 \uAC83\uC744 \uAE30\uC5B5\uD560 \uC218\n    \uC5C6\uB2E4\uACE0
     \uC0DD\uAC01\uD588\uB2E4. \uADF8\uB9AC\uACE0 \uADF8 \uB54C\uBB38\uC5D0 \uC778\uAC04\uC740
@@ -35765,8 +35840,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -35891,20 +35966,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6 \uC18C\uD06C\uB77C\uD14C\uC2A4\uC758 \uC81C\uC790\uC774\uC790 \uC544\uB9AC\uC2A4\uD1A0\uD154\uB808\uC2A4\uC758
-    \uC2A4\uC2B9. \uBD80\uC720\uD55C \uC0C1\uB958\uCE35\n    \uC9D1\uC548\uC758 \uB9C9\uB0B4\uC544\uB4E4\uC774\uC5C8\uB2E4.
-    \uC544\uD14C\uB124 \uADFC\uBC29\uC5D0 \uC544\uCE74\uB370\uBBF8\uC544 \uD559\uC6D0\uC744\n   
-    \uC124\uB9BD\uD558\uACE0 \uC0AC\uB78C\uB4E4\uC744 \uAC00\uB974\uCCE4\uB2E4.\r\n\n\u25B6
+  m_text: "<color=#431900>\u25B6</color=#431900> \uC18C\uD06C\uB77C\uD14C\uC2A4\uC758
+    \uC81C\uC790\uC774\uC790 \uC544\uB9AC\uC2A4\uD1A0\uD154\uB808\uC2A4\uC758 \uC2A4\uC2B9.
+    \n    \uBD80\uC720\uD55C \uC0C1\uB958\uCE35 \uC9D1\uC548\uC758 \uB9C9\uB0B4\uC544\uB4E4\uC774\uC5C8\uB2E4.
+    \uC544\uD14C\uB124 \uADFC\uBC29\uC5D0\n    \uC544\uCE74\uB370\uBBF8\uC544 \uD559\uC6D0\uC744
+    \uC124\uB9BD\uD558\uACE0 \uC0AC\uB78C\uB4E4\uC744 \uAC00\uB974\uCCE4\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
     \uC774\uC131\uC5D0 \uC758\uD574 \uD30C\uC545\uB418\uB294 \uC644\uBCBD\uD55C \uC138\uACC4\uC778
     \u2018\uC774\uB370\uC544\uACC4\u2019\uC640, \uAC10\uAC01\uC801\uC778\n    \uACBD\uD5D8\uC5D0
     \uC758\uD574 \uD30C\uC545\uB418\uB294 \u2018\uD604\uC0C1\uACC4(\uC774\uB370\uC544\uACC4\uB97C
     \uBAA8\uBC29\uD55C \uBD88\uC644\uC804\uD55C\n    \uC138\uACC4)\u2019\uB85C \uC138\uACC4\uAC00
     \uB098\uB258\uC5B4 \uC788\uB2E4\uACE0 \uC0DD\uAC01\uD588\uB2E4. \u2018\uB3D9\uAD74\uC758
-    \uBE44\uC720\u2019\uB97C \uD1B5\uD574\n    \uC774\uB97C \uC124\uBA85\uD588\uB2E4.\r\n\n\u25B6
+    \uBE44\uC720\u2019\uB97C \uD1B5\uD574\n    \uC774\uB97C \uC124\uBA85\uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
     \uD50C\uB77C\uD1A4\uC740 \uCCA0\uD559\uC790\uB4E4\uC774 \u2018\uC774\uB370\uC544\uACC4\uB97C
     \uD30C\uC545\uD558\uACE0 \uCC38\uB41C \uC9C0\uD61C\uB97C \uAC16\uCD98\n    \uC790\uB4E4\u2019\uC774\uB77C\uACE0
     \uC0DD\uAC01\uD588\uACE0, \uC774\uB4E4\uC774 \uAD6D\uAC00\uB97C \uD1B5\uCE58\uD574\uC57C
-    \uD55C\uB2E4\uB294 \u2018\uCCA0\uC778\n    \uD1B5\uCE58\u2019\uB97C \uC8FC\uC7A5\uD588\uB2E4.\r\n\n\u25B6
+    \uD55C\uB2E4\uB294\n    \u2018\uCCA0\uC778 \uD1B5\uCE58\u2019\uB97C \uC8FC\uC7A5\uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900>
     \uC774\uB370\uC544\uB294 \uC0AC\uBB3C\uC758 \uC644\uBCBD\uD558\uACE0 \uC774\uC0C1\uC801\uC778
     \uC6D0\uD615\uC774\uBA70 \uC54E\uC774 \uB3C4\uB2EC\uD574\uC57C \uD560\n    \uBAA9\uC801\uC9C0\uB77C\uACE0
     \uC0DD\uAC01\uD588\uB2E4. \uADF8\uB294 \uAC01 \uC0AC\uBB3C\uB9C8\uB2E4 \uACE0\uC720\uC758
@@ -35912,9 +35988,10 @@ MonoBehaviour:
     \u2018\uC120(\u5584)\uC758 \uC774\uB370\uC544\u2019\uB77C\uACE0 \uC0DD\uAC01\uD588\uB2E4.
     \uC774\uC0C1\uC801\uC778 \uC0B6\uC744\n    \uC0B4\uAE30 \uC704\uD574 \uC120\uC758
     \uC774\uB370\uC544\uB97C \uC778\uC2DD\uD558\uB294 \uAC83\uC774 \uD544\uC694\uD558\uB2E4\uACE0
-    \uC8FC\uC7A5\uD588\uB2E4.\r\n\n\u25B6 \uC778\uAC04\uC758 \uC601\uD63C\uC774 \uC774\uC131,
-    \uAE30\uAC1C, \uC695\uAD6C \uC138 \uAC00\uC9C0\uB85C \uB098\uB258\uC5B4 \uC788\uB2E4\uB294
-    \u2018\uC601\uD63C\n    \uC0BC\uBD84\uC124\u2019\uC744 \uC8FC\uC7A5\uD588\uB2E4."
+    \uC8FC\uC7A5\uD588\uB2E4.\r\n\n<color=#431900>\u25B6</color=#431900> \uC778\uAC04\uC758
+    \uC601\uD63C\uC774 \uC774\uC131, \uAE30\uAC1C, \uC695\uAD6C \uC138 \uAC00\uC9C0\uB85C
+    \uB098\uB258\uC5B4 \uC788\uB2E4\uB294 \n    \u2018\uC601\uD63C \uC0BC\uBD84\uC124\u2019\uC744
+    \uC8FC\uC7A5\uD588\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -35923,8 +36000,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -36049,8 +36126,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25B6<b> \uC774\uB984:</b> \uC5D0\uD53C\uCFE0\uB85C\uC2A4\n\u25B6<b>
-    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> B.C. 341? ~ B.C. 270?"
+  m_text: "\u25B6<b> \uC774\uB984:</b> <color=#000>\uC5D0\uD53C\uCFE0\uB85C\uC2A4</color=#000>\n\u25B6<b>
+    \uCD9C\uC0DD & \uC0AC\uB9DD:</b> <color=#000>B.C. 341? ~ B.C. 270?</color=#000>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -36059,8 +36136,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278201720
-  m_fontColor: {r: 0.4716981, g: 0.17688197, b: 0, a: 1}
+    rgba: 4278196547
+  m_fontColor: {r: 0.26415092, g: 0.099056594, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -36165,7 +36242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -30}
+  m_AnchoredPosition: {x: 197, y: -43}
   m_SizeDelta: {x: 750, y: 740}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2107647378
@@ -36332,7 +36409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: -420}
+  m_AnchoredPosition: {x: 400, y: -420}
   m_SizeDelta: {x: 340, y: 80}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2127328922
@@ -36454,7 +36531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 338, y: -420}
+  m_AnchoredPosition: {x: 400, y: -420}
   m_SizeDelta: {x: 340, y: 80}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2133745361
@@ -36915,6 +36992,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1880132987}
+  enemy_StartText: {fileID: 0}
+  player_text: {fileID: 0}
 --- !u!1001 &7670392138394989879
 PrefabInstance:
   m_ObjectHideFlags: 0
