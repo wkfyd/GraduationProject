@@ -5,9 +5,11 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     public GameManager manager;
+    public TutorialManager tuto;
+    public EnemyManager enemy;
+
     public GameBoard gameBoard;
 
-    public EnemyManager enemy;
     public ParticleSystem particle;
 
     public int level, gridX, gridY;
@@ -259,8 +261,6 @@ public class Block : MonoBehaviour
 
     void DragMerge() //머지 함수
     {
-        isMerge = true;
-
         EffectPlay();
 
         Destroy(gameObject);
@@ -271,13 +271,19 @@ public class Block : MonoBehaviour
         EffectPlay();
 
         GetDamage();
-        enemy.enemy_health = enemy.enemy_health - blockDamage;
-        manager.turns++;
+        enemy.enemy_Health = enemy.enemy_Health - blockDamage;
+        manager.curt_turns++;
 
         level++;
         manager.maxLevel = Mathf.Max(level, manager.maxLevel); //Mathf(인자값 중 최대값반환);maxLevel 설정
 
         anim.SetInteger("Level", level);
+
+        if (!tuto.tuto_merge)
+        {
+            tuto.TutoTextLast();
+            tuto.tuto_merge = true;
+        }
 
         isMerge = false;
     }
@@ -437,7 +443,7 @@ public class Block : MonoBehaviour
     IEnumerator DropMergeRoutine(Vector3 targetPos) //머지 애니메이션
     {
         yield return new WaitForSeconds(0.2f);
-
+            
         isMerge = false;
         gameObject.SetActive(false);
         Destroy(gameObject);
@@ -447,6 +453,12 @@ public class Block : MonoBehaviour
     {
         isMerge = true;
 
+        if (!tuto.tuto_merge)
+        {
+            tuto.TutoTextLast();
+            tuto.tuto_merge = true;
+        }
+
         StartCoroutine(DropLevelUpRoutine());
     }
 
@@ -454,11 +466,12 @@ public class Block : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
 
-        GetDamage();
-        enemy.enemy_health = enemy.enemy_health - blockDamage;
-        manager.turns++;
-
         EffectPlay();
+
+        GetDamage();
+        enemy.enemy_Health = enemy.enemy_Health - blockDamage;
+
+        manager.curt_turns++;
 
         anim.SetInteger("Level", level + 1);
 

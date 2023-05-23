@@ -3,18 +3,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public EnemyManager enemyManager;
+    public TutorialManager tuto;
+
     public GameObject BlockPrefab;
     public Block lastBlock;
 
     public GameObject effectPrefab;
     public Transform effectGroup;
 
-    public EnemyManager enemyManager;
     public GameObject winImg;
 
     public Animator overAim;
 
     public int turns;
+    public int curt_turns;
     public int maxLevel;
     public bool gameOver;
     public bool gameWin;
@@ -45,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
         currentBlock = GameObject.FindGameObjectsWithTag("Block"); //현재 블럭들 배열
 
-        Debug.Log(turns);
+        Debug.Log(curt_turns);
 
         //밑 칸에 블럭이 없으면 내려주기
         BlockDown();
@@ -57,10 +60,15 @@ public class GameManager : MonoBehaviour
         if (isSpawn)
             Spawn();
 
-        //게임오버
-        if (enemyManager.enemy_health <= 0)
+        //게임승리
+        if (enemyManager.enemy_Health <= 0)
+            GameWin();
+
+        //게임패배
+        if (enemyManager.enemy_Health <= 0)
             GameWin();
     }
+
     //시작스폰
     void StartSpawn()
     {
@@ -114,6 +122,7 @@ public class GameManager : MonoBehaviour
 
             lastBlock.manager = this;
             lastBlock.enemy = enemyManager;
+            lastBlock.tuto = tuto;
             lastBlock.level = random.Next(0, maxLevel); //일정범위 랜덤 레벨
 
             startLevels[i] = lastBlock.level; //레벨 배열
@@ -257,6 +266,7 @@ public class GameManager : MonoBehaviour
 
             lastBlock.manager = this;
             lastBlock.enemy = enemyManager;
+            lastBlock.tuto = tuto;
             lastBlock.particle = instantEffect;
             lastBlock.gameObject.SetActive(true);
         }
@@ -337,7 +347,7 @@ public class GameManager : MonoBehaviour
     {
         gameWin = true;
         overAim.SetBool("isWin", true);
-        Invoke("InvokeWinImg", 4.0f);
+        Invoke("InvokeWinImg", 5.0f);
     }
 
     void InvokeWinImg()

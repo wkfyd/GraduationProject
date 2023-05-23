@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
@@ -7,10 +5,11 @@ public class TutorialManager : MonoBehaviour
     public GameObject start;
     public GameObject language;
 
-    public GameObject enemy_StartText;
     public GameObject player_text;
+    public GameObject[] tuto_text;
 
     public bool tutorial;
+    public bool tuto_merge;
 
     void Start()
     {
@@ -36,23 +35,20 @@ public class TutorialManager : MonoBehaviour
         Invoke("TutorialText", 1f);
     }
 
-    public void GameStart()
-    {
-        start.SetActive(false);
-        enemy_StartText.SetActive(true);
-
-        StartCoroutine(EndTalk());
-    }
-
     void TutorialText()
     {
         player_text.SetActive(true);
     }
 
-    IEnumerator EndTalk()
+    public void TutoTextLast()
     {
-        yield return new WaitForSeconds(5.0f);
+        tuto_text[0].SetActive(false);
+        tuto_text[1].SetActive(true);
+        Invoke("falseText", 4f);
+    }
 
-        enemy_StartText.SetActive(false);
+    void falseText()
+    {
+        player_text.SetActive(false);
     }
 }
