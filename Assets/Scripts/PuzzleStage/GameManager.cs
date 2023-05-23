@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public EnemyManager enemyManager;
     public TutorialManager tuto;
+    public Player player;
 
     public GameObject BlockPrefab;
     public Block lastBlock;
@@ -13,12 +14,12 @@ public class GameManager : MonoBehaviour
     public Transform effectGroup;
 
     public GameObject winImg;
+    public GameObject loseImg;
 
     public Animator overAim;
 
     public int turns;
     public int curt_turns;
-    public int maxLevel;
     public bool gameOver;
     public bool gameWin;
     public bool isSpawn;
@@ -65,8 +66,8 @@ public class GameManager : MonoBehaviour
             GameWin();
 
         //게임패배
-        if (enemyManager.enemy_Health <= 0)
-            GameWin();
+        if (player.pc_Health <= 0)
+            GameOver();
     }
 
     //시작스폰
@@ -121,9 +122,9 @@ public class GameManager : MonoBehaviour
             }
 
             lastBlock.manager = this;
-            lastBlock.enemy = enemyManager;
+            lastBlock.bl_enemyManager = enemyManager;
             lastBlock.tuto = tuto;
-            lastBlock.level = random.Next(0, maxLevel); //일정범위 랜덤 레벨
+            lastBlock.level = random.Next(0, 3); //D이상 안 나오기
 
             startLevels[i] = lastBlock.level; //레벨 배열
 
@@ -265,7 +266,7 @@ public class GameManager : MonoBehaviour
             }
 
             lastBlock.manager = this;
-            lastBlock.enemy = enemyManager;
+            lastBlock.bl_enemyManager = enemyManager;
             lastBlock.tuto = tuto;
             lastBlock.particle = instantEffect;
             lastBlock.gameObject.SetActive(true);
@@ -348,6 +349,12 @@ public class GameManager : MonoBehaviour
         gameWin = true;
         overAim.SetBool("isWin", true);
         Invoke("InvokeWinImg", 5.0f);
+    }
+
+    public void GameOver()
+    {
+        gameOver = true;
+        loseImg.SetActive(true);
     }
 
     void InvokeWinImg()

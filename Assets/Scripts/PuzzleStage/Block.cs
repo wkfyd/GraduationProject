@@ -6,7 +6,7 @@ public class Block : MonoBehaviour
 {
     public GameManager manager;
     public TutorialManager tuto;
-    public EnemyManager enemy;
+    public EnemyManager bl_enemyManager;
 
     public GameBoard gameBoard;
 
@@ -269,13 +269,16 @@ public class Block : MonoBehaviour
     void DragLevelUp() //레벨업을 위한 함수
     {
         EffectPlay();
-
         GetDamage();
-        enemy.enemy_Health = enemy.enemy_Health - blockDamage;
+        Player_Atk();
+
+        StopCoroutine(Player_Atk());
+        StartCoroutine(Player_Atk());
+
+        bl_enemyManager.enemy_DamageHP = bl_enemyManager.enemy_DamageHP - blockDamage;
         manager.curt_turns++;
 
         level++;
-        manager.maxLevel = Mathf.Max(level, manager.maxLevel); //Mathf(인자값 중 최대값반환);maxLevel 설정
 
         anim.SetInteger("Level", level);
 
@@ -399,7 +402,7 @@ public class Block : MonoBehaviour
                 StartCoroutine(GravityRoutine());
 
                 //나 숨기기
-                DropMerge(other.transform.position);
+                DropMerge();
 
                 //상대 레벨업
                 other.DropLevelUp();
@@ -421,7 +424,7 @@ public class Block : MonoBehaviour
                 StartCoroutine(GravityRoutine());
 
                 //나 숨기기
-                DropMerge(other.transform.position);
+                DropMerge();
 
                 //상대 레벨업
                 other.DropLevelUp();
@@ -431,16 +434,16 @@ public class Block : MonoBehaviour
         }
     }
 
-    void DropMerge(Vector3 targetPos) //머지 함수
+    void DropMerge() //머지 함수
     {
         isMerge = true;
 
         box.enabled = false;
 
-        StartCoroutine(DropMergeRoutine(targetPos)); //애니메이션 주기 위한 코루틴
+        StartCoroutine(DropMergeRoutine()); //애니메이션 주기 위한 코루틴
     }
 
-    IEnumerator DropMergeRoutine(Vector3 targetPos) //머지 애니메이션
+    IEnumerator DropMergeRoutine() //머지 애니메이션
     {
         yield return new WaitForSeconds(0.2f);
             
@@ -467,17 +470,18 @@ public class Block : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         EffectPlay();
-
         GetDamage();
-        enemy.enemy_Health = enemy.enemy_Health - blockDamage;
+
+        StopCoroutine(Player_Atk());
+        StartCoroutine(Player_Atk());
+
+        bl_enemyManager.enemy_DamageHP = bl_enemyManager.enemy_DamageHP - blockDamage;
 
         manager.curt_turns++;
 
         anim.SetInteger("Level", level + 1);
 
         level++;
-
-        manager.maxLevel = Mathf.Max(level, manager.maxLevel); //Mathf(인자값 중 최대값반환);maxLevel 설정
 
         isMerge = false;
     }
@@ -528,5 +532,29 @@ public class Block : MonoBehaviour
         particle.transform.position = transform.position;
         particle.transform.localScale = transform.localScale;
         particle.Play();
+    }
+
+    IEnumerator Player_Atk()
+    {
+        if (bl_enemyManager.enemy_NomAtk == 0)
+        {
+            bl_enemyManager.player_Status[0].SetActive(false);
+            bl_enemyManager.player_Status[2].SetActive(true);
+
+            yield return new WaitForSeconds(1.0f);
+
+            bl_enemyManager.player_Status[0].SetActive(true);
+            bl_enemyManager.player_Status[2].SetActive(false);
+        }
+        else
+        {
+            bl_enemyManager.player_Status[0].SetActive(false);
+            bl_enemyManager.player_Status[1].SetActive(true);
+
+            yield return new WaitForSeconds(1.0f);
+
+            bl_enemyManager.player_Status[0].SetActive(true);
+            bl_enemyManager.player_Status[1].SetActive(false);
+        }
     }
 }
