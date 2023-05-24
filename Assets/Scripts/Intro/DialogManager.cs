@@ -45,6 +45,7 @@ public class DialogManager : MonoBehaviour
             return;
         }
 
+        //인트로 배경
         if (talkIndex == 5)
             backGround[0].SetActive(true);
 

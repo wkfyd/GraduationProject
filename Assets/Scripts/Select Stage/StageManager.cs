@@ -10,7 +10,7 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
-        Invoke("StartTutorial", 0.5f);
+        Invoke("StartTutorial", 1f);
     }
 
     void StartTutorial()

@@ -520,8 +520,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1556123256}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &22190004
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -984,11 +982,11 @@ RectTransform:
   m_Father: {fileID: 1512799349}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -208.3}
-  m_SizeDelta: {x: -1610.4, y: 57.9}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 256.75}
+  m_SizeDelta: {x: 309.59998, y: 57.900024}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &54891089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,8 +1769,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 776856682}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!114 &81759257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2376,19 +2372,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104410575}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1512799349}
+  m_Father: {fileID: 894500287}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 146.7, y: -268.35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 280, y: 29.917}
   m_SizeDelta: {x: 40, y: 40}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &104410577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2995,8 +2991,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1692602199}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &154978545
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3099,7 +3093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -105.624146, y: -166.8}
+  m_AnchoredPosition: {x: -105.62402, y: -166.8}
   m_SizeDelta: {x: 805.3759, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &157663744
@@ -3417,8 +3411,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 245394585}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &161491155
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4400,8 +4392,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 97685999}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!114 &224525767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6459,7 +6449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 119.5, y: 10.2}
+  m_AnchoredPosition: {x: 119.5, y: 10.200012}
   m_SizeDelta: {x: 27.8729, y: 19.0664}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &341767537
@@ -6857,8 +6847,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1845275813}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &372502710
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7172,7 +7160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -119.6, y: -10.3}
+  m_AnchoredPosition: {x: -119.6, y: -10.299988}
   m_SizeDelta: {x: 27.8729, y: 19.0664}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &379920638
@@ -7342,8 +7330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 224543466}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &384675654
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8056,8 +8042,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1523331543}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &420050365
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8680,8 +8664,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1523331543}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &456844468
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9903,8 +9885,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 776856682}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &536218824
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10294,7 +10274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -76.72778, y: -166.8}
+  m_AnchoredPosition: {x: -76.72803, y: -166.8}
   m_SizeDelta: {x: 834.2722, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &558351671
@@ -13592,7 +13572,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -95.21814, y: -166.8}
+  m_AnchoredPosition: {x: -95.21826, y: -166.8}
   m_SizeDelta: {x: 815.7818, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &791628193
@@ -14634,8 +14614,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 868352994}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!1 &864061394
 GameObject:
   m_ObjectHideFlags: 0
@@ -15383,8 +15361,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1845275813}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!114 &893778380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15513,14 +15489,15 @@ RectTransform:
   - {fileID: 379920637}
   - {fileID: 853147032}
   - {fileID: 413879478}
+  - {fileID: 104410576}
   m_Father: {fileID: 1512799349}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -278.3}
-  m_SizeDelta: {x: -1610.4, y: 57.9}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 186.75}
+  m_SizeDelta: {x: 309.59998, y: 57.900024}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &894500288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16388,7 +16365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -55.352295, y: -166.8}
+  m_AnchoredPosition: {x: -55.35205, y: -166.8}
   m_SizeDelta: {x: 855.6478, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &940482180
@@ -16563,8 +16540,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 478483312}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &942445308
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16762,8 +16737,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1344618002}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!114 &943581473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16987,8 +16960,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1344618002}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &945766128
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17591,8 +17562,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1571474821}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!114 &960566868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19751,8 +19720,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 868352994}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!114 &1049522190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21478,8 +21445,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1571474821}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &1165351168
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22028,8 +21993,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1790779729}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!114 &1196188563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22641,7 +22604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -106.983154, y: -137}
+  m_AnchoredPosition: {x: -106.98291, y: -137}
   m_SizeDelta: {x: 804.0168, y: 630}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1243393708
@@ -22814,8 +22777,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1790779729}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &1244252510
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23509,8 +23470,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1692602199}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!114 &1335103043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23755,7 +23714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -119.6, y: -10.2}
+  m_AnchoredPosition: {x: -119.6, y: -10.200012}
   m_SizeDelta: {x: 27.8729, y: 19.0664}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1351994205
@@ -23850,8 +23809,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 245394585}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!114 &1358259351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24320,8 +24277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 97685999}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &1394906759
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25303,8 +25258,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1523331543}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!114 &1440027472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26626,7 +26579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -103.97693, y: -166.8}
+  m_AnchoredPosition: {x: -103.97705, y: -166.8}
   m_SizeDelta: {x: 807.0231, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1503365840
@@ -26879,8 +26832,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1556123256}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!114 &1508173177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27293,14 +27244,13 @@ RectTransform:
   - {fileID: 1933967613}
   - {fileID: 54891088}
   - {fileID: 894500287}
-  - {fileID: 104410576}
   - {fileID: 1844248549}
   m_Father: {fileID: 619787518}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -46.06494}
+  m_AnchoredPosition: {x: 0, y: -46.065186}
   m_SizeDelta: {x: 0, y: -92.12999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1520443508
@@ -27969,7 +27919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1561442351
 Transform:
   m_ObjectHideFlags: 0
@@ -28689,8 +28639,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 676224134}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!114 &1632779813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28838,8 +28786,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1523331543}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &1632950958
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29425,8 +29371,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1523331543}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &1650804338
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30645,8 +30589,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 868352994}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!1 &1766823214
 GameObject:
   m_ObjectHideFlags: 0
@@ -32336,11 +32278,11 @@ RectTransform:
   m_Father: {fileID: 1512799349}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -348.3}
-  m_SizeDelta: {x: -1610.4, y: 57.9}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 116.75}
+  m_SizeDelta: {x: 309.59998, y: 57.900024}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1844248550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32623,7 +32565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -81.655, y: -137}
+  m_AnchoredPosition: {x: -81.654785, y: -137}
   m_SizeDelta: {x: 829.3448, y: 630}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1892883678
@@ -33278,11 +33220,11 @@ RectTransform:
   m_Father: {fileID: 1512799349}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -0.001953125, y: -138.3}
-  m_SizeDelta: {x: -1610.4, y: 57.9}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -0.001953125, y: 326.75}
+  m_SizeDelta: {x: 309.59998, y: 57.900024}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1933967614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33531,8 +33473,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 478483312}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!114 &1943614040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33680,8 +33620,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 676224134}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!222 &1949185155
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -34583,8 +34521,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 224543466}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!114 &2001696692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34714,7 +34650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -94.02161, y: -166.8}
+  m_AnchoredPosition: {x: -94.021484, y: -166.8}
   m_SizeDelta: {x: 816.9784, y: 647.8872}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &2015184440
@@ -35793,7 +35729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -88.02319, y: -157}
+  m_AnchoredPosition: {x: -88.02295, y: -157}
   m_SizeDelta: {x: 822.9768, y: 630}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &2079337350
@@ -36331,7 +36267,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -119.6, y: -10.3}
+  m_AnchoredPosition: {x: -119.6, y: -10.299988}
   m_SizeDelta: {x: 27.8729, y: 19.0664}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2120456646
@@ -36992,8 +36928,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1880132987}
-  enemy_StartText: {fileID: 0}
-  player_text: {fileID: 0}
 --- !u!1001 &7670392138394989879
 PrefabInstance:
   m_ObjectHideFlags: 0

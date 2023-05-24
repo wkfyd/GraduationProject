@@ -1548,7 +1548,7 @@ GameObject:
   - component: {fileID: 401909571}
   - component: {fileID: 401909570}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: EnemyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1594,8 +1594,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB098\uB294 \uB0B4\uAC00 \uC544\uBB34\uAC83\uB3C4\n\uBAA8\uB978\uB2E4\uB294
-    \uAC83\uC744 \uC548\uB2E4."
+  m_text: "\uB204\uAD6C\uC9C0? \uC790\uB124\uB3C4 \uB0B4 \uAC00\uB974\uCE68\uC744
+    \uC5BB\uC73C\uB7EC \uC654\uB098?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -2149,13 +2149,14 @@ GameObject:
   m_Component:
   - component: {fileID: 482000995}
   - component: {fileID: 482000994}
+  - component: {fileID: 482000996}
   m_Layer: 0
-  m_Name: BGM
+  m_Name: Puz_BGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &482000994
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2267,6 +2268,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &482000996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482000993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c1f43de1e9e7f4da85f615f46bc061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgm: {fileID: 0}
 --- !u!1 &506722686
 GameObject:
   m_ObjectHideFlags: 0
@@ -2947,7 +2961,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 578494797}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: LoadPuzzleStage
+        m_MethodName: LoadEnding
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9435,7 +9449,8 @@ MonoBehaviour:
   enemyData: {fileID: 1442389978}
   player: {fileID: 102417235}
   start: {fileID: 804682656}
-  enemy_StartText: {fileID: 1084982904}
+  enemyTalk: {fileID: 1084982904}
+  enemyText: {fileID: 401909570}
   healthBar: {fileID: 1302886095}
   enemy_Status: {fileID: 0}
   enemy_Sprite: []
@@ -9443,7 +9458,6 @@ MonoBehaviour:
   - {fileID: 1692578555}
   - {fileID: 786075719}
   - {fileID: 794404253}
-  enemyText: {fileID: 401909570}
   NextSp_Text: {fileID: 1083260957}
   NextAtk_Text: {fileID: 818051530}
   enemy_MaxHealth: 0

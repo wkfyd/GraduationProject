@@ -10,7 +10,8 @@ public class EnemyManager : MonoBehaviour
     public Player player;
 
     public GameObject start;
-    public GameObject enemy_StartText;
+    public GameObject enemyTalk;
+    public TextMeshProUGUI enemyText;
 
     public Image healthBar;
 
@@ -19,7 +20,6 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject[] player_Status;
 
-    public TextMeshProUGUI enemyText;
     public TextMeshProUGUI NextSp_Text;
     public TextMeshProUGUI NextAtk_Text;
 
@@ -103,7 +103,7 @@ public class EnemyManager : MonoBehaviour
     {
         enemy_Status.sprite = enemy_Sprite[2];
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         enemy_Status.sprite = enemy_Sprite[0];
     }
@@ -128,7 +128,6 @@ public class EnemyManager : MonoBehaviour
 
         while (framCount < 50)
         {
-            Debug.Log(567);
             if (elapsedTime < shakeDuration)
             {
                 elapsedTime += Time.deltaTime;
@@ -171,7 +170,7 @@ public class EnemyManager : MonoBehaviour
     {
         enemy_Status.sprite = enemy_Sprite[1];
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         enemy_Status.sprite = enemy_Sprite[0];
     }
@@ -182,7 +181,7 @@ public class EnemyManager : MonoBehaviour
         player_Status[1].SetActive(false);
         player_Status[2].SetActive(true);
 
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
 
         player_Status[0].SetActive(true);
         player_Status[1].SetActive(false);
@@ -202,7 +201,7 @@ public class EnemyManager : MonoBehaviour
     public void GameStart()
     {
         start.SetActive(false);
-        enemy_StartText.SetActive(true);
+        enemyTalk.SetActive(true);
 
         StartCoroutine(EndTalk());
     }
@@ -211,6 +210,6 @@ public class EnemyManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5.0f);
 
-        enemy_StartText.SetActive(false);
+        enemyTalk.SetActive(false);
     }
 }

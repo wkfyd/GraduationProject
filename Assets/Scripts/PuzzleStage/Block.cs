@@ -543,7 +543,7 @@ public class Block : MonoBehaviour
         bl_enemyManager.player_Status[1].SetActive(true);
         bl_enemyManager.player_Status[2].SetActive(false);
 
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
 
         bl_enemyManager.player_Status[0].SetActive(true);
         bl_enemyManager.player_Status[1].SetActive(false);

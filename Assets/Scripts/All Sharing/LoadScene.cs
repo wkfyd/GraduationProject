@@ -14,6 +14,11 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadScene("PuzzleStage");
     }
 
+    public void LoadEnding()
+    {
+        SceneManager.LoadScene("Ending");
+    }
+
     public void LoadFreeStage()
     {
         SceneManager.LoadScene("PuzzleStage");
