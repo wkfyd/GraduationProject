@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject winImg;
     public GameObject loseImg;
 
-    public Animator overAim;
+    public Animator winAim;
+    public Animator playerOverAim;
 
     public int turns;
     public int curt_turns;
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        overAim = GameObject.FindWithTag("Enemy").GetComponent<Animator>();
+        winAim = GameObject.FindWithTag("Enemy").GetComponent<Animator>();
     }
 
     void Start()
@@ -347,18 +348,24 @@ public class GameManager : MonoBehaviour
     public void GameWin()
     {
         gameWin = true;
-        overAim.SetBool("isWin", true);
+        winAim.SetBool("isWin", true);
         Invoke("InvokeWinImg", 5.0f);
     }
 
     public void GameOver()
     {
         gameOver = true;
-        loseImg.SetActive(true);
+        playerOverAim.SetBool("isLose", true);
+        Invoke("InvokeLoseImg", 5.0f);
     }
 
     void InvokeWinImg()
     {
         winImg.SetActive(true);
+    }
+
+    void InvokeLoseImg()
+    {
+        loseImg.SetActive(true);
     }
 }

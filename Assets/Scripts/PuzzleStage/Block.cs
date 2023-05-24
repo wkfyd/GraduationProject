@@ -25,6 +25,8 @@ public class Block : MonoBehaviour
 
     Vector3 mouse_Pos;
 
+    Coroutine playerAtk;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -270,10 +272,10 @@ public class Block : MonoBehaviour
     {
         EffectPlay();
         GetDamage();
-        Player_Atk();
 
-        StopCoroutine(Player_Atk());
-        StartCoroutine(Player_Atk());
+        if (playerAtk != null)             //코루틴정지
+            StopCoroutine(playerAtk);
+        playerAtk = StartCoroutine(Player_Atk());
 
         bl_enemyManager.enemy_DamageHP = bl_enemyManager.enemy_DamageHP - blockDamage;
         manager.curt_turns++;
@@ -446,7 +448,7 @@ public class Block : MonoBehaviour
     IEnumerator DropMergeRoutine() //머지 애니메이션
     {
         yield return new WaitForSeconds(0.2f);
-            
+
         isMerge = false;
         gameObject.SetActive(false);
         Destroy(gameObject);
@@ -472,8 +474,9 @@ public class Block : MonoBehaviour
         EffectPlay();
         GetDamage();
 
-        StopCoroutine(Player_Atk());
-        StartCoroutine(Player_Atk());
+        if (playerAtk != null)             //코루틴정지
+            StopCoroutine(playerAtk);
+        playerAtk = StartCoroutine(Player_Atk());
 
         bl_enemyManager.enemy_DamageHP = bl_enemyManager.enemy_DamageHP - blockDamage;
 
@@ -536,25 +539,14 @@ public class Block : MonoBehaviour
 
     IEnumerator Player_Atk()
     {
-        if (bl_enemyManager.enemy_NomAtk == 0)
-        {
-            bl_enemyManager.player_Status[0].SetActive(false);
-            bl_enemyManager.player_Status[2].SetActive(true);
+        bl_enemyManager.player_Status[0].SetActive(false);
+        bl_enemyManager.player_Status[1].SetActive(true);
+        bl_enemyManager.player_Status[2].SetActive(false);
 
-            yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.0f);
 
-            bl_enemyManager.player_Status[0].SetActive(true);
-            bl_enemyManager.player_Status[2].SetActive(false);
-        }
-        else
-        {
-            bl_enemyManager.player_Status[0].SetActive(false);
-            bl_enemyManager.player_Status[1].SetActive(true);
-
-            yield return new WaitForSeconds(1.0f);
-
-            bl_enemyManager.player_Status[0].SetActive(true);
-            bl_enemyManager.player_Status[1].SetActive(false);
-        }
+        bl_enemyManager.player_Status[0].SetActive(true);
+        bl_enemyManager.player_Status[1].SetActive(false);
+        bl_enemyManager.player_Status[2].SetActive(false);
     }
 }

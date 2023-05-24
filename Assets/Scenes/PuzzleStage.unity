@@ -3924,6 +3924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 794404255}
   - component: {fileID: 794404254}
+  - component: {fileID: 794404256}
   m_Layer: 0
   m_Name: episte_attacked
   m_TagString: Untagged
@@ -3998,6 +3999,26 @@ Transform:
   m_Father: {fileID: 102417234}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &794404256
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794404253}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6cc1198e6d0fa8f4c8991de2eaa79e0a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &801167680
 GameObject:
   m_ObjectHideFlags: 0
@@ -8026,8 +8047,9 @@ MonoBehaviour:
   effectPrefab: {fileID: 5184335904885642865, guid: 4f889d8b1ac2b014482726025180286d, type: 3}
   effectGroup: {fileID: 1519243534}
   winImg: {fileID: 1967094428}
-  loseImg: {fileID: 0}
-  overAim: {fileID: 0}
+  loseImg: {fileID: 794404253}
+  winAim: {fileID: 0}
+  playerOverAim: {fileID: 794404256}
   turns: 0
   curt_turns: 0
   gameOver: 0

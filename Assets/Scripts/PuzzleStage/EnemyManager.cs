@@ -34,6 +34,8 @@ public class EnemyManager : MonoBehaviour
     public int enemy_Atk_Damage;
 
     Coroutine enemyAtked;
+    Coroutine enemyAtk;
+    Coroutine playerAtked;
 
     //흔들기효과 변수
     public GameObject enemy;
@@ -67,6 +69,14 @@ public class EnemyManager : MonoBehaviour
     {
         healthBar.fillAmount = (float)enemy_Health / enemy_MaxHealth;
 
+        //피격
+        if (enemy_Health > enemy_DamageHP)
+        {
+            Enemy_atked();
+            enemy_Health = enemy_DamageHP;
+        }
+
+        //공격
         if (gm.turns < gm.curt_turns)
         {
             Set_Atk();
@@ -75,12 +85,6 @@ public class EnemyManager : MonoBehaviour
                 Set_Sp();
 
             gm.turns = gm.curt_turns;
-        }
-
-        if (enemy_Health > enemy_DamageHP)
-        {
-            Enemy_atked();
-            enemy_Health = enemy_DamageHP;
         }
     }
 
@@ -148,9 +152,14 @@ public class EnemyManager : MonoBehaviour
         {
             player.pc_Health = player.pc_Health - enemy_Atk_Damage;
 
-            StopCoroutine(Change_Atked());
-            StartCoroutine(Change_Atk());
-            StartCoroutine(Player_Atked());
+
+            if (enemyAtk != null)             //코루틴정지
+                StopCoroutine(enemyAtk);
+            enemyAtk = StartCoroutine(Change_Atk());
+
+            if (playerAtked != null)             //코루틴정지
+                StopCoroutine(playerAtked);
+            playerAtked = StartCoroutine(Player_Atked());
 
             enemy_NomAtk = enemy_AtkTurn;
         }
@@ -173,9 +182,10 @@ public class EnemyManager : MonoBehaviour
         player_Status[1].SetActive(false);
         player_Status[2].SetActive(true);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.0f);
 
         player_Status[0].SetActive(true);
+        player_Status[1].SetActive(false);
         player_Status[2].SetActive(false);
     }
 
