@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 94.604, y: -332}
-  m_SizeDelta: {x: 772.9559, y: 1109.1914}
+  m_AnchoredPosition: {x: 99, y: -407}
+  m_SizeDelta: {x: 1230.2277, y: 1273.7686}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8116599
 MonoBehaviour:
@@ -746,8 +746,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -88, y: -169}
-  m_SizeDelta: {x: 407.7486, y: 585.1177}
+  m_AnchoredPosition: {x: -69, y: -197.3}
+  m_SizeDelta: {x: 580.8147, y: 601.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &34442963
 MonoBehaviour:
@@ -9229,7 +9229,7 @@ GameObject:
   - component: {fileID: 1107703504}
   - component: {fileID: 1107703506}
   m_Layer: 5
-  m_Name: Enemy
+  m_Name: Sophist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14892,7 +14892,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1903182674
 RectTransform:
   m_ObjectHideFlags: 0

@@ -25,8 +25,6 @@ public class Block : MonoBehaviour
 
     Vector3 mouse_Pos;
 
-    Coroutine playerAtk;
-
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -273,10 +271,6 @@ public class Block : MonoBehaviour
         EffectPlay();
         GetDamage();
 
-        if (playerAtk != null)             //코루틴정지
-            StopCoroutine(playerAtk);
-        playerAtk = StartCoroutine(Player_Atk());
-
         bl_enemyManager.enemy_DamageHP = bl_enemyManager.enemy_DamageHP - blockDamage;
         manager.curt_turns++;
 
@@ -474,10 +468,6 @@ public class Block : MonoBehaviour
         EffectPlay();
         GetDamage();
 
-        if (playerAtk != null)             //코루틴정지
-            StopCoroutine(playerAtk);
-        playerAtk = StartCoroutine(Player_Atk());
-
         bl_enemyManager.enemy_DamageHP = bl_enemyManager.enemy_DamageHP - blockDamage;
 
         manager.curt_turns++;
@@ -535,18 +525,5 @@ public class Block : MonoBehaviour
         particle.transform.position = transform.position;
         particle.transform.localScale = transform.localScale;
         particle.Play();
-    }
-
-    IEnumerator Player_Atk()
-    {
-        bl_enemyManager.player_Status[0].SetActive(false);
-        bl_enemyManager.player_Status[1].SetActive(true);
-        bl_enemyManager.player_Status[2].SetActive(false);
-
-        yield return new WaitForSeconds(0.5f);
-
-        bl_enemyManager.player_Status[0].SetActive(true);
-        bl_enemyManager.player_Status[1].SetActive(false);
-        bl_enemyManager.player_Status[2].SetActive(false);
     }
 }
