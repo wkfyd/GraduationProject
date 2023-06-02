@@ -5,17 +5,40 @@ using UnityEngine;
 public class StageManager : MonoBehaviour
 {
     public GameObject Tutorial;
+    public GameObject Tuto_Text;
+
+    public int enemyId;
 
     private GameObject Stage;
 
+    //public SaveData saveData;
+
+    System.Random random = new System.Random();
+
     void Start()
     {
-        Invoke("StartTutorial", 1f);
+        //saveData = GameObject.Find("SaveData").GetComponent<SaveData>();
+
+        //if(saveData.Tutorial == 0)
+        StartTutorial();
+        EnemyRandom_Stg1();
+        Debug.Log(enemyId);
     }
 
     void StartTutorial()
     {
         Tutorial.SetActive(true);
+        Invoke("StartTutoText", 1f);
+    }
+
+    void StartTutoText()
+    {
+        Tuto_Text.SetActive(true);
+    }
+
+    public int EnemyRandom_Stg1()
+    {
+        return enemyId = random.Next(1013, 1018);
     }
 
     public void Stage01()
