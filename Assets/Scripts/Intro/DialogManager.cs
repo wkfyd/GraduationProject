@@ -59,13 +59,13 @@ public class DialogManager : MonoBehaviour
         }
             
         //대화창 애니메이션이 있으면 재생 후 타이밍맞게 텍스트 띄워주기위해
-        if (talkIndex == 2 ||  talkIndex == 5 || talkIndex == 6 || talkIndex == 8 ||talkIndex == 9)
+        if (talkIndex == 2 ||  talkIndex == 5 || talkIndex == 6 || talkIndex == 8)
         {
             cameraShake.gameObject.SetActive(false);
             talkPanel.SetTrigger("Talk Up And Down");
             StartCoroutine(TextTiming(talkData, talkIndex));
         }
-        else if (talkIndex == 4)
+        else if (talkIndex == 4 || talkIndex == 9)
         {
             cameraShake.gameObject.SetActive(true);
             talkPanel.SetTrigger("Talk Up And Down");
@@ -94,7 +94,7 @@ public class DialogManager : MonoBehaviour
             portraitImg.color = new Color(1, 1, 1, 1);
 
         }
-        else if (subTalkIndex == 8 || subTalkIndex == 9)
+        else if (subTalkIndex == 9)
         {
             portraitImg.sprite = talkManager.GetPortrait(1);
             portraitImg.color = new Color(1, 1, 1, 1);

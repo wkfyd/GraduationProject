@@ -25,6 +25,12 @@ public class Skip : MonoBehaviour
             SceneManager.LoadScene("GameTitle");
         }
 
+        //게임 오버 씬 스킵 시
+        if (SceneManager.GetActiveScene().name == "GameOver")
+        {
+            SceneManager.LoadScene("GameTitle");
+        }
+
         //미연시 스킵 시
         if (SceneManager.GetActiveScene().name == "Simulation") /* && [어떤 캐릭터인지 판별 가능한 조건] */
         {

@@ -8,8 +8,8 @@ public class ClickSE : MonoBehaviour
     public AudioClip soundB;
 
     //SE 볼륨 수치
-    public float volumeA = 1.0f;
-    public float volumeB = 0.3f;
+    private float volumeA = 0.4f;
+    private float volumeB = 0.2f;
 
 
     private void Update()
@@ -27,9 +27,8 @@ public class ClickSE : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-        bool condition = hit.collider.CompareTag("Block");
+        bool condition = hit.collider != null && hit.collider.CompareTag("Block");
 
-        // 블록 오브젝트를 클릭했을 때
         if (condition)
         {
             PlaySound(soundB, volumeB);
