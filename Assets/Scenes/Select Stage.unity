@@ -36492,8 +36492,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundA: {fileID: 8300000, guid: 9e319a684c6915e4ca3f8ee340001d0d, type: 3}
   soundB: {fileID: 8300000, guid: ad1c056df61c46e488842d5bb67c87a1, type: 3}
-  volumeA: 0.5
-  volumeB: 0.3
 --- !u!4 &2021378981
 Transform:
   m_ObjectHideFlags: 0
