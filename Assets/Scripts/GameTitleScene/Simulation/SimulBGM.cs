@@ -12,12 +12,6 @@ public class SimulBGM : MonoBehaviour
 
     private bool isBGM_DPlaying = false;
 
-    void Start()
-    {
-        // BGM을 한 번만 재생하고 종료되면 다른 BGM을 루프 재생
-        StartCoroutine(PlayBGM_After());
-    }
-
     IEnumerator PlayBGM_After()
     {
         yield return new WaitForSeconds(bgmA.length);
@@ -35,7 +29,10 @@ public class SimulBGM : MonoBehaviour
         bgmSource.clip = bgmA;
         
         bgmSource.PlayOneShot(bgmA);
-        
+
+        // BGM을 한 번만 재생하고 종료되면 다른 BGM을 루프 재생
+        StartCoroutine(PlayBGM_After());
+
     }
 
     void OnDisable()
