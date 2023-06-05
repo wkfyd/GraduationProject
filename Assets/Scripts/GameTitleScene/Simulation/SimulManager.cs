@@ -11,6 +11,9 @@ public class SimulManager : MonoBehaviour
     public Animator talkPanel;
     public GameObject talkSet;
     public GameObject portraitImg;
+    public GameObject extraImg_01;
+    public GameObject extraImg_02;
+    public GameObject extraImg_03;
     public GameObject camera;
 
     public GameObject choice;
@@ -32,6 +35,7 @@ public class SimulManager : MonoBehaviour
     public GameObject[] otherCanvas;
     public GameObject simulCanvas;
     public GameObject logo;
+    public GameObject titleEffect;
 
     public void Action()
     {
@@ -41,7 +45,6 @@ public class SimulManager : MonoBehaviour
     void Talk(int enemyId)
     {
         string talkData = SimulDataManager.GetTalk(enemyId, talkIndex);
-
 
         //타이핑효과중이면 return으로 종료
         if (talk.isAnim)
@@ -58,40 +61,64 @@ public class SimulManager : MonoBehaviour
             return;
         }
 
+        //화자 변경
+        talkingChar_Next = int.Parse(talkData.Split(':')[1]);
+
+        if ((talkingChar == 0 || talkingChar == 1) && talkingChar_Next == 2 ||
+             talkingChar == 2 && (talkingChar_Next == 1 || talkingChar_Next == 0))
+        {
+            talkPanel.SetTrigger("Talk Up And Down");
+            talkingChar = talkingChar_Next;
+        }
+
         //소크라테스
         if (enemyId == 1001)
         {
-            /*talkingChar_Next = int.Parse(talkData.Split(':')[1]);
-
-            //화자 변경
-            if (talkingChar != talkingChar_Next)
-            {
-                talkPanel.SetTrigger("Talk Up And Down");
-                StartCoroutine(TextTiming(talkData));
-                talkingChar = talkingChar_Next;
-            }*/
-
             //일러스트 등장
-            if(talkIndex == 4)
+            if (talkIndex == 4)
             {
                 portraitImg.SetActive(true);
                 talk.SetMsg(talkData.Split(':')[0]);
                 talkIndex++;
             }
 
+            //일러스트 삭제
+            else if (talkIndex == 52 || talkIndex == 60)
+            {
+                portraitImg.SetActive(false);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
             //선택 분기
-            else if (talkIndex == 8 || talkIndex == 16 || talkIndex == 40 || talkIndex == 46)
+            else if (talkIndex == 8 || talkIndex == 16 || talkIndex == 32 || talkIndex == 40 || talkIndex == 46)
             {
                 Branch_Socra();
                 talk.SetMsg(talkData.Split(':')[0]);
             }
 
-            //일러스트 삭제
-            else if(talkIndex == 52 || talkIndex == 60)
+            //윗답변을 선택시에 아랫답도 같이 나오기때문에 인덱스 변경
+            else if (talkIndex == 12)
             {
-                portraitImg.SetActive(false);
                 talk.SetMsg(talkData.Split(':')[0]);
-                talkIndex++;
+                talkIndex = 16;
+            }
+
+            else if (talkIndex == 32)
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+            }
+
+            else if (talkIndex == 42)
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex = 45;
+            }
+
+            else if (talkIndex == 53)
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex = 61;
             }
 
             //카메라 흔들림
@@ -107,39 +134,394 @@ public class SimulManager : MonoBehaviour
                 talk.SetMsg(talkData.Split(':')[0]);
                 talkIndex++;
             }
-
-            
-
         }
 
-        //이름텍스트
+        //플라톤
+        if (enemyId == 1002)
+        {
+            //일러스트 등장
+            if (talkIndex == 1)
+            {
+                portraitImg.SetActive(true);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //일러스트 삭제
+            else if (talkIndex == 50)
+            {
+                portraitImg.SetActive(false);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //선택 분기
+            else if (talkIndex == 6 || talkIndex == 18 || talkIndex == 24)
+            {
+                Branch_Plato();
+                talk.SetMsg(talkData.Split(':')[0]);
+            }
+
+            //윗답변을 선택시에 아랫답도 같이 나오기때문에 인덱스 변경
+            else if (talkIndex == 10)
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex = 16;
+            }
+
+            else if (talkIndex == 28)
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex = 31;
+            }
+
+            else if (talkIndex == 32)
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex = 36;
+            }
+        }
+
+        //아리스토텔레스
+        if (enemyId == 1003)
+        {
+            //일러스트 등장
+            if (talkIndex == 1 || talkIndex == 11 || talkIndex == 18)
+            {
+                portraitImg.SetActive(true);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //일러스트 삭제
+            else if (talkIndex == 8 || talkIndex == 16 || talkIndex == 33)
+            {
+                portraitImg.SetActive(false);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //카메라 흔들림
+            else if (talkIndex == 6)
+            {
+                StartCoroutine(CameraShake());
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            else
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+        }
+
+        //피타고라스
+        if (enemyId == 1004)
+        {
+            //일러스트 등장
+            if (talkIndex == 4 || talkIndex == 43 || talkIndex == 47)
+            {
+                portraitImg.SetActive(true);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //일러스트 삭제
+            else if (talkIndex == 33 || talkIndex == 45)
+            {
+                portraitImg.SetActive(false);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //엑스트라 등장
+            else if (talkIndex == 5 || talkIndex == 34)
+            {
+                portraitImg.SetActive(false);
+                extraImg_01.SetActive(true);
+                extraImg_02.SetActive(true);
+
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            else if (talkIndex == 49)
+            {
+                portraitImg.SetActive(false);
+                extraImg_03.SetActive(true);
+
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //엑스트라 삭제
+            else if (talkIndex == 8)
+            {
+                portraitImg.SetActive(true);
+                extraImg_01.SetActive(false);
+                extraImg_02.SetActive(false);
+
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            else if (talkIndex == 40)
+            {
+                extraImg_01.SetActive(false);
+                extraImg_02.SetActive(false);
+
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //선택 분기
+            else if (talkIndex == 14)
+            {
+                Branch_Pytha();
+                talk.SetMsg(talkData.Split(':')[0]);
+            }
+
+            //윗답변을 선택시에 아랫답도 같이 나오기때문에 인덱스 변경
+            else if (talkIndex == 16)
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex = 20;
+            }
+
+            //카메라 흔들림
+            else if (talkIndex == 3)
+            {
+                StartCoroutine(CameraShake());
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            else
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+        }
+
+        //아르키메데스
+        if (enemyId == 1005)
+        {
+            //일러스트 등장
+            if (talkIndex == 8 || talkIndex == 51)
+            {
+                portraitImg.SetActive(true);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //일러스트 삭제
+            else if (talkIndex == 38)
+            {
+                portraitImg.SetActive(false);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //선택 분기
+            else if (talkIndex == 10 || talkIndex == 33)
+            {
+                Branch_Archi();
+                talk.SetMsg(talkData.Split(':')[0]);
+            }
+
+            //윗답변을 선택시에 아랫답도 같이 나오기때문에 인덱스 변경
+            else if (talkIndex == 12)
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex = 17;
+            }
+
+            else if (talkIndex == 39)
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex = 56;
+            }
+
+            //카메라 흔들림
+            else if (talkIndex == 4 || talkIndex == 15 || talkIndex == 19 || talkIndex == 24 || talkIndex == 38)
+            {
+                StartCoroutine(CameraShake());
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            else
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+        }
+
+        //탈레스
+        if (enemyId == 1006)
+        {
+            //일러스트 등장
+            if (talkIndex == 6 || talkIndex == 51)
+            {
+                portraitImg.SetActive(true);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //일러스트 삭제
+            else if (talkIndex == 35)
+            {
+                portraitImg.SetActive(false);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //카메라 흔들림
+            else if (talkIndex == 9 || talkIndex == 15 || talkIndex == 19 || talkIndex == 24 || talkIndex == 38)
+            {
+                StartCoroutine(CameraShake());
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            else
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+        }
+
+        //에피쿠로스
+        if (enemyId == 1007)
+        {
+            //일러스트 등장
+            if (talkIndex == 12)
+            {
+                portraitImg.SetActive(true);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //일러스트 삭제
+            else if (talkIndex == 34)
+            {
+                portraitImg.SetActive(false);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //선택 분기
+            else if (talkIndex == 16)
+            {
+                Branch_Epicuru();
+                talk.SetMsg(talkData.Split(':')[0]);
+            }
+
+            //윗답변을 선택시에 아랫답도 같이 나오기때문에 인덱스 변경
+            else if (talkIndex == 20)
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex = 25;
+            }
+
+            else
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+        }
+
+        //키티움의 제논
+        if (enemyId == 1008)
+        {
+            //일러스트 등장
+            if (talkIndex == 12 || talkIndex == 30)
+            {
+                portraitImg.SetActive(true);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //일러스트 삭제
+            else if (talkIndex == 16 || talkIndex == 33)
+            {
+                portraitImg.SetActive(false);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //카메라 흔들림
+            else if (talkIndex == 14)
+            {
+                StartCoroutine(CameraShake());
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            else
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+        }
+
+
+        //이름박스
         if (int.Parse(talkData.Split(':')[1]) == 0)
         {
             SimulDataManager.GetName(1).SetActive(false);
             SimulDataManager.GetName(2).SetActive(false);
+            SimulDataManager.GetName(3).SetActive(false);
+            SimulDataManager.GetName(4).SetActive(false);
+            SimulDataManager.GetName(5).SetActive(false);
         }
 
         else if (int.Parse(talkData.Split(':')[1]) == 1)
         {
-            SimulDataManager.GetName(2).SetActive(false);
             SimulDataManager.GetName(1).SetActive(true);
+            SimulDataManager.GetName(2).SetActive(false);
+            SimulDataManager.GetName(3).SetActive(false);
+            SimulDataManager.GetName(4).SetActive(false);
+            SimulDataManager.GetName(5).SetActive(false);
         }
 
         else if (int.Parse(talkData.Split(':')[1]) == 2)
         {
-            SimulDataManager.GetName(2).SetActive(true);
             SimulDataManager.GetName(1).SetActive(false);
+            SimulDataManager.GetName(2).SetActive(true);
+            SimulDataManager.GetName(3).SetActive(false);
+            SimulDataManager.GetName(4).SetActive(false);
+            SimulDataManager.GetName(5).SetActive(false);
+        }
+
+        else if (int.Parse(talkData.Split(':')[1]) == 3)
+        {
+            SimulDataManager.GetName(1).SetActive(false);
+            SimulDataManager.GetName(2).SetActive(false);
+            SimulDataManager.GetName(3).SetActive(true);
+            SimulDataManager.GetName(4).SetActive(false);
+            SimulDataManager.GetName(5).SetActive(false);
+        }
+
+        else if (int.Parse(talkData.Split(':')[1]) == 4)
+        {
+            SimulDataManager.GetName(1).SetActive(false);
+            SimulDataManager.GetName(2).SetActive(false);
+            SimulDataManager.GetName(3).SetActive(false);
+            SimulDataManager.GetName(4).SetActive(true);
+            SimulDataManager.GetName(5).SetActive(false);
+        }
+
+        else if (int.Parse(talkData.Split(':')[1]) == 5)
+        {
+            SimulDataManager.GetName(1).SetActive(false);
+            SimulDataManager.GetName(2).SetActive(false);
+            SimulDataManager.GetName(3).SetActive(false);
+            SimulDataManager.GetName(4).SetActive(false);
+            SimulDataManager.GetName(5).SetActive(true);
         }
     }
-
-    /*IEnumerator TextTiming(string talkData)
-    {
-        yield return new WaitForSeconds(0.08f);
-
-        talk.SetMsg(talkData.Split(':')[0]);
-
-        talkIndex++;
-    }*/
 
     public void TalkButton_Socra()
     {
@@ -154,23 +536,114 @@ public class SimulManager : MonoBehaviour
         enemyName.text = "소크라테스";
     }
 
+    public void TalkButton_Plato()
+    {
+        bookFade.SetActive(true);
+
+        StartCoroutine(SimulOn());
+        StartCoroutine(BookFadeOutCorutine());
+
+        enemyId = 1002;
+
+        portraitImg = SimulDataManager.GetPortrait(enemyId);
+        enemyName.text = "플라톤";
+    }
+
+    public void TalkButton_Aristo()
+    {
+        bookFade.SetActive(true);
+
+        StartCoroutine(SimulOn());
+        StartCoroutine(BookFadeOutCorutine());
+
+        enemyId = 1003;
+
+        portraitImg = SimulDataManager.GetPortrait(enemyId);
+        enemyName.text = "아리스토텔레스";
+    }
+
+    public void TalkButton_Pytha()
+    {
+        bookFade.SetActive(true);
+
+        StartCoroutine(SimulOn());
+        StartCoroutine(BookFadeOutCorutine());
+
+        enemyId = 1004;
+
+        portraitImg = SimulDataManager.GetPortrait(enemyId);
+        enemyName.text = "피타고라스";
+    }
+
+    public void TalkButton_Archi()
+    {
+        bookFade.SetActive(true);
+
+        StartCoroutine(SimulOn());
+        StartCoroutine(BookFadeOutCorutine());
+
+        enemyId = 1005;
+
+        portraitImg = SimulDataManager.GetPortrait(enemyId);
+        enemyName.text = "아르키메데스";
+    }
+
+    public void TalkButton_Thales()
+    {
+        bookFade.SetActive(true);
+
+        StartCoroutine(SimulOn());
+        StartCoroutine(BookFadeOutCorutine());
+
+        enemyId = 1006;
+
+        portraitImg = SimulDataManager.GetPortrait(enemyId);
+        enemyName.text = "탈레스";
+    }
+
+    public void TalkButton_Epicuru()
+    {
+        bookFade.SetActive(true);
+
+        StartCoroutine(SimulOn());
+        StartCoroutine(BookFadeOutCorutine());
+
+        enemyId = 1007;
+
+        portraitImg = SimulDataManager.GetPortrait(enemyId);
+        enemyName.text = "에피쿠로스";
+    }
+
+    public void TalkButton_Zeno()
+    {
+        bookFade.SetActive(true);
+
+        StartCoroutine(SimulOn());
+        StartCoroutine(BookFadeOutCorutine());
+
+        enemyId = 1008;
+
+        portraitImg = SimulDataManager.GetPortrait(enemyId);
+        enemyName.text = "제논";
+    }
+
     public void Branch_Socra()
     {
-        if(talkIndex == 8)
+        if (talkIndex == 8)
         {
             choice.SetActive(true);
             choice_01.text = "당연하죠?";
             choice_02.text = "아뇨…?";
         }
 
-        else if(talkIndex == 16)
+        else if (talkIndex == 16)
         {
             choice.SetActive(true);
             choice_01.text = "사람들이 왜 당신을 싫어하는지 알 것 같아요.";
             choice_02.text = "소크라테스 씨는 아는 게 많군요.";
         }
 
-        else if(talkIndex == 40)
+        else if (talkIndex == 32 || talkIndex == 40)
         {
             choice.SetActive(true);
             choice_01.text = "동의한다";
@@ -184,63 +657,215 @@ public class SimulManager : MonoBehaviour
             choice_02.text = "거절한다";
         }
     }
-    public void Choice_Socra_Up()
-    {
-        choice.SetActive(false);
 
-        if (talkIndex == 8)
+    public void Branch_Plato()
+    {
+        if (talkIndex == 6)
         {
-            talkIndex = 9;
+            choice.SetActive(true);
+            choice_01.text = "긍정한다";
+            choice_02.text = "부정한다";
+        }
+
+        else if (talkIndex == 18)
+        {
+            choice.SetActive(true);
+            choice_01.text = "아주 좋은데요?";
+            choice_02.text = "말도 안 되는데요?";
+        }
+
+        else if (talkIndex == 24)
+        {
+            choice.SetActive(true);
+            choice_01.text = "그 힘으로 복수를 해보는 건?";
+            choice_02.text = "울지 마요. 나의 ㅇr7ㅣ사슴…☆";
+        }
+    }
+
+    public void Branch_Pytha()
+    {
+        choice.SetActive(true);
+        choice_01.text = "미안해요 피타고라스 씨.";
+        choice_02.text = "그러게 왜 내 앞길을 막아요?";
+    }
+
+    public void Branch_Archi()
+    {
+        if (talkIndex == 10)
+        {
+            choice.SetActive(true);
+            choice_01.text = "왜 여기서 이러고 있는 거예요!?!??";
+            choice_02.text = "아무 말 없이 가만히 있는다";
+        }
+
+        else if (talkIndex == 33)
+        {
+            choice.SetActive(true);
+            choice_01.text = "진정해요!";
+            choice_02.text = "다른 이야기로 화제를 돌린다.";
+        }
+    }
+
+    public void Branch_Epicuru()
+    {
+        choice.SetActive(true);
+        choice_01.text = "고… 고마워요.";
+        choice_02.text = "소문과는 거리가 먼 공간이네요.";
+    }
+
+
+    public void Choice_Up()
+    {
+        if (enemyId == 1001)
+        {
+            if (talkIndex == 8)
+            {
+                talkIndex = 9;
+                Talk(enemyId);
+            }
+
+            else if (talkIndex == 16)
+            {
+                talkIndex = 17;
+                Talk(enemyId);
+            }
+
+            else if (talkIndex == 32 || talkIndex == 40)
+            {
+                talkIndex = 41;
+                Talk(enemyId);
+            }
+
+            else if (talkIndex == 46)
+            {
+                talkIndex = 47;
+                Talk(enemyId);
+            }
+        }
+
+        if (enemyId == 1002)
+        {
+            if (talkIndex == 6)
+            {
+                talkIndex = 7;
+                Talk(enemyId);
+            }
+
+            else if (talkIndex == 18)
+            {
+                talkIndex = 19;
+                Talk(enemyId);
+            }
+
+            else if (talkIndex == 24)
+            {
+                talkIndex = 25;
+                Talk(enemyId);
+            }
+        }
+
+        if (enemyId == 1004)
+        {
+            talkIndex = 15;
             Talk(enemyId);
         }
 
-        else if (talkIndex == 16)
+        if (enemyId == 1005)
+        {
+            if (talkIndex == 10)
+            {
+                talkIndex = 11;
+                Talk(enemyId);
+            }
+
+            else if (talkIndex == 33)
+            {
+                talkIndex = 34;
+                Talk(enemyId);
+            }
+        }
+
+        if (enemyId == 1007)
         {
             talkIndex = 17;
             Talk(enemyId);
         }
-            
-        else if (talkIndex == 40)
-        {
-            talkIndex = 41;
-            Talk(enemyId);
-        }
-            
-        else if (talkIndex == 46)
-        {
-            talkIndex = 47;
-            Talk(enemyId);
-        }
-            
+
+        choice.SetActive(false);
     }
 
-    public void Choice_Socra_Down()
+    public void Choice_Down()
     {
+        if (enemyId == 1001)
+        {
+            if (talkIndex == 8)
+            {
+                talkIndex = 13;
+                Talk(enemyId);
+            }
+
+            else if (talkIndex == 16)
+            {
+                talkIndex = 33;
+                Talk(enemyId);
+            }
+
+            else if (talkIndex == 40)
+            {
+                talkIndex = 43;
+                Talk(enemyId);
+            }
+
+            else if (talkIndex == 46)
+            {
+                talkIndex = 54;
+                Talk(enemyId);
+            }
+        }
+
+        if (enemyId == 1002)
+        {
+            if (talkIndex == 6)
+            {
+                talkIndex = 11;
+                Talk(enemyId);
+            }
+
+            else if (talkIndex == 18)
+            {
+                talkIndex = 33;
+                Talk(enemyId);
+            }
+        }
+
+        if (enemyId == 1004)
+        {
+            talkIndex = 17;
+            Talk(enemyId);
+        }
+
+        if (enemyId == 1005)
+        {
+            if (talkIndex == 10)
+            {
+                talkIndex = 13;
+                Talk(enemyId);
+            }
+
+            else if (talkIndex == 33)
+            {
+                talkIndex = 40;
+                Talk(enemyId);
+            }
+        }
+
+        if (enemyId == 1007)
+        {
+            talkIndex = 21;
+            Talk(enemyId);
+        }
+
         choice.SetActive(false);
-
-        if (talkIndex == 8)
-        {
-            talkIndex = 13;
-            Talk(enemyId);
-        }
-
-        else if (talkIndex == 16)
-        {
-            talkIndex = 33;
-            Talk(enemyId);
-        }
-
-        else if (talkIndex == 40)
-        {
-            talkIndex = 43;
-            Talk(enemyId);
-        }
-
-        else if (talkIndex == 46)
-        {
-            talkIndex = 54;
-            Talk(enemyId);
-        }
     }
 
     IEnumerator CameraShake()
@@ -256,14 +881,38 @@ public class SimulManager : MonoBehaviour
     {
         simulFade.SetActive(true);
         bookFade.SetActive(true);
-
+        titleEffect.SetActive(false);
+        
         yield return new WaitForSeconds(4.0f);
 
         otherCanvas[0].SetActive(false);
         otherCanvas[1].SetActive(false);
         simulCanvas.SetActive(true);
         logo.SetActive(false);
-        bg.sprite = bgSource[1];
+
+        if (enemyId == 1001)
+            bg.sprite = bgSource[1];
+
+        else if (enemyId == 1002)
+            bg.sprite = bgSource[3];
+
+        else if (enemyId == 1003)
+            bg.sprite = bgSource[4];
+
+        else if (enemyId == 1004)
+            bg.sprite = bgSource[5];
+
+        else if (enemyId == 1005)
+            bg.sprite = bgSource[1];
+
+        else if (enemyId == 1006)
+            bg.sprite = bgSource[3];
+
+        else if (enemyId == 1007)
+            bg.sprite = bgSource[3];
+
+        else if (enemyId == 1008)
+            bg.sprite = bgSource[2];
 
         StartCoroutine(SimulFadeInCorutine());
 
@@ -295,6 +944,7 @@ public class SimulManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
 
         enemyId = 0;
+        talkIndex = 0;
 
         simulFade.SetActive(false);
         bookFade.SetActive(false);

@@ -8,6 +8,7 @@ public class BookManager : MonoBehaviour
 
     public GameObject[] layout;
     public GameObject[] pageButton;
+    public GameObject titleEffect;
 
     public void Page_1()
     {
@@ -124,5 +125,6 @@ public class BookManager : MonoBehaviour
     public void BackButton()
     {
         bookCanvas.SetActive(false);
+        titleEffect.SetActive(true);
     }
 }
