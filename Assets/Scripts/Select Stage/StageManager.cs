@@ -1,28 +1,657 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class StageManager : MonoBehaviour
 {
     public GameObject Tutorial;
     public GameObject Tuto_Text;
 
-    public int enemyId;
+    public GameObject stage_PopUp;
+    public TextMeshProUGUI round_Text;
 
-    private GameObject Stage;
+    public int enemyId;     //적 id
+    public int stageNum;    //현재 스테이지
 
-    //public SaveData saveData;
+    [Header("StageIcon")]
+    public Button stg01;
+    public Button stg02;
+    public Button stg03;
+    public Button stg04;
+    public Button stg05;
+    public Button stg06;
+
+    [Header("Enemy List")]
+    public GameObject[] enemyArr;
+
+    private GameObject Stage_PopUp;
 
     System.Random random = new System.Random();
 
     void Start()
     {
-        //saveData = GameObject.Find("SaveData").GetComponent<SaveData>();
+        //튜토리얼 미진행시
+        if (SaveData.Tutorial == 0)
+        {
+            StartTutorial();
 
-        //if(saveData.Tutorial == 0)
-        StartTutorial();
-        EnemyRandom_Stg1();
-        Debug.Log(enemyId);
+            stageNum = 1;                 //1스테이지에
+            round_Text.text = "1라운드";
+            enemyId = EnemyRandom_Stg1(); //적 랜덤
+
+            SaveData.currentStage = stageNum;
+            SaveData.currentEnemy_Id = enemyId;
+
+            stg01.interactable = true;
+            stg02.interactable = false;
+            stg03.interactable = false;
+            stg04.interactable = false;
+            stg05.interactable = false;
+            stg06.interactable = false;
+
+            Stage01_PopUp_Enemy();
+        }
+
+        //튜토리얼 아닐시
+        else if(SaveData.currentStage == 1)        
+        {
+            stg01.interactable = true;
+            stg02.interactable = false;
+            stg03.interactable = false;
+            stg04.interactable = false;
+            stg05.interactable = false;
+            stg06.interactable = false;
+
+            Stage01_PopUp_Enemy();
+        }
+
+        else if (SaveData.currentStage == 2)
+        {
+            stg01.interactable = false;
+            stg02.interactable = true;
+            stg03.interactable = false;
+            stg04.interactable = false;
+            stg05.interactable = false;
+            stg06.interactable = false;
+
+            Stage02or3_PopUp_Enemy();
+        }
+
+        else if (SaveData.currentStage == 3)
+        {
+            stg01.interactable = false;
+            stg02.interactable = false;
+            stg03.interactable = true;
+            stg04.interactable = false;
+            stg05.interactable = false;
+            stg06.interactable = false;
+
+            Stage02or3_PopUp_Enemy();
+        }
+
+        else if (SaveData.currentStage == 4)
+        {
+            stg01.interactable = false;
+            stg02.interactable = false;
+            stg03.interactable = false;
+            stg04.interactable = true;
+            stg05.interactable = false;
+            stg06.interactable = false;
+
+            Stage04_PopUp_Enemy();
+        }
+
+        else if (SaveData.currentStage == 5)
+        {
+            stg01.interactable = false;
+            stg02.interactable = false;
+            stg03.interactable = false;
+            stg04.interactable = false;
+            stg05.interactable = true;
+            stg06.interactable = false;
+
+            Stage05_PopUp_Enemy();
+        }
+
+        else if (SaveData.currentStage == 6)
+        {
+            stg01.interactable = false;
+            stg02.interactable = false;
+            stg03.interactable = false;
+            stg04.interactable = false;
+            stg05.interactable = false;
+            stg06.interactable = true;
+
+            Stage06_PopUp_Enemy();
+        }
+    }
+
+    void Stage01_PopUp_Enemy()
+    {
+        if (SaveData.currentEnemy_Id == 1013)
+        {
+            for (int i = 12; i < 17; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[12].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1014)
+        {
+            for (int i = 12; i < 17; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[13].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1015)
+        {
+            for (int i = 12; i < 17; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[14].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1016)
+        {
+            for (int i = 12; i < 17; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[15].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1017)
+        {
+            for (int i = 12; i < 17; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[16].SetActive(true);
+        }
+    }
+
+    void Stage02or3_PopUp_Enemy()
+    {
+        if (SaveData.currentEnemy_Id == 1009)
+        {
+            for (int i = 8; i < 17; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[8].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1010)
+        {
+            for (int i = 8; i < 17; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[9].SetActive(true);
+        }
+        else if (SaveData.currentEnemy_Id == 1011)
+        {
+            for (int i = 8; i < 17; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[10].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1012)
+        {
+            for (int i = 8; i < 17; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[11].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1013)
+        {
+            for (int i = 8; i < 17; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[12].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1014)
+        {
+            for (int i = 8; i < 17; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[13].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1015)
+        {
+            for (int i = 8; i < 17; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[14].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1016)
+        {
+            for (int i = 8; i < 17; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[15].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1017)
+        {
+            for (int i = 8; i < 17; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[16].SetActive(true);
+        }
+    }
+
+    void Stage04_PopUp_Enemy()
+    {
+        if (SaveData.currentEnemy_Id == 1005)
+        {
+            for (int i = 4; i < 12; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[4].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1006)
+        {
+            for (int i = 4; i < 12; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[5].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1007)
+        {
+            for (int i = 4; i < 12; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[6].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1008)
+        {
+            for (int i = 4; i < 12; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[7].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1009)
+        {
+            for (int i = 4; i < 12; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[8].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1010)
+        {
+            for (int i = 4; i < 12; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[9].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1011)
+        {
+            for (int i = 4; i < 12; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[10].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1012)
+        {
+            for (int i = 4; i < 12; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[11].SetActive(true);
+        }
+    }
+
+    void Stage05_PopUp_Enemy()
+    {
+        if (SaveData.currentEnemy_Id == 1005)
+        {
+            for (int i = 4; i < 8; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[4].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1006)
+        {
+            for (int i = 4; i < 8; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[5].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1007)
+        {
+            for (int i = 4; i < 8; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[6].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1008)
+        {
+            for (int i = 4; i < 8; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[7].SetActive(true);
+        }
+    }
+
+    void Stage06_PopUp_Enemy()
+    {
+        if (SaveData.currentEnemy_Id == 1001)
+        {
+            for (int i = 0; i < 4; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[0].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1002)
+        {
+            for (int i = 0; i < 4; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[1].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1003)
+        {
+            for (int i = 0; i < 4; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[2].SetActive(true);
+        }
+
+        else if (SaveData.currentEnemy_Id == 1004)
+        {
+            for (int i = 0; i < 4; i++)
+                enemyArr[i].SetActive(false);
+
+            enemyArr[3].SetActive(true);
+        }
+    }
+
+
+
+    public int EnemyRandom_Stg1()
+    {
+        int result = random.Next(1013, 1018);
+
+        if (result == 1013)
+        {
+            if (SaveData.isHippa == 1)
+                EnemyRandom_Stg1();
+        }
+
+        else if (result == 1014)
+        {
+            if (SaveData.isEucli == 1)
+                EnemyRandom_Stg1();
+        }
+
+        else if (result == 1015)
+        {
+            if (SaveData.isStoicism == 1)
+                EnemyRandom_Stg1();
+        }
+
+        else if (result == 1016)
+        {
+            if (SaveData.isEpicuri == 1)
+                EnemyRandom_Stg1();
+        }
+
+        else if (result == 1017)
+        {
+            if (SaveData.isSophist == 1)
+                EnemyRandom_Stg1();
+        }
+
+        return result;
+    }
+
+    public int EnemyRandom_Stg2or3()
+    {
+        int[] enemyIdRandom = new int[] { 3, 3, 3, 4, 4, 4, 4, 4, 4, 4};
+
+        int tmp = random.Next(0, 10);
+
+        int enemyRare = enemyIdRandom[tmp];
+
+        int result = 0;
+
+        if (enemyRare == 3)
+            result = random.Next(1009, 1013);
+        else
+            result = random.Next(1013, 1018);
+
+        if (result == 1009)
+        {
+            if (SaveData.isDiog == 1)
+                EnemyRandom_Stg2or3();
+        }
+
+        else if (result == 1010)
+        {
+            if (SaveData.isProta == 1)
+                EnemyRandom_Stg2or3();
+        }
+
+        else if (result == 1011)
+        {
+            if (SaveData.isThrasy == 1)
+                EnemyRandom_Stg2or3();
+        }
+
+        else if (result == 1012)
+        {
+            if (SaveData.isGorgi == 1)
+                EnemyRandom_Stg2or3();
+        }
+
+        else if (result == 1013)
+        {
+            if (SaveData.isHippa == 1)
+                EnemyRandom_Stg2or3();
+        }
+
+        else if (result == 1014)
+        {
+            if (SaveData.isEucli == 1)
+                EnemyRandom_Stg2or3();
+        }
+
+        else if (result == 1015)
+        {
+            if (SaveData.isStoicism == 1)
+                EnemyRandom_Stg2or3();
+        }
+
+        else if (result == 1016)
+        {
+            if (SaveData.isEpicuri == 1)
+                EnemyRandom_Stg2or3();
+        }
+
+        return result;
+    }
+
+    public int EnemyRandom_Stg4()
+    {
+        int[] enemyIdRandom = new int[] { 2, 3, 3, 3, 3, 3, 3, 3, 3, 3};
+
+        int tmp = random.Next(0, 10);
+
+        int enemyRare = enemyIdRandom[tmp];
+
+        int result = 0;
+
+        if (enemyRare == 2)
+            result = random.Next(1005, 1009);
+        else
+            result = random.Next(1009, 1013);
+
+        if (result == 1005)
+        {
+            if (SaveData.isArchi == 1)
+                EnemyRandom_Stg4();
+        }
+
+        else if (result == 1006)
+        {
+            if (SaveData.isThales == 1)
+                EnemyRandom_Stg4();
+        }
+
+        else if (result == 1007)
+        {
+            if (SaveData.isEpicuru == 1)
+                EnemyRandom_Stg4();
+        }
+
+        else if (result == 1008)
+        {
+            if (SaveData.isZeno == 1)
+                EnemyRandom_Stg4();
+        }
+
+        else if (result == 1009)
+        {
+            if (SaveData.isDiog == 1)
+                EnemyRandom_Stg4();
+        }
+
+        else if (result == 1010)
+        {
+            if (SaveData.isProta == 1)
+                EnemyRandom_Stg4();
+        }
+
+        else if (result == 1011)
+        {
+            if (SaveData.isThrasy == 1)
+                EnemyRandom_Stg4();
+        }
+
+        else if (result == 1012)
+        {
+            if (SaveData.isGorgi == 1)
+                EnemyRandom_Stg4();
+        }
+
+        return result;
+    }
+
+    public int EnemyRandom_Stg5()
+    {
+        int result = random.Next(1004, 1009);
+
+        if (result == 1004)
+        {
+            if (SaveData.isPytha == 1)
+                EnemyRandom_Stg5();
+        }
+
+        else if (result == 1005)
+        {
+            if (SaveData.isArchi == 1)
+                EnemyRandom_Stg5();
+        }
+
+        else if (result == 1006)
+        {
+            if (SaveData.isThales == 1)
+                EnemyRandom_Stg5();
+        }
+
+        else if (result == 1007)
+        {
+            if (SaveData.isEpicuru == 1)
+                EnemyRandom_Stg5();
+        }
+
+        return result;
+    }
+
+    public int EnemyRandom_Stg6()
+    {
+        int result = random.Next(1001, 1005);
+
+        if (result == 1001)
+        {
+            if (SaveData.isSocra == 1)
+                EnemyRandom_Stg6();
+        }
+
+        else if (result == 1002)
+        {
+            if (SaveData.isPlato == 1)
+                EnemyRandom_Stg6();
+        }
+
+        else if (result == 1003)
+        {
+            if (SaveData.isAristo == 1)
+                EnemyRandom_Stg6();
+        }
+
+        else if (result == 1004)
+        {
+            if (SaveData.isPytha == 1)
+                EnemyRandom_Stg6();
+        }
+
+        return result;
+    }
+
+    public void Stage01()
+    {
+        Stage_PopUp = GameObject.Find("Canvas").transform.Find("Stage01_PopUp").gameObject;
+        Stage_PopUp.SetActive(true);
+    }
+
+    public void Stage02()
+    {
+        Stage_PopUp = GameObject.Find("Canvas").transform.Find("Stage02_PopUp").gameObject;
+        Stage_PopUp.SetActive(true);
+    }
+
+    public void Stage03()
+    {
+        Stage_PopUp = GameObject.Find("Canvas").transform.Find("Stage03_PopUp").gameObject;
+        Stage_PopUp.SetActive(true);
+    }
+
+    public void Stage04()
+    {
+        Stage_PopUp = GameObject.Find("Canvas").transform.Find("Stage04_PopUp").gameObject;
+        Stage_PopUp.SetActive(true);
+    }
+
+    public void Stage05()
+    {
+        Stage_PopUp = GameObject.Find("Canvas").transform.Find("Stage05_PopUp").gameObject;
+        Stage_PopUp.SetActive(true);
+    }
+
+    public void Stage06()
+    {
+        Stage_PopUp = GameObject.Find("Canvas").transform.Find("Stage06_PopUp").gameObject;
+        Stage_PopUp.SetActive(true);
+    }
+    public void FreeMode()
+    {
+        Stage_PopUp = GameObject.Find("Canvas").transform.Find("FreeMode").gameObject;
+        Stage_PopUp.SetActive(true);
     }
 
     void StartTutorial()
@@ -34,51 +663,5 @@ public class StageManager : MonoBehaviour
     void StartTutoText()
     {
         Tuto_Text.SetActive(true);
-    }
-
-    public int EnemyRandom_Stg1()
-    {
-        return enemyId = random.Next(1013, 1018);
-    }
-
-    public void Stage01()
-    {
-        Stage = GameObject.Find("Canvas").transform.Find("Stage01_PopUp").gameObject;
-        Stage.SetActive(true);
-    }
-
-    public void Stage02()
-    {
-        Stage = GameObject.Find("Canvas").transform.Find("Stage02_PopUp").gameObject;
-        Stage.SetActive(true);
-    }
-
-    public void Stage03()
-    {
-        Stage = GameObject.Find("Canvas").transform.Find("Stage03_PopUp").gameObject;
-        Stage.SetActive(true);
-    }
-
-    public void Stage04()
-    {
-        Stage = GameObject.Find("Canvas").transform.Find("Stage04_PopUp").gameObject;
-        Stage.SetActive(true);
-    }
-
-    public void Stage05()
-    {
-        Stage = GameObject.Find("Canvas").transform.Find("Stage05_PopUp").gameObject;
-        Stage.SetActive(true);
-    }
-
-    public void Stage06()
-    {
-        Stage = GameObject.Find("Canvas").transform.Find("Stage06_PopUp").gameObject;
-        Stage.SetActive(true);
-    }
-    public void FreeMode()
-    {
-        Stage = GameObject.Find("Canvas").transform.Find("FreeMode").gameObject;
-        Stage.SetActive(true);
     }
 }

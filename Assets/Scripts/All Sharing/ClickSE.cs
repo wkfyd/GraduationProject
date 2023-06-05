@@ -14,13 +14,10 @@ public class ClickSE : MonoBehaviour
 
     private void Update()
     {
-        
-
         if (Input.GetMouseButtonDown(0))
         {
             AorB();
         }
-
     }
 
     private void AorB()

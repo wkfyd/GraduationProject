@@ -63,7 +63,7 @@ public class EnemyManager : MonoBehaviour
         NextSp_Text.text = enemy_NomSp.ToString();
         NextAtk_Text.text = enemy_NomAtk.ToString();
 
-        enemy_Sprite = enemyData.GetSprite(enemyData.getId);
+        enemy_Sprite = enemyData.GetSprite(enemyData.get_Enemy_Id);
     }
 
     void Update()
@@ -168,7 +168,7 @@ public class EnemyManager : MonoBehaviour
     {
         start.SetActive(false);
         enemyTalk.SetActive(true);
-        enemyText.text = enemyData.GetEnemyTalk(enemyData.getId, 0);
+        enemyText.text = enemyData.GetEnemyTalk(enemyData.get_Enemy_Id, 0);
 
         StartCoroutine(EndTalk());
     }

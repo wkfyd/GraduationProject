@@ -8623,6 +8623,7 @@ RectTransform:
   - {fileID: 1380914649}
   - {fileID: 1375847186}
   - {fileID: 1720224423}
+  - {fileID: 590648243}
   - {fileID: 512486340}
   m_Father: {fileID: 1145631828}
   m_RootOrder: -1
@@ -12544,6 +12545,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589155986}
   m_CullTransparentMesh: 1
+--- !u!1 &590648240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 590648243}
+  - component: {fileID: 590648242}
+  - component: {fileID: 590648241}
+  m_Layer: 5
+  m_Name: Thales_Fade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &590648241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590648240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &590648242
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590648240}
+  m_CullTransparentMesh: 1
+--- !u!224 &590648243
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590648240}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 396314087}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &599291952
 GameObject:
   m_ObjectHideFlags: 0
@@ -14545,10 +14622,14 @@ MonoBehaviour:
   talk: {fileID: 55595700}
   talkPanel: {fileID: 396314088}
   talkSet: {fileID: 396314086}
+  textWindow: {fileID: 1890223301}
+  textWindow_PC: {fileID: 21300000, guid: 9c54482a1bdfe46488fa3d4002045dba, type: 3}
+  textWindow_else: {fileID: 21300000, guid: 72e88a1ee1db5fb42b283ce4125109d6, type: 3}
   portraitImg: {fileID: 0}
   extraImg_01: {fileID: 1380914648}
   extraImg_02: {fileID: 1375847185}
   extraImg_03: {fileID: 1720224422}
+  archi_Change: {fileID: 21300000, guid: 86fb8ad869ddd394fa15e8945531997d, type: 3}
   camera: {fileID: 1736415186}
   choice: {fileID: 532449600}
   choice_01: {fileID: 1076176909}
@@ -14558,6 +14639,7 @@ MonoBehaviour:
   talkIndex: 0
   simulFade: {fileID: 1696083798}
   bookFade: {fileID: 306519652}
+  Thales_Fade: {fileID: 590648240}
   bg: {fileID: 1929427354}
   bgSource:
   - {fileID: 21300000, guid: 947743a9c914d914c9e0d30a2fae6394, type: 3}
@@ -23639,7 +23721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1145631828
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25493,6 +25575,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TextWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 4630791889280517285, guid: 8d832b788df77e6418c9d227c4d6917b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4630791889280517305, guid: 8d832b788df77e6418c9d227c4d6917b, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -25505,6 +25591,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SimulManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 4630791889280517307, guid: 8d832b788df77e6418c9d227c4d6917b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 72e88a1ee1db5fb42b283ce4125109d6, type: 3}
     - target: {fileID: 4630791890020590620, guid: 8d832b788df77e6418c9d227c4d6917b, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -37812,6 +37902,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1890223301 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4630791889280517307, guid: 8d832b788df77e6418c9d227c4d6917b, type: 3}
+  m_PrefabInstance: {fileID: 1238252076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1892883676
 GameObject:
   m_ObjectHideFlags: 0

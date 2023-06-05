@@ -4,29 +4,37 @@ using UnityEngine;
 
 public class SaveData : MonoBehaviour
 {
-    public int isSocra;
-    public int isPlato;
-    public int isAristo;
-    public int isPytha;
-    public int isArchi;
-    public int isThales;
-    public int isEpicuru;
-    public int isZeno;
-    public int isDiog;
-    public int isProta;
-    public int isThrasy;
-    public int isGorgi;
-    public int isHippa;
-    public int isEucli;
-    public int isStoicism;
-    public int isEpicuri;
-    public int isSophist;
+    public static int isSocra;
+    public static int isPlato;
+    public static int isAristo;
+    public static int isPytha;
+    public static int isArchi;
+    public static int isThales;
+    public static int isEpicuru;
+    public static int isZeno;
+    public static int isDiog;
+    public static int isProta;
+    public static int isThrasy;
+    public static int isGorgi;
+    public static int isHippa;
+    public static int isEucli;
+    public static int isStoicism;
+    public static int isEpicuri;
+    public static int isSophist;
 
-    public int Tutorial;
+    public static int Tutorial;
+
+    public static int currentStage;
+    public static int currentEnemy_Id;
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        SaveData save = FindObjectOfType<SaveData>();
+
+        if (save != null)
+            DontDestroyOnLoad(gameObject);
+        else
+            return;
     }
 
     public void GameSave()

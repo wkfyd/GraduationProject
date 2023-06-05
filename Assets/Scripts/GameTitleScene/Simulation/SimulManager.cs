@@ -10,10 +10,14 @@ public class SimulManager : MonoBehaviour
 
     public Animator talkPanel;
     public GameObject talkSet;
+    public Image textWindow;
+    public Sprite textWindow_PC;
+    public Sprite textWindow_else;
     public GameObject portraitImg;
     public GameObject extraImg_01;
     public GameObject extraImg_02;
     public GameObject extraImg_03;
+    public Sprite archi_Change;
     public GameObject camera;
 
     public GameObject choice;
@@ -28,6 +32,7 @@ public class SimulManager : MonoBehaviour
 
     public GameObject simulFade;
     public GameObject bookFade;
+    public GameObject Thales_Fade;
 
     public SpriteRenderer bg;
     public Sprite[] bgSource;
@@ -45,6 +50,8 @@ public class SimulManager : MonoBehaviour
     void Talk(int enemyId)
     {
         string talkData = SimulDataManager.GetTalk(enemyId, talkIndex);
+
+        //=========================전체적용=================================
 
         //타이핑효과중이면 return으로 종료
         if (talk.isAnim)
@@ -71,7 +78,68 @@ public class SimulManager : MonoBehaviour
             talkingChar = talkingChar_Next;
         }
 
-        //소크라테스
+        //텍스트창 변경
+        if (int.Parse(talkData.Split(':')[1]) == 1)
+            textWindow.sprite = textWindow_PC;
+        else
+            textWindow.sprite = textWindow_else;
+
+        //이름박스
+        if (int.Parse(talkData.Split(':')[1]) == 0)
+        {
+            SimulDataManager.GetName(1).SetActive(false);
+            SimulDataManager.GetName(2).SetActive(false);
+            SimulDataManager.GetName(3).SetActive(false);
+            SimulDataManager.GetName(4).SetActive(false);
+            SimulDataManager.GetName(5).SetActive(false);
+        }
+
+        else if (int.Parse(talkData.Split(':')[1]) == 1)
+        {
+            SimulDataManager.GetName(1).SetActive(true);
+            SimulDataManager.GetName(2).SetActive(false);
+            SimulDataManager.GetName(3).SetActive(false);
+            SimulDataManager.GetName(4).SetActive(false);
+            SimulDataManager.GetName(5).SetActive(false);
+        }
+
+        else if (int.Parse(talkData.Split(':')[1]) == 2)
+        {
+            SimulDataManager.GetName(1).SetActive(false);
+            SimulDataManager.GetName(2).SetActive(true);
+            SimulDataManager.GetName(3).SetActive(false);
+            SimulDataManager.GetName(4).SetActive(false);
+            SimulDataManager.GetName(5).SetActive(false);
+        }
+
+        else if (int.Parse(talkData.Split(':')[1]) == 3)
+        {
+            SimulDataManager.GetName(1).SetActive(false);
+            SimulDataManager.GetName(2).SetActive(false);
+            SimulDataManager.GetName(3).SetActive(true);
+            SimulDataManager.GetName(4).SetActive(false);
+            SimulDataManager.GetName(5).SetActive(false);
+        }
+
+        else if (int.Parse(talkData.Split(':')[1]) == 4)
+        {
+            SimulDataManager.GetName(1).SetActive(false);
+            SimulDataManager.GetName(2).SetActive(false);
+            SimulDataManager.GetName(3).SetActive(false);
+            SimulDataManager.GetName(4).SetActive(true);
+            SimulDataManager.GetName(5).SetActive(false);
+        }
+
+        else if (int.Parse(talkData.Split(':')[1]) == 5)
+        {
+            SimulDataManager.GetName(1).SetActive(false);
+            SimulDataManager.GetName(2).SetActive(false);
+            SimulDataManager.GetName(3).SetActive(false);
+            SimulDataManager.GetName(4).SetActive(false);
+            SimulDataManager.GetName(5).SetActive(true);
+        }
+
+ //============================소크라테스=================================
         if (enemyId == 1001)
         {
             //일러스트 등장
@@ -136,7 +204,7 @@ public class SimulManager : MonoBehaviour
             }
         }
 
-        //플라톤
+//=============================플라톤====================================
         if (enemyId == 1002)
         {
             //일러스트 등장
@@ -180,9 +248,15 @@ public class SimulManager : MonoBehaviour
                 talk.SetMsg(talkData.Split(':')[0]);
                 talkIndex = 36;
             }
+
+            else
+            {
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
         }
 
-        //아리스토텔레스
+//===============================아리스토텔레스=====================================
         if (enemyId == 1003)
         {
             //일러스트 등장
@@ -216,13 +290,14 @@ public class SimulManager : MonoBehaviour
             }
         }
 
-        //피타고라스
+//==============================피타고라스=========================================
         if (enemyId == 1004)
         {
             //일러스트 등장
-            if (talkIndex == 4 || talkIndex == 43 || talkIndex == 47)
+            if (talkIndex == 4 || talkIndex == 47)
             {
                 portraitImg.SetActive(true);
+
                 talk.SetMsg(talkData.Split(':')[0]);
                 talkIndex++;
             }
@@ -275,6 +350,12 @@ public class SimulManager : MonoBehaviour
                 talkIndex++;
             }
 
+            //배경변경
+            else if (talkIndex == 43)
+            {
+                StartCoroutine(ChangeBG_Pytha());
+            }
+
             //선택 분기
             else if (talkIndex == 14)
             {
@@ -304,11 +385,11 @@ public class SimulManager : MonoBehaviour
             }
         }
 
-        //아르키메데스
+//==============================아르키메데스=========================================
         if (enemyId == 1005)
         {
             //일러스트 등장
-            if (talkIndex == 8 || talkIndex == 51)
+            if (talkIndex == 8)
             {
                 portraitImg.SetActive(true);
                 talk.SetMsg(talkData.Split(':')[0]);
@@ -316,9 +397,17 @@ public class SimulManager : MonoBehaviour
             }
 
             //일러스트 삭제
-            else if (talkIndex == 38)
+            else if (talkIndex == 38 || talkIndex == 55)
             {
                 portraitImg.SetActive(false);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //일러스트 교체
+            else if (talkIndex == 51)
+            {
+                portraitImg.GetComponent<Image>().sprite = archi_Change;
                 talk.SetMsg(talkData.Split(':')[0]);
                 talkIndex++;
             }
@@ -358,11 +447,11 @@ public class SimulManager : MonoBehaviour
             }
         }
 
-        //탈레스
+ //=====================================탈레스====================================
         if (enemyId == 1006)
         {
             //일러스트 등장
-            if (talkIndex == 6 || talkIndex == 51)
+            if (talkIndex == 6)
             {
                 portraitImg.SetActive(true);
                 talk.SetMsg(talkData.Split(':')[0]);
@@ -377,8 +466,21 @@ public class SimulManager : MonoBehaviour
                 talkIndex++;
             }
 
+            //배경변경
+            else if (talkIndex == 5 || talkIndex == 36)
+                StartCoroutine(ChangeBG_Thales());
+
+            //페이드아웃
+            else if (talkIndex == 41)
+            {
+                Thales_Fade.SetActive(true);
+                StartCoroutine(ThalesFadeOutCorutine());
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
             //카메라 흔들림
-            else if (talkIndex == 9 || talkIndex == 15 || talkIndex == 19 || talkIndex == 24 || talkIndex == 38)
+            else if (talkIndex == 9)
             {
                 StartCoroutine(CameraShake());
                 talk.SetMsg(talkData.Split(':')[0]);
@@ -392,7 +494,7 @@ public class SimulManager : MonoBehaviour
             }
         }
 
-        //에피쿠로스
+//==================================에피쿠로스======================================
         if (enemyId == 1007)
         {
             //일러스트 등장
@@ -432,7 +534,7 @@ public class SimulManager : MonoBehaviour
             }
         }
 
-        //키티움의 제논
+//================================키티움의 제논===================================
         if (enemyId == 1008)
         {
             //일러스트 등장
@@ -464,62 +566,6 @@ public class SimulManager : MonoBehaviour
                 talk.SetMsg(talkData.Split(':')[0]);
                 talkIndex++;
             }
-        }
-
-
-        //이름박스
-        if (int.Parse(talkData.Split(':')[1]) == 0)
-        {
-            SimulDataManager.GetName(1).SetActive(false);
-            SimulDataManager.GetName(2).SetActive(false);
-            SimulDataManager.GetName(3).SetActive(false);
-            SimulDataManager.GetName(4).SetActive(false);
-            SimulDataManager.GetName(5).SetActive(false);
-        }
-
-        else if (int.Parse(talkData.Split(':')[1]) == 1)
-        {
-            SimulDataManager.GetName(1).SetActive(true);
-            SimulDataManager.GetName(2).SetActive(false);
-            SimulDataManager.GetName(3).SetActive(false);
-            SimulDataManager.GetName(4).SetActive(false);
-            SimulDataManager.GetName(5).SetActive(false);
-        }
-
-        else if (int.Parse(talkData.Split(':')[1]) == 2)
-        {
-            SimulDataManager.GetName(1).SetActive(false);
-            SimulDataManager.GetName(2).SetActive(true);
-            SimulDataManager.GetName(3).SetActive(false);
-            SimulDataManager.GetName(4).SetActive(false);
-            SimulDataManager.GetName(5).SetActive(false);
-        }
-
-        else if (int.Parse(talkData.Split(':')[1]) == 3)
-        {
-            SimulDataManager.GetName(1).SetActive(false);
-            SimulDataManager.GetName(2).SetActive(false);
-            SimulDataManager.GetName(3).SetActive(true);
-            SimulDataManager.GetName(4).SetActive(false);
-            SimulDataManager.GetName(5).SetActive(false);
-        }
-
-        else if (int.Parse(talkData.Split(':')[1]) == 4)
-        {
-            SimulDataManager.GetName(1).SetActive(false);
-            SimulDataManager.GetName(2).SetActive(false);
-            SimulDataManager.GetName(3).SetActive(false);
-            SimulDataManager.GetName(4).SetActive(true);
-            SimulDataManager.GetName(5).SetActive(false);
-        }
-
-        else if (int.Parse(talkData.Split(':')[1]) == 5)
-        {
-            SimulDataManager.GetName(1).SetActive(false);
-            SimulDataManager.GetName(2).SetActive(false);
-            SimulDataManager.GetName(3).SetActive(false);
-            SimulDataManager.GetName(4).SetActive(false);
-            SimulDataManager.GetName(5).SetActive(true);
         }
     }
 
@@ -810,7 +856,7 @@ public class SimulManager : MonoBehaviour
                 Talk(enemyId);
             }
 
-            else if (talkIndex == 40)
+            else if (talkIndex == 32 || talkIndex == 40)
             {
                 talkIndex = 43;
                 Talk(enemyId);
@@ -834,6 +880,12 @@ public class SimulManager : MonoBehaviour
             else if (talkIndex == 18)
             {
                 talkIndex = 33;
+                Talk(enemyId);
+            }
+
+            else if (talkIndex == 24)
+            {
+                talkIndex = 29;
                 Talk(enemyId);
             }
         }
@@ -877,12 +929,13 @@ public class SimulManager : MonoBehaviour
         camera.SetActive(false);
     }
 
+    //도감에서 시뮬레이션 들어가기
     IEnumerator SimulOn()
     {
         simulFade.SetActive(true);
         bookFade.SetActive(true);
         titleEffect.SetActive(false);
-        
+
         yield return new WaitForSeconds(4.0f);
 
         otherCanvas[0].SetActive(false);
@@ -926,6 +979,7 @@ public class SimulManager : MonoBehaviour
         talkIndex = 1;
     }
 
+    //시뮬레이션에서 도감으로 넘어가기
     IEnumerator BookOn()
     {
         simulFade.SetActive(true);
@@ -933,6 +987,22 @@ public class SimulManager : MonoBehaviour
 
         yield return new WaitForSeconds(4.0f);
 
+        //상태 초기화 (이전 미연시장면에서 사용됐던 것들 초기화)
+        talkSet.SetActive(false);
+        portraitImg.SetActive(false);
+        extraImg_01.SetActive(false);
+        extraImg_02.SetActive(false);
+        extraImg_03.SetActive(false);
+        SimulDataManager.GetName(1).SetActive(false);
+        SimulDataManager.GetName(2).SetActive(false);
+        SimulDataManager.GetName(3).SetActive(false);
+        SimulDataManager.GetName(4).SetActive(false);
+        SimulDataManager.GetName(5).SetActive(false);
+        Thales_Fade.SetActive(false);
+        enemyId = 0;
+        talkIndex = 0;
+
+        //도감창 활성화
         otherCanvas[0].SetActive(true);
         otherCanvas[1].SetActive(true);
         simulCanvas.SetActive(false);
@@ -942,9 +1012,6 @@ public class SimulManager : MonoBehaviour
         StartCoroutine(BookFadeInCorutine());
 
         yield return new WaitForSeconds(2.0f);
-
-        enemyId = 0;
-        talkIndex = 0;
 
         simulFade.SetActive(false);
         bookFade.SetActive(false);
@@ -996,5 +1063,82 @@ public class SimulManager : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
             simulFade.GetComponent<Image>().color = new Color(0, 0, 0, count);
         }
+    }
+
+    IEnumerator ThalesFadeOutCorutine()
+    {
+        float count = 0;
+
+        while (count <= 1.0f)
+        {
+            count += 0.01f;
+            yield return new WaitForSeconds(0.02f);
+            Thales_Fade.GetComponent<Image>().color = new Color(0, 0, 0, count);
+        }
+    }
+
+    IEnumerator ChangeBG_Pytha()
+    {
+        SimulDataManager.GetName(1).SetActive(true);
+        SimulDataManager.GetName(2).SetActive(false);
+        SimulDataManager.GetName(3).SetActive(false);
+        SimulDataManager.GetName(4).SetActive(false);
+        SimulDataManager.GetName(5).SetActive(false);
+
+        yield return new WaitForSeconds(1.0f);
+
+        bg.sprite = bgSource[2];
+
+        yield return new WaitForSeconds(2.0f);
+
+        portraitImg.SetActive(true);
+
+        SimulDataManager.GetName(1).SetActive(false);
+        SimulDataManager.GetName(2).SetActive(true);
+
+        talk.SetMsg(SimulDataManager.GetTalk(enemyId, talkIndex).Split(':')[0]);
+        talkIndex++;
+    }
+
+    IEnumerator ChangeBG_Thales()
+    {
+        simulFade.SetActive(true);
+
+        float count = 0;
+
+        while (count <= 1.0f)
+        {
+            count += 0.01f;
+            yield return new WaitForSeconds(0.02f);
+            simulFade.GetComponent<Image>().color = new Color(255, 255, 255, count);
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        if (enemyId == 1006)
+        {
+            if (talkIndex == 5)
+            {
+                bg.sprite = bgSource[1];
+                talk.SetMsg(SimulDataManager.GetTalk(enemyId, talkIndex).Split(':')[0]);
+                talkIndex++;
+            }
+
+            else if (talkIndex == 36)
+            {
+                bg.sprite = bgSource[3];
+                talk.SetMsg(SimulDataManager.GetTalk(enemyId, talkIndex).Split(':')[0]);
+                talkIndex++;
+            }
+        }
+
+        while (count >= 0)
+        {
+            count -= 0.01f;
+            yield return new WaitForSeconds(0.01f);
+            simulFade.GetComponent<Image>().color = new Color(255, 255, 255, count);
+        }
+
+        simulFade.SetActive(false);
     }
 }

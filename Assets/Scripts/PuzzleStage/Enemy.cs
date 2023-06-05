@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     Dictionary<int, string[]> talkData;
     Dictionary<int, Sprite[]> enemyImgData;
 
-    public int getId;
+    public int get_Enemy_Id;
     public int maxHealth;
     public int AtkTurn;
     public int atk_Damage;
@@ -24,8 +24,10 @@ public class Enemy : MonoBehaviour
     }
     void Start()
     {
+        get_Enemy_Id = SaveData.currentEnemy_Id;
+
         //소크라테스
-        if (getId == 1001)
+        if (get_Enemy_Id == 1001)
         {
             maxHealth = 2000000;
             AtkTurn = 6;
@@ -34,7 +36,7 @@ public class Enemy : MonoBehaviour
         }
 
         //플라톤, 아리스토, 피타고라스
-        else if (getId == 1002 || getId == 1003 || getId == 1004)
+        else if (get_Enemy_Id == 1002 || get_Enemy_Id == 1003 || get_Enemy_Id == 1004)
         {
             maxHealth = 2000000;
             AtkTurn = 6;
@@ -43,7 +45,7 @@ public class Enemy : MonoBehaviour
         }
 
         //아르키메, 탈레스, 에피쿠로스, 제논
-        else if (getId == 1005 || getId == 1006 || getId == 1007 || getId == 1008)
+        else if (get_Enemy_Id == 1005 || get_Enemy_Id == 1006 || get_Enemy_Id == 1007 || get_Enemy_Id == 1008)
         {
             maxHealth = 500000;
             AtkTurn = 4;
@@ -52,7 +54,7 @@ public class Enemy : MonoBehaviour
         }
         
         //디오게네스, 프로타, 트라시마, 고르기아스
-        else if (getId == 1009 || getId == 1010 || getId == 1011 || getId == 1012)
+        else if (get_Enemy_Id == 1009 || get_Enemy_Id == 1010 || get_Enemy_Id == 1011 || get_Enemy_Id == 1012)
         {
             maxHealth = 10000;
             AtkTurn = 5;
@@ -61,8 +63,8 @@ public class Enemy : MonoBehaviour
         }
 
         //히파소스, 유클리드, 스토아 학파, 에피쿠로스 학파, 소피스트
-        else if (getId == 1013 || getId == 1014 ||
-            getId == 1015 || getId == 1016 || getId == 1017)
+        else if (get_Enemy_Id == 1013 || get_Enemy_Id == 1014 ||
+            get_Enemy_Id == 1015 || get_Enemy_Id == 1016 || get_Enemy_Id == 1017)
         {
             maxHealth = 500;
             AtkTurn = 4;
@@ -116,7 +118,7 @@ public class Enemy : MonoBehaviour
 
         for (int i = 0; i < 17; i++)
         {
-            if (getId != findEnemy[i].GetComponent<NPCData>().id)
+            if (get_Enemy_Id != findEnemy[i].GetComponent<NPCData>().id)
                 findEnemy[i].SetActive(false);
         }
     }
