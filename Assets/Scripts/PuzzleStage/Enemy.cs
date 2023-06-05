@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public int AtkTurn;
     public int atk_Damage;
     public int SpTurn;
+    public string enemyName;
 
     public Sprite[] enemySprite;
 
@@ -19,12 +20,12 @@ public class Enemy : MonoBehaviour
     {
         talkData = new Dictionary<int, string[]>();
         enemyImgData = new Dictionary<int, Sprite[]>();
-        EnemySetAct();
         GenerateData();
     }
     void Start()
     {
         get_Enemy_Id = SaveData.currentEnemy_Id;
+        EnemySetAct();
 
         //소크라테스
         if (get_Enemy_Id == 1001)
@@ -33,6 +34,7 @@ public class Enemy : MonoBehaviour
             AtkTurn = 6;
             atk_Damage = 10;
             SpTurn = 20;
+            enemyName = "소크라테스";
         }
 
         //플라톤, 아리스토, 피타고라스
@@ -42,6 +44,13 @@ public class Enemy : MonoBehaviour
             AtkTurn = 6;
             atk_Damage = 10;
             SpTurn = 17;
+
+            if (get_Enemy_Id == 1002)
+                enemyName = "플라톤";
+            else if (get_Enemy_Id == 1003)
+                enemyName = "아리스토텔레스";
+            else if (get_Enemy_Id == 1004)
+                enemyName = "피타고라스";
         }
 
         //아르키메, 탈레스, 에피쿠로스, 제논
@@ -51,6 +60,15 @@ public class Enemy : MonoBehaviour
             AtkTurn = 4;
             atk_Damage = 8;
             SpTurn = 13;
+
+            if (get_Enemy_Id == 1005)
+                enemyName = "아르키메데스";
+            else if (get_Enemy_Id == 1006)
+                enemyName = "탈레스";
+            else if (get_Enemy_Id == 1007)
+                enemyName = "에피쿠로스";
+            else if (get_Enemy_Id == 1008)
+                enemyName = "키티움의 제논";
         }
         
         //디오게네스, 프로타, 트라시마, 고르기아스
@@ -60,6 +78,15 @@ public class Enemy : MonoBehaviour
             AtkTurn = 5;
             atk_Damage = 10;
             SpTurn = 0;
+
+            if (get_Enemy_Id == 1009)
+                enemyName = "디오게네스";
+            else if (get_Enemy_Id == 1010)
+                enemyName = "프로타고라스";
+            else if (get_Enemy_Id == 1011)
+                enemyName = "트라시마코스";
+            else if (get_Enemy_Id == 1012)
+                enemyName = "고르기아스";
         }
 
         //히파소스, 유클리드, 스토아 학파, 에피쿠로스 학파, 소피스트
@@ -70,6 +97,17 @@ public class Enemy : MonoBehaviour
             AtkTurn = 4;
             atk_Damage = 7;
             SpTurn = 0;
+
+            if (get_Enemy_Id == 1013)
+                enemyName = "히파소스";
+            else if (get_Enemy_Id == 1014)
+                enemyName = "유클리드";
+            else if (get_Enemy_Id == 1015)
+                enemyName = "스토아 학파 철학자";
+            else if (get_Enemy_Id == 1016)
+                enemyName = "에피쿠로스 학파 철학자";
+            else if (get_Enemy_Id == 1016)
+                enemyName = "소피스트";
         }
     }
 
@@ -112,6 +150,8 @@ public class Enemy : MonoBehaviour
         enemyImgData.Add(1017, new Sprite[] { enemySprite[48], enemySprite[49], enemySprite[50] });
     }
 
+
+    //id에 맞춰서 적 이미지 생성
     void EnemySetAct()
     {
         GameObject[] findEnemy = GameObject.FindGameObjectsWithTag("Enemy");
@@ -150,5 +190,10 @@ public class Enemy : MonoBehaviour
     public int Get_SpTurn()
     {
         return SpTurn;
+    }
+
+    public string Get_enemyName()
+    {
+        return enemyName;
     }
 }

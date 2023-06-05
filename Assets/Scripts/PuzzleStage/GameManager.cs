@@ -34,13 +34,10 @@ public class GameManager : MonoBehaviour
     GameBoard gameBoard = new GameBoard();
     System.Random random = new System.Random();
 
-    void Awake()
-    {
-        winAim = GameObject.FindWithTag("Enemy").GetComponent<Animator>();
-    }
-
     void Start()
     {
+        winAim = GameObject.FindWithTag("Enemy").GetComponent<Animator>();
+
         spawnTrigger = true;
 
         StartSpawn();

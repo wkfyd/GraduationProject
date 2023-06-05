@@ -636,8 +636,8 @@ GameObject:
   m_Component:
   - component: {fileID: 236972819}
   - component: {fileID: 236972820}
-  - component: {fileID: 236972821}
   - component: {fileID: 236972822}
+  - component: {fileID: 236972821}
   m_Layer: 0
   m_Name: Sophist
   m_TagString: Enemy
@@ -4639,7 +4639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC18C\uD53C\uC2A4\uD2B8"
+  m_text: ???
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
   m_sharedMaterial: {fileID: 7504936010638429640, guid: 523689f80513eb247ba71fff5da5c5cb, type: 2}
@@ -5811,11 +5811,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73df5544af0783349be5944baa961c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getId: 1009
+  get_Enemy_Id: 0
   maxHealth: 0
   AtkTurn: 0
   atk_Damage: 0
   SpTurn: 0
+  enemyName: 
   enemySprite:
   - {fileID: 21300000, guid: 050dad3c648d5f246bced7aa0eedd72e, type: 3}
   - {fileID: 21300000, guid: 5e8ddd1494a9a294ba00004a16706445, type: 3}
@@ -6590,8 +6591,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundA: {fileID: 8300000, guid: 9e319a684c6915e4ca3f8ee340001d0d, type: 3}
   soundB: {fileID: 8300000, guid: ad1c056df61c46e488842d5bb67c87a1, type: 3}
-  volumeA: 0.5
-  volumeB: 0.3
 --- !u!1 &1567195964
 GameObject:
   m_ObjectHideFlags: 0
@@ -7124,6 +7123,7 @@ MonoBehaviour:
   start: {fileID: 804682656}
   enemyTalk: {fileID: 1084982904}
   enemyText: {fileID: 401909570}
+  enemyNameText: {fileID: 1063759663}
   enemy_HealthBar: {fileID: 1302886095}
   enemy_Idle: {fileID: 0}
   player_Idle: {fileID: 1692578556}

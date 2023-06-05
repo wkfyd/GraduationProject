@@ -12,6 +12,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject start;
     public GameObject enemyTalk;
     public TextMeshProUGUI enemyText;
+    public TextMeshProUGUI enemyNameText;
 
     public Image enemy_HealthBar;
 
@@ -58,6 +59,8 @@ public class EnemyManager : MonoBehaviour
 
         enemy_SpTurn = enemyData.Get_SpTurn();
         enemy_NomSp = enemy_SpTurn;
+
+        enemyNameText.text = enemyData.Get_enemyName();
 
         //남은 턴 str형식으로 변환
         NextSp_Text.text = enemy_NomSp.ToString();

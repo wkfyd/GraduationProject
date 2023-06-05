@@ -23413,7 +23413,7 @@ Transform:
   - {fileID: 1900585497}
   - {fileID: 412105499}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1121092904
 GameObject:
@@ -32152,7 +32152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1561442351
 Transform:
   m_ObjectHideFlags: 0
@@ -32166,7 +32166,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1561442352
 AudioSource:
@@ -33561,24 +33561,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b99fbe5c24d4a47a72315928c9bcfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSocra: 0
-  isPlato: 0
-  isAristo: 0
-  isPytha: 0
-  isArchi: 0
-  isThales: 0
-  isEpicuru: 0
-  isZeno: 0
-  isDiog: 0
-  isProta: 0
-  isThrasy: 0
-  isGorgi: 0
-  isHippa: 0
-  isEucli: 0
-  isStoicism: 0
-  isEpicuri: 0
-  isSophist: 0
-  Tutorial: 0
 --- !u!4 &1642489840
 Transform:
   m_ObjectHideFlags: 0
@@ -33592,7 +33574,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1648192008
 GameObject:
@@ -37534,7 +37516,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1841394815
 GameObject:
