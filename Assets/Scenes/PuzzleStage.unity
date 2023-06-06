@@ -2205,7 +2205,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 578494797}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: LoadEnding
+        m_MethodName: LoadGameWin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -106,7 +106,7 @@ public class Enemy : MonoBehaviour
                 enemyName = "스토아 학파 철학자";
             else if (get_Enemy_Id == 1016)
                 enemyName = "에피쿠로스 학파 철학자";
-            else if (get_Enemy_Id == 1016)
+            else if (get_Enemy_Id == 1017)
                 enemyName = "소피스트";
         }
     }

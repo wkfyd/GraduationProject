@@ -14,14 +14,17 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadScene("PuzzleStage");
     }
 
-    public void LoadEnding()
-    {
-        SceneManager.LoadScene("Ending");
-    }
-
     public void LoadFreeStage()
     {
         SceneManager.LoadScene("PuzzleStage");
+    }
+
+    public void LoadGameWin()
+    {
+        SceneManager.LoadScene("PuzzleStage");
+
+        if(SaveData.currentStage == 6 && SaveData.ending == 0)
+            SceneManager.LoadScene("Ending");
     }
 
     public void LoadGameOver()

@@ -14,6 +14,8 @@ public class EndingDialogManager : MonoBehaviour
     public int talkIndex;
     void Start()
     {
+        SaveData.ending = 1;
+
         talk.SetMsg(endingTM.GetTalk(0).Split(':')[0], talkIndex);
         talkIndex = 1;
         

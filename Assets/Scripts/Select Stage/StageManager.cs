@@ -1,6 +1,6 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class StageManager : MonoBehaviour
 {
@@ -52,77 +52,98 @@ public class StageManager : MonoBehaviour
             Stage01_PopUp_Enemy();
         }
 
-        //Æ©Åä¸®¾ó ¾Æ´Ò½Ã
-        else if(SaveData.currentStage == 1)        
+        else
         {
-            stg01.interactable = true;
-            stg02.interactable = false;
-            stg03.interactable = false;
-            stg04.interactable = false;
-            stg05.interactable = false;
-            stg06.interactable = false;
+            //Æ©Åä¸®¾ó ¾Æ´Ò½Ã
+            if (SaveData.currentStage == 1)
+            {
+                if(SaveData.currentEnemy_Id == 0)
+                    SaveData.currentEnemy_Id = EnemyRandom_Stg1();
 
-            Stage01_PopUp_Enemy();
-        }
+                stg01.interactable = true;
+                stg02.interactable = false;
+                stg03.interactable = false;
+                stg04.interactable = false;
+                stg05.interactable = false;
+                stg06.interactable = false;
 
-        else if (SaveData.currentStage == 2)
-        {
-            stg01.interactable = false;
-            stg02.interactable = true;
-            stg03.interactable = false;
-            stg04.interactable = false;
-            stg05.interactable = false;
-            stg06.interactable = false;
+                Stage01_PopUp_Enemy();
+            }
 
-            Stage02or3_PopUp_Enemy();
-        }
+            else if (SaveData.currentStage == 2)
+            {
+                if (SaveData.currentEnemy_Id == 0)
+                    SaveData.currentEnemy_Id = EnemyRandom_Stg2or3();
 
-        else if (SaveData.currentStage == 3)
-        {
-            stg01.interactable = false;
-            stg02.interactable = false;
-            stg03.interactable = true;
-            stg04.interactable = false;
-            stg05.interactable = false;
-            stg06.interactable = false;
+                stg01.interactable = false;
+                stg02.interactable = true;
+                stg03.interactable = false;
+                stg04.interactable = false;
+                stg05.interactable = false;
+                stg06.interactable = false;
 
-            Stage02or3_PopUp_Enemy();
-        }
+                Stage02or3_PopUp_Enemy();
+            }
 
-        else if (SaveData.currentStage == 4)
-        {
-            stg01.interactable = false;
-            stg02.interactable = false;
-            stg03.interactable = false;
-            stg04.interactable = true;
-            stg05.interactable = false;
-            stg06.interactable = false;
+            else if (SaveData.currentStage == 3)
+            {
+                if (SaveData.currentEnemy_Id == 0)
+                    SaveData.currentEnemy_Id = EnemyRandom_Stg2or3();
 
-            Stage04_PopUp_Enemy();
-        }
+                stg01.interactable = false;
+                stg02.interactable = false;
+                stg03.interactable = true;
+                stg04.interactable = false;
+                stg05.interactable = false;
+                stg06.interactable = false;
 
-        else if (SaveData.currentStage == 5)
-        {
-            stg01.interactable = false;
-            stg02.interactable = false;
-            stg03.interactable = false;
-            stg04.interactable = false;
-            stg05.interactable = true;
-            stg06.interactable = false;
+                Stage02or3_PopUp_Enemy();
+            }
 
-            Stage05_PopUp_Enemy();
-        }
+            else if (SaveData.currentStage == 4)
+            {
+                if (SaveData.currentEnemy_Id == 0)
+                    SaveData.currentEnemy_Id = EnemyRandom_Stg4();
 
-        else if (SaveData.currentStage == 6)
-        {
-            stg01.interactable = false;
-            stg02.interactable = false;
-            stg03.interactable = false;
-            stg04.interactable = false;
-            stg05.interactable = false;
-            stg06.interactable = true;
+                stg01.interactable = false;
+                stg02.interactable = false;
+                stg03.interactable = false;
+                stg04.interactable = true;
+                stg05.interactable = false;
+                stg06.interactable = false;
 
-            Stage06_PopUp_Enemy();
+                Stage04_PopUp_Enemy();
+            }
+
+            else if (SaveData.currentStage == 5)
+            {
+                if (SaveData.currentEnemy_Id == 0)
+                    SaveData.currentEnemy_Id = EnemyRandom_Stg5();
+
+                stg01.interactable = false;
+                stg02.interactable = false;
+                stg03.interactable = false;
+                stg04.interactable = false;
+                stg05.interactable = true;
+                stg06.interactable = false;
+
+                Stage05_PopUp_Enemy();
+            }
+
+            else if (SaveData.currentStage == 6)
+            {
+                if (SaveData.currentEnemy_Id == 0)
+                    SaveData.currentEnemy_Id = EnemyRandom_Stg6();
+
+                stg01.interactable = false;
+                stg02.interactable = false;
+                stg03.interactable = false;
+                stg04.interactable = false;
+                stg05.interactable = false;
+                stg06.interactable = true;
+
+                Stage06_PopUp_Enemy();
+            }
         }
     }
 
@@ -421,7 +442,7 @@ public class StageManager : MonoBehaviour
 
     public int EnemyRandom_Stg2or3()
     {
-        int[] enemyIdRandom = new int[] { 3, 3, 3, 4, 4, 4, 4, 4, 4, 4};
+        int[] enemyIdRandom = new int[] { 3, 3, 3, 4, 4, 4, 4, 4, 4, 4 };
 
         int tmp = random.Next(0, 10);
 
@@ -487,7 +508,7 @@ public class StageManager : MonoBehaviour
 
     public int EnemyRandom_Stg4()
     {
-        int[] enemyIdRandom = new int[] { 2, 3, 3, 3, 3, 3, 3, 3, 3, 3};
+        int[] enemyIdRandom = new int[] { 2, 3, 3, 3, 3, 3, 3, 3, 3, 3 };
 
         int tmp = random.Next(0, 10);
 

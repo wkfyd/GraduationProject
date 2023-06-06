@@ -23,6 +23,7 @@ public class SaveData : MonoBehaviour
     public static int isSophist;
 
     public static int Tutorial;
+    public static int ending;
 
     public static int currentStage;
     public static int currentEnemy_Id;
@@ -40,6 +41,10 @@ public class SaveData : MonoBehaviour
     public void GameSave()
     {
         PlayerPrefs.SetInt("Tutorial", Tutorial);
+        PlayerPrefs.SetInt("ending", ending);
+
+        PlayerPrefs.SetInt("currentStage", currentStage);
+        PlayerPrefs.SetInt("currentEnemy_Id", currentEnemy_Id);
 
         PlayerPrefs.SetInt("isSocra", isSocra);
         PlayerPrefs.SetInt("isPlato", isPlato);
@@ -63,6 +68,10 @@ public class SaveData : MonoBehaviour
     public void GameLoad()
     {
         Tutorial = PlayerPrefs.GetInt("Tutorial");
+        ending = PlayerPrefs.GetInt("ending");
+
+        currentStage = PlayerPrefs.GetInt("currentStage");
+        currentEnemy_Id = PlayerPrefs.GetInt("currentEnemy_Id");
 
         isSocra = PlayerPrefs.GetInt("isSocra");
         isPlato = PlayerPrefs.GetInt("isPlato");

@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
     {
         winAim = GameObject.FindWithTag("Enemy").GetComponent<Animator>();
 
+        gameWin = false;
+        gameOver = false;
+
         spawnTrigger = true;
 
         StartSpawn();
@@ -46,8 +49,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         currentBlock = GameObject.FindGameObjectsWithTag("Block"); //현재 블럭들 배열
-
-        Debug.Log(curt_turns);
 
         //밑 칸에 블럭이 없으면 내려주기
         BlockDown();
@@ -60,11 +61,13 @@ public class GameManager : MonoBehaviour
             Spawn();
 
         //게임승리
-        if (enemyManager.enemy_Health <= 0)
+        if (gameWin == false && enemyManager.enemy_Health <= 0)
+            gameWin = true;
             GameWin();
 
         //게임패배
-        if (player.pc_Health <= 0)
+        if (gameOver == false && player.pc_Health <= 0)
+            gameOver = true;
             GameOver();
     }
 
@@ -344,6 +347,98 @@ public class GameManager : MonoBehaviour
 
     public void GameWin()
     {
+        if (SaveData.currentEnemy_Id == 1001)
+        {
+            SaveData.isSocra = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1002)
+        {
+            SaveData.isPlato = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1003)
+        {
+            SaveData.isAristo = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1004)
+        {
+            SaveData.isPytha = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1005)
+        {
+            SaveData.isArchi = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1006)
+        {
+            SaveData.isThales = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1007)
+        {
+            SaveData.isEpicuru = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1008)
+        {
+            SaveData.isZeno = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1009)
+        {
+            SaveData.isDiog = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1010)
+        {
+            SaveData.isProta = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1011)
+        {
+            SaveData.isThrasy = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1012)
+        {
+            SaveData.isGorgi = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1013)
+        {
+            SaveData.isHippa = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1014)
+        {
+            SaveData.isEucli = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1015)
+        {
+            SaveData.isStoicism = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1016)
+        {
+            SaveData.isEpicuri = 1;
+        }
+
+        else if (SaveData.currentEnemy_Id == 1017)
+        {
+            SaveData.isSophist = 1;
+        }
+
+        SaveData.currentStage++;
+
+        if (SaveData.currentStage == 7)
+            SaveData.currentStage = 1;
+
+        SaveData.currentEnemy_Id = 0;
+
         gameWin = true;
         winAim.SetBool("isWin", true);
         Invoke("InvokeWinImg", 5.0f);
