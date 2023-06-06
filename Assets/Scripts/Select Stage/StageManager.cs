@@ -49,6 +49,8 @@ public class StageManager : MonoBehaviour
             stg05.interactable = false;
             stg06.interactable = false;
 
+            SaveData.Tutorial = 1;
+
             Stage01_PopUp_Enemy();
         }
 
@@ -59,6 +61,8 @@ public class StageManager : MonoBehaviour
             {
                 if(SaveData.currentEnemy_Id == 0)
                     SaveData.currentEnemy_Id = EnemyRandom_Stg1();
+
+                round_Text.text = "1라운드";
 
                 stg01.interactable = true;
                 stg02.interactable = false;
@@ -75,6 +79,8 @@ public class StageManager : MonoBehaviour
                 if (SaveData.currentEnemy_Id == 0)
                     SaveData.currentEnemy_Id = EnemyRandom_Stg2or3();
 
+                round_Text.text = "2라운드";
+
                 stg01.interactable = false;
                 stg02.interactable = true;
                 stg03.interactable = false;
@@ -89,6 +95,8 @@ public class StageManager : MonoBehaviour
             {
                 if (SaveData.currentEnemy_Id == 0)
                     SaveData.currentEnemy_Id = EnemyRandom_Stg2or3();
+
+                round_Text.text = "3라운드";
 
                 stg01.interactable = false;
                 stg02.interactable = false;
@@ -105,6 +113,8 @@ public class StageManager : MonoBehaviour
                 if (SaveData.currentEnemy_Id == 0)
                     SaveData.currentEnemy_Id = EnemyRandom_Stg4();
 
+                round_Text.text = "4라운드";
+
                 stg01.interactable = false;
                 stg02.interactable = false;
                 stg03.interactable = false;
@@ -120,6 +130,8 @@ public class StageManager : MonoBehaviour
                 if (SaveData.currentEnemy_Id == 0)
                     SaveData.currentEnemy_Id = EnemyRandom_Stg5();
 
+                round_Text.text = "5라운드";
+
                 stg01.interactable = false;
                 stg02.interactable = false;
                 stg03.interactable = false;
@@ -134,6 +146,8 @@ public class StageManager : MonoBehaviour
             {
                 if (SaveData.currentEnemy_Id == 0)
                     SaveData.currentEnemy_Id = EnemyRandom_Stg6();
+
+                round_Text.text = "6라운드";
 
                 stg01.interactable = false;
                 stg02.interactable = false;

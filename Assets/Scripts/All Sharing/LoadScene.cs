@@ -21,7 +21,7 @@ public class LoadScene : MonoBehaviour
 
     public void LoadGameWin()
     {
-        SceneManager.LoadScene("PuzzleStage");
+        SceneManager.LoadScene("Select Stage");
 
         if(SaveData.currentStage == 6 && SaveData.ending == 0)
             SceneManager.LoadScene("Ending");

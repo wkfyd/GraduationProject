@@ -62,12 +62,12 @@ public class GameManager : MonoBehaviour
 
         //게임승리
         if (gameWin == false && enemyManager.enemy_Health <= 0)
-            gameWin = true;
             GameWin();
+
+            
 
         //게임패배
         if (gameOver == false && player.pc_Health <= 0)
-            gameOver = true;
             GameOver();
     }
 
