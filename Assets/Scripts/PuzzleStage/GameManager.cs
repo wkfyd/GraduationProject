@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public int turns;
     public int curt_turns;
+    public int comboAtk;
     public bool gameOver;
     public bool gameWin;
     public bool isSpawn;

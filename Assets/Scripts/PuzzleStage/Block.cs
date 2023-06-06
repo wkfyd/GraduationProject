@@ -90,98 +90,122 @@ public class Block : MonoBehaviour
     {
         switch (level)
         {
+            //A
             case 0:
                 blockDamage = 1;
                 break;
 
+            //B
             case 1:
                 blockDamage = 2;
                 break;
 
+            //C
             case 2:
                 blockDamage = 4;
                 break;
 
+            //D
             case 3:
                 blockDamage = 8;
                 break;
 
+            //E
             case 4:
                 blockDamage = 16;
                 break;
 
+            //F
             case 5:
                 blockDamage = 80;
                 break;
 
+            //G
             case 6:
                 blockDamage = 240;
                 break;
 
+            //H
             case 7:
                 blockDamage = 520;
                 break;
 
+            //I
             case 8:
                 blockDamage = 2080;
                 break;
 
+            //J
             case 9:
                 blockDamage = 5000;
                 break;
 
+            //K
             case 10:
                 blockDamage = 15000;
                 break;
 
+            //L
             case 11:
                 blockDamage = 45000;
                 break;
 
+            //M
             case 12:
                 blockDamage = 89000;
                 break;
 
+            //N
             case 13:
                 blockDamage = 165000;
                 break;
 
+            //O
             case 14:
                 blockDamage = 337000;
                 break;
 
+            //P
             case 15:
                 blockDamage = 503400;
                 break;
 
+            //Q
             case 16:
                 blockDamage = 875600;
                 break;
 
+            //R
             case 17:
                 blockDamage = 1034000;
                 break;
 
+            //S
             case 18:
                 blockDamage = 1578900;
                 break;
 
+            //T
             case 19:
                 blockDamage = 1867800;
                 break;
 
+            //U
             case 20:
                 blockDamage = 2346700;
                 break;
 
+            //V
             case 21:
                 blockDamage = 2789900;
                 break;
 
+            //W
             case 22:
                 blockDamage = 3134500;
                 break;
 
+            //X
             case 23:
                 blockDamage = 9999999;
                 break;
@@ -271,11 +295,18 @@ public class Block : MonoBehaviour
         EffectPlay();
         GetDamage();
 
+        manager.comboAtk++;
+
+        if (manager.comboAtk >= 3)
+        {
+            blockDamage = blockDamage + (int)(blockDamage * 0.1);
+        }
+
         bl_enemyManager.enemy_DamageHP = bl_enemyManager.enemy_DamageHP - blockDamage;
         manager.curt_turns++;
 
         level++;
-
+        
         anim.SetInteger("Level", level);
 
         if (!tuto.tuto_merge)
@@ -371,6 +402,8 @@ public class Block : MonoBehaviour
                 gridX = newX;
                 gridY = newY;
 
+                manager.comboAtk = 0;
+
                 StartCoroutine(GravityRoutine());  //중력 애니메이션
 
                 break;
@@ -380,6 +413,8 @@ public class Block : MonoBehaviour
                 manager.blocks[i + 1, newY].gameObject.GetComponent<Block>().level != level)  //밑 블럭 레벨이 다를 때 (같으면 내려가야하기때문
             {
                 transform.position = new Vector3(gameBoard.blockGridPos[i, newY].x, gameBoard.blockGridPos[i, newY].y, 0);
+
+                manager.comboAtk = 0;
 
                 break;
             }
@@ -467,6 +502,13 @@ public class Block : MonoBehaviour
 
         EffectPlay();
         GetDamage();
+
+        manager.comboAtk++;
+
+        if (manager.comboAtk >= 3)
+        {
+            blockDamage = blockDamage + (int)(blockDamage * 0.1);
+        }
 
         bl_enemyManager.enemy_DamageHP = bl_enemyManager.enemy_DamageHP - blockDamage;
 
