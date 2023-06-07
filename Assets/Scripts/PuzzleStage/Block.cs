@@ -6,7 +6,7 @@ public class Block : MonoBehaviour
 {
     public GameManager manager;
     public TutorialManager tuto;
-    public EnemyManager bl_enemyManager;
+    public EnemyManager enemyManager;
 
     public GameBoard gameBoard;
 
@@ -44,6 +44,7 @@ public class Block : MonoBehaviour
 
     public void OnMouseDown()
     {
+
         downGrid_X = gridX;
         downGrid_Y = gridY;
 
@@ -53,20 +54,22 @@ public class Block : MonoBehaviour
 
     public void OnMouseDrag()
     {
+        if (!enemyManager.isEnemy_Sp)
+        {
+            mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
+            mouse_Pos.z = 0;
 
-        mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
-        mouse_Pos.z = 0;
+            transform.position = Vector3.Lerp(transform.position, mouse_Pos, 50f * Time.deltaTime);
 
-        transform.position = Vector3.Lerp(transform.position, mouse_Pos, 50f * Time.deltaTime);
+            //블럭이 있으면 부딪히게
+            BumpBlock();
 
-        //블럭이 있으면 부딪히게
-        BumpBlock();
+            //보드판 밖으로 못 나가게
+            outOfRangeBoard();
 
-        //보드판 밖으로 못 나가게
-        outOfRangeBoard();
-
-        //좌표변경 함수 + 드래그머지
-        DragChangedGridPos();
+            //좌표변경 함수 + 드래그머지
+            DragChangedGridPos();
+        }
     }
 
     public void OnMouseUp()
@@ -295,6 +298,7 @@ public class Block : MonoBehaviour
         EffectPlay();
         GetDamage();
 
+        //콤보
         manager.comboAtk++;
 
         if (manager.comboAtk >= 3)
@@ -302,11 +306,39 @@ public class Block : MonoBehaviour
             blockDamage = blockDamage + (int)(blockDamage * 0.1);
         }
 
-        bl_enemyManager.enemy_DamageHP = bl_enemyManager.enemy_DamageHP - blockDamage;
+        //데미지 계산
+        if (enemyManager.isAristo_Sp &&
+            (enemyManager.aristo_Sp_NomTurn >= 1 && enemyManager.aristo_Sp_NomTurn <= 3))
+        {
+            enemyManager.enemy_DamageHP = enemyManager.enemy_Health;
+
+            enemyManager.aristo_Sp_NomTurn--;
+
+            if (enemyManager.aristo_Sp_NomTurn == 0)
+                enemyManager.isAristo_Sp = false;
+        }
+
+        else if (enemyManager.isEpicuru_Sp &&
+                (enemyManager.epicuru_Sp_NomTurn >= 1 && enemyManager.epicuru_Sp_NomTurn <= 3))
+        {
+            float x = 2 / 3f;
+            enemyManager.enemy_DamageHP -= (float)blockDamage * x;
+
+            enemyManager.epicuru_Sp_NomTurn--;
+
+            if (enemyManager.epicuru_Sp_NomTurn == 0)
+                enemyManager.isEpicuru_Sp = false;
+        }
+
+        else
+            enemyManager.enemy_DamageHP -= blockDamage;
+
+        //턴 계산
         manager.curt_turns++;
 
+        //레벨+
         level++;
-        
+
         anim.SetInteger("Level", level);
 
         if (!tuto.tuto_merge)
@@ -503,6 +535,7 @@ public class Block : MonoBehaviour
         EffectPlay();
         GetDamage();
 
+        //콤보
         manager.comboAtk++;
 
         if (manager.comboAtk >= 3)
@@ -510,10 +543,37 @@ public class Block : MonoBehaviour
             blockDamage = blockDamage + (int)(blockDamage * 0.1);
         }
 
-        bl_enemyManager.enemy_DamageHP = bl_enemyManager.enemy_DamageHP - blockDamage;
+        //데미지 계산
+        if (enemyManager.isAristo_Sp &&
+            (enemyManager.aristo_Sp_NomTurn >= 1 && enemyManager.aristo_Sp_NomTurn <= 3))
+        {
+            enemyManager.enemy_DamageHP = enemyManager.enemy_Health;
 
+            enemyManager.aristo_Sp_NomTurn--;
+
+            if (enemyManager.aristo_Sp_NomTurn == 0)
+                enemyManager.isAristo_Sp = false;
+        }
+
+        else if (enemyManager.isEpicuru_Sp &&
+                (enemyManager.epicuru_Sp_NomTurn >= 1 && enemyManager.epicuru_Sp_NomTurn <= 3))
+        {
+            float x = 2/3f;
+            enemyManager.enemy_DamageHP -= (float)blockDamage * x;
+
+            enemyManager.epicuru_Sp_NomTurn--;
+
+            if (enemyManager.epicuru_Sp_NomTurn == 0)
+                enemyManager.isEpicuru_Sp = false;
+        }
+
+        else
+            enemyManager.enemy_DamageHP -= blockDamage;
+
+        //턴 계산
         manager.curt_turns++;
 
+        //레벨+
         anim.SetInteger("Level", level + 1);
 
         level++;

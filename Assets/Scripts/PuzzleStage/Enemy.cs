@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public string enemyName;
 
     public Sprite[] enemySprite;
+    public Sprite[] enemy_Sp_Atk;
 
     void Awake()
     {
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
     {
         get_Enemy_Id = SaveData.currentEnemy_Id;
         EnemySetAct();
+        SetEnemySp();
 
         //소크라테스
         if (get_Enemy_Id == 1001)
@@ -151,7 +153,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    //id에 맞춰서 적 이미지 생성
+    //id에 맞춰서 적 이미지 활성화
     void EnemySetAct()
     {
         GameObject[] findEnemy = GameObject.FindGameObjectsWithTag("Enemy");
@@ -161,6 +163,49 @@ public class Enemy : MonoBehaviour
             if (get_Enemy_Id != findEnemy[i].GetComponent<NPCData>().id)
                 findEnemy[i].SetActive(false);
         }
+    }
+
+    //id에 맞춰 적 스폐셜 공격 변경
+    public Sprite SetEnemySp()
+    {
+        Sprite spImg = null;
+
+        switch (get_Enemy_Id)
+        {
+            case 1001:
+                spImg = enemy_Sp_Atk[0];
+                break;
+
+            case 1002:
+                spImg = enemy_Sp_Atk[1];
+                break;
+
+            case 1003:
+                spImg = enemy_Sp_Atk[2];
+                break;
+
+            case 1004:
+                spImg = enemy_Sp_Atk[3];
+                break;
+
+            case 1005:
+                spImg = enemy_Sp_Atk[4];
+                break;
+
+            case 1006:
+                spImg = enemy_Sp_Atk[5];
+                break;
+
+            case 1007:
+                spImg = enemy_Sp_Atk[6];
+                break;
+
+            case 1008:
+                spImg = enemy_Sp_Atk[7];
+                break;
+        }
+
+        return spImg;
     }
 
     public Sprite[] GetSprite(int id)

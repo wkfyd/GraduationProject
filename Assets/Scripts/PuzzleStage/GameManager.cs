@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
     public Animator winAim;
     public Animator playerOverAim;
 
-    public int turns;
-    public int curt_turns;
+    public int turns;       //이전 턴
+    public int curt_turns;  //현재 턴 (이전 턴과 현재 턴을 계산하기 위함)
     public int comboAtk;
     public bool gameOver;
     public bool gameWin;
@@ -64,8 +64,6 @@ public class GameManager : MonoBehaviour
         //게임승리
         if (gameWin == false && enemyManager.enemy_Health <= 0)
             GameWin();
-
-            
 
         //게임패배
         if (gameOver == false && player.pc_Health <= 0)
@@ -124,7 +122,7 @@ public class GameManager : MonoBehaviour
             }
 
             lastBlock.manager = this;
-            lastBlock.bl_enemyManager = enemyManager;
+            lastBlock.enemyManager = enemyManager;
             lastBlock.tuto = tuto;
             lastBlock.level = random.Next(0, 3); //D이상 안 나오기
 
@@ -268,7 +266,7 @@ public class GameManager : MonoBehaviour
             }
 
             lastBlock.manager = this;
-            lastBlock.bl_enemyManager = enemyManager;
+            lastBlock.enemyManager = enemyManager;
             lastBlock.tuto = tuto;
             lastBlock.particle = instantEffect;
             lastBlock.gameObject.SetActive(true);

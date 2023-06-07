@@ -26,7 +26,7 @@ public class SaveData : MonoBehaviour
     public static int ending;
 
     public static int currentStage;
-    public static int currentEnemy_Id;
+    public static int currentEnemy_Id = 1008;
 
     void Awake()
     {
