@@ -1502,7 +1502,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0d4855ac9c161fb41a9bc4f9b2a73bfc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.343
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5414,7 +5414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.7058824}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.54901963}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7302,7 +7302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480d7d7e64e9cc54586a06571ab3b8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 1451915581}
+  gameManager: {fileID: 1451915581}
   enemyData: {fileID: 1442389978}
   player: {fileID: 1692578558}
   start: {fileID: 804682656}
@@ -7311,6 +7311,7 @@ MonoBehaviour:
   enemyNameText: {fileID: 1063759663}
   enemy_HealthBar: {fileID: 1302886095}
   enemy_Idle: {fileID: 0}
+  enemy_Idle_Obj: {fileID: 0}
   player_Idle: {fileID: 1692578556}
   enemy_Sprite: []
   player_Sprite:
@@ -7327,10 +7328,20 @@ MonoBehaviour:
   enemy_DamageHP: 0
   enemy_AtkTurn: 0
   enemy_NomAtk: 0
+  enemy_Atk_Damage: 0
   enemy_SpTurn: 0
   enemy_NomSp: 0
   isEnemy_Sp: 0
-  enemy_Atk_Damage: 0
+  isEnemy_Atk: 0
+  isPlyaer_Atk: 0
+  isAristo_Sp: 0
+  aristo_Sp_NomTurn: 0
+  isArchi_Sp: 0
+  archi_Sp_NomTurn: 0
+  isThales_Sp: 0
+  thales_Sp_NomTurn: 0
+  isEpicuru_Sp: 0
+  epicuru_Sp_NomTurn: 0
   enemy: {fileID: 236972818}
 --- !u!4 &1702260515
 Transform:
