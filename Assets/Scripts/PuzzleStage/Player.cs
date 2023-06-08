@@ -20,30 +20,30 @@ public class Player : MonoBehaviour
                 break;
 
             case 2:
-                pc_MaxHealth = 120;
-                pc_Health = pc_MaxHealth;
-                break;
-
-            case 3:
                 pc_MaxHealth = 130;
                 pc_Health = pc_MaxHealth;
                 break;
 
-            case 4:
+            case 3:
                 pc_MaxHealth = 170;
                 pc_Health = pc_MaxHealth;
                 break;
 
+            case 4:
+                pc_MaxHealth = 210;
+                pc_Health = pc_MaxHealth;
+                break;
+
             case 5:
-                pc_MaxHealth = 200;
+                pc_MaxHealth = 300;
                 pc_Health = pc_MaxHealth;
                 break;
 
             case 6:
-                pc_MaxHealth = 250;
+                pc_MaxHealth = 500;
                 pc_Health = pc_MaxHealth;
                 break;
-        } 
+        }
 
     }
 

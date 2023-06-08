@@ -232,7 +232,7 @@ public class GameManager : MonoBehaviour
             lastBlock.gridX = blocks.GetLength(0) - 1;
             lastBlock.gridY = i + 1;
 
-            //생성되는 블록과 기존에 생성된 블록에 적힌 문자의 순번은 서로 ( + 3 ) 또는 ( - 3 ) 이상의 차이가 나선 안 된다
+            //생성되는 블록에 적힌 문자의 순번은 생성된 블록 중 가장 순번이 낮은 블록을 기준으로 (+3), (-0) 이상의 차이가 나선 안 된다
             //생성되는 블록은 기존 생성된 블록 중 가장 앞순번의 블록을 기준으로 하여 3번 규칙대로 생성된다
             if (min - 2 < 0)
             {
@@ -240,7 +240,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                lastBlock.level = random.Next(min - 2, min + 3);
+                lastBlock.level = random.Next(min, min + 3);
             }
 
             spawnLevels[i] = lastBlock.level;       //레벨비교설정 위한 레벨배열

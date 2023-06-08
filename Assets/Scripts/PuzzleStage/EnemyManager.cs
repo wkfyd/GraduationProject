@@ -119,7 +119,7 @@ public class EnemyManager : MonoBehaviour
             {
                 if (isArchi_Sp && (archi_Sp_NomTurn >= 1 && archi_Sp_NomTurn <= 7))
                 {
-                    player.pc_Health -= enemy_Atk_Damage;
+                    player.pc_Health -= (enemy_Atk_Damage) / 2;
                     archi_Sp_NomTurn--;
 
                     if (archi_Sp_NomTurn == 0)
@@ -326,10 +326,10 @@ public class EnemyManager : MonoBehaviour
         {
             int count = 0;
 
-            while(count < 5)
+            while (count < 5)
             {
                 yield return new WaitForSeconds(0.2f);
-                player.pc_Health -= 7;
+                player.pc_Health -= 4;
 
                 count++;
             }

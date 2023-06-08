@@ -95,32 +95,32 @@ public class Block : MonoBehaviour
         {
             //A
             case 0:
-                blockDamage = 1;
+                blockDamage = 4;
                 break;
 
             //B
             case 1:
-                blockDamage = 2;
+                blockDamage = 8;
                 break;
 
             //C
             case 2:
-                blockDamage = 4;
+                blockDamage = 16;
                 break;
 
             //D
             case 3:
-                blockDamage = 8;
+                blockDamage = 32;
                 break;
 
             //E
             case 4:
-                blockDamage = 16;
+                blockDamage = 64;
                 break;
 
             //F
             case 5:
-                blockDamage = 80;
+                blockDamage = 120;
                 break;
 
             //G
@@ -150,67 +150,67 @@ public class Block : MonoBehaviour
 
             //L
             case 11:
-                blockDamage = 45000;
+                blockDamage = 20000;
                 break;
 
             //M
             case 12:
-                blockDamage = 89000;
+                blockDamage = 25000;
                 break;
 
             //N
             case 13:
-                blockDamage = 165000;
+                blockDamage = 30000;
                 break;
 
             //O
             case 14:
-                blockDamage = 337000;
+                blockDamage = 35000;
                 break;
 
             //P
             case 15:
-                blockDamage = 503400;
+                blockDamage = 40000;
                 break;
 
             //Q
             case 16:
-                blockDamage = 875600;
+                blockDamage = 45000;
                 break;
 
             //R
             case 17:
-                blockDamage = 1034000;
+                blockDamage = 50000;
                 break;
 
             //S
             case 18:
-                blockDamage = 1578900;
+                blockDamage = 55000;
                 break;
 
             //T
             case 19:
-                blockDamage = 1867800;
+                blockDamage = 60000;
                 break;
 
             //U
             case 20:
-                blockDamage = 2346700;
+                blockDamage = 65000;
                 break;
 
             //V
             case 21:
-                blockDamage = 2789900;
+                blockDamage = 70000;
                 break;
 
             //W
             case 22:
-                blockDamage = 3134500;
+                blockDamage = 75000;
                 break;
 
             //X
             case 23:
-                blockDamage = 9999999;
+                blockDamage = 999999;
                 break;
         }
 
