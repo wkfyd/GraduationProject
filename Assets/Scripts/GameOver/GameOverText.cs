@@ -29,7 +29,6 @@ public class GameOverText : MonoBehaviour
         //흰 색으로 페이드 아웃 index == 5
         //흰 화면에서 3초간 대기 후 (길면 1초) 타이틀 화면으로 이동하고 페이드 인
 
-
         nameData.Add(nameArr[0]); //빈 옵젝
         nameData.Add(nameArr[1]); //PC_Name
     }

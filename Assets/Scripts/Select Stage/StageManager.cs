@@ -31,7 +31,7 @@ public class StageManager : MonoBehaviour
     void Start()
     {
         //튜토리얼 미진행시
-        if (SaveData.Tutorial == 0)
+        if (SaveData.isTutorial == 0 && SaveData.currentEnemy_Id == 0)
         {
             StartTutorial();
 
@@ -49,7 +49,7 @@ public class StageManager : MonoBehaviour
             stg05.interactable = false;
             stg06.interactable = false;
 
-            SaveData.Tutorial = 1;
+            SaveData.isTutorial = 1;
 
             Stage01_PopUp_Enemy();
         }
@@ -59,10 +59,16 @@ public class StageManager : MonoBehaviour
             //튜토리얼 아닐시
             if (SaveData.currentStage == 1)
             {
-                if(SaveData.currentEnemy_Id == 0)
+                if (SaveData.currentEnemy_Id == 0)
+                {
+                    Debug.Log("실행댐1");
                     SaveData.currentEnemy_Id = EnemyRandom_Stg1();
+                }
 
                 round_Text.text = "1라운드";
+
+                stageNum = SaveData.currentStage;
+                enemyId = SaveData.currentEnemy_Id;
 
                 stg01.interactable = true;
                 stg02.interactable = false;
@@ -77,9 +83,18 @@ public class StageManager : MonoBehaviour
             else if (SaveData.currentStage == 2)
             {
                 if (SaveData.currentEnemy_Id == 0)
+                {
                     SaveData.currentEnemy_Id = EnemyRandom_Stg2or3();
+                    Debug.Log("스테이지2");
+                }
+
+
+
 
                 round_Text.text = "2라운드";
+
+                stageNum = SaveData.currentStage;
+                enemyId = SaveData.currentEnemy_Id;
 
                 stg01.interactable = false;
                 stg02.interactable = true;
@@ -94,9 +109,16 @@ public class StageManager : MonoBehaviour
             else if (SaveData.currentStage == 3)
             {
                 if (SaveData.currentEnemy_Id == 0)
+                {
+                    Debug.Log("실행댐3");
                     SaveData.currentEnemy_Id = EnemyRandom_Stg2or3();
+                }
+
 
                 round_Text.text = "3라운드";
+
+                stageNum = SaveData.currentStage;
+                enemyId = SaveData.currentEnemy_Id;
 
                 stg01.interactable = false;
                 stg02.interactable = false;
@@ -111,9 +133,15 @@ public class StageManager : MonoBehaviour
             else if (SaveData.currentStage == 4)
             {
                 if (SaveData.currentEnemy_Id == 0)
+                {
+                    Debug.Log("실행댐4");
                     SaveData.currentEnemy_Id = EnemyRandom_Stg4();
+                }
 
                 round_Text.text = "4라운드";
+
+                stageNum = SaveData.currentStage;
+                enemyId = SaveData.currentEnemy_Id;
 
                 stg01.interactable = false;
                 stg02.interactable = false;
@@ -128,9 +156,18 @@ public class StageManager : MonoBehaviour
             else if (SaveData.currentStage == 5)
             {
                 if (SaveData.currentEnemy_Id == 0)
-                    SaveData.currentEnemy_Id = EnemyRandom_Stg5();
+                {
+                    if (SaveData.currentEnemy_Id == 0)
+                    {
+                        Debug.Log("실행댐5");
+                        SaveData.currentEnemy_Id = EnemyRandom_Stg5();
+                    }
+                }
 
                 round_Text.text = "5라운드";
+
+                stageNum = SaveData.currentStage;
+                enemyId = SaveData.currentEnemy_Id;
 
                 stg01.interactable = false;
                 stg02.interactable = false;
@@ -145,9 +182,15 @@ public class StageManager : MonoBehaviour
             else if (SaveData.currentStage == 6)
             {
                 if (SaveData.currentEnemy_Id == 0)
+                {
+                    Debug.Log("실행댐6");
                     SaveData.currentEnemy_Id = EnemyRandom_Stg6();
+                }
 
                 round_Text.text = "6라운드";
+
+                stageNum = SaveData.currentStage;
+                enemyId = SaveData.currentEnemy_Id;
 
                 stg01.interactable = false;
                 stg02.interactable = false;
@@ -159,6 +202,8 @@ public class StageManager : MonoBehaviour
                 Stage06_PopUp_Enemy();
             }
         }
+
+        SaveData.GameSave();
     }
 
     void Stage01_PopUp_Enemy()
@@ -423,35 +468,35 @@ public class StageManager : MonoBehaviour
 
         if (result == 1013)
         {
-            if (SaveData.isHippa == 1)
-                EnemyRandom_Stg1();
+            if (SaveData.isHippa != 1)
+                return result;
         }
 
         else if (result == 1014)
         {
-            if (SaveData.isEucli == 1)
-                EnemyRandom_Stg1();
+            if (SaveData.isEucli != 1)
+                return result;
         }
 
         else if (result == 1015)
         {
-            if (SaveData.isStoicism == 1)
-                EnemyRandom_Stg1();
+            if (SaveData.isStoicism != 1)
+                return result;
         }
 
         else if (result == 1016)
         {
-            if (SaveData.isEpicuri == 1)
-                EnemyRandom_Stg1();
+            if (SaveData.isEpicuri != 1)
+                return result;
         }
 
         else if (result == 1017)
         {
-            if (SaveData.isSophist == 1)
-                EnemyRandom_Stg1();
+            if (SaveData.isSophist != 1)
+                return result;
         }
 
-        return result;
+        return EnemyRandom_Stg1();
     }
 
     public int EnemyRandom_Stg2or3()
@@ -469,55 +514,62 @@ public class StageManager : MonoBehaviour
         else
             result = random.Next(1013, 1018);
 
+
         if (result == 1009)
         {
-            if (SaveData.isDiog == 1)
-                EnemyRandom_Stg2or3();
+            if (SaveData.isDiog != 1)
+                return result;
         }
 
         else if (result == 1010)
         {
-            if (SaveData.isProta == 1)
-                EnemyRandom_Stg2or3();
+            if (SaveData.isProta != 1)
+                return result;
         }
 
         else if (result == 1011)
         {
-            if (SaveData.isThrasy == 1)
-                EnemyRandom_Stg2or3();
+            if (SaveData.isThrasy != 1)
+                return result;
         }
 
         else if (result == 1012)
         {
-            if (SaveData.isGorgi == 1)
-                EnemyRandom_Stg2or3();
+            if (SaveData.isGorgi != 1)
+                return result;
         }
 
         else if (result == 1013)
         {
-            if (SaveData.isHippa == 1)
-                EnemyRandom_Stg2or3();
+            if (SaveData.isHippa != 1)
+                return result;
         }
 
         else if (result == 1014)
         {
-            if (SaveData.isEucli == 1)
-                EnemyRandom_Stg2or3();
+            if (SaveData.isEucli != 1)
+                return result;
         }
 
         else if (result == 1015)
         {
-            if (SaveData.isStoicism == 1)
-                EnemyRandom_Stg2or3();
+            if (SaveData.isStoicism != 1)
+                return result;
         }
 
         else if (result == 1016)
         {
-            if (SaveData.isEpicuri == 1)
-                EnemyRandom_Stg2or3();
+            if (SaveData.isEpicuri != 1)
+                return result;
         }
 
-        return result;
+        else if (result == 1017)
+        {
+            if (SaveData.isSophist != 1)
+                return result;
+        }
+
+        return EnemyRandom_Stg2or3();
     }
 
     public int EnemyRandom_Stg4()
@@ -537,84 +589,84 @@ public class StageManager : MonoBehaviour
 
         if (result == 1005)
         {
-            if (SaveData.isArchi == 1)
-                EnemyRandom_Stg4();
+            if (SaveData.isArchi != 1)
+                return result;
         }
 
         else if (result == 1006)
         {
-            if (SaveData.isThales == 1)
-                EnemyRandom_Stg4();
+            if (SaveData.isThales != 1)
+                return result;
         }
 
         else if (result == 1007)
         {
-            if (SaveData.isEpicuru == 1)
-                EnemyRandom_Stg4();
+            if (SaveData.isEpicuru != 1)
+                return result;
         }
 
         else if (result == 1008)
         {
-            if (SaveData.isZeno == 1)
-                EnemyRandom_Stg4();
+            if (SaveData.isZeno != 1)
+                return result;
         }
 
         else if (result == 1009)
         {
-            if (SaveData.isDiog == 1)
-                EnemyRandom_Stg4();
+            if (SaveData.isDiog != 1)
+                return result;
         }
 
         else if (result == 1010)
         {
-            if (SaveData.isProta == 1)
-                EnemyRandom_Stg4();
+            if (SaveData.isProta != 1)
+                return result;
         }
 
         else if (result == 1011)
         {
-            if (SaveData.isThrasy == 1)
-                EnemyRandom_Stg4();
+            if (SaveData.isThrasy != 1)
+                return result;
         }
 
         else if (result == 1012)
         {
-            if (SaveData.isGorgi == 1)
-                EnemyRandom_Stg4();
+            if (SaveData.isGorgi != 1)
+                return result;
         }
 
-        return result;
+        return EnemyRandom_Stg4();
     }
 
     public int EnemyRandom_Stg5()
     {
-        int result = random.Next(1004, 1009);
+        int result = random.Next(1005, 1009);
 
-        if (result == 1004)
+        if (result == 1005)
         {
-            if (SaveData.isPytha == 1)
-                EnemyRandom_Stg5();
-        }
-
-        else if (result == 1005)
-        {
-            if (SaveData.isArchi == 1)
-                EnemyRandom_Stg5();
+            if (SaveData.isArchi != 1)
+                return result;
         }
 
         else if (result == 1006)
         {
-            if (SaveData.isThales == 1)
-                EnemyRandom_Stg5();
+            if (SaveData.isThales != 1)
+                return result;
         }
 
         else if (result == 1007)
         {
-            if (SaveData.isEpicuru == 1)
-                EnemyRandom_Stg5();
+            if (SaveData.isEpicuru != 1)
+                return result;
         }
 
-        return result;
+        else if (result == 1008)
+        {
+            if (SaveData.isZeno != 1)
+                return result;
+        }
+
+        return EnemyRandom_Stg5();
     }
 
     public int EnemyRandom_Stg6()
@@ -623,29 +675,29 @@ public class StageManager : MonoBehaviour
 
         if (result == 1001)
         {
-            if (SaveData.isSocra == 1)
-                EnemyRandom_Stg6();
+            if (SaveData.isSocra != 1)
+                return result;
         }
 
         else if (result == 1002)
         {
-            if (SaveData.isPlato == 1)
-                EnemyRandom_Stg6();
+            if (SaveData.isPlato != 1)
+                return result;
         }
 
         else if (result == 1003)
         {
-            if (SaveData.isAristo == 1)
-                EnemyRandom_Stg6();
+            if (SaveData.isAristo != 1)
+                return result;
         }
 
         else if (result == 1004)
         {
-            if (SaveData.isPytha == 1)
-                EnemyRandom_Stg6();
+            if (SaveData.isPytha != 1)
+                return result;
         }
 
-        return result;
+        return EnemyRandom_Stg6();
     }
 
     public void Stage01()

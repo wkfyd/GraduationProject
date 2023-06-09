@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +12,8 @@ public class Enemy : MonoBehaviour
     public int atk_Damage;
     public int SpTurn;
     public string enemyName;
+    public string spNameText;
+    public string spText;
 
     public Sprite[] enemySprite;
     public Sprite[] enemy_Sp_Atk;
@@ -29,107 +30,140 @@ public class Enemy : MonoBehaviour
         EnemySetAct();
         SetEnemySp();
 
-        //소크라테스
-        if (get_Enemy_Id == 1001)
+        switch (get_Enemy_Id)
         {
-            maxHealth = 1000000;
-            AtkTurn = 6;
-            atk_Damage = 10;
-            SpTurn = 50;
-            enemyName = "소크라테스";
-        }
+            //소크라테스
+            case 1001:
+                maxHealth = 1000000;
+                AtkTurn = 6;
+                atk_Damage = 10;
+                SpTurn = 50;
+                enemyName = "소크라테스";
+                spNameText = "진리의 산파술";
+                spText = "소크라테스가 날카로운 질문을 던져\nPC의 HP를 절반으로 만든다.";
+                break;
 
-        //아리스토
-        else if (get_Enemy_Id == 1003)
-        {
-            maxHealth = 1000000;
-            AtkTurn = 8;
-            atk_Damage = 10;
-            SpTurn = 17;
-            enemyName = "아리스토텔레스";
-        }
-
-        //플라톤, 피타고라스
-        else if (get_Enemy_Id == 1002 || get_Enemy_Id == 1003 || get_Enemy_Id == 1004)
-        {
-            maxHealth = 1000000;
-            AtkTurn = 6;
-            atk_Damage = 10;
-            SpTurn = 25;
-
-            if (get_Enemy_Id == 1002)
+            //플라톤
+            case 1002:
+                maxHealth = 1000000;
+                AtkTurn = 6;
+                atk_Damage = 10;
+                SpTurn = 25;
                 enemyName = "플라톤";
-            else if (get_Enemy_Id == 1003)
+                spNameText = "이데아 피스트";
+                spText = "플라톤이 강력한 철인 주먹으로\n강력한 대미지를 입힌다.";
+                break;
+
+            //아리스토
+            case 1003:
+
+                maxHealth = 1000000;
+                AtkTurn = 8;
+                atk_Damage = 10;
+                SpTurn = 17;
                 enemyName = "아리스토텔레스";
-            else if (get_Enemy_Id == 1004)
+                spNameText = "덕에 대한 가르침";
+                spText = "아리스토텔레스가 3번에 한해\n자신이 받는 대미지를 0으로 만든다.";
+                break;
+
+            //피타고라스
+            case 1004:
+                maxHealth = 1000000;
+                AtkTurn = 6;
+                atk_Damage = 10;
+                SpTurn = 25;
                 enemyName = "피타고라스";
-        }
+                spNameText = "KOSMOS";
+                spText = "피타고라스가 조화의 원기옥을 날려\n완벽한 대미지를 입힌다.";
+                break;
 
-        //에피쿠로스
-        else if (get_Enemy_Id == 1007)
-        {
-            maxHealth = 600000;
-            AtkTurn = 4;
-            atk_Damage = 10;
-            SpTurn = 25;
-            enemyName = "에피쿠로스";
-        }
-
-        //아르키메, 탈레스, 에피쿠로스, 제논
-        else if (get_Enemy_Id == 1005 || get_Enemy_Id == 1006 || get_Enemy_Id == 1008)
-        {
-            maxHealth = 600000;
-            AtkTurn = 4;
-            atk_Damage = 8;
-            SpTurn = 25;
-
-            if (get_Enemy_Id == 1005)
+            //아르키메데스
+            case 1005:
+                maxHealth = 600000;
+                AtkTurn = 4;
+                atk_Damage = 8;
+                SpTurn = 25;
                 enemyName = "아르키메데스";
-            else if (get_Enemy_Id == 1006)
+                spNameText = "π의 역습";
+                spText = "<size=30>아르키메데스가 π를 계산하며\n다각형 마법진을 만들어 발사한다.\n7턴 동안 턴이 끝날 때마다\n대미지를 입힌다.</size>";
+                break;
+
+            //탈레스
+            case 1006:
+                maxHealth = 600000;
+                AtkTurn = 4;
+                atk_Damage = 8;
+                SpTurn = 25;
                 enemyName = "탈레스";
-            else if (get_Enemy_Id == 1007)
+                spNameText = "아르케: 물";
+                spText = "만물의 근원인 물이 PC의 주변을 감싼다.\n2번에 한해, PC가 받는 대미지가 4배가 된다.";
+                break;
+
+            //에피쿠로스
+            case 1007:
+                maxHealth = 600000;
+                AtkTurn = 4;
+                atk_Damage = 10;
+                SpTurn = 25;
                 enemyName = "에피쿠로스";
-            else if (get_Enemy_Id == 1008)
+                spNameText = "아타락시아";
+                spText = "<size=30>에피쿠로스가 자신의 후광을 비춰\nPC의 탐욕을 제거한다.\n3번에 한해, PC가 가하는 대미지 수치가 \n{ 2 / 3 }가 된다.</size>";
+                break;
+
+            //키티움의 제논
+            case 1008:
+                maxHealth = 600000;
+                AtkTurn = 4;
+                atk_Damage = 10;
+                SpTurn = 25;
                 enemyName = "키티움의 제논";
-        }
+                spNameText = "위대한 로고스";
+                spText = "제논이 광활한 우주에서 빔을 쏴\n0.2초마다 대미지를 입힌다. 총 5회 공격한다.";
+                break;
 
-        //디오게네스, 프로타, 트라시마, 고르기아스
-        else if (get_Enemy_Id == 1009 || get_Enemy_Id == 1010 || get_Enemy_Id == 1011 || get_Enemy_Id == 1012)
-        {
-            maxHealth = 2500;
-            AtkTurn = 5;
-            atk_Damage = 10;
-            SpTurn = 0;
+            //디오게네스, 프로타, 트라시마, 고르기아스
+            case 1009:
+            case 1010:
+            case 1011:
+            case 1012:
+                maxHealth = 2500;
+                AtkTurn = 5;
+                atk_Damage = 10;
+                SpTurn = 0;
 
-            if (get_Enemy_Id == 1009)
-                enemyName = "디오게네스";
-            else if (get_Enemy_Id == 1010)
-                enemyName = "프로타고라스";
-            else if (get_Enemy_Id == 1011)
-                enemyName = "트라시마코스";
-            else if (get_Enemy_Id == 1012)
-                enemyName = "고르기아스";
-        }
+                if (get_Enemy_Id == 1009)
+                    enemyName = "디오게네스";
+                else if (get_Enemy_Id == 1010)
+                    enemyName = "프로타고라스";
+                else if (get_Enemy_Id == 1011)
+                    enemyName = "트라시마코스";
+                else if (get_Enemy_Id == 1012)
+                    enemyName = "고르기아스";
+                break;
 
-        //히파소스, 유클리드, 스토아 학파, 에피쿠로스 학파, 소피스트
-        else if (get_Enemy_Id == 1013 || get_Enemy_Id == 1014 ||
-            get_Enemy_Id == 1015 || get_Enemy_Id == 1016 || get_Enemy_Id == 1017)
-        {
-            maxHealth = 250;
-            AtkTurn = 4;
-            atk_Damage = 7;
-            SpTurn = 0;
+            //히파소스, 유클리드, 스토아 학파, 에피쿠로스 학파, 소피스트
+            case 1013:
+            case 1014:
+            case 1015:
+            case 1016:
+            case 1017:
+                maxHealth = 250;
+                AtkTurn = 4;
+                atk_Damage = 7;
+                SpTurn = 0;
 
-            if (get_Enemy_Id == 1013)
-                enemyName = "히파소스";
-            else if (get_Enemy_Id == 1014)
-                enemyName = "유클리드";
-            else if (get_Enemy_Id == 1015)
-                enemyName = "스토아 학파 철학자";
-            else if (get_Enemy_Id == 1016)
-                enemyName = "에피쿠로스 학파 철학자";
-            else if (get_Enemy_Id == 1017)
-                enemyName = "소피스트";
+                if (get_Enemy_Id == 1013)
+                    enemyName = "히파소스";
+                else if (get_Enemy_Id == 1014)
+                    enemyName = "유클리드";
+                else if (get_Enemy_Id == 1015)
+                    enemyName = "스토아 학파 철학자";
+                else if (get_Enemy_Id == 1016)
+                    enemyName = "에피쿠로스 학파 철학자";
+                else if (get_Enemy_Id == 1017)
+                    enemyName = "소피스트";
+                break;
+
         }
     }
 
@@ -260,5 +294,15 @@ public class Enemy : MonoBehaviour
     public string Get_enemyName()
     {
         return enemyName;
+    }
+
+    public string Get_SpNameText()
+    {
+        return spNameText;
+    }
+
+    public string Get_SpText()
+    {
+        return spText;
     }
 }

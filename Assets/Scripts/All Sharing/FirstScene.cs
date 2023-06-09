@@ -7,5 +7,6 @@ public class FirstScene : MonoBehaviour
     void Start()
     {
         SceneManager.LoadScene("GameTitle");
+        SaveData.GameLoad();
     }
 }

@@ -19,7 +19,6 @@ public class EnemyManager : MonoBehaviour
     public Image enemy_HealthBar;
 
     public SpriteRenderer enemy_Idle;
-    public GameObject enemy_Idle_Obj;
     public SpriteRenderer player_Idle;
     public Sprite[] enemy_Sprite;
     public Sprite[] player_Sprite;
@@ -28,6 +27,8 @@ public class EnemyManager : MonoBehaviour
     public GameObject SpAtkObj;
     public Image SpAtkImg;
     public Animator spAnim;
+    public TextMeshProUGUI spNameText;
+    public TextMeshProUGUI spText;
     public TextMeshProUGUI NextAtk_Text;
 
     public float enemy_MaxHealth;     //적 최대 체력
@@ -80,6 +81,8 @@ public class EnemyManager : MonoBehaviour
         enemy_NomSp = enemy_SpTurn;
 
         enemyNameText.text = enemyData.Get_enemyName();
+        spNameText.text = enemyData.Get_SpNameText();
+        spText.text = enemyData.Get_SpText();
 
         SpAtkImg.sprite = enemyData.SetEnemySp();
 

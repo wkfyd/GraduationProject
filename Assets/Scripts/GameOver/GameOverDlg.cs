@@ -4,24 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class EndingDialogManager : MonoBehaviour
+public class GameOverDlg : MonoBehaviour
 {
-    public EndingTalkManager endingTM;
+    public GameOverText gameOverText;
+    //같은 스크립트라 Ending스크립트꺼 공유
     public EndingTypeEffect talk;
     public Animator talkPanel;
-    public Image portraitImg;
+
+    public GameObject fadeObj;
+
 
     public int talkIndex;
+
     void Start()
     {
-        SaveData.isEnding = 1;
-
-        //엔딩 세이브
-        SaveData.GameSave();
-
-        talk.SetMsg(endingTM.GetTalk(0).Split(':')[0], talkIndex);
+        talk.SetMsg(gameOverText.GetTalk(0).Split(':')[0], talkIndex);
         talkIndex = 1;
-        
     }
 
     public void Action()
@@ -31,7 +29,7 @@ public class EndingDialogManager : MonoBehaviour
 
     void Talk()
     {
-        string talkData = endingTM.GetTalk(talkIndex);
+        string talkData = gameOverText.GetTalk(talkIndex);
 
         //타이핑효과중이면 return으로 종료
         if (talk.isAnim)
@@ -42,14 +40,12 @@ public class EndingDialogManager : MonoBehaviour
 
         if (talkData == null)
         {
-            SceneManager.LoadScene("EndingCredit");
+            StartCoroutine(FadeOutCorutine());
             return;
         }
 
+        //대화창 애니메이션이 있으면 재생 후 타이밍맞게 텍스트 띄워주기위해
         if (talkIndex == 2)
-            StartCoroutine(TextTiming(talkData, talkIndex));
-
-        else if (talkIndex == 4)
         {
             talkPanel.SetTrigger("Talk Up And Down");
             StartCoroutine(TextTiming(talkData, talkIndex));
@@ -60,6 +56,9 @@ public class EndingDialogManager : MonoBehaviour
             talk.SetMsg(talkData.Split(':')[0], talkIndex);
             talkIndex++;
         }
+
+
+
     }
 
     IEnumerator TextTiming(string talkData, int subTalkIndex)
@@ -68,33 +67,45 @@ public class EndingDialogManager : MonoBehaviour
 
         talk.SetMsg(talkData.Split(':')[0], subTalkIndex);
 
-        //초상화 talkManager -> PortraitImg[]
-        if (subTalkIndex == 0 || subTalkIndex == 1)
-        {
-            portraitImg.sprite = endingTM.GetPortrait(0);
-            portraitImg.color = new Color(1, 1, 1, 1);
-        }
-        else if (subTalkIndex == 2 || subTalkIndex == 3)
-        {
-            portraitImg.sprite = endingTM.GetPortrait(1);
-            portraitImg.color = new Color(1, 1, 1, 1);
-        }
-        else
-        {
-            portraitImg.color = new Color(1, 1, 1, 0);
-        }
-
         //이름 Image
         if (int.Parse(talkData.Split(':')[1]) == 0)
         {
-            endingTM.GetName(1).SetActive(false);
+            gameOverText.GetName(1).SetActive(false);
         }
 
         else if (int.Parse(talkData.Split(':')[1]) == 1)
         {
-            endingTM.GetName(1).SetActive(true);
+            gameOverText.GetName(int.Parse(talkData.Split(':')[1])).SetActive(true);
         }
 
         talkIndex++;
     }
+
+    IEnumerator FadeOutCorutine()
+    {
+        fadeObj.SetActive(true);
+
+        float count = 0;
+
+        while (count <= 1.0f)
+        {
+            count += 0.01f;
+            yield return new WaitForSeconds(0.02f);
+            fadeObj.GetComponent<Image>().color = new Color(255, 255, 255, count);
+        }
+
+        SceneManager.LoadScene("GameTitle");
+    }
+
+    /*IEnumerator BookFadeInCorutine()
+    {
+        float count = 1;
+
+        while (count >= 0)
+        {
+            count -= 0.01f;
+            yield return new WaitForSeconds(0.01f);
+            bookFade.GetComponent<Image>().color = new Color(0, 0, 0, count);
+        }
+    }*/
 }

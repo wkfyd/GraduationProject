@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -124,7 +125,20 @@ public class GameManager : MonoBehaviour
             lastBlock.manager = this;
             lastBlock.enemyManager = enemyManager;
             lastBlock.tuto = tuto;
-            lastBlock.level = random.Next(0, 3); //D이상 안 나오기
+
+            //적에 따라 시작블럭 레벨 다름
+            //1등급일때 F부터
+            if (SaveData.currentEnemy_Id == 1001 || SaveData.currentEnemy_Id == 1002 ||
+                SaveData.currentEnemy_Id == 1003 || SaveData.currentEnemy_Id == 1004)
+                lastBlock.level = random.Next(5, 8);
+
+            //2등급일때 D부터
+            else if (SaveData.currentEnemy_Id == 1005 || SaveData.currentEnemy_Id == 1006 ||
+                SaveData.currentEnemy_Id == 1007 || SaveData.currentEnemy_Id == 1008)
+                lastBlock.level = random.Next(3, 6);
+            
+            else
+                lastBlock.level = random.Next(0, 3);
 
             startLevels[i] = lastBlock.level; //레벨 배열
 
@@ -346,106 +360,93 @@ public class GameManager : MonoBehaviour
 
     public void GameWin()
     {
-        if (SaveData.currentEnemy_Id == 1001)
+        //처치 판단
+        switch (SaveData.currentEnemy_Id)
         {
-            SaveData.isSocra = 1;
+            case 1001:
+                SaveData.isSocra = 1;
+                break;
+
+            case 1002:
+                SaveData.isPlato = 1;
+                break;
+
+            case 1003:
+                SaveData.isAristo = 1;
+                break;
+
+            case 1004:
+                SaveData.isPytha = 1;
+                break;
+
+            case 1005:
+                SaveData.isArchi = 1;
+                break;
+
+            case 1006:
+                SaveData.isThales = 1;
+                break;
+
+            case 1007:
+                SaveData.isEpicuru = 1;
+                break;
+
+            case 1008:
+                SaveData.isZeno = 1;
+                break;
+
+            case 1009:
+                SaveData.isDiog = 1;
+                break;
+
+            case 1010:
+                SaveData.isProta = 1;
+                break;
+
+            case 1011:
+                SaveData.isThrasy = 1;
+                break;
+
+            case 1012:
+                SaveData.isGorgi = 1;
+                break;
+
+            case 1013:
+                SaveData.isHippa = 1;
+                break;
+
+            case 1014:
+                SaveData.isEucli = 1;
+                break;
+
+            case 1015:
+                SaveData.isStoicism = 1;
+                break;
+
+            case 1016:
+                SaveData.isEpicuri = 1;
+                break;
+
+            case 1017:
+                SaveData.isSophist = 1;
+                break;
         }
 
-        else if (SaveData.currentEnemy_Id == 1002)
-        {
-            SaveData.isPlato = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1003)
-        {
-            SaveData.isAristo = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1004)
-        {
-            SaveData.isPytha = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1005)
-        {
-            SaveData.isArchi = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1006)
-        {
-            SaveData.isThales = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1007)
-        {
-            SaveData.isEpicuru = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1008)
-        {
-            SaveData.isZeno = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1009)
-        {
-            SaveData.isDiog = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1010)
-        {
-            SaveData.isProta = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1011)
-        {
-            SaveData.isThrasy = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1012)
-        {
-            SaveData.isGorgi = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1013)
-        {
-            SaveData.isHippa = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1014)
-        {
-            SaveData.isEucli = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1015)
-        {
-            SaveData.isStoicism = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1016)
-        {
-            SaveData.isEpicuri = 1;
-        }
-
-        else if (SaveData.currentEnemy_Id == 1017)
-        {
-            SaveData.isSophist = 1;
-        }
-
-        SaveData.currentStage++;
-
-        if (SaveData.currentStage == 7)
-            SaveData.currentStage = 1;
-
+        //처치 시 다음 적 생성을 위해 id 초기화
         SaveData.currentEnemy_Id = 0;
 
         gameWin = true;
         winAim.SetBool("isWin", true);
         Invoke("InvokeWinImg", 5.0f);
+
+        //적 처치 시 세이브
+        SaveData.GameSave();
     }
 
     public void GameOver()
     {
         gameOver = true;
+        SaveData.isGameOver = 1;
         playerOverAim.SetBool("isLose", true);
         Invoke("InvokeLoseImg", 5.0f);
     }

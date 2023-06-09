@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SaveData : MonoBehaviour
@@ -22,11 +20,37 @@ public class SaveData : MonoBehaviour
     public static int isEpicuri;
     public static int isSophist;
 
-    public static int Tutorial;
-    public static int ending;
+    public static int isTutorial;
+    public static int isEnding;
 
     public static int currentStage;
-    public static int currentEnemy_Id = 1008;
+    public static int currentEnemy_Id;
+    public static int isGameOver;
+
+    public int isSocra1;
+    public int isPlato1;
+    public int isAristo1;
+    public int isPytha1;
+    public int isArchi1;
+    public int isThales1;
+    public int isEpicuru1;
+    public int isZeno1;
+    public int isDiog1;
+    public int isProta1;
+    public int isThrasy1;
+    public int isGorgi1;
+    public int isHippa1;
+    public int isEucli1;
+    public int isStoicism1;
+    public int isEpicuri1;
+    public int isSophist1;
+
+    public int isTutorial1;
+    public int isEnding1;
+
+    public int currentStage1;
+    public int currentEnemy_Id1;
+    public int isGameOver1;
 
     void Awake()
     {
@@ -38,10 +62,41 @@ public class SaveData : MonoBehaviour
             return;
     }
 
-    public void GameSave()
+    void Update()
     {
-        PlayerPrefs.SetInt("Tutorial", Tutorial);
-        PlayerPrefs.SetInt("ending", ending);
+        isSocra1 = isSocra;
+        isPlato1 = isPlato;
+        isAristo1 = isAristo;
+        isPytha1 = isPytha;
+        isArchi1 = isArchi;
+        isThales1 = isThales;
+        isEpicuru1 = isEpicuru;
+        isZeno1 = isZeno;
+        isDiog1 = isDiog;
+        isProta1 = isProta;
+        isThrasy1 = isThrasy;
+        isGorgi1 = isGorgi;
+        isHippa1 = isHippa;
+        isEucli1 = isEucli;
+        isStoicism1 = isStoicism;
+        isEpicuri1 = isEpicuri;
+        isSophist1 = isSophist;
+
+        isTutorial1 = isTutorial;
+        isEnding1 = isEnding;
+
+        currentStage1 = currentStage;
+        currentEnemy_Id1 = currentEnemy_Id;
+        isGameOver1 = isGameOver;
+
+        Debug.Log(isTutorial);
+        Debug.Log(currentEnemy_Id);
+    }
+
+    public static void GameSave()
+    {
+        PlayerPrefs.SetInt("Tutorial", isTutorial);
+        PlayerPrefs.SetInt("ending", isEnding);
 
         PlayerPrefs.SetInt("currentStage", currentStage);
         PlayerPrefs.SetInt("currentEnemy_Id", currentEnemy_Id);
@@ -65,10 +120,10 @@ public class SaveData : MonoBehaviour
         PlayerPrefs.SetInt("isSophist", isSophist);
     }
 
-    public void GameLoad()
+    public static void GameLoad()
     {
-        Tutorial = PlayerPrefs.GetInt("Tutorial");
-        ending = PlayerPrefs.GetInt("ending");
+        isTutorial = PlayerPrefs.GetInt("Tutorial");
+        isEnding = PlayerPrefs.GetInt("ending");
 
         currentStage = PlayerPrefs.GetInt("currentStage");
         currentEnemy_Id = PlayerPrefs.GetInt("currentEnemy_Id");
@@ -90,5 +145,32 @@ public class SaveData : MonoBehaviour
         isStoicism = PlayerPrefs.GetInt("isStoicism");
         isEpicuri = PlayerPrefs.GetInt("isEpicuri");
         isSophist = PlayerPrefs.GetInt("isSophist");
+    }
+
+    public static void NewPlay()
+    {
+        isTutorial = 0;
+        isEnding = 0;
+
+        currentStage = 0;
+        currentEnemy_Id = 0;
+
+        isSocra = 0;
+        isPlato = 0;
+        isAristo = 0;
+        isPytha = 0;
+        isArchi = 0;
+        isThales = 0;
+        isEpicuru = 0;
+        isZeno = 0;
+        isDiog = 0;
+        isProta = 0;
+        isThrasy = 0;
+        isGorgi = 0;
+        isHippa = 0;
+        isEucli = 0;
+        isStoicism = 0;
+        isEpicuri = 0;
+        isSophist = 0;
     }
 }

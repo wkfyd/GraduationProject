@@ -89,6 +89,7 @@ public class Block : MonoBehaviour
         levelUpOnce = false;
     }
 
+    //블럭 대미지
     int GetDamage()
     {
         switch (level)

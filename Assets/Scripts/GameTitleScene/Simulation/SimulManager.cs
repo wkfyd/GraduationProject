@@ -30,6 +30,7 @@ public class SimulManager : MonoBehaviour
     int talkingChar = 0;
     int talkingChar_Next = 0;
 
+    public GameObject titleFade;
     public GameObject simulFade;
     public GameObject bookFade;
     public GameObject Thales_Fade;
@@ -41,6 +42,14 @@ public class SimulManager : MonoBehaviour
     public GameObject simulCanvas;
     public GameObject logo;
     public GameObject titleEffect;
+
+    void Start()
+    {
+        if(SaveData.isGameOver == 1)
+        {
+            StartCoroutine(TitleFadeInCorutine());
+        }
+    }
 
     public void Action()
     {
@@ -1077,6 +1086,23 @@ public class SimulManager : MonoBehaviour
         }
     }
 
+    IEnumerator TitleFadeInCorutine()
+    {
+        titleFade.SetActive(true);
+
+        float count = 1;
+
+        while (count >= 0)
+        {
+            count -= 0.01f;
+            yield return new WaitForSeconds(0.01f);
+            titleFade.GetComponent<Image>().color = new Color(255, 255, 255, count);
+        }
+
+        SaveData.isGameOver = 0;
+        titleFade.SetActive(false);
+    }
+
     IEnumerator ChangeBG_Pytha()
     {
         SimulDataManager.GetName(1).SetActive(true);
@@ -1140,5 +1166,11 @@ public class SimulManager : MonoBehaviour
         }
 
         simulFade.SetActive(false);
+    }
+
+    public void BackBtn()
+    {
+        StartCoroutine(BookOn());
+        StartCoroutine(SimulFadeOutCorutine());
     }
 }

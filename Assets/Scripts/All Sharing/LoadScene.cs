@@ -4,8 +4,12 @@ using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour
 {
     //onClick 사용중
-    public void LoadIntroScene()
+    public void NewPlay()
     {
+        PlayerPrefs.DeleteAll();
+
+        SaveData.NewPlay();
+
         SceneManager.LoadScene("Intro");
     }
 
@@ -21,10 +25,27 @@ public class LoadScene : MonoBehaviour
 
     public void LoadGameWin()
     {
-        SceneManager.LoadScene("Select Stage");
-
-        if(SaveData.currentStage == 6 && SaveData.ending == 0)
+        if (SaveData.currentStage == 6 && SaveData.isEnding == 0)
+        {
+            SaveData.isEnding = 1;
             SceneManager.LoadScene("Ending");
+
+            SaveData.currentStage++;
+
+            if (SaveData.currentStage == 7)
+                SaveData.currentStage = 1;
+        }
+            
+        else
+        {
+            //처치 시 스테이지 진행, 6스테이지에서는 1스테이지로
+            SaveData.currentStage++;
+
+            if (SaveData.currentStage == 7)
+                SaveData.currentStage = 1;
+
+            SceneManager.LoadScene("Select Stage");
+        }  
     }
 
     public void LoadGameOver()
