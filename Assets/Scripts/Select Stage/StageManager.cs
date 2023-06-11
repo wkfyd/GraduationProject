@@ -4,9 +4,12 @@ using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
+    public GameObject pause;
+
     public GameObject Tutorial;
     public GameObject Tuto_Text;
 
+    public RectTransform arrow;
     public GameObject stage_PopUp;
     public TextMeshProUGUI round_Text;
 
@@ -27,7 +30,6 @@ public class StageManager : MonoBehaviour
     private GameObject Stage_PopUp;
 
     System.Random random = new System.Random();
-
     void Start()
     {
         //튜토리얼 미진행시
@@ -49,7 +51,7 @@ public class StageManager : MonoBehaviour
             stg05.interactable = false;
             stg06.interactable = false;
 
-            SaveData.isTutorial = 1;
+            arrow.anchoredPosition = new Vector3(-577f, 320f, 0);
 
             Stage01_PopUp_Enemy();
         }
@@ -61,7 +63,6 @@ public class StageManager : MonoBehaviour
             {
                 if (SaveData.currentEnemy_Id == 0)
                 {
-                    Debug.Log("실행댐1");
                     SaveData.currentEnemy_Id = EnemyRandom_Stg1();
                 }
 
@@ -77,6 +78,8 @@ public class StageManager : MonoBehaviour
                 stg05.interactable = false;
                 stg06.interactable = false;
 
+                arrow.anchoredPosition = new Vector3(-577f, 320f, 0);
+
                 Stage01_PopUp_Enemy();
             }
 
@@ -85,11 +88,7 @@ public class StageManager : MonoBehaviour
                 if (SaveData.currentEnemy_Id == 0)
                 {
                     SaveData.currentEnemy_Id = EnemyRandom_Stg2or3();
-                    Debug.Log("스테이지2");
                 }
-
-
-
 
                 round_Text.text = "2라운드";
 
@@ -103,6 +102,8 @@ public class StageManager : MonoBehaviour
                 stg05.interactable = false;
                 stg06.interactable = false;
 
+                arrow.anchoredPosition = new Vector3(-368f, 405f, 0);
+
                 Stage02or3_PopUp_Enemy();
             }
 
@@ -110,10 +111,8 @@ public class StageManager : MonoBehaviour
             {
                 if (SaveData.currentEnemy_Id == 0)
                 {
-                    Debug.Log("실행댐3");
                     SaveData.currentEnemy_Id = EnemyRandom_Stg2or3();
                 }
-
 
                 round_Text.text = "3라운드";
 
@@ -127,6 +126,8 @@ public class StageManager : MonoBehaviour
                 stg05.interactable = false;
                 stg06.interactable = false;
 
+                arrow.anchoredPosition = new Vector3(-142f, 424f, 0);
+
                 Stage02or3_PopUp_Enemy();
             }
 
@@ -134,7 +135,6 @@ public class StageManager : MonoBehaviour
             {
                 if (SaveData.currentEnemy_Id == 0)
                 {
-                    Debug.Log("실행댐4");
                     SaveData.currentEnemy_Id = EnemyRandom_Stg4();
                 }
 
@@ -150,6 +150,8 @@ public class StageManager : MonoBehaviour
                 stg05.interactable = false;
                 stg06.interactable = false;
 
+                arrow.anchoredPosition = new Vector3(88f, 325f, 0);
+
                 Stage04_PopUp_Enemy();
             }
 
@@ -157,11 +159,7 @@ public class StageManager : MonoBehaviour
             {
                 if (SaveData.currentEnemy_Id == 0)
                 {
-                    if (SaveData.currentEnemy_Id == 0)
-                    {
-                        Debug.Log("실행댐5");
-                        SaveData.currentEnemy_Id = EnemyRandom_Stg5();
-                    }
+                    SaveData.currentEnemy_Id = EnemyRandom_Stg5();
                 }
 
                 round_Text.text = "5라운드";
@@ -176,6 +174,8 @@ public class StageManager : MonoBehaviour
                 stg05.interactable = true;
                 stg06.interactable = false;
 
+                arrow.anchoredPosition = new Vector3(308f, 376f, 0);
+
                 Stage05_PopUp_Enemy();
             }
 
@@ -183,7 +183,6 @@ public class StageManager : MonoBehaviour
             {
                 if (SaveData.currentEnemy_Id == 0)
                 {
-                    Debug.Log("실행댐6");
                     SaveData.currentEnemy_Id = EnemyRandom_Stg6();
                 }
 
@@ -199,6 +198,8 @@ public class StageManager : MonoBehaviour
                 stg05.interactable = false;
                 stg06.interactable = true;
 
+                arrow.anchoredPosition = new Vector3(548f, 280f, 0);
+
                 Stage06_PopUp_Enemy();
             }
         }
@@ -206,6 +207,11 @@ public class StageManager : MonoBehaviour
         SaveData.GameSave();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            pause.SetActive(true);
+    }
     void Stage01_PopUp_Enemy()
     {
         if (SaveData.currentEnemy_Id == 1013)

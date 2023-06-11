@@ -8,12 +8,17 @@ public class TutorialManager : MonoBehaviour
     public GameObject player_text;
     public GameObject[] tuto_text;
 
-    public bool tutorial;
+    public int tutorial;
     public bool tuto_merge;
+
+    void Awake()
+    {
+        tutorial = SaveData.isTutorial;
+    }
 
     void Start()
     {
-        if (!tutorial)
+        if (tutorial != 1)
             language.SetActive(true);
         else
             start.SetActive(true);
@@ -24,6 +29,9 @@ public class TutorialManager : MonoBehaviour
         language.SetActive(false);
         start.SetActive(true);
 
+        SaveData.isLanguage = 0;
+        SaveData.isTutorial = 1;
+
         Invoke("TutorialText", 1f);
     }
 
@@ -31,6 +39,9 @@ public class TutorialManager : MonoBehaviour
     {
         language.SetActive(false);
         start.SetActive(true);
+
+        SaveData.isLanguage = 1;
+        SaveData.isTutorial = 1;
 
         Invoke("TutorialText", 1f);
     }

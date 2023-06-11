@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7461627624685137738}
   - component: {fileID: 8315448825692855348}
   m_Layer: 0
-  m_Name: Block
+  m_Name: BlockGrec
   m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ Animator:
   m_GameObject: {fileID: 8315448825692855375}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5084f6b6dc5e6274dab8b688b40c6bcd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 301a75f68223ffa4abebe084f971341d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -146,13 +146,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  enemyUI: {fileID: 0}
+  tuto: {fileID: 0}
+  enemyManager: {fileID: 0}
   particle: {fileID: 2094230120151847677, guid: 5b11e2ecbec866141a7a701a4c4efe45, type: 3}
   level: 0
   gridX: 0
   gridY: 0
   downGrid_X: 0
   downGrid_Y: 0
+  blockDamage: 0
   isParticle: 0
   select: 0
   isMerge: 0

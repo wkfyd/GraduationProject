@@ -13,6 +13,12 @@ public class DialogManager : MonoBehaviour
     public Image portraitImg;
     public CameraShake cameraShake;
 
+    public GameObject pause;
+
+    public Image textWindow;
+    public Sprite textWindow_PC;
+    public Sprite textWindow_else;
+
     public GameObject[] backGround;
 
     public int talkIndex;
@@ -21,6 +27,12 @@ public class DialogManager : MonoBehaviour
     {
         talk.SetMsg(talkManager.GetTalk(0).Split(':')[0], talkIndex);
         talkIndex = 1;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            pause.SetActive(true);
     }
 
     public void Action()
@@ -45,6 +57,12 @@ public class DialogManager : MonoBehaviour
             return;
         }
 
+        //텍스트창 변경
+        if (int.Parse(talkData.Split(':')[1]) == 1)
+            textWindow.sprite = textWindow_PC;
+        else
+            textWindow.sprite = textWindow_else;
+
         //인트로 배경
         if (talkIndex == 5)
             backGround[0].SetActive(true);
@@ -65,20 +83,19 @@ public class DialogManager : MonoBehaviour
             talkPanel.SetTrigger("Talk Up And Down");
             StartCoroutine(TextTiming(talkData, talkIndex));
         }
+
         else if (talkIndex == 4 || talkIndex == 9)
         {
             cameraShake.gameObject.SetActive(true);
             talkPanel.SetTrigger("Talk Up And Down");
             StartCoroutine(TextTiming(talkData, talkIndex));
         }
+
         else
         {
             talk.SetMsg(talkData.Split(':')[0], talkIndex);
             talkIndex++;
-        }
-
-        
-            
+        }  
     }
 
     IEnumerator TextTiming(string talkData, int subTalkIndex)

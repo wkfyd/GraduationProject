@@ -11,6 +11,8 @@ public class EndingDialogManager : MonoBehaviour
     public Animator talkPanel;
     public Image portraitImg;
 
+    public GameObject pause;
+
     public int talkIndex;
     void Start()
     {
@@ -22,6 +24,12 @@ public class EndingDialogManager : MonoBehaviour
         talk.SetMsg(endingTM.GetTalk(0).Split(':')[0], talkIndex);
         talkIndex = 1;
         
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            pause.SetActive(true);
     }
 
     public void Action()

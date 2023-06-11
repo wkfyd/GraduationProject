@@ -53,6 +53,7 @@ public class EnemyManager : MonoBehaviour
     public int thales_Sp_NomTurn;   //탈레스 스폐셜 남은 턴
     public bool isEpicuru_Sp;       //에피쿠로스 스폐셜 효과 상태
     public int epicuru_Sp_NomTurn;  //에피쿠로스 스폐셜 남은 턴
+    public bool isZeno_Sp;          //제논 스폐셜 효과 상태
 
     Coroutine enemyAtked;
     Coroutine enemyAtk;
@@ -97,7 +98,8 @@ public class EnemyManager : MonoBehaviour
     {
         enemy_HealthBar.fillAmount = (float)enemy_Health / enemy_MaxHealth;
 
-        //플레이어 공격, 적 피격
+
+        //플레이어 공격, 적 피격 (적의 체력이 닳음이 조건 -> 아리스토텔레스 처럼 무적경우 조건 충족 못 함)
         if (enemy_Health > enemy_DamageHP)
         {
             PlayerAtk();
@@ -113,7 +115,7 @@ public class EnemyManager : MonoBehaviour
         {
             Enemy_Atk();
 
-            //스폐셜 공격이 0이 아닐시 = 적이 1등급이 아닐 시
+            //스폐셜 공격이 0이 아닐시 = 적이 1, 2등급일시
             if (enemy_SpTurn != 0)
                 Enemy_Sp();
 
@@ -132,10 +134,17 @@ public class EnemyManager : MonoBehaviour
 
             gameManager.turns = gameManager.curt_turns;
         }
+
+        //게임 승리시 플레이어 공격, 적 피격
+        if (gameManager.gameWin)
+        {
+            enemy_Idle.sprite = enemy_Sprite[2];
+            player_Idle.sprite = player_Sprite[1];
+        }
     }
 
     //플레이어 공격
-    void PlayerAtk()
+    public void PlayerAtk()
     {
         isPlyaer_Atk = true;
 
@@ -156,7 +165,7 @@ public class EnemyManager : MonoBehaviour
             isEnemy_Atk = true;
 
             //탈레스 스폐셜 효과
-            if(SaveData.currentEnemy_Id == 1006 && isThales_Sp
+            if (SaveData.currentEnemy_Id == 1006 && isThales_Sp
                 && (thales_Sp_NomTurn >= 1 && thales_Sp_NomTurn <= 2))
             {
                 player.pc_Health -= enemy_Atk_Damage * 4;
@@ -166,7 +175,7 @@ public class EnemyManager : MonoBehaviour
                 if (thales_Sp_NomTurn == 0)
                     isThales_Sp = false;
             }
-            
+
             else
                 player.pc_Health -= enemy_Atk_Damage;
 
@@ -215,7 +224,7 @@ public class EnemyManager : MonoBehaviour
         isEnemy_Atk = false;
     }
 
-    IEnumerator Player_Atk_Routine()
+    public IEnumerator Player_Atk_Routine()
     {
         player_Idle.sprite = player_Sprite[1];
 
@@ -232,7 +241,16 @@ public class EnemyManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        player_Idle.sprite = player_Sprite[0];
+        if (gameManager.gameWin)
+        {
+            player_Idle.sprite = player_Sprite[1];
+        }
+        else if (gameManager.isOver)
+        {
+            player_Idle.sprite = player_Sprite[2];
+        }
+        else
+            player_Idle.sprite = player_Sprite[0];
     }
 
 
@@ -312,6 +330,7 @@ public class EnemyManager : MonoBehaviour
                 break;
 
             case 1008:
+                isZeno_Sp = true;
                 Zeno_Sp();
                 break;
 
@@ -334,8 +353,13 @@ public class EnemyManager : MonoBehaviour
                 yield return new WaitForSeconds(0.2f);
                 player.pc_Health -= 4;
 
+                player_Idle.sprite = player_Sprite[2];
+
                 count++;
             }
+
+            isZeno_Sp = false;
+            player_Idle.sprite = player_Sprite[0];
         }
     }
 
@@ -345,6 +369,10 @@ public class EnemyManager : MonoBehaviour
         enemyTalk.SetActive(true);
         enemyText.text = enemyData.GetEnemyTalk(enemyData.get_Enemy_Id, 0);
 
+        gameManager.StartSpawn();
+
+        gameManager.spawnTrigger = true;
+
         StartCoroutine(EndTalk());
     }
 
@@ -353,5 +381,7 @@ public class EnemyManager : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
 
         enemyTalk.SetActive(false);
+
+        enemyText.text = enemyData.GetEnemyTalk(enemyData.get_Enemy_Id, 1);
     }
 }

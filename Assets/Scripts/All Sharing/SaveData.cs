@@ -24,8 +24,10 @@ public class SaveData : MonoBehaviour
     public static int isEnding;
 
     public static int currentStage;
-    public static int currentEnemy_Id;
-    public static int isGameOver;
+    public static int currentEnemy_Id = 1008;
+    public static int isGameOver;  //게임오버 후 타이틀씬 돌아올 때 판단용
+
+    public static int isLanguage;  //0이 영어, 1이 그리스
 
     public int isSocra1;
     public int isPlato1;
@@ -51,6 +53,8 @@ public class SaveData : MonoBehaviour
     public int currentStage1;
     public int currentEnemy_Id1;
     public int isGameOver1;
+
+
 
     void Awake()
     {
@@ -100,6 +104,7 @@ public class SaveData : MonoBehaviour
 
         PlayerPrefs.SetInt("currentStage", currentStage);
         PlayerPrefs.SetInt("currentEnemy_Id", currentEnemy_Id);
+        PlayerPrefs.SetInt("isLanguage", isLanguage);
 
         PlayerPrefs.SetInt("isSocra", isSocra);
         PlayerPrefs.SetInt("isPlato", isPlato);

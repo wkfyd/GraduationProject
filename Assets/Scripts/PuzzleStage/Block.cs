@@ -44,49 +44,71 @@ public class Block : MonoBehaviour
 
     public void OnMouseDown()
     {
+        if (!manager.gameWin)
+        {
+            if (!enemyManager.isEnemy_Sp)
+            {
+                if (!enemyManager.isZeno_Sp)
+                {
+                    downGrid_X = gridX;
+                    downGrid_Y = gridY;
 
-        downGrid_X = gridX;
-        downGrid_Y = gridY;
-
-        levelUpOnce = true;
-        select = true;
+                    levelUpOnce = true;
+                    select = true;
+                }
+            }
+        }
     }
 
     public void OnMouseDrag()
     {
-        if (!enemyManager.isEnemy_Sp)
+        if (!manager.gameWin)
         {
-            mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
-            mouse_Pos.z = 0;
+            if (!enemyManager.isEnemy_Sp)
+            {
+                if (!enemyManager.isZeno_Sp)
+                {
+                    mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
+                    mouse_Pos.z = 0;
 
-            transform.position = Vector3.Lerp(transform.position, mouse_Pos, 50f * Time.deltaTime);
+                    transform.position = Vector3.Lerp(transform.position, mouse_Pos, 50f * Time.deltaTime);
 
-            //블럭이 있으면 부딪히게
-            BumpBlock();
+                    //블럭이 있으면 부딪히게
+                    BumpBlock();
 
-            //보드판 밖으로 못 나가게
-            outOfRangeBoard();
+                    //보드판 밖으로 못 나가게
+                    outOfRangeBoard();
 
-            //좌표변경 함수 + 드래그머지
-            DragChangedGridPos();
+                    //좌표변경 함수 + 드래그머지
+                    DragChangedGridPos();
+                }
+            }
         }
     }
 
     public void OnMouseUp()
     {
-        //스냅기능
-        Snap();
-
-        //2차원 배열 좌표변경 후 위치변경 + 머지
-        if ((downGrid_X != gridX || downGrid_Y != gridY) || manager.blocks[gridX + 1, gridY] != null &&
-            manager.blocks[gridX + 1, gridY].gameObject.GetComponent<Block>().level == level)
+        if (!manager.gameWin)
         {
-            DropChangedGridPos();
+            if (!enemyManager.isEnemy_Sp)
+            {
+                if (!enemyManager.isZeno_Sp)
+                {
+                    //스냅기능
+                    Snap();
+
+                    //2차원 배열 좌표변경 후 위치변경 + 머지
+                    if ((downGrid_X != gridX || downGrid_Y != gridY) || manager.blocks[gridX + 1, gridY] != null &&
+                        manager.blocks[gridX + 1, gridY].gameObject.GetComponent<Block>().level == level)
+                    {
+                        DropChangedGridPos();
+                    }
+
+                    select = false;
+                    levelUpOnce = false;
+                }
+            }
         }
-
-
-        select = false;
-        levelUpOnce = false;
     }
 
     //블럭 대미지
@@ -281,7 +303,6 @@ public class Block : MonoBehaviour
 
                     //상대블럭 레벨업
                     other.DragLevelUp();
-
                 }
             }
         }
@@ -308,6 +329,7 @@ public class Block : MonoBehaviour
         }
 
         //데미지 계산
+        //아리스토 텔레스 무적
         if (enemyManager.isAristo_Sp &&
             (enemyManager.aristo_Sp_NomTurn >= 1 && enemyManager.aristo_Sp_NomTurn <= 3))
         {
@@ -315,10 +337,13 @@ public class Block : MonoBehaviour
 
             enemyManager.aristo_Sp_NomTurn--;
 
+            enemyManager.PlayerAtk();
+
             if (enemyManager.aristo_Sp_NomTurn == 0)
                 enemyManager.isAristo_Sp = false;
         }
 
+        //에피쿠로스 스폐셜
         else if (enemyManager.isEpicuru_Sp &&
                 (enemyManager.epicuru_Sp_NomTurn >= 1 && enemyManager.epicuru_Sp_NomTurn <= 3))
         {
@@ -496,6 +521,9 @@ public class Block : MonoBehaviour
                 break;
             }
         }
+
+        if (gridX == 1)
+            manager.isOver = true;
     }
 
     void DropMerge() //머지 함수
@@ -559,7 +587,7 @@ public class Block : MonoBehaviour
         else if (enemyManager.isEpicuru_Sp &&
                 (enemyManager.epicuru_Sp_NomTurn >= 1 && enemyManager.epicuru_Sp_NomTurn <= 3))
         {
-            float x = 2/3f;
+            float x = 2 / 3f;
             enemyManager.enemy_DamageHP -= (float)blockDamage * x;
 
             enemyManager.epicuru_Sp_NomTurn--;

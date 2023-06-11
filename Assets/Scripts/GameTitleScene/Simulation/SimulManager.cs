@@ -60,7 +60,7 @@ public class SimulManager : MonoBehaviour
     {
         string talkData = SimulDataManager.GetTalk(enemyId, talkIndex);
 
-        //=========================전체적용=================================
+//=========================전체적용=================================
 
         //타이핑효과중이면 return으로 종료
         if (talk.isAnim)
@@ -101,6 +101,7 @@ public class SimulManager : MonoBehaviour
             SimulDataManager.GetName(3).SetActive(false);
             SimulDataManager.GetName(4).SetActive(false);
             SimulDataManager.GetName(5).SetActive(false);
+            SimulDataManager.GetName(6).SetActive(false);
         }
 
         else if (int.Parse(talkData.Split(':')[1]) == 1)
@@ -110,6 +111,7 @@ public class SimulManager : MonoBehaviour
             SimulDataManager.GetName(3).SetActive(false);
             SimulDataManager.GetName(4).SetActive(false);
             SimulDataManager.GetName(5).SetActive(false);
+            SimulDataManager.GetName(6).SetActive(false);
         }
 
         else if (int.Parse(talkData.Split(':')[1]) == 2)
@@ -119,6 +121,7 @@ public class SimulManager : MonoBehaviour
             SimulDataManager.GetName(3).SetActive(false);
             SimulDataManager.GetName(4).SetActive(false);
             SimulDataManager.GetName(5).SetActive(false);
+            SimulDataManager.GetName(6).SetActive(false);
         }
 
         else if (int.Parse(talkData.Split(':')[1]) == 3)
@@ -128,6 +131,7 @@ public class SimulManager : MonoBehaviour
             SimulDataManager.GetName(3).SetActive(true);
             SimulDataManager.GetName(4).SetActive(false);
             SimulDataManager.GetName(5).SetActive(false);
+            SimulDataManager.GetName(6).SetActive(false);
         }
 
         else if (int.Parse(talkData.Split(':')[1]) == 4)
@@ -137,6 +141,7 @@ public class SimulManager : MonoBehaviour
             SimulDataManager.GetName(3).SetActive(false);
             SimulDataManager.GetName(4).SetActive(true);
             SimulDataManager.GetName(5).SetActive(false);
+            SimulDataManager.GetName(6).SetActive(false);
         }
 
         else if (int.Parse(talkData.Split(':')[1]) == 5)
@@ -146,9 +151,20 @@ public class SimulManager : MonoBehaviour
             SimulDataManager.GetName(3).SetActive(false);
             SimulDataManager.GetName(4).SetActive(false);
             SimulDataManager.GetName(5).SetActive(true);
+            SimulDataManager.GetName(6).SetActive(false);
         }
 
- //============================소크라테스=================================
+        else if (int.Parse(talkData.Split(':')[1]) == 6)
+        {
+            SimulDataManager.GetName(1).SetActive(false);
+            SimulDataManager.GetName(2).SetActive(false);
+            SimulDataManager.GetName(3).SetActive(false);
+            SimulDataManager.GetName(4).SetActive(false);
+            SimulDataManager.GetName(5).SetActive(false);
+            SimulDataManager.GetName(6).SetActive(true);
+        }
+
+        //============================소크라테스=================================
         if (enemyId == 1001)
         {
             //일러스트 등장
@@ -555,9 +571,28 @@ public class SimulManager : MonoBehaviour
             }
 
             //일러스트 삭제
-            else if (talkIndex == 16 || talkIndex == 33)
+            else if (talkIndex == 33)
             {
                 portraitImg.SetActive(false);
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //엑스트라 등장
+            else if (talkIndex == 16)
+            {
+                portraitImg.SetActive(false);
+                extraImg_03.SetActive(true);
+
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //엑스트라 삭제
+            else if (talkIndex == 28)
+            {
+                extraImg_03.SetActive(false);
+
                 talk.SetMsg(talkData.Split(':')[0]);
                 talkIndex++;
             }
@@ -998,6 +1033,7 @@ public class SimulManager : MonoBehaviour
 
         //상태 초기화 (이전 미연시장면에서 사용됐던 것들 초기화)
         talkSet.SetActive(false);
+        choice.SetActive(false);
         portraitImg.SetActive(false);
         extraImg_01.SetActive(false);
         extraImg_02.SetActive(false);
@@ -1105,6 +1141,7 @@ public class SimulManager : MonoBehaviour
 
     IEnumerator ChangeBG_Pytha()
     {
+        talkSet.SetActive(false);
         SimulDataManager.GetName(1).SetActive(true);
         SimulDataManager.GetName(2).SetActive(false);
         SimulDataManager.GetName(3).SetActive(false);
@@ -1117,6 +1154,8 @@ public class SimulManager : MonoBehaviour
 
         yield return new WaitForSeconds(2.0f);
 
+        talkSet.SetActive(true);
+        talkPanel.SetTrigger("Talk Show");
         portraitImg.SetActive(true);
 
         SimulDataManager.GetName(1).SetActive(false);

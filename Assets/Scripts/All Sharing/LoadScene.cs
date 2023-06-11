@@ -20,7 +20,7 @@ public class LoadScene : MonoBehaviour
 
     public void LoadFreeStage()
     {
-        SceneManager.LoadScene("PuzzleStage");
+        SceneManager.LoadScene("FreePuzStage");
     }
 
     public void LoadGameWin()

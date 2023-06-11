@@ -8,7 +8,12 @@ public class GameManager : MonoBehaviour
     public TutorialManager tuto;
     public Player player;
 
+    public GameObject camera;
+    public GameObject pause;
+
     public GameObject BlockPrefab;
+    public GameObject blockEng;
+    public GameObject blockGrec;
     public Block lastBlock;
 
     public GameObject effectPrefab;
@@ -24,6 +29,7 @@ public class GameManager : MonoBehaviour
     public int curt_turns;  //현재 턴 (이전 턴과 현재 턴을 계산하기 위함)
     public int comboAtk;
     public bool gameOver;
+    public bool isOver;
     public bool gameWin;
     public bool isSpawn;
     public bool spawnTrigger;
@@ -42,15 +48,14 @@ public class GameManager : MonoBehaviour
 
         gameWin = false;
         gameOver = false;
-
-        spawnTrigger = true;
-
-        StartSpawn();
     }
 
     void Update()
     {
         currentBlock = GameObject.FindGameObjectsWithTag("Block"); //현재 블럭들 배열
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            pause.SetActive(true);
 
         //밑 칸에 블럭이 없으면 내려주기
         BlockDown();
@@ -63,30 +68,21 @@ public class GameManager : MonoBehaviour
             Spawn();
 
         //게임승리
-        if (gameWin == false && enemyManager.enemy_Health <= 0)
+        if (!gameWin && enemyManager.enemy_Health <= 0)
             GameWin();
 
         //게임패배
-        if (gameOver == false && player.pc_Health <= 0)
+        if (!gameOver && player.pc_Health <= 0 || isOver)
             GameOver();
     }
 
     //시작스폰
-    void StartSpawn()
+    public void StartSpawn()
     {
-        //기존블럭삭제
-        GameObject[] destroyBlock = GameObject.FindGameObjectsWithTag("Block");
-
-        for (int j = 0; j < destroyBlock.Length; j++)
-            Destroy(destroyBlock[j]);
-
-        for (int i = 6; i < 8; i++)
-        {
-            for (int j = 1; j < 7; j++)
-            {
-                blocks[i, j] = null;
-            }
-        }
+        if (SaveData.isLanguage == 0)
+            BlockPrefab = blockEng;
+        else
+            BlockPrefab = blockGrec;
 
         //블럭 스폰
         int x = 0, y = 0;
@@ -187,9 +183,7 @@ public class GameManager : MonoBehaviour
                 }
 
                 if (hasDuplicates)
-                {
                     break;
-                }
             }
 
             if (!hasDuplicates)
@@ -198,17 +192,8 @@ public class GameManager : MonoBehaviour
                 spawnTrigger = false;
             }
         }
-
     }
 
-    public void Check()
-    {
-        for (int i = 0; i < currentBlock.Length; i++)
-        {
-            Debug.Log("레벨" + currentLevels[i]);
-        }
-
-    }
     public void Spawn()
     {
         isSpawn = false;
@@ -227,9 +212,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < currentLevels.Length; i++)
         {
             if (min > currentLevels[i])
-            {
                 min = currentLevels[i];
-            }
         }
 
         //맨 밑 줄에 6개 생성
@@ -432,20 +415,30 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        //카메라 흔들기
+        camera.SetActive(true);
+        StartCoroutine(DelayWinMotion());
+        gameWin = true;
+        Invoke("InvokeWinImg", 5.0f);
+
         //처치 시 다음 적 생성을 위해 id 초기화
         SaveData.currentEnemy_Id = 0;
-
-        gameWin = true;
-        winAim.SetBool("isWin", true);
-        Invoke("InvokeWinImg", 5.0f);
 
         //적 처치 시 세이브
         SaveData.GameSave();
     }
 
+    IEnumerator DelayWinMotion()
+    {
+        yield return new WaitForSeconds(0.5f);
+        winAim.SetBool("isWin", true);
+    }
+
     public void GameOver()
     {
+        isOver = true;
         gameOver = true;
+        enemyManager.player_Idle.sprite = enemyManager.player_Sprite[2];
         SaveData.isGameOver = 1;
         playerOverAim.SetBool("isLose", true);
         Invoke("InvokeLoseImg", 5.0f);
@@ -453,11 +446,13 @@ public class GameManager : MonoBehaviour
 
     void InvokeWinImg()
     {
+        camera.SetActive(false);
         winImg.SetActive(true);
     }
 
     void InvokeLoseImg()
     {
+        camera.SetActive(false);
         loseImg.SetActive(true);
     }
 }
