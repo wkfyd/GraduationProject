@@ -284,6 +284,9 @@ public class GameManager : MonoBehaviour
                     StartCoroutine(UpSpawnBlock(block, i - 1, j));
 
                     block.gridX -= 1;
+
+                    if (block.gridX == 1)
+                        isOver = true;
                 }
             }
         }

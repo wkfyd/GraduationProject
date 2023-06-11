@@ -66,6 +66,10 @@ public class FreeGameManager : MonoBehaviour
         if (isSpawn)
             Spawn();
 
+        //게임 종료
+        if (isOver)
+            GameEnd();
+
         if (Input.GetKeyDown(KeyCode.Escape))
             pause.SetActive(true);
     }
@@ -274,6 +278,9 @@ public class FreeGameManager : MonoBehaviour
                     StartCoroutine(UpSpawnBlock(block, i - 1, j));
 
                     block.gridX -= 1;
+
+                    if (block.gridX == 1)
+                        isOver = true;
                 }
             }
         }
@@ -337,5 +344,10 @@ public class FreeGameManager : MonoBehaviour
         StartSpawn();
         spawnTrigger = true;
         startPanel.SetActive(false);
+    }
+
+    public void GameEnd()
+    {
+        pause.SetActive(true);
     }
 }
