@@ -190,6 +190,7 @@ public class FreeGameManager : MonoBehaviour
     {
         isSpawn = false;
         isSpawning = true;
+
         if (spawnRepeating != null)
             StopCoroutine(spawnRepeating);
 

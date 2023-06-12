@@ -424,6 +424,8 @@ public class GameManager : MonoBehaviour
         gameWin = true;
         Invoke("InvokeWinImg", 5.0f);
 
+        Time.timeScale = 0.2f;
+
         //처치 시 다음 적 생성을 위해 id 초기화
         SaveData.currentEnemy_Id = 0;
 
