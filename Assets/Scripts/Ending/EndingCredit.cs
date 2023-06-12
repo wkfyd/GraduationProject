@@ -20,8 +20,8 @@ public class EndingCredit : MonoBehaviour
 
     IEnumerator ScrollCredits()
     {
-        float scrollPosition = -6400.0f;
-        float targetPosition = 5000f;
+        float scrollPosition = -8018.522f;
+        float targetPosition = 5200f;
 
         while (scrollPosition < targetPosition)
         {

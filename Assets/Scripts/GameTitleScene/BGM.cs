@@ -20,6 +20,7 @@ public class BGM : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     // BGM Àç»ý

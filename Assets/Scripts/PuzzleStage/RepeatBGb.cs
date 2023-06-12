@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class RepeatBG : MonoBehaviour
+public class RepeatBGb : MonoBehaviour
 {
     [SerializeField] [Range(0f, 100f)] float speed;
     [SerializeField] float posValue;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RepeatBG : MonoBehaviour
+public class RepeatBGm : MonoBehaviour
 {
     [SerializeField] [Range(0f, 100f)] float speed;
     [SerializeField] float posValue;
