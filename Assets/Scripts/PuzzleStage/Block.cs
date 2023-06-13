@@ -329,6 +329,10 @@ public class Block : MonoBehaviour
             blockDamage = blockDamage + (int)(blockDamage * 0.1);
         }
 
+        //콤보 텍스트 변경 및 재생
+        enemyManager.playerPrefabs.GetComponent<TextMeshProUGUI>().text = manager.comboAtk.ToString() + " combo";
+        Instantiate(enemyManager.playerPrefabs, enemyManager.playerTextGroup);
+
         //데미지 계산
         //아리스토 텔레스 무적
         if (enemyManager.isAristo_Sp &&
@@ -572,6 +576,10 @@ public class Block : MonoBehaviour
         {
             blockDamage = blockDamage + (int)(blockDamage * 0.1);
         }
+
+        //콤보 텍스트 변경 및 재생
+        enemyManager.playerPrefabs.GetComponent<TextMeshProUGUI>().text = manager.comboAtk.ToString() + "combo";
+        Instantiate(enemyManager.playerPrefabs, enemyManager.playerTextGroup);
 
         //데미지 계산
         if (enemyManager.isAristo_Sp &&

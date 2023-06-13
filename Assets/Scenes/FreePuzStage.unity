@@ -1115,7 +1115,7 @@ MonoBehaviour:
   isOver: 0
   isSpawn: 0
   isSpawning: 0
-  spawnTrigger: 0
+  spawnTrigger: 1
   currentBlock: []
   currentLevels: 
 --- !u!4 &544700395

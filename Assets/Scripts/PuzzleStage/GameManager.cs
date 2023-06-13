@@ -54,6 +54,13 @@ public class GameManager : MonoBehaviour
     {
         currentBlock = GameObject.FindGameObjectsWithTag("Block"); //현재 블럭들 배열
 
+
+        for (int i = 0; i < currentBlock.Length; i++)
+        {
+            if (currentBlock[i].GetComponent<Block>().level == 24)
+                Destroy(currentBlock[i]);
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
             pause.SetActive(true);
 
@@ -420,6 +427,7 @@ public class GameManager : MonoBehaviour
 
         //카메라 흔들기
         camera.SetActive(true);
+
         StartCoroutine(DelayWinMotion());
         gameWin = true;
         Invoke("InvokeWinImg", 5.0f);
@@ -445,12 +453,26 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        camera.SetActive(true);
         isOver = true;
         gameOver = true;
-        enemyManager.player_Idle.sprite = enemyManager.player_Sprite[2];
+
+        StartCoroutine(Player_DelayWinMotion());
         SaveData.isGameOver = 1;
-        playerOverAim.SetBool("isLose", true);
+
         Invoke("InvokeLoseImg", 5.0f);
+    }
+
+    IEnumerator Player_DelayWinMotion()
+    {
+        yield return new WaitForSeconds(1f);
+
+        Time.timeScale = 0.2f;
+        playerOverAim.SetBool("isLose", true);
+
+        yield return new WaitForSeconds(0.1f);
+
+        Time.timeScale = 1f;
     }
 
     void InvokeWinImg()

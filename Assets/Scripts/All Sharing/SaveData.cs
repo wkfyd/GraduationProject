@@ -23,8 +23,8 @@ public class SaveData : MonoBehaviour
     public static int isTutorial;
     public static int isEnding;
 
-    public static int currentStage;
-    public static int currentEnemy_Id;
+    public static int currentStage= 1;
+    public static int currentEnemy_Id = 1016;
     public static int isGameOver;  //게임오버 후 타이틀씬 돌아올 때 판단용
 
     public static int isLanguage;  //0이 영어, 1이 그리스

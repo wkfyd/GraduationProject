@@ -49,13 +49,17 @@ public class FreeGameManager : MonoBehaviour
 
         scoreText.text = "0";
         comboText.text = "0";
-
-        spawnRepeating = StartCoroutine(SpawnRepeating());
     }
 
     void Update()
     {
         currentBlock = GameObject.FindGameObjectsWithTag("Block"); //현재 블럭들 배열
+
+        for (int i = 0; i < currentBlock.Length; i++)
+        {
+            if (currentBlock[i].GetComponent<FreeBlock>().level == 24)
+                Destroy(currentBlock[i]);
+        }
 
         //밑 칸에 블럭이 없으면 내려주기
         BlockDown();
@@ -235,7 +239,7 @@ public class FreeGameManager : MonoBehaviour
             }
             else
             {
-                lastBlock.level = random.Next(min - 1, min + 3);
+                lastBlock.level = random.Next(min-1, min + 3);
             }
 
             spawnLevels[i] = lastBlock.level;       //레벨비교설정 위한 레벨배열
@@ -343,6 +347,7 @@ public class FreeGameManager : MonoBehaviour
 
     public void StartPanel()
     {
+        spawnRepeating = StartCoroutine(SpawnRepeating());
         StartSpawn();
         spawnTrigger = true;
         startPanel.SetActive(false);

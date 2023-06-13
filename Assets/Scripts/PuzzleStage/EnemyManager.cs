@@ -32,6 +32,8 @@ public class EnemyManager : MonoBehaviour
     public TextMeshProUGUI NextAtk_Text;
     public GameObject damagePrefabs;        //대미지 텍스트 프리팹
     public Transform damageTextGroup;       //대미지 텍스트 위치
+    public GameObject playerPrefabs;        //콤보 텍스트 프리팹
+    public Transform playerTextGroup;       //콤보 텍스트 위치
 
     public float enemy_MaxHealth;     //적 최대 체력
     public float enemy_Health;        //적 현재 체력
@@ -143,6 +145,7 @@ public class EnemyManager : MonoBehaviour
             enemy_Idle.sprite = enemy_Sprite[2];
             player_Idle.sprite = player_Sprite[1];
         }
+
     }
 
     //플레이어 공격
@@ -188,7 +191,6 @@ public class EnemyManager : MonoBehaviour
 
             if (playerAtked != null)          //코루틴정지
                 StopCoroutine(playerAtked);
-
             playerAtked = StartCoroutine(Player_Atked_Routine());
 
             enemy_NomAtk = enemy_AtkTurn;
