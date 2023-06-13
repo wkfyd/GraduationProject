@@ -438,7 +438,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.2f;
         winAim.SetBool("isWin", true);
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
 
         Time.timeScale = 1f;
     }
