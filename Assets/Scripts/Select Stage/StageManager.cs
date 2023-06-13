@@ -18,11 +18,17 @@ public class StageManager : MonoBehaviour
 
     [Header("StageIcon")]
     public Button stg01;
+    public TextMeshProUGUI stg01_text;
     public Button stg02;
+    public TextMeshProUGUI stg02_text;
     public Button stg03;
+    public TextMeshProUGUI stg03_text;
     public Button stg04;
+    public TextMeshProUGUI stg04_text;
     public Button stg05;
+    public TextMeshProUGUI stg05_text;
     public Button stg06;
+    public TextMeshProUGUI stg06_text;
 
     [Header("Enemy List")]
     public GameObject[] enemyArr;
@@ -46,10 +52,15 @@ public class StageManager : MonoBehaviour
 
             stg01.interactable = true;
             stg02.interactable = false;
+            stg02_text.color = new Color(255, 255, 255);
             stg03.interactable = false;
+            stg03_text.color = new Color(255, 255, 255);
             stg04.interactable = false;
+            stg04_text.color = new Color(255, 255, 255);
             stg05.interactable = false;
+            stg05_text.color = new Color(255, 255, 255);
             stg06.interactable = false;
+            stg06_text.color = new Color(255, 255, 255);
 
             arrow.anchoredPosition = new Vector3(-577f, 320f, 0);
 
@@ -73,10 +84,15 @@ public class StageManager : MonoBehaviour
 
                 stg01.interactable = true;
                 stg02.interactable = false;
+                stg02_text.color = new Color(255, 255, 255);
                 stg03.interactable = false;
+                stg03_text.color = new Color(255, 255, 255);
                 stg04.interactable = false;
+                stg04_text.color = new Color(255, 255, 255);
                 stg05.interactable = false;
+                stg05_text.color = new Color(255, 255, 255);
                 stg06.interactable = false;
+                stg06_text.color = new Color(255, 255, 255);
 
                 arrow.anchoredPosition = new Vector3(-577f, 320f, 0);
 
@@ -96,11 +112,16 @@ public class StageManager : MonoBehaviour
                 enemyId = SaveData.currentEnemy_Id;
 
                 stg01.interactable = false;
+                stg01_text.color = new Color(255, 255, 255);
                 stg02.interactable = true;
                 stg03.interactable = false;
+                stg03_text.color = new Color(255, 255, 255);
                 stg04.interactable = false;
+                stg04_text.color = new Color(255, 255, 255);
                 stg05.interactable = false;
+                stg05_text.color = new Color(255, 255, 255);
                 stg06.interactable = false;
+                stg06_text.color = new Color(255, 255, 255);
 
                 arrow.anchoredPosition = new Vector3(-368f, 405f, 0);
 
@@ -120,11 +141,16 @@ public class StageManager : MonoBehaviour
                 enemyId = SaveData.currentEnemy_Id;
 
                 stg01.interactable = false;
+                stg01_text.color = new Color(255, 255, 255);
                 stg02.interactable = false;
+                stg02_text.color = new Color(255, 255, 255);
                 stg03.interactable = true;
                 stg04.interactable = false;
+                stg04_text.color = new Color(255, 255, 255);
                 stg05.interactable = false;
+                stg05_text.color = new Color(255, 255, 255);
                 stg06.interactable = false;
+                stg06_text.color = new Color(255, 255, 255);
 
                 arrow.anchoredPosition = new Vector3(-142f, 424f, 0);
 
@@ -144,11 +170,16 @@ public class StageManager : MonoBehaviour
                 enemyId = SaveData.currentEnemy_Id;
 
                 stg01.interactable = false;
+                stg01_text.color = new Color(255, 255, 255);
                 stg02.interactable = false;
+                stg02_text.color = new Color(255, 255, 255);
                 stg03.interactable = false;
+                stg03_text.color = new Color(255, 255, 255);
                 stg04.interactable = true;
                 stg05.interactable = false;
+                stg05_text.color = new Color(255, 255, 255);
                 stg06.interactable = false;
+                stg06_text.color = new Color(255, 255, 255);
 
                 arrow.anchoredPosition = new Vector3(88f, 325f, 0);
 
@@ -168,11 +199,16 @@ public class StageManager : MonoBehaviour
                 enemyId = SaveData.currentEnemy_Id;
 
                 stg01.interactable = false;
+                stg01_text.color = new Color(255, 255, 255);
                 stg02.interactable = false;
+                stg02_text.color = new Color(255, 255, 255);
                 stg03.interactable = false;
+                stg03_text.color = new Color(255, 255, 255);
                 stg04.interactable = false;
+                stg04_text.color = new Color(255, 255, 255);
                 stg05.interactable = true;
                 stg06.interactable = false;
+                stg06_text.color = new Color(255, 255, 255);
 
                 arrow.anchoredPosition = new Vector3(308f, 376f, 0);
 
@@ -192,10 +228,15 @@ public class StageManager : MonoBehaviour
                 enemyId = SaveData.currentEnemy_Id;
 
                 stg01.interactable = false;
+                stg01_text.color = new Color(255, 255, 255);
                 stg02.interactable = false;
+                stg02_text.color = new Color(255, 255, 255);
                 stg03.interactable = false;
+                stg03_text.color = new Color(255, 255, 255);
                 stg04.interactable = false;
+                stg04_text.color = new Color(255, 255, 255);
                 stg05.interactable = false;
+                stg05_text.color = new Color(255, 255, 255);
                 stg06.interactable = true;
 
                 arrow.anchoredPosition = new Vector3(548f, 280f, 0);

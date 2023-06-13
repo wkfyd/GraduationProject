@@ -424,8 +424,6 @@ public class GameManager : MonoBehaviour
         gameWin = true;
         Invoke("InvokeWinImg", 5.0f);
 
-        Time.timeScale = 0.2f;
-
         //처치 시 다음 적 생성을 위해 id 초기화
         SaveData.currentEnemy_Id = 0;
 
@@ -435,8 +433,14 @@ public class GameManager : MonoBehaviour
 
     IEnumerator DelayWinMotion()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
+
+        Time.timeScale = 0.2f;
         winAim.SetBool("isWin", true);
+
+        yield return new WaitForSeconds(0.3f);
+
+        Time.timeScale = 1f;
     }
 
     public void GameOver()

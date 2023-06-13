@@ -30,6 +30,8 @@ public class EnemyManager : MonoBehaviour
     public TextMeshProUGUI spNameText;
     public TextMeshProUGUI spText;
     public TextMeshProUGUI NextAtk_Text;
+    public GameObject damagePrefabs;        //대미지 텍스트 프리팹
+    public Transform damageTextGroup;       //대미지 텍스트 위치
 
     public float enemy_MaxHealth;     //적 최대 체력
     public float enemy_Health;        //적 현재 체력
@@ -198,6 +200,11 @@ public class EnemyManager : MonoBehaviour
     //적 피격
     void Enemy_atked()
     {
+        //대미지 텍스트 변경 및 재생
+        damagePrefabs.GetComponent<TextMeshProUGUI>().text = (enemy_Health - enemy_DamageHP).ToString();
+        Instantiate(damagePrefabs, damageTextGroup);
+
+
         if (enemyAtked != null)             //코루틴정지
             StopCoroutine(enemyAtked);
 

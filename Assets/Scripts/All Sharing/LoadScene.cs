@@ -45,7 +45,7 @@ public class LoadScene : MonoBehaviour
                 SaveData.currentStage = 1;
 
             SceneManager.LoadScene("Select Stage");
-        }  
+        }
     }
 
     public void LoadGameOver()

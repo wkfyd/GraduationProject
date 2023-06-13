@@ -19,9 +19,9 @@ public class FreeGameManager : MonoBehaviour
 
     public int score;
     public TextMeshProUGUI scoreText;
+    public int combo;
+    public TextMeshProUGUI comboText;
 
-    public int turns;       //이전 턴
-    public int curt_turns;  //현재 턴 (이전 턴과 현재 턴을 계산하기 위함)
     public bool isOver;
     public bool isSpawn;
     public bool isSpawning;
@@ -48,6 +48,7 @@ public class FreeGameManager : MonoBehaviour
             BlockPrefab = blockGrec;
 
         scoreText.text = "0";
+        comboText.text = "0";
 
         spawnRepeating = StartCoroutine(SpawnRepeating());
     }
@@ -151,7 +152,7 @@ public class FreeGameManager : MonoBehaviour
         if (spawnTrigger)
         {
             bool hasDuplicates = false;
-            Debug.Log(1);
+
             currentLevels = new int[currentBlock.Length];   //레벨배열
 
             //현재 블럭들 레벨배열에 참조

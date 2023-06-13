@@ -292,8 +292,14 @@ public class FreeBlock : MonoBehaviour
         EffectPlay();
         GetScore();
 
-        //턴 계산
-        manager.curt_turns++;
+        //콤보계산
+        manager.combo++;
+        manager.comboText.text = manager.combo.ToString();
+
+        if (manager.combo >= 3)
+        {
+            blockScore = blockScore + (int)(blockScore * 0.1);
+        }
 
         //점수 계산
         manager.scoreText.text = (manager.score += blockScore).ToString();
@@ -390,6 +396,8 @@ public class FreeBlock : MonoBehaviour
                 gridX = newX;
                 gridY = newY;
 
+                manager.combo = 0;
+
                 StartCoroutine(GravityRoutine());  //중력 애니메이션
 
                 break;
@@ -484,8 +492,14 @@ public class FreeBlock : MonoBehaviour
         EffectPlay();
         GetScore();
 
-        //턴 계산
-        manager.curt_turns++;
+        //콤보계산
+        manager.combo++;
+        manager.comboText.text = manager.combo.ToString();
+
+        if (manager.combo >= 3)
+        {
+            blockScore = blockScore + (int)(blockScore * 0.1);
+        }
 
         //점수 계산
         manager.scoreText.text = (manager.score += blockScore).ToString();

@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 82367585}
   - component: {fileID: 82367584}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Stage01_On_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -764,8 +764,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1043,8 +1043,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1061,8 +1061,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6
-  m_fontSizeBase: 6
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3343,8 +3343,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 142, y: -257}
-  m_SizeDelta: {x: 239.0487, y: 100.2462}
+  m_AnchoredPosition: {x: 146.37, y: -254.74689}
+  m_SizeDelta: {x: 228.3031, y: 95.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &295555567
 MonoBehaviour:
@@ -4129,8 +4129,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -140, y: -257}
-  m_SizeDelta: {x: 239.0487, y: 100.2462}
+  m_AnchoredPosition: {x: -146.37, y: -254.74689}
+  m_SizeDelta: {x: 228.3031, y: 95.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &427456314
 MonoBehaviour:
@@ -4430,8 +4430,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 595.56226, y: -320.65228}
-  m_SizeDelta: {x: 32.7653, y: 15.0243}
+  m_AnchoredPosition: {x: 601.3972, y: -317.22626}
+  m_SizeDelta: {x: 44.4353, y: 21.8764}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &450495082
 MonoBehaviour:
@@ -5728,7 +5728,7 @@ GameObject:
   - component: {fileID: 573234483}
   - component: {fileID: 573234482}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Stage06_On_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5783,8 +5783,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5886,7 +5886,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011921, y: 99}
+  m_AnchoredPosition: {x: -0.000011921, y: 111}
   m_SizeDelta: {x: 491.8738, y: 118.0946}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &573538378
@@ -5911,8 +5911,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uBE14\uB85D \uD37C\uC990\uB9CC\n\uC990\uAE38 \uC218 \uC788\uB294 \uBAA8\uB4DC\uC785\uB2C8\uB2E4."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d20b01184961da3449453fa71bb62f9e, type: 2}
-  m_sharedMaterial: {fileID: -8143311818084021667, guid: d20b01184961da3449453fa71bb62f9e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7877bfe63f13cc549bda46fe703b9563, type: 2}
+  m_sharedMaterial: {fileID: 4885343129054967936, guid: 7877bfe63f13cc549bda46fe703b9563, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5936,13 +5936,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44
-  m_fontSizeBase: 44
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -7372,7 +7372,7 @@ GameObject:
   - component: {fileID: 753877313}
   - component: {fileID: 753877312}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Stage05_On_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7427,8 +7427,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8294,7 +8294,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC790\uC720\uBAA8\uB4DC"
+  m_text: "\uC790\uC720 \uBAA8\uB4DC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d20b01184961da3449453fa71bb62f9e, type: 2}
   m_sharedMaterial: {fileID: -8143311818084021667, guid: d20b01184961da3449453fa71bb62f9e, type: 2}
@@ -8321,8 +8321,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 44
+  m_fontSizeBase: 44
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9296,7 +9296,7 @@ GameObject:
   - component: {fileID: 952748413}
   - component: {fileID: 952748412}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Stage03_On_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9351,8 +9351,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9929,7 +9929,7 @@ GameObject:
   - component: {fileID: 1076874045}
   - component: {fileID: 1076874044}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Stage04_On_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9984,8 +9984,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10416,8 +10416,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 253}
-  m_SizeDelta: {x: 482.7832, y: 102.1891}
+  m_AnchoredPosition: {x: 0.000013351, y: 251}
+  m_SizeDelta: {x: 429.0293, y: 90.8112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1185977810
 MonoBehaviour:
@@ -12254,7 +12254,7 @@ GameObject:
   - component: {fileID: 1363863295}
   - component: {fileID: 1363863294}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Stage02_On_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12309,8 +12309,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12861,7 +12861,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000005722, y: -94}
+  m_AnchoredPosition: {x: -0.0029964, y: -79}
   m_SizeDelta: {x: 521.0491, y: 177.7305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1420699197
@@ -15271,11 +15271,17 @@ MonoBehaviour:
   enemyId: 0
   stageNum: 0
   stg01: {fileID: 921303627}
+  stg01_text: {fileID: 82367584}
   stg02: {fileID: 800040102}
+  stg02_text: {fileID: 1363863294}
   stg03: {fileID: 795085191}
+  stg03_text: {fileID: 952748412}
   stg04: {fileID: 121451867}
+  stg04_text: {fileID: 1076874044}
   stg05: {fileID: 1563022359}
+  stg05_text: {fileID: 753877312}
   stg06: {fileID: 1651059756}
+  stg06_text: {fileID: 573234482}
   enemyArr:
   - {fileID: 614295992}
   - {fileID: 220757773}
