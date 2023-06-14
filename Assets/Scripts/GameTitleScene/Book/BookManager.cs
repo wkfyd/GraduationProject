@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class BookManager : MonoBehaviour
 {
+    public TitleManager titleManager;
+
     public GameObject bookCanvas;
 
     public int currentPage;
@@ -219,6 +221,10 @@ public class BookManager : MonoBehaviour
     public void OpenBook()
     {
         bookCanvas.SetActive(true);
+
+        SaveData.newBook = 0;
+        TitleManager titleManager = GameObject.FindObjectOfType<TitleManager>();
+        titleManager.newCollection.SetActive(false);
 
         for (int i = 0; i < 4; i++)
         {

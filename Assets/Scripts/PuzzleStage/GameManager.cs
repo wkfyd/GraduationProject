@@ -34,6 +34,12 @@ public class GameManager : MonoBehaviour
     public bool isSpawn;
     public bool spawnTrigger;
 
+    public AudioClip mergeClip;
+    public AudioClip winClip;
+    public AudioClip loseClip;
+    public AudioClip deathClip;
+    public GameObject bgm;
+
     public GameObject[] currentBlock;
     public GameObject[,] blocks = new GameObject[9, 8]; //오브젝트 2차원배열선언,초기화
 
@@ -283,17 +289,24 @@ public class GameManager : MonoBehaviour
             {
                 if (blocks[i, j] != null)
                 {
-                    Block block = blocks[i, j].gameObject.GetComponent<Block>();
+                    if (blocks[i, j].gameObject.GetComponent<Block>().select != false)
+                    {
 
-                    blocks[i, j] = null;
-                    blocks[i - 1, j] = block.gameObject;
+                    }
+                    else
+                    {
+                        Block block = blocks[i, j].gameObject.GetComponent<Block>();
 
-                    StartCoroutine(UpSpawnBlock(block, i - 1, j));
+                        blocks[i, j] = null;
+                        blocks[i - 1, j] = block.gameObject;
 
-                    block.gridX -= 1;
+                        StartCoroutine(UpSpawnBlock(block, i - 1, j));
 
-                    if (block.gridX == 1)
-                        isOver = true;
+                        block.gridX -= 1;
+
+                        if (block.gridX == 1)
+                            isOver = true;
+                    }
                 }
             }
         }
@@ -351,6 +364,23 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void TutorialText()
+    {
+        tuto.player_text.SetActive(true);
+    }
+
+    public void TutoTextLast()
+    {
+        tuto.tuto_text[0].SetActive(false);
+        tuto.tuto_text[1].SetActive(true);
+        Invoke("falseText", 4f);
+    }
+
+    void falseText()
+    {
+        tuto.player_text.SetActive(false);
+    }
+
     public void GameWin()
     {
         //처치 판단
@@ -358,70 +388,87 @@ public class GameManager : MonoBehaviour
         {
             case 1001:
                 SaveData.isSocra = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1002:
                 SaveData.isPlato = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1003:
                 SaveData.isAristo = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1004:
                 SaveData.isPytha = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1005:
                 SaveData.isArchi = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1006:
                 SaveData.isThales = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1007:
                 SaveData.isEpicuru = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1008:
                 SaveData.isZeno = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1009:
                 SaveData.isDiog = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1010:
                 SaveData.isProta = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1011:
                 SaveData.isThrasy = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1012:
                 SaveData.isGorgi = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1013:
                 SaveData.isHippa = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1014:
                 SaveData.isEucli = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1015:
                 SaveData.isStoicism = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1016:
                 SaveData.isEpicuri = 1;
+                SaveData.newBook = 1;
                 break;
 
             case 1017:
                 SaveData.isSophist = 1;
+                SaveData.newBook = 1;
                 break;
         }
 
@@ -454,8 +501,9 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         camera.SetActive(true);
-        isOver = true;
+        isOver = false;
         gameOver = true;
+        PlaySound(deathClip, 0.5f);
 
         StartCoroutine(Player_DelayWinMotion());
         SaveData.isGameOver = 1;
@@ -467,7 +515,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        Time.timeScale = 0.2f;
+        Time.timeScale = 1f;
         playerOverAim.SetBool("isLose", true);
 
         yield return new WaitForSeconds(0.1f);
@@ -477,13 +525,34 @@ public class GameManager : MonoBehaviour
 
     void InvokeWinImg()
     {
+        gameWin = false;
+        bgm.SetActive(false);
+        PlaySound(winClip, 0.5f);
         camera.SetActive(false);
         winImg.SetActive(true);
     }
 
     void InvokeLoseImg()
     {
+        gameOver = false;
+        bgm.SetActive(false);
+        PlaySound(loseClip, 0.5f);
         camera.SetActive(false);
         loseImg.SetActive(true);
+    }
+
+    public void PlaySound(AudioClip soundClip, float volume)
+    {
+        Debug.Log("Sound played: " + soundClip);
+
+
+        GameObject soundObject = new GameObject("Sound");
+        AudioSource audioSource = soundObject.AddComponent<AudioSource>();
+        audioSource.volume = volume;
+        audioSource.clip = soundClip;
+        audioSource.Play();
+
+        // 사운드 재생이 끝나면 게임 오브젝트 파괴
+        Destroy(soundObject, soundClip.length);
     }
 }

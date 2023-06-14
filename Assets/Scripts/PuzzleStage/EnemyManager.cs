@@ -23,6 +23,10 @@ public class EnemyManager : MonoBehaviour
     public Sprite[] enemy_Sprite;
     public Sprite[] player_Sprite;
 
+    public GameObject atkedEffect;
+    public Transform pcEffectGroup;
+    public Transform npcEffectGroup;
+
     public TextMeshProUGUI NextSp_Text;
     public GameObject SpAtkObj;
     public Image SpAtkImg;
@@ -31,9 +35,9 @@ public class EnemyManager : MonoBehaviour
     public TextMeshProUGUI spText;
     public TextMeshProUGUI NextAtk_Text;
     public GameObject damagePrefabs;        //대미지 텍스트 프리팹
-    public Transform damageTextGroup;       //대미지 텍스트 위치
-    public GameObject playerPrefabs;        //콤보 텍스트 프리팹
-    public Transform playerTextGroup;       //콤보 텍스트 위치
+    public Transform enemyDamageTextGroup;  //대미지 텍스트 위치
+    public Transform playerDamageTextGroup; //대미지 텍스트 위치
+    public TextMeshProUGUI comboText;       //콤보 텍스트 프리팹
 
     public float enemy_MaxHealth;     //적 최대 체력
     public float enemy_Health;        //적 현재 체력
@@ -47,7 +51,7 @@ public class EnemyManager : MonoBehaviour
 
     public bool isEnemy_Sp;         //적이 스폐셜 공격 중인지 확인
     public bool isEnemy_Atk;        //적이 일반 공격 중인지 확인
-    public bool isPlyaer_Atk;       //플레이어가 공격 중인지 확인
+    public bool isPlayer_Atk;       //플레이어가 공격 중인지 확인
 
     public bool isAristo_Sp;        //아리스토텔레스 스폐셜 효과 상태
     public int aristo_Sp_NomTurn;   //아리스토텔레스 스폐셜 남은 턴
@@ -58,6 +62,9 @@ public class EnemyManager : MonoBehaviour
     public bool isEpicuru_Sp;       //에피쿠로스 스폐셜 효과 상태
     public int epicuru_Sp_NomTurn;  //에피쿠로스 스폐셜 남은 턴
     public bool isZeno_Sp;          //제논 스폐셜 효과 상태
+
+    public AudioClip sp1;
+    public AudioClip sp2;
 
     Coroutine enemyAtked;
     Coroutine enemyAtk;
@@ -102,7 +109,6 @@ public class EnemyManager : MonoBehaviour
     {
         enemy_HealthBar.fillAmount = (float)enemy_Health / enemy_MaxHealth;
 
-
         //플레이어 공격, 적 피격 (적의 체력이 닳음이 조건 -> 아리스토텔레스 처럼 무적경우 조건 충족 못 함)
         if (enemy_Health > enemy_DamageHP)
         {
@@ -128,7 +134,12 @@ public class EnemyManager : MonoBehaviour
             {
                 if (isArchi_Sp && (archi_Sp_NomTurn >= 1 && archi_Sp_NomTurn <= 7))
                 {
-                    player.pc_Health -= (enemy_Atk_Damage);
+                    //대미지 텍스트 변경 및 재생
+                    damagePrefabs.GetComponent<TextMeshProUGUI>().text = (enemy_Atk_Damage).ToString();
+                    Instantiate(damagePrefabs, playerDamageTextGroup);
+
+                    player.pc_curntHealth -= (enemy_Atk_Damage);
+                    player.pc_Health = player.pc_curntHealth;
                     archi_Sp_NomTurn--;
 
                     if (archi_Sp_NomTurn == 0)
@@ -151,10 +162,13 @@ public class EnemyManager : MonoBehaviour
     //플레이어 공격
     public void PlayerAtk()
     {
-        isPlyaer_Atk = true;
+        isPlayer_Atk = true;
 
         if (playerAtk != null)             //코루틴정지
             StopCoroutine(playerAtk);
+
+        if (playerAtked != null)             //코루틴정지
+            StopCoroutine(playerAtked);
 
         playerAtk = StartCoroutine(Player_Atk_Routine());
     }
@@ -173,7 +187,13 @@ public class EnemyManager : MonoBehaviour
             if (SaveData.currentEnemy_Id == 1006 && isThales_Sp
                 && (thales_Sp_NomTurn >= 1 && thales_Sp_NomTurn <= 2))
             {
-                player.pc_Health -= enemy_Atk_Damage * 4;
+                player.pc_curntHealth -= enemy_Atk_Damage * 4;
+
+                //대미지 텍스트 변경 및 재생
+                damagePrefabs.GetComponent<TextMeshProUGUI>().text = (player.pc_Health - player.pc_curntHealth).ToString();
+                Instantiate(damagePrefabs, playerDamageTextGroup);
+
+                player.pc_Health = player.pc_curntHealth;
 
                 thales_Sp_NomTurn--;
 
@@ -182,7 +202,15 @@ public class EnemyManager : MonoBehaviour
             }
 
             else
-                player.pc_Health -= enemy_Atk_Damage;
+            {
+                player.pc_curntHealth -= enemy_Atk_Damage;
+
+                //대미지 텍스트 변경 및 재생
+                damagePrefabs.GetComponent<TextMeshProUGUI>().text = enemy_Atk_Damage.ToString();
+                Instantiate(damagePrefabs, playerDamageTextGroup);
+
+                player.pc_Health = player.pc_curntHealth;
+            }
 
             if (enemyAtk != null)             //코루틴정지
                 StopCoroutine(enemyAtk);
@@ -204,11 +232,19 @@ public class EnemyManager : MonoBehaviour
     {
         //대미지 텍스트 변경 및 재생
         damagePrefabs.GetComponent<TextMeshProUGUI>().text = (enemy_Health - enemy_DamageHP).ToString();
-        Instantiate(damagePrefabs, damageTextGroup);
+        Instantiate(damagePrefabs, enemyDamageTextGroup);
 
+        //피격 이펙트 재생
+        GameObject instantEffectobj = Instantiate(atkedEffect, npcEffectGroup);
+        ParticleSystem instantEffect = instantEffectobj.GetComponent<ParticleSystem>();
+
+        instantEffect.Play();
 
         if (enemyAtked != null)             //코루틴정지
             StopCoroutine(enemyAtked);
+
+        if (enemyAtk != null)             //코루틴정지
+            StopCoroutine(enemyAtk);
 
         enemyAtked = StartCoroutine(Change_Enemy_Atked());
     }
@@ -241,11 +277,17 @@ public class EnemyManager : MonoBehaviour
 
         player_Idle.sprite = player_Sprite[0];
 
-        isPlyaer_Atk = false;
+        isPlayer_Atk = false;
     }
 
     IEnumerator Player_Atked_Routine()
     {
+        //피격 이펙트 재생
+        GameObject instantEffectobj = Instantiate(atkedEffect, pcEffectGroup);
+        ParticleSystem instantEffect = instantEffectobj.GetComponent<ParticleSystem>();
+
+        instantEffect.Play();
+
         player_Idle.sprite = player_Sprite[2];
 
         yield return new WaitForSeconds(1f);
@@ -282,7 +324,7 @@ public class EnemyManager : MonoBehaviour
     public void Use_EnemySp()
     {
         isEnemy_Sp = true;
-        isPlyaer_Atk = false;
+        isPlayer_Atk = false;
 
         StartCoroutine(SpCoroutine());
     }
@@ -290,6 +332,9 @@ public class EnemyManager : MonoBehaviour
     IEnumerator SpCoroutine()
     {
         SpAtkObj.SetActive(true);
+
+        PlaySound(sp1, 0.5f);
+        PlaySound(sp2, 0.5f);
 
         spAnim.SetBool("isSpAtk", true);
 
@@ -300,18 +345,27 @@ public class EnemyManager : MonoBehaviour
 
         spAnim.SetBool("isSpAtk", false);
 
-        enemy_Idle.sprite = enemy_Sprite[0];
-
-
         //SpAtk 효과
         switch (SaveData.currentEnemy_Id)
         {
             case 1001:
-                player.pc_Health /= 2;
+                //대미지 텍스트 변경 및 재생
+                damagePrefabs.GetComponent<TextMeshProUGUI>().text = (player.pc_curntHealth / 2).ToString();
+                Instantiate(damagePrefabs, playerDamageTextGroup);
+
+                player.pc_curntHealth /= 2;
+                player.pc_Health = player.pc_curntHealth;
                 break;
 
             case 1002:
-                player.pc_Health -= random.Next(90, 121);
+                int rand = random.Next(90, 121);
+
+                //대미지 텍스트 변경 및 재생
+                damagePrefabs.GetComponent<TextMeshProUGUI>().text = rand.ToString();
+                Instantiate(damagePrefabs, playerDamageTextGroup);
+
+                player.pc_curntHealth -= random.Next(90, 121);
+                player.pc_Health = player.pc_curntHealth;
                 break;
 
             case 1003:
@@ -320,7 +374,12 @@ public class EnemyManager : MonoBehaviour
                 break;
 
             case 1004:
-                player.pc_Health -= 100;
+                //대미지 텍스트 변경 및 재생
+                damagePrefabs.GetComponent<TextMeshProUGUI>().text = 100.ToString();
+                Instantiate(damagePrefabs, playerDamageTextGroup);
+
+                player.pc_curntHealth -= 100;
+                player.pc_Health = player.pc_curntHealth;
                 break;
 
             case 1005:
@@ -347,6 +406,11 @@ public class EnemyManager : MonoBehaviour
 
         isEnemy_Sp = false;
         SpAtkObj.SetActive(false);
+
+        if (SaveData.currentEnemy_Id == 1002)
+            yield return new WaitForSeconds(1f);
+
+        enemy_Idle.sprite = enemy_Sprite[0];
     }
 
     public void Zeno_Sp()
@@ -360,7 +424,13 @@ public class EnemyManager : MonoBehaviour
             while (count < 5)
             {
                 yield return new WaitForSeconds(0.2f);
-                player.pc_Health -= 7;
+                player.pc_curntHealth -= 7;
+
+                //대미지 텍스트 변경 및 재생
+                damagePrefabs.GetComponent<TextMeshProUGUI>().text = 7.ToString();
+                Instantiate(damagePrefabs, playerDamageTextGroup);
+
+                player.pc_Health = player.pc_curntHealth;
 
                 player_Idle.sprite = player_Sprite[2];
 
@@ -392,5 +462,20 @@ public class EnemyManager : MonoBehaviour
         enemyTalk.SetActive(false);
 
         enemyText.text = enemyData.GetEnemyTalk(enemyData.get_Enemy_Id, 1);
+    }
+
+    public void PlaySound(AudioClip soundClip, float volume)
+    {
+        Debug.Log("Sound played: " + soundClip);
+
+
+        GameObject soundObject = new GameObject("Sound");
+        AudioSource audioSource = soundObject.AddComponent<AudioSource>();
+        audioSource.volume = volume;
+        audioSource.clip = soundClip;
+        audioSource.Play();
+
+        // 사운드 재생이 끝나면 게임 오브젝트 파괴
+        Destroy(soundObject, soundClip.length);
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DamageText : MonoBehaviour
 {
-
     void Start()
     {
         Invoke("Destroy", 2f);

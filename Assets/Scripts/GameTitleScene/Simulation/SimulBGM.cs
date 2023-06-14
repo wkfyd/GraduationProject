@@ -23,6 +23,8 @@ public class SimulBGM : MonoBehaviour
 
     void OnEnable()
     {
+        bgmSource = GameObject.Find("BGM").GetComponent<AudioSource>();
+
         // 오브젝트가 활성화될 때 BGM을 변경
         bgmSource.Stop();
         bgmSource.loop = false;

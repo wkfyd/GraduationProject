@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class TitleManager : MonoBehaviour
 {
     public GameObject notSave;
+    public GameObject newCollection;
+
+    void Start()
+    {
+        newBook();
+    }
 
     public void GameLoad()
     {
@@ -17,5 +23,13 @@ public class TitleManager : MonoBehaviour
 
         else
             notSave.SetActive(true);
+    }
+
+    public void newBook()
+    {
+        while (SaveData.newBook == 1)
+        {
+            newCollection.SetActive(false);
+        }
     }
 }

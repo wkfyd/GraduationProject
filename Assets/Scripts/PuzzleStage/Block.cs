@@ -72,7 +72,7 @@ public class Block : MonoBehaviour
                     mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
                     mouse_Pos.z = 0;
 
-                    transform.position = Vector3.Lerp(transform.position, mouse_Pos, 50f * Time.deltaTime);
+                    transform.position = Vector3.Lerp(transform.position, mouse_Pos, 0.2f);
 
                     //블럭이 있으면 부딪히게
                     BumpBlock();
@@ -320,6 +320,7 @@ public class Block : MonoBehaviour
     {
         EffectPlay();
         GetDamage();
+        manager.PlaySound(manager.mergeClip, 0.5f);
 
         //콤보
         manager.comboAtk++;
@@ -330,8 +331,10 @@ public class Block : MonoBehaviour
         }
 
         //콤보 텍스트 변경 및 재생
-        enemyManager.playerPrefabs.GetComponent<TextMeshProUGUI>().text = manager.comboAtk.ToString() + " combo";
-        Instantiate(enemyManager.playerPrefabs, enemyManager.playerTextGroup);
+        if (manager.comboAtk != 0)
+            enemyManager.comboText.gameObject.SetActive(true);
+
+        enemyManager.comboText.text = manager.comboAtk.ToString() + "combo";
 
         //데미지 계산
         //아리스토 텔레스 무적
@@ -339,6 +342,10 @@ public class Block : MonoBehaviour
             (enemyManager.aristo_Sp_NomTurn >= 1 && enemyManager.aristo_Sp_NomTurn <= 3))
         {
             enemyManager.enemy_DamageHP = enemyManager.enemy_Health;
+
+            //대미지 텍스트 변경 및 재생
+            enemyManager.damagePrefabs.GetComponent<TextMeshProUGUI>().text = "0";
+            Instantiate(enemyManager.damagePrefabs, enemyManager.enemyDamageTextGroup);
 
             enemyManager.aristo_Sp_NomTurn--;
 
@@ -374,7 +381,7 @@ public class Block : MonoBehaviour
 
         if (!tuto.tuto_merge)
         {
-            tuto.TutoTextLast();
+            manager.TutoTextLast();
             tuto.tuto_merge = true;
         }
 
@@ -466,6 +473,7 @@ public class Block : MonoBehaviour
                 gridY = newY;
 
                 manager.comboAtk = 0;
+                enemyManager.comboText.gameObject.SetActive(false);
 
                 StartCoroutine(GravityRoutine());  //중력 애니메이션
 
@@ -478,6 +486,7 @@ public class Block : MonoBehaviour
                 transform.position = new Vector3(gameBoard.blockGridPos[i, newY].x, gameBoard.blockGridPos[i, newY].y, 0);
 
                 manager.comboAtk = 0;
+                enemyManager.comboText.gameObject.SetActive(false);
 
                 break;
             }
@@ -555,7 +564,7 @@ public class Block : MonoBehaviour
 
         if (!tuto.tuto_merge)
         {
-            tuto.TutoTextLast();
+            manager.TutoTextLast();
             tuto.tuto_merge = true;
         }
 
@@ -568,6 +577,7 @@ public class Block : MonoBehaviour
 
         EffectPlay();
         GetDamage();
+        manager.PlaySound(manager.mergeClip, 0.8f);
 
         //콤보
         manager.comboAtk++;
@@ -578,16 +588,25 @@ public class Block : MonoBehaviour
         }
 
         //콤보 텍스트 변경 및 재생
-        enemyManager.playerPrefabs.GetComponent<TextMeshProUGUI>().text = manager.comboAtk.ToString() + "combo";
-        Instantiate(enemyManager.playerPrefabs, enemyManager.playerTextGroup);
+        if (manager.comboAtk != 0)
+            enemyManager.comboText.gameObject.SetActive(true);
+
+        enemyManager.comboText.text = manager.comboAtk.ToString() + "combo";
 
         //데미지 계산
+        //아리스토 텔레스 무적
         if (enemyManager.isAristo_Sp &&
             (enemyManager.aristo_Sp_NomTurn >= 1 && enemyManager.aristo_Sp_NomTurn <= 3))
         {
             enemyManager.enemy_DamageHP = enemyManager.enemy_Health;
 
+            //대미지 텍스트 변경 및 재생
+            enemyManager.damagePrefabs.GetComponent<TextMeshProUGUI>().text = "0";
+            Instantiate(enemyManager.damagePrefabs, enemyManager.enemyDamageTextGroup);
+
             enemyManager.aristo_Sp_NomTurn--;
+
+            enemyManager.PlayerAtk();
 
             if (enemyManager.aristo_Sp_NomTurn == 0)
                 enemyManager.isAristo_Sp = false;
@@ -666,4 +685,6 @@ public class Block : MonoBehaviour
         particle.transform.localScale = transform.localScale;
         particle.Play();
     }
+
+
 }

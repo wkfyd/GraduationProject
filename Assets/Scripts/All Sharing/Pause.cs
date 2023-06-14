@@ -54,4 +54,14 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1;
         pause.SetActive(false);
     }
+
+    public void Alpha()
+    {
+        SaveData.isLanguage = 0;
+    }
+
+    public void Greek()
+    {
+        SaveData.isLanguage = 1;
+    }
 }

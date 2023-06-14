@@ -43,6 +43,9 @@ public class SimulManager : MonoBehaviour
     public GameObject logo;
     public GameObject titleEffect;
 
+    public AudioClip footStep;
+    public AudioClip hit_01;
+
     void Start()
     {
         if(SaveData.isGameOver == 1)
@@ -328,7 +331,7 @@ public class SimulManager : MonoBehaviour
             }
 
             //일러스트 삭제
-            else if (talkIndex == 33 || talkIndex == 45)
+            else if (talkIndex == 45)
             {
                 portraitImg.SetActive(false);
                 talk.SetMsg(talkData.Split(':')[0]);
@@ -366,18 +369,11 @@ public class SimulManager : MonoBehaviour
                 talkIndex++;
             }
 
-            else if (talkIndex == 40)
-            {
-                extraImg_01.SetActive(false);
-                extraImg_02.SetActive(false);
-
-                talk.SetMsg(talkData.Split(':')[0]);
-                talkIndex++;
-            }
 
             //배경변경
             else if (talkIndex == 43)
             {
+                StartCoroutine(FootStep());
                 StartCoroutine(ChangeBG_Pytha());
             }
 
@@ -395,10 +391,31 @@ public class SimulManager : MonoBehaviour
                 talkIndex = 20;
             }
 
+            //효과음
+            else if (talkIndex == 33)
+            {
+                portraitImg.SetActive(false);
+                StartCoroutine(FootStep());
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+
+                
+            }
+
+            else if (talkIndex == 40)
+            {
+                extraImg_01.SetActive(false);
+                extraImg_02.SetActive(false);
+                StartCoroutine(FootStep());
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
             //카메라 흔들림
             else if (talkIndex == 3)
             {
                 StartCoroutine(CameraShake());
+                PlaySound(hit_01, 0.5f);
                 talk.SetMsg(talkData.Split(':')[0]);
                 talkIndex++;
             }
@@ -458,9 +475,18 @@ public class SimulManager : MonoBehaviour
             }
 
             //카메라 흔들림
-            else if (talkIndex == 4 || talkIndex == 15 || talkIndex == 19 || talkIndex == 24 || talkIndex == 38)
+            else if (talkIndex == 15 || talkIndex == 24 || talkIndex == 38)
             {
                 StartCoroutine(CameraShake());
+                talk.SetMsg(talkData.Split(':')[0]);
+                talkIndex++;
+            }
+
+            //효과음
+            else if (talkIndex == 4 || talkIndex == 19)
+            {
+                StartCoroutine(CameraShake());
+                PlaySound(hit_01, 0.5f);
                 talk.SetMsg(talkData.Split(':')[0]);
                 talkIndex++;
             }
@@ -470,6 +496,9 @@ public class SimulManager : MonoBehaviour
                 talk.SetMsg(talkData.Split(':')[0]);
                 talkIndex++;
             }
+
+            //효과음 재생
+
         }
 
  //=====================================탈레스====================================
@@ -1211,5 +1240,31 @@ public class SimulManager : MonoBehaviour
     {
         StartCoroutine(BookOn());
         StartCoroutine(SimulFadeOutCorutine());
+    }
+
+    IEnumerator FootStep()
+    {
+        int count = 0;
+        while (count < 5)
+        {
+            yield return new WaitForSeconds(0.2f);
+            PlaySound(footStep, 1f);
+            count++;
+        }
+    }
+
+    private void PlaySound(AudioClip soundClip, float volume)
+    {
+        Debug.Log("Sound played: " + soundClip);
+
+
+        GameObject soundObject = new GameObject("Sound");
+        AudioSource audioSource = soundObject.AddComponent<AudioSource>();
+        audioSource.volume = volume;
+        audioSource.clip = soundClip;
+        audioSource.Play();
+
+        // 사운드 재생이 끝나면 게임 오브젝트 파괴
+        Destroy(soundObject, soundClip.length);
     }
 }

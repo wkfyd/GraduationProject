@@ -52,4 +52,9 @@ public class LoadScene : MonoBehaviour
     {
         SceneManager.LoadScene("GameOver");
     }
+
+    public void LoadSelectStage()
+    {
+        SceneManager.LoadScene("Select Stage");
+    }
 }

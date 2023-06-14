@@ -13,14 +13,18 @@ public class FreeGameManager : MonoBehaviour
     public FreeBlock lastBlock;
     public GameObject startPanel;
     public GameObject pause;
+    public GameObject language;
 
     public GameObject effectPrefab;
     public Transform effectGroup;
+    public GameObject effectEndPrefab;
 
     public int score;
     public TextMeshProUGUI scoreText;
     public int combo;
     public TextMeshProUGUI comboText;
+    public GameObject endScoreObj;
+    public TextMeshProUGUI endScoreText;
 
     public bool isOver;
     public bool isSpawn;
@@ -40,12 +44,10 @@ public class FreeGameManager : MonoBehaviour
 
     void Start()
     {
-        startPanel.SetActive(true);
-
-        if (SaveData.isLanguage == 0)
-            BlockPrefab = blockEng;
+        if (SaveData.isTutorial == 0)
+            language.SetActive(true);
         else
-            BlockPrefab = blockGrec;
+            startPanel.SetActive(true);
 
         scoreText.text = "0";
         comboText.text = "0";
@@ -65,11 +67,11 @@ public class FreeGameManager : MonoBehaviour
         BlockDown();
 
         //머지 할 수 있는 블럭 있는지 찾기
-        FindDuplication();
+        //FindDuplication();
 
         //머지 할 수 있는 블럭이 없다면 스폰 실행
-        if (isSpawn)
-            Spawn();
+        //if (isSpawn)
+        //    Spawn();
 
         //게임 종료
         if (isOver)
@@ -83,7 +85,8 @@ public class FreeGameManager : MonoBehaviour
     {
         while (!isOver)
         {
-            yield return new WaitForSeconds(6.5f);
+            yield return new WaitForSeconds(6f);
+            isSpawn = true;
             Spawn();
         }
     }
@@ -102,8 +105,12 @@ public class FreeGameManager : MonoBehaviour
 
         for (int i = 0; i < 6; i++)
         {
+            //이펙트 생성
             GameObject instantEffectobj = Instantiate(effectPrefab, effectGroup);
             ParticleSystem instantEffect = instantEffectobj.GetComponent<ParticleSystem>();
+
+            GameObject instantEndEffectobj = Instantiate(effectEndPrefab, effectGroup);
+            ParticleSystem instantEndEffect = instantEndEffectobj.GetComponent<ParticleSystem>();
 
             //좌표 지정
             while (true) { x = random.Next(6, 8); y = random.Next(1, 7); if (blocks[x, y] == null) break; }
@@ -149,9 +156,11 @@ public class FreeGameManager : MonoBehaviour
             lastBlock.particle = instantEffect;
             lastBlock.gameObject.SetActive(true);
         }
+
+        currentLevels = new int[currentBlock.Length];   //레벨배열
     }
 
-    void FindDuplication()
+    /*void FindDuplication()
     {
         if (spawnTrigger)
         {
@@ -189,7 +198,7 @@ public class FreeGameManager : MonoBehaviour
                 spawnTrigger = false;
             }
         }
-    }
+    }*/
 
     public void Spawn()
     {
@@ -206,6 +215,16 @@ public class FreeGameManager : MonoBehaviour
     IEnumerator SpawnRoutine()
     {
         yield return new WaitForSeconds(0.2f);
+
+        currentLevels = new int[currentBlock.Length];   //레벨배열
+
+        //현재 블럭들 레벨배열에 참조
+        for (int i = 0; i < currentBlock.Length; i++)
+        {
+            FreeBlock block = currentBlock[i].gameObject.GetComponent<FreeBlock>();
+
+            currentLevels[i] = block.level;
+        }
 
         int[] spawnLevels = new int[6];
 
@@ -239,7 +258,7 @@ public class FreeGameManager : MonoBehaviour
             }
             else
             {
-                lastBlock.level = random.Next(min-1, min + 3);
+                lastBlock.level = random.Next(min - 1, min + 3);
             }
 
             spawnLevels[i] = lastBlock.level;       //레벨비교설정 위한 레벨배열
@@ -276,17 +295,24 @@ public class FreeGameManager : MonoBehaviour
             {
                 if (blocks[i, j] != null)
                 {
-                    FreeBlock block = blocks[i, j].gameObject.GetComponent<FreeBlock>();
+                    if (blocks[i, j].gameObject.GetComponent<FreeBlock>().select != false)
+                    {
+                        
+                    }
+                    else
+                    {
+                        FreeBlock block = blocks[i, j].gameObject.GetComponent<FreeBlock>();
 
-                    blocks[i, j] = null;
-                    blocks[i - 1, j] = block.gameObject;
+                        blocks[i, j] = null;
+                        blocks[i - 1, j] = block.gameObject;
 
-                    StartCoroutine(UpSpawnBlock(block, i - 1, j));
+                        StartCoroutine(UpSpawnBlock(block, i - 1, j));
 
-                    block.gridX -= 1;
+                        block.gridX -= 1;
 
-                    if (block.gridX == 1)
-                        isOver = true;
+                        if (block.gridX == 1)
+                            isOver = true;
+                    }
                 }
             }
         }
@@ -349,12 +375,55 @@ public class FreeGameManager : MonoBehaviour
     {
         spawnRepeating = StartCoroutine(SpawnRepeating());
         StartSpawn();
+
         spawnTrigger = true;
         startPanel.SetActive(false);
     }
 
     public void GameEnd()
     {
-        pause.SetActive(true);
+        isOver = false;
+
+        SaveData.freeModeScore = score;
+
+        StartCoroutine("GameEndRoutine");
+    }
+
+    IEnumerator GameEndRoutine()
+    {
+        camera.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        endScoreObj.SetActive(true);
+        endScoreText.text = "<I>"+ score + "</I>  점".ToString();
+        camera.SetActive(false);
+    }
+
+    /*    IEnumerator GameEndRoutine()
+        {
+            yield return new WaitForSeconds(1f);
+
+            for (int i = 0; i < currentBlock.Length; i++)
+            {
+                FreeBlock block = currentBlock[i].gameObject.GetComponent<FreeBlock>();
+
+                block.Hide();
+                yield return new WaitForSeconds(0.1f);
+            }
+        }*/
+
+    public void Roman()
+    {
+        SaveData.isLanguage = 0;
+        startPanel.SetActive(true);
+        language.SetActive(false);
+    }
+
+    public void Greek()
+    {
+        SaveData.isLanguage = 1;
+        startPanel.SetActive(true);
+        language.SetActive(false);
     }
 }

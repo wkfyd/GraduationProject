@@ -45,21 +45,4 @@ public class TutorialManager : MonoBehaviour
 
         Invoke("TutorialText", 1f);
     }
-
-    void TutorialText()
-    {
-        player_text.SetActive(true);
-    }
-
-    public void TutoTextLast()
-    {
-        tuto_text[0].SetActive(false);
-        tuto_text[1].SetActive(true);
-        Invoke("falseText", 4f);
-    }
-
-    void falseText()
-    {
-        player_text.SetActive(false);
-    }
 }

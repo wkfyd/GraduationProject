@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     public int pc_MaxHealth;
     public int pc_Health;
+    public int pc_curntHealth;
 
     void Start()
     {
@@ -17,31 +18,37 @@ public class Player : MonoBehaviour
             case 1:
                 pc_MaxHealth = 100;
                 pc_Health = pc_MaxHealth;
+                pc_curntHealth = pc_Health;
                 break;
 
             case 2:
                 pc_MaxHealth = 130;
                 pc_Health = pc_MaxHealth;
+                pc_curntHealth = pc_Health;
                 break;
 
             case 3:
                 pc_MaxHealth = 170;
                 pc_Health = pc_MaxHealth;
+                pc_curntHealth = pc_Health;
                 break;
 
             case 4:
                 pc_MaxHealth = 290;
                 pc_Health = pc_MaxHealth;
+                pc_curntHealth = pc_Health;
                 break;
 
             case 5:
                 pc_MaxHealth = 350;
                 pc_Health = pc_MaxHealth;
+                pc_curntHealth = pc_Health;
                 break;
 
             case 6:
                 pc_MaxHealth = 450;
                 pc_Health = pc_MaxHealth;
+                pc_curntHealth = pc_Health;
                 break;
         }
 

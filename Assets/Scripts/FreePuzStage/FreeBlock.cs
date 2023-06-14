@@ -9,6 +9,7 @@ public class FreeBlock : MonoBehaviour
     public GameBoard gameBoard;
 
     public ParticleSystem particle;
+    public ParticleSystem endEffect;
 
     public int level, gridX, gridY;
     public int downGrid_X, downGrid_Y;
@@ -55,7 +56,7 @@ public class FreeBlock : MonoBehaviour
         mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
         mouse_Pos.z = 0;
 
-        transform.position = Vector3.Lerp(transform.position, mouse_Pos, 50f * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, mouse_Pos, 0.2f);
 
         //블럭이 있으면 부딪히게
         BumpBlock();
@@ -552,6 +553,17 @@ public class FreeBlock : MonoBehaviour
                                                 gameBoard.blockGridPos[gridX, 0].y, 0);
 
     }
+
+/*    public void Hide()
+    {
+        StartCoroutine(DelayHide());
+    }
+
+    IEnumerator DelayHide()
+    {
+        yield return new WaitForSeconds(1.0f);
+        gameObject.SetActive(false);
+    }*/
 
     void EffectPlay()
     {

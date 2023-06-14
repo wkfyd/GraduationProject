@@ -22,39 +22,14 @@ public class SaveData : MonoBehaviour
 
     public static int isTutorial;
     public static int isEnding;
+    public static int newBook;
 
-    public static int currentStage= 1;
-    public static int currentEnemy_Id = 1016;
+    public static int currentStage = 1;
+    public static int currentEnemy_Id = 1015;
+    public static int freeModeScore;
     public static int isGameOver;  //게임오버 후 타이틀씬 돌아올 때 판단용
 
     public static int isLanguage;  //0이 영어, 1이 그리스
-
-    public int isSocra1;
-    public int isPlato1;
-    public int isAristo1;
-    public int isPytha1;
-    public int isArchi1;
-    public int isThales1;
-    public int isEpicuru1;
-    public int isZeno1;
-    public int isDiog1;
-    public int isProta1;
-    public int isThrasy1;
-    public int isGorgi1;
-    public int isHippa1;
-    public int isEucli1;
-    public int isStoicism1;
-    public int isEpicuri1;
-    public int isSophist1;
-
-    public int isTutorial1;
-    public int isEnding1;
-
-    public int currentStage1;
-    public int currentEnemy_Id1;
-    public int isGameOver1;
-
-
 
     void Awake()
     {
@@ -66,37 +41,6 @@ public class SaveData : MonoBehaviour
             return;
     }
 
-    void Update()
-    {
-        isSocra1 = isSocra;
-        isPlato1 = isPlato;
-        isAristo1 = isAristo;
-        isPytha1 = isPytha;
-        isArchi1 = isArchi;
-        isThales1 = isThales;
-        isEpicuru1 = isEpicuru;
-        isZeno1 = isZeno;
-        isDiog1 = isDiog;
-        isProta1 = isProta;
-        isThrasy1 = isThrasy;
-        isGorgi1 = isGorgi;
-        isHippa1 = isHippa;
-        isEucli1 = isEucli;
-        isStoicism1 = isStoicism;
-        isEpicuri1 = isEpicuri;
-        isSophist1 = isSophist;
-
-        isTutorial1 = isTutorial;
-        isEnding1 = isEnding;
-
-        currentStage1 = currentStage;
-        currentEnemy_Id1 = currentEnemy_Id;
-        isGameOver1 = isGameOver;
-
-        Debug.Log(isTutorial);
-        Debug.Log(currentEnemy_Id);
-    }
-
     public static void GameSave()
     {
         PlayerPrefs.SetInt("Tutorial", isTutorial);
@@ -104,6 +48,7 @@ public class SaveData : MonoBehaviour
 
         PlayerPrefs.SetInt("currentStage", currentStage);
         PlayerPrefs.SetInt("currentEnemy_Id", currentEnemy_Id);
+        PlayerPrefs.SetInt("freeModeScore", freeModeScore);
         PlayerPrefs.SetInt("isLanguage", isLanguage);
 
         PlayerPrefs.SetInt("isSocra", isSocra);
@@ -132,6 +77,8 @@ public class SaveData : MonoBehaviour
 
         currentStage = PlayerPrefs.GetInt("currentStage");
         currentEnemy_Id = PlayerPrefs.GetInt("currentEnemy_Id");
+        freeModeScore = PlayerPrefs.GetInt("freeModeScore");
+        isLanguage = PlayerPrefs.GetInt("isLanguage");
 
         isSocra = PlayerPrefs.GetInt("isSocra");
         isPlato = PlayerPrefs.GetInt("isPlato");
