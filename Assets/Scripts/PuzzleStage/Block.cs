@@ -320,7 +320,7 @@ public class Block : MonoBehaviour
     {
         EffectPlay();
         GetDamage();
-        manager.PlaySound(manager.mergeClip, 0.5f);
+        manager.PlaySound(manager.hitClip, 0.8f);
 
         //ÄÞº¸
         manager.comboAtk++;
@@ -577,7 +577,7 @@ public class Block : MonoBehaviour
 
         EffectPlay();
         GetDamage();
-        manager.PlaySound(manager.mergeClip, 0.8f);
+        manager.PlaySound(manager.hitClip, 0.8f);
 
         //ÄÞº¸
         manager.comboAtk++;

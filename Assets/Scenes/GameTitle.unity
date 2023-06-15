@@ -15052,7 +15052,7 @@ MonoBehaviour:
   logo: {fileID: 923786374}
   titleEffect: {fileID: 1114118601}
   footStep: {fileID: 8300000, guid: 50a315c569cc8d34cac1cda4578412cf, type: 3}
-  hit_01: {fileID: 8300000, guid: 266e2ed497d53c24aa0ea54c84b78238, type: 3}
+  hit_01: {fileID: 8300000, guid: bd34d69a24799f54ea3cc6b43439302a, type: 3}
 --- !u!1 &764542676
 GameObject:
   m_ObjectHideFlags: 0
@@ -33082,7 +33082,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 02fa0c6f7df972846a7d6e98ea7f70c0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0

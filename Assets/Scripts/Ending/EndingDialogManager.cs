@@ -14,6 +14,16 @@ public class EndingDialogManager : MonoBehaviour
     public GameObject pause;
 
     public int talkIndex;
+
+    public AudioSource audioSource;
+    public AudioClip intro00;
+    public AudioClip intro01;
+    public AudioClip intro02;
+    public AudioClip intro03;
+    public AudioClip intro04;
+    public AudioClip intro05;
+    public AudioClip intro06;
+
     void Start()
     {
         SaveData.isEnding = 1;
@@ -21,6 +31,7 @@ public class EndingDialogManager : MonoBehaviour
         //엔딩 세이브
         SaveData.GameSave();
 
+        audioSource.Play();
         talk.SetMsg(endingTM.GetTalk(0).Split(':')[0], talkIndex);
         talkIndex = 1;
         
@@ -50,9 +61,45 @@ public class EndingDialogManager : MonoBehaviour
 
         if (talkData == null)
         {
+            audioSource.Stop();
             SceneManager.LoadScene("EndingCredit");
             return;
         }
+
+        //더빙
+        switch (talkIndex)
+        {
+            case 1:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro01);
+                break;
+
+            case 2:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro03);
+                break;
+
+            case 3:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro03);
+                break;
+
+            case 4:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro04);
+                break;
+
+            case 5:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro05);
+                break;
+
+            case 6:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro06);
+                break;
+        }
+
 
         if (talkIndex == 2)
             StartCoroutine(TextTiming(talkData, talkIndex));

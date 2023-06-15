@@ -46,10 +46,13 @@ public class LoadScene : MonoBehaviour
 
             SceneManager.LoadScene("Select Stage");
         }
+
+        Time.timeScale = 1;
     }
 
     public void LoadGameOver()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("GameOver");
     }
 

@@ -8377,6 +8377,7 @@ MonoBehaviour:
   isSpawn: 0
   spawnTrigger: 1
   mergeClip: {fileID: 8300000, guid: 0f156df0f7be6e941911c53ed4321dd2, type: 3}
+  hitClip: {fileID: 8300000, guid: bd34d69a24799f54ea3cc6b43439302a, type: 3}
   winClip: {fileID: 8300000, guid: 3676038669f28cb4f997e90a16436874, type: 3}
   loseClip: {fileID: 8300000, guid: 6f5e28a6a34b8f047abe7e6acc4e7571, type: 3}
   deathClip: {fileID: 8300000, guid: 3dee6a6c72ba0e045a5c3668a9291055, type: 3}

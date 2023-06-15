@@ -22,9 +22,17 @@ public class DialogManager : MonoBehaviour
     public GameObject[] backGround;
 
     public int talkIndex;
+    public int beforeIndex;
+
+    public AudioSource audioSource;
+    public AudioClip intro00;
+    public AudioClip intro01;
+    public AudioClip intro06;
+    public AudioClip intro07;
 
     void Start()
     {
+        audioSource.Play();
         talk.SetMsg(talkManager.GetTalk(0).Split(':')[0], talkIndex);
         talkIndex = 1;
     }
@@ -53,8 +61,35 @@ public class DialogManager : MonoBehaviour
 
         if (talkData == null)
         {
+            audioSource.Stop();
             SceneManager.LoadScene("Select Stage");
             return;
+        }
+
+        //더빙
+        switch (talkIndex)
+        {
+            case 1:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro01);
+                break;
+            case 2:
+                audioSource.Stop();
+                break;
+
+            case 6:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro06);
+                break;
+
+            case 7:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro07);
+                break;
+
+            case 8:
+                audioSource.Stop();
+                break;
         }
 
         //텍스트창 변경
@@ -75,7 +110,7 @@ public class DialogManager : MonoBehaviour
             backGround[0].SetActive(false);
             backGround[1].SetActive(false);
         }
-            
+
         //대화창 애니메이션이 있으면 재생 후 타이밍맞게 텍스트 띄워주기위해
         if (talkIndex == 2 ||  talkIndex == 5 || talkIndex == 6 || talkIndex == 8)
         {
@@ -95,7 +130,9 @@ public class DialogManager : MonoBehaviour
         {
             talk.SetMsg(talkData.Split(':')[0], talkIndex);
             talkIndex++;
-        }  
+        }
+
+        
     }
 
     IEnumerator TextTiming(string talkData, int subTalkIndex)
@@ -141,5 +178,24 @@ public class DialogManager : MonoBehaviour
         }
 
         talkIndex++;
+    }
+
+    public void PlaySound(AudioClip soundClip, float volume)
+    {
+        Debug.Log("Sound played: " + soundClip);
+
+        GameObject soundObject = new GameObject("Sound");
+        AudioSource audioSource = soundObject.AddComponent<AudioSource>();
+        audioSource.volume = volume;
+        audioSource.clip = soundClip;
+        audioSource.Play();
+
+        // 사운드 재생이 끝나면 게임 오브젝트 파괴
+        Destroy(soundObject, soundClip.length);
+    }
+
+    public void StopSound(AudioClip soundClip)
+    {
+        Destroy(soundClip);
     }
 }

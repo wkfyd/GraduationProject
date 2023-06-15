@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverDlg : MonoBehaviour
 {
@@ -13,11 +12,17 @@ public class GameOverDlg : MonoBehaviour
 
     public GameObject fadeObj;
 
-
     public int talkIndex;
+
+    public AudioSource audioSource;
+    public AudioClip intro00;
+    public AudioClip intro01;
+    public AudioClip intro02;
+    public AudioClip intro03;
 
     void Start()
     {
+        audioSource.Play();
         talk.SetMsg(gameOverText.GetTalk(0).Split(':')[0], talkIndex);
         talkIndex = 1;
     }
@@ -40,8 +45,28 @@ public class GameOverDlg : MonoBehaviour
 
         if (talkData == null)
         {
+            audioSource.Stop();
             StartCoroutine(FadeOutCorutine());
             return;
+        }
+
+        //더빙
+        switch (talkIndex)
+        {
+            case 1:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro01);
+                break;
+
+            case 2:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro02);
+                break;
+
+            case 3:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro03);
+                break;
         }
 
         //대화창 애니메이션이 있으면 재생 후 타이밍맞게 텍스트 띄워주기위해
@@ -56,9 +81,6 @@ public class GameOverDlg : MonoBehaviour
             talk.SetMsg(talkData.Split(':')[0], talkIndex);
             talkIndex++;
         }
-
-
-
     }
 
     IEnumerator TextTiming(string talkData, int subTalkIndex)

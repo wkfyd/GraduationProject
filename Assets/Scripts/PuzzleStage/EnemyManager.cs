@@ -473,7 +473,7 @@ public class EnemyManager : MonoBehaviour
         AudioSource audioSource = soundObject.AddComponent<AudioSource>();
         audioSource.volume = volume;
         audioSource.clip = soundClip;
-        audioSource.Play();
+        audioSource.PlayOneShot(soundClip);
 
         // 사운드 재생이 끝나면 게임 오브젝트 파괴
         Destroy(soundObject, soundClip.length);

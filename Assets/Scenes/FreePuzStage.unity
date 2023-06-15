@@ -2030,6 +2030,8 @@ MonoBehaviour:
   isSpawn: 0
   isSpawning: 0
   spawnTrigger: 1
+  mergClip: {fileID: 8300000, guid: 0f156df0f7be6e941911c53ed4321dd2, type: 3}
+  winClip: {fileID: 8300000, guid: 3676038669f28cb4f997e90a16436874, type: 3}
   currentBlock: []
   currentLevels: 
 --- !u!4 &544700395

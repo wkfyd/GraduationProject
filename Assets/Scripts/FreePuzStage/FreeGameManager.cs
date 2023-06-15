@@ -31,6 +31,8 @@ public class FreeGameManager : MonoBehaviour
     public bool isSpawning;
     public bool spawnTrigger;
 
+    public AudioClip mergClip;
+    public AudioClip winClip;
 
     public GameObject[] currentBlock;
     public GameObject[,] blocks = new GameObject[9, 8]; //오브젝트 2차원배열선언,초기화
@@ -392,10 +394,11 @@ public class FreeGameManager : MonoBehaviour
     IEnumerator GameEndRoutine()
     {
         camera.SetActive(true);
-
+        
         yield return new WaitForSeconds(1f);
 
         endScoreObj.SetActive(true);
+        PlaySound(winClip, 0.5f);
         endScoreText.text = "<I>"+ score + "</I>  점".ToString();
         camera.SetActive(false);
     }
@@ -425,5 +428,20 @@ public class FreeGameManager : MonoBehaviour
         SaveData.isLanguage = 1;
         startPanel.SetActive(true);
         language.SetActive(false);
+    }
+
+    public void PlaySound(AudioClip soundClip, float volume)
+    {
+        Debug.Log("Sound played: " + soundClip);
+
+
+        GameObject soundObject = new GameObject("Sound");
+        AudioSource audioSource = soundObject.AddComponent<AudioSource>();
+        audioSource.volume = volume;
+        audioSource.clip = soundClip;
+        audioSource.PlayOneShot(soundClip);
+
+        // 사운드 재생이 끝나면 게임 오브젝트 파괴
+        Destroy(soundObject, soundClip.length);
     }
 }
