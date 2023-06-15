@@ -36,10 +36,10 @@ public class GameManager : MonoBehaviour
 
     public AudioClip mergeClip;
     public AudioClip hitClip;
-    public AudioClip winClip;
     public AudioClip loseClip;
     public AudioClip deathClip;
     public GameObject bgm;
+    public GameObject winClip;
 
     public GameObject[] currentBlock;
     public GameObject[,] blocks = new GameObject[9, 8]; //오브젝트 2차원배열선언,초기화
@@ -60,7 +60,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         currentBlock = GameObject.FindGameObjectsWithTag("Block"); //현재 블럭들 배열
-
 
         for (int i = 0; i < currentBlock.Length; i++)
         {
@@ -528,7 +527,7 @@ public class GameManager : MonoBehaviour
     {
         gameWin = false;
         bgm.SetActive(false);
-        PlaySound(winClip, 0.5f);
+        winClip.SetActive(true);
         camera.SetActive(false);
         winImg.SetActive(true);
     }

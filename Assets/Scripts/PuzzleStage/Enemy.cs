@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
 
             //플라톤
             case 1002:
-                maxHealth = 1200000;
+                maxHealth = 12;
                 AtkTurn = 8;
                 atk_Damage = 21;
                 SpTurn = 25;
@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
                 SpTurn = 17;
                 enemyName = "아리스토텔레스";
                 spNameText = "덕에 대한 가르침";
-                spText = "아리스토텔레스가 5번에 한해\n자신이 받는 대미지를 0으로 만든다.";
+                spText = "아리스토텔레스가 3번에 한해\n자신이 받는 대미지를 0으로 만든다.";
                 break;
 
             //피타고라스
