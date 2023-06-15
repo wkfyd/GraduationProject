@@ -186,12 +186,11 @@ MonoBehaviour:
   intro01: {fileID: 8300000, guid: c02b70864e69df94085a9ae06bc00c13, type: 3}
   intro02: {fileID: 8300000, guid: 496522f0199e8cc4b80a671fada31876, type: 3}
   intro03: {fileID: 8300000, guid: ccf3101509c826b4998a5beca175d0e7, type: 3}
-  intro04: {fileID: 0}
-  intro05: {fileID: 8300000, guid: 62131a825d4023e4bb627923f662cf9f, type: 3}
-  intro06: {fileID: 8300000, guid: 2669e5c3f0163f0448aa069dab3830b2, type: 3}
-  intro07: {fileID: 8300000, guid: 38d9eac13c66fab419ba7dfcc66eb54d, type: 3}
-  intro08: {fileID: 8300000, guid: 3539106d5ad70684f9d423aee9220ab1, type: 3}
-  intro09: {fileID: 8300000, guid: 23908ce2c195d8c47995175e1e7c3765, type: 3}
+  intro04: {fileID: 8300000, guid: 62131a825d4023e4bb627923f662cf9f, type: 3}
+  intro05: {fileID: 8300000, guid: 2669e5c3f0163f0448aa069dab3830b2, type: 3}
+  intro06: {fileID: 8300000, guid: 38d9eac13c66fab419ba7dfcc66eb54d, type: 3}
+  intro07: {fileID: 8300000, guid: 3539106d5ad70684f9d423aee9220ab1, type: 3}
+  intro08: {fileID: 8300000, guid: 23908ce2c195d8c47995175e1e7c3765, type: 3}
 --- !u!4 &482691063
 Transform:
   m_ObjectHideFlags: 0

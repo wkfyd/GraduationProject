@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class FirstScene : MonoBehaviour
 {
-    void Start()
+    public void StartClick()
     {
         SceneManager.LoadScene("GameTitle");
         SaveData.GameLoad();
