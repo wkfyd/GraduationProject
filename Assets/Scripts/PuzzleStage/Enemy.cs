@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
 
             //«√∂Û≈Ê
             case 1002:
-                maxHealth = 12;
+                maxHealth = 1200000;
                 AtkTurn = 8;
                 atk_Damage = 21;
                 SpTurn = 25;

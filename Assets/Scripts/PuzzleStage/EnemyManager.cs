@@ -302,7 +302,7 @@ public class EnemyManager : MonoBehaviour
         {
             player_Idle.sprite = player_Sprite[1];
         }
-        else if (gameManager.isOver)
+        else if (gameManager.gameOver)
         {
             player_Idle.sprite = player_Sprite[2];
         }
