@@ -5,14 +5,15 @@ using UnityEngine;
 public class StartPanel : MonoBehaviour
 {
     public AudioClip startClip;
-    void OnEnable()
+
+    void OnDisable()
     {
         PlaySound(startClip, 0.5f);
     }
+
     public void PlaySound(AudioClip soundClip, float volume)
     {
         Debug.Log("Sound played: " + soundClip);
-
 
         GameObject soundObject = new GameObject("Sound");
         AudioSource audioSource = soundObject.AddComponent<AudioSource>();

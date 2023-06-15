@@ -138,6 +138,12 @@ public class EnemyManager : MonoBehaviour
                     damagePrefabs.GetComponent<TextMeshProUGUI>().text = (enemy_Atk_Damage).ToString();
                     Instantiate(damagePrefabs, playerDamageTextGroup);
 
+                    //피격 이펙트 재생
+                    GameObject instantEffectobj = Instantiate(atkedEffect, pcEffectGroup);
+                    ParticleSystem instantEffect = instantEffectobj.GetComponent<ParticleSystem>();
+
+                    instantEffect.Play();
+
                     player.pc_curntHealth -= (enemy_Atk_Damage);
                     player.pc_Health = player.pc_curntHealth;
                     archi_Sp_NomTurn--;
