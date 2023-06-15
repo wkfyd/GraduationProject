@@ -13,6 +13,11 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadScene("Intro");
     }
 
+    public void LoadGameTitle()
+    {
+        SceneManager.LoadScene("GameTitle");
+    }
+
     public void LoadPuzzleStage()
     {
         SceneManager.LoadScene("PuzzleStage");

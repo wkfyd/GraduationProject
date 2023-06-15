@@ -33,6 +33,7 @@ public class FreeGameManager : MonoBehaviour
 
     public AudioClip mergClip;
     public AudioClip winClip;
+    public GameObject bgm;
 
     public GameObject[] currentBlock;
     public GameObject[,] blocks = new GameObject[9, 8]; //오브젝트 2차원배열선언,초기화
@@ -394,7 +395,8 @@ public class FreeGameManager : MonoBehaviour
     IEnumerator GameEndRoutine()
     {
         camera.SetActive(true);
-        
+        bgm.SetActive(false);
+
         yield return new WaitForSeconds(1f);
 
         endScoreObj.SetActive(true);
@@ -418,6 +420,7 @@ public class FreeGameManager : MonoBehaviour
 
     public void Roman()
     {
+        SaveData.isTutorial = 1;
         SaveData.isLanguage = 0;
         startPanel.SetActive(true);
         language.SetActive(false);
@@ -425,6 +428,7 @@ public class FreeGameManager : MonoBehaviour
 
     public void Greek()
     {
+        SaveData.isTutorial = 1;
         SaveData.isLanguage = 1;
         startPanel.SetActive(true);
         language.SetActive(false);

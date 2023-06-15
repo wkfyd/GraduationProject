@@ -24,8 +24,8 @@ public class SaveData : MonoBehaviour
     public static int isEnding;
     public static int newBook;
 
-    public static int currentStage = 1;
-    public static int currentEnemy_Id = 1015;
+    public static int currentStage;
+    public static int currentEnemy_Id;
     public static int freeModeScore;
     public static int isGameOver;  //게임오버 후 타이틀씬 돌아올 때 판단용
 
@@ -50,6 +50,7 @@ public class SaveData : MonoBehaviour
         PlayerPrefs.SetInt("currentEnemy_Id", currentEnemy_Id);
         PlayerPrefs.SetInt("freeModeScore", freeModeScore);
         PlayerPrefs.SetInt("isLanguage", isLanguage);
+        PlayerPrefs.SetInt("newBook", newBook);
 
         PlayerPrefs.SetInt("isSocra", isSocra);
         PlayerPrefs.SetInt("isPlato", isPlato);
@@ -79,6 +80,7 @@ public class SaveData : MonoBehaviour
         currentEnemy_Id = PlayerPrefs.GetInt("currentEnemy_Id");
         freeModeScore = PlayerPrefs.GetInt("freeModeScore");
         isLanguage = PlayerPrefs.GetInt("isLanguage");
+        newBook = PlayerPrefs.GetInt("newBook");
 
         isSocra = PlayerPrefs.GetInt("isSocra");
         isPlato = PlayerPrefs.GetInt("isPlato");

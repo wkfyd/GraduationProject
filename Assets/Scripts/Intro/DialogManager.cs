@@ -27,8 +27,14 @@ public class DialogManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip intro00;
     public AudioClip intro01;
+    public AudioClip intro02;
+    public AudioClip intro03;
+    public AudioClip intro04;
+    public AudioClip intro05;
     public AudioClip intro06;
     public AudioClip intro07;
+    public AudioClip intro08;
+    public AudioClip intro09;
 
     void Start()
     {
@@ -73,8 +79,24 @@ public class DialogManager : MonoBehaviour
                 audioSource.Stop();
                 audioSource.PlayOneShot(intro01);
                 break;
+
             case 2:
                 audioSource.Stop();
+                audioSource.PlayOneShot(intro02);
+                break;
+
+            case 3:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro03);
+                break;
+
+            case 4:
+                audioSource.Stop();
+                break;
+
+            case 5:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro05);
                 break;
 
             case 6:
@@ -89,6 +111,12 @@ public class DialogManager : MonoBehaviour
 
             case 8:
                 audioSource.Stop();
+                audioSource.PlayOneShot(intro08);
+                break;
+
+            case 9:
+                audioSource.Stop();
+                audioSource.PlayOneShot(intro09);
                 break;
         }
 

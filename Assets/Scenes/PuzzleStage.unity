@@ -2616,12 +2616,12 @@ RectTransform:
   - {fileID: 1084982905}
   - {fileID: 804682657}
   - {fileID: 2099731101}
+  - {fileID: 1724533265}
+  - {fileID: 1379272650}
   - {fileID: 1967094429}
   - {fileID: 905176549}
   - {fileID: 2006208346}
   - {fileID: 1219382355}
-  - {fileID: 1724533265}
-  - {fileID: 1379272650}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

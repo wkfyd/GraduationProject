@@ -76,7 +76,7 @@ public class EndingDialogManager : MonoBehaviour
 
             case 2:
                 audioSource.Stop();
-                audioSource.PlayOneShot(intro03);
+                audioSource.PlayOneShot(intro02);
                 break;
 
             case 3:
