@@ -27,7 +27,7 @@ public class TitleManager : MonoBehaviour
 
     public void newBook()
     {
-        while (SaveData.newBook == 1)
+        if (SaveData.newBook == 1)
         {
             newCollection.SetActive(false);
         }

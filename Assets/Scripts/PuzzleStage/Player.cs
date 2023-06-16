@@ -13,10 +13,10 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        switch (SaveData.currentStage)//)
+        switch (SaveData.currentStage)
         {
             case 1:
-                pc_MaxHealth = 1;//100;
+                pc_MaxHealth = 100;
                 pc_Health = pc_MaxHealth;
                 pc_curntHealth = pc_Health;
                 break;
