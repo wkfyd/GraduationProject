@@ -400,7 +400,7 @@ public class FreeGameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         endScoreObj.SetActive(true);
-        PlaySound(winClip, 0.5f);
+        PlaySound(winClip, 0.3f);
         endScoreText.text = "<I>"+ score + "</I>  Á¡".ToString();
         camera.SetActive(false);
     }

@@ -8,7 +8,7 @@ public class StartPanel : MonoBehaviour
 
     void OnDisable()
     {
-        PlaySound(startClip, 0.5f);
+        PlaySound(startClip, 0.4f);
     }
 
     public void PlaySound(AudioClip soundClip, float volume)

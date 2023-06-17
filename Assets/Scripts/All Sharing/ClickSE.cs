@@ -8,7 +8,7 @@ public class ClickSE : MonoBehaviour
     public AudioClip soundB;
 
     //SE º¼·ý ¼öÄ¡
-    private float volumeA = 0.4f;
+    private float volumeA = 0.3f;
     private float volumeB = 0.2f;
 
 

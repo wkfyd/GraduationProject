@@ -292,7 +292,7 @@ public class FreeBlock : MonoBehaviour
     {
         EffectPlay();
         GetScore();
-        manager.PlaySound(manager.mergClip, 0.5f);
+        manager.PlaySound(manager.mergClip, 0.3f);
 
         //ÄÞº¸°è»ê
         manager.combo++;
@@ -493,7 +493,7 @@ public class FreeBlock : MonoBehaviour
 
         EffectPlay();
         GetScore();
-        manager.PlaySound(manager.mergClip, 0.5f);
+        manager.PlaySound(manager.mergClip, 0.3f);
 
         //ÄÞº¸°è»ê
         manager.combo++;

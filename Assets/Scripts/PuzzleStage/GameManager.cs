@@ -542,7 +542,7 @@ public class GameManager : MonoBehaviour
     {
         gameOver = false;
         bgm.SetActive(false);
-        PlaySound(loseClip, 0.5f);
+        PlaySound(loseClip, 0.25f);
         camera.SetActive(false);
         loseImg.SetActive(true);
     }
