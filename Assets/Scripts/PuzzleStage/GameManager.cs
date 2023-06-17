@@ -366,7 +366,13 @@ public class GameManager : MonoBehaviour
 
     public void TutorialText()
     {
-        tuto.player_text.SetActive(true);
+        if (SaveData.isTutorial == 0)
+        {
+            tuto.player_text.SetActive(true);
+            SaveData.isTutorial = 1;
+        }
+        else
+            return;
     }
 
     public void TutoTextLast()

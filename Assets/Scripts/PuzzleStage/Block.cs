@@ -47,15 +47,18 @@ public class Block : MonoBehaviour
     {
         if (!manager.gameWin)
         {
-            if (!enemyManager.isEnemy_Sp)
+            if (!manager.gameOver)
             {
-                if (!enemyManager.isZeno_Sp)
+                if (!enemyManager.isEnemy_Sp)
                 {
-                    downGrid_X = gridX;
-                    downGrid_Y = gridY;
+                    if (!enemyManager.isZeno_Sp)
+                    {
+                        downGrid_X = gridX;
+                        downGrid_Y = gridY;
 
-                    levelUpOnce = true;
-                    select = true;
+                        levelUpOnce = true;
+                        select = true;
+                    }
                 }
             }
         }
@@ -65,23 +68,26 @@ public class Block : MonoBehaviour
     {
         if (!manager.gameWin)
         {
-            if (!enemyManager.isEnemy_Sp)
+            if (!manager.gameOver)
             {
-                if (!enemyManager.isZeno_Sp)
+                if (!enemyManager.isEnemy_Sp)
                 {
-                    mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
-                    mouse_Pos.z = 0;
+                    if (!enemyManager.isZeno_Sp)
+                    {
+                        mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
+                        mouse_Pos.z = 0;
 
-                    transform.position = Vector3.Lerp(transform.position, mouse_Pos, 50f * Time.deltaTime);
+                        transform.position = Vector3.Lerp(transform.position, mouse_Pos, 50f * Time.deltaTime);
 
-                    //블럭이 있으면 부딪히게
-                    BumpBlock();
+                        //블럭이 있으면 부딪히게
+                        BumpBlock();
 
-                    //보드판 밖으로 못 나가게
-                    outOfRangeBoard();
+                        //보드판 밖으로 못 나가게
+                        outOfRangeBoard();
 
-                    //좌표변경 함수 + 드래그머지
-                    DragChangedGridPos();
+                        //좌표변경 함수 + 드래그머지
+                        DragChangedGridPos();
+                    }
                 }
             }
         }
@@ -91,22 +97,25 @@ public class Block : MonoBehaviour
     {
         if (!manager.gameWin)
         {
-            if (!enemyManager.isEnemy_Sp)
+            if (!manager.gameOver)
             {
-                if (!enemyManager.isZeno_Sp)
+                if (!enemyManager.isEnemy_Sp)
                 {
-                    //스냅기능
-                    Snap();
-
-                    //2차원 배열 좌표변경 후 위치변경 + 머지
-                    if ((downGrid_X != gridX || downGrid_Y != gridY) || manager.blocks[gridX + 1, gridY] != null &&
-                        manager.blocks[gridX + 1, gridY].gameObject.GetComponent<Block>().level == level)
+                    if (!enemyManager.isZeno_Sp)
                     {
-                        DropChangedGridPos();
-                    }
+                        //스냅기능
+                        Snap();
 
-                    select = false;
-                    levelUpOnce = false;
+                        //2차원 배열 좌표변경 후 위치변경 + 머지
+                        if ((downGrid_X != gridX || downGrid_Y != gridY) || manager.blocks[gridX + 1, gridY] != null &&
+                            manager.blocks[gridX + 1, gridY].gameObject.GetComponent<Block>().level == level)
+                        {
+                            DropChangedGridPos();
+                        }
+
+                        select = false;
+                        levelUpOnce = false;
+                    }
                 }
             }
         }
