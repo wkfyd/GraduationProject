@@ -359,6 +359,8 @@ public class EnemyManager : MonoBehaviour
                 damagePrefabs.GetComponent<TextMeshProUGUI>().text = (player.pc_curntHealth / 2).ToString();
                 Instantiate(damagePrefabs, playerDamageTextGroup);
 
+                StartCoroutine(Player_Atked_Routine());
+
                 player.pc_curntHealth /= 2;
                 player.pc_Health = player.pc_curntHealth;
                 break;
@@ -369,6 +371,8 @@ public class EnemyManager : MonoBehaviour
                 //대미지 텍스트 변경 및 재생
                 damagePrefabs.GetComponent<TextMeshProUGUI>().text = rand.ToString();
                 Instantiate(damagePrefabs, playerDamageTextGroup);
+
+                StartCoroutine(Player_Atked_Routine());
 
                 player.pc_curntHealth -= random.Next(90, 121);
                 player.pc_Health = player.pc_curntHealth;
@@ -383,6 +387,8 @@ public class EnemyManager : MonoBehaviour
                 //대미지 텍스트 변경 및 재생
                 damagePrefabs.GetComponent<TextMeshProUGUI>().text = 100.ToString();
                 Instantiate(damagePrefabs, playerDamageTextGroup);
+
+                StartCoroutine(Player_Atked_Routine());
 
                 player.pc_curntHealth -= 100;
                 player.pc_Health = player.pc_curntHealth;
@@ -432,6 +438,12 @@ public class EnemyManager : MonoBehaviour
                 yield return new WaitForSeconds(0.2f);
                 player.pc_curntHealth -= 7;
 
+                //피격 이펙트 재생
+                GameObject instantEffectobj = Instantiate(atkedEffect, pcEffectGroup);
+                ParticleSystem instantEffect = instantEffectobj.GetComponent<ParticleSystem>();
+
+                instantEffect.Play();
+
                 //대미지 텍스트 변경 및 재생
                 damagePrefabs.GetComponent<TextMeshProUGUI>().text = 7.ToString();
                 Instantiate(damagePrefabs, playerDamageTextGroup);
@@ -443,6 +455,7 @@ public class EnemyManager : MonoBehaviour
                 count++;
             }
 
+            yield return new WaitForSeconds(0.3f);
             isZeno_Sp = false;
             player_Idle.sprite = player_Sprite[0];
         }

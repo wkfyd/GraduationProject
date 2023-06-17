@@ -26,6 +26,8 @@ public class Block : MonoBehaviour
 
     Vector3 mouse_Pos;
 
+    System.Random rand = new System.Random();
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -329,7 +331,10 @@ public class Block : MonoBehaviour
     {
         EffectPlay();
         GetDamage();
-        manager.PlaySound(manager.hitClip, 0.5f);
+        if(rand.Next(0, 2) == 0)
+            manager.PlaySound(manager.hitClip, 0.5f);
+        else
+            manager.PlaySound(manager.hitClip1, 0.5f);
 
         //ÄÞº¸
         manager.comboAtk++;
@@ -586,7 +591,10 @@ public class Block : MonoBehaviour
 
         EffectPlay();
         GetDamage();
-        manager.PlaySound(manager.hitClip, 0.5f);
+        if (rand.Next(0, 2) == 0)
+            manager.PlaySound(manager.hitClip, 0.5f);
+        else
+            manager.PlaySound(manager.hitClip1, 0.5f);
 
         //ÄÞº¸
         manager.comboAtk++;

@@ -24,8 +24,8 @@ public static class SaveData
     public static int isEnding;
     public static int newBook;
 
-    public static int currentStage;
-    public static int currentEnemy_Id;
+    public static int currentStage = 6;
+    public static int currentEnemy_Id = 1001;
     public static int freeModeScore;
     public static int isGameOver;  //게임오버 후 타이틀씬 돌아올 때 판단용
 

@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     public AudioClip mergeClip;
     public AudioClip hitClip;
+    public AudioClip hitClip1;
     public AudioClip loseClip;
     public AudioClip deathClip;
     public GameObject bgm;
@@ -495,7 +496,7 @@ public class GameManager : MonoBehaviour
     IEnumerator DelayWinMotion()
     {
         yield return new WaitForSeconds(1f);
-
+        enemyManager.enemyTalk.SetActive(true);
         Time.timeScale = 0.2f;
         winAim.SetBool("isWin", true);
 
