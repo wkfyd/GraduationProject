@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public static class SaveData
+public class SaveData : MonoBehaviour
 {
     public static int isSocra;
     public static int isPlato;
@@ -20,28 +20,39 @@ public static class SaveData
     public static int isEpicuri;
     public static int isSophist;
 
-    public static int isTutorial;
-    public static int isEnding;
+    public static int currentStage;
+    public static int currentEnemy_Id;
+    public static int freeHighScore;
+    public static int isLanguage;  //0이 영어, 1이 그리스
+
+    //타이틀 느낌표
     public static int newBook;
 
-    public static int currentStage = 6;
-    public static int currentEnemy_Id = 1001;
-    public static int freeModeScore;
     public static int isGameOver;  //게임오버 후 타이틀씬 돌아올 때 판단용
+    public static int isTutorial;
+    public static int isEnding;
 
-    public static int isLanguage;  //0이 영어, 1이 그리스
+    //느낌표 아이콘 캐릭터별
+    public static int newChar01;
+    public static int newChar02;
+    public static int newChar03;
+    public static int newChar04;
+    public static int newChar05;
+    public static int newChar06;
+    public static int newChar07;
+    public static int newChar08;
+    public static int newChar09;
+    public static int newChar10;
+    public static int newChar11;
+    public static int newChar12;
+    public static int newChar13;
+    public static int newChar14;
+    public static int newChar15;
+    public static int newChar16;
+    public static int newChar17;
 
     public static void GameSave()
     {
-        PlayerPrefs.SetInt("Tutorial", isTutorial);
-        PlayerPrefs.SetInt("ending", isEnding);
-
-        PlayerPrefs.SetInt("currentStage", currentStage);
-        PlayerPrefs.SetInt("currentEnemy_Id", currentEnemy_Id);
-        PlayerPrefs.SetInt("freeModeScore", freeModeScore);
-        PlayerPrefs.SetInt("isLanguage", isLanguage);
-        PlayerPrefs.SetInt("newBook", newBook);
-
         PlayerPrefs.SetInt("isSocra", isSocra);
         PlayerPrefs.SetInt("isPlato", isPlato);
         PlayerPrefs.SetInt("isAristo", isAristo);
@@ -59,19 +70,21 @@ public static class SaveData
         PlayerPrefs.SetInt("isStoicism", isStoicism);
         PlayerPrefs.SetInt("isEpicuri", isEpicuri);
         PlayerPrefs.SetInt("isSophist", isSophist);
+
+        PlayerPrefs.SetInt("currentStage", currentStage);
+        PlayerPrefs.SetInt("currentEnemy_Id", currentEnemy_Id);
+        PlayerPrefs.SetInt("freeHighScore", freeHighScore);
+        PlayerPrefs.SetInt("isLanguage", isLanguage);
+
+        PlayerPrefs.SetInt("newBook", newBook);
+
+        PlayerPrefs.SetInt("isGameOver", isGameOver);
+        PlayerPrefs.SetInt("Tutorial", isTutorial);
+        PlayerPrefs.SetInt("ending", isEnding);
     }
 
     public static void GameLoad()
     {
-        isTutorial = PlayerPrefs.GetInt("Tutorial");
-        isEnding = PlayerPrefs.GetInt("ending");
-
-        currentStage = PlayerPrefs.GetInt("currentStage");
-        currentEnemy_Id = PlayerPrefs.GetInt("currentEnemy_Id");
-        freeModeScore = PlayerPrefs.GetInt("freeModeScore");
-        isLanguage = PlayerPrefs.GetInt("isLanguage");
-        newBook = PlayerPrefs.GetInt("newBook");
-
         isSocra = PlayerPrefs.GetInt("isSocra");
         isPlato = PlayerPrefs.GetInt("isPlato");
         isAristo = PlayerPrefs.GetInt("isAristo");
@@ -89,19 +102,22 @@ public static class SaveData
         isStoicism = PlayerPrefs.GetInt("isStoicism");
         isEpicuri = PlayerPrefs.GetInt("isEpicuri");
         isSophist = PlayerPrefs.GetInt("isSophist");
+
+        currentStage = PlayerPrefs.GetInt("currentStage");
+        currentEnemy_Id = PlayerPrefs.GetInt("currentEnemy_Id");
+        freeHighScore = PlayerPrefs.GetInt("freeHighScore");
+        isLanguage = PlayerPrefs.GetInt("isLanguage");
+
+        newBook = PlayerPrefs.GetInt("newBook");
+
+        isGameOver = PlayerPrefs.GetInt("isGameOver");
+        isTutorial = PlayerPrefs.GetInt("Tutorial");
+        isEnding = PlayerPrefs.GetInt("ending");
+
     }
 
     public static void NewPlay()
     {
-        isTutorial = 0;
-        isEnding = 0;
-
-        currentStage = 0;
-        currentEnemy_Id = 0;
-        isLanguage = 0;
-        newBook = 0;
-        freeModeScore = 0;
-
         isSocra = 0;
         isPlato = 0;
         isAristo = 0;
@@ -119,5 +135,16 @@ public static class SaveData
         isStoicism = 0;
         isEpicuri = 0;
         isSophist = 0;
+
+        currentStage = 0;
+        currentEnemy_Id = 0;
+        isLanguage = 0;
+        freeHighScore = 0;
+
+        newBook = 0;
+
+        isGameOver = 0;
+        isTutorial = 0;
+        isEnding = 0;
     }
 }

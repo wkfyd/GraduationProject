@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ClickSE : MonoBehaviour
 {
     public AudioClip soundA;
     public AudioClip soundB;
+    public AudioClip buzzer;
 
     //SE º¼·ý ¼öÄ¡
     private float volumeA = 0.3f;
     private float volumeB = 0.2f;
+    private float volumeBz = 0.2f;
 
 
     private void Update()
@@ -24,17 +24,29 @@ public class ClickSE : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-        bool condition = hit.collider != null && hit.collider.CompareTag("Block");
+        int condition = 0;
 
-        if (condition)
-        {
-            PlaySound(soundB, volumeB);
-        }
+        if (hit.collider != null && hit.collider.CompareTag("Block"))
+            condition = 0;
+        else if (hit.collider != null && hit.collider.CompareTag("ActiveFalse"))
+            condition = 1;
         else
-        {
-            PlaySound(soundA, volumeA);
-        }
+            condition = 2;
 
+        switch (condition)
+        {
+            case 0:
+                PlaySound(soundB, volumeB);
+                break;
+
+            case 1:
+                PlaySound(buzzer, volumeBz);
+                break;
+
+            case 2:
+                PlaySound(soundA, volumeA);
+                break;
+        }
     }
 
     private void PlaySound(AudioClip soundClip, float volume)

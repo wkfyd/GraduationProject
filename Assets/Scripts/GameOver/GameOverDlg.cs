@@ -12,6 +12,9 @@ public class GameOverDlg : MonoBehaviour
 
     public GameObject fadeObj;
 
+    public Image textWindow;
+    public Sprite textWindow_PC;
+
     public int talkIndex;
 
     public AudioSource audioSource;
@@ -72,6 +75,7 @@ public class GameOverDlg : MonoBehaviour
         //대화창 애니메이션이 있으면 재생 후 타이밍맞게 텍스트 띄워주기위해
         if (talkIndex == 2)
         {
+            textWindow.sprite = textWindow_PC;
             talkPanel.SetTrigger("Talk Up And Down");
             StartCoroutine(TextTiming(talkData, talkIndex));
         }
@@ -118,16 +122,4 @@ public class GameOverDlg : MonoBehaviour
 
         SceneManager.LoadScene("GameTitle");
     }
-
-    /*IEnumerator BookFadeInCorutine()
-    {
-        float count = 1;
-
-        while (count >= 0)
-        {
-            count -= 0.01f;
-            yield return new WaitForSeconds(0.01f);
-            bookFade.GetComponent<Image>().color = new Color(0, 0, 0, count);
-        }
-    }*/
 }

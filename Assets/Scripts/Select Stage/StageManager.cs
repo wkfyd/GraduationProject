@@ -513,6 +513,12 @@ public class StageManager : MonoBehaviour
     {
         int result = random.Next(1013, 1018);
 
+        if (SaveData.isHippa == 1 && SaveData.isEucli == 1 && SaveData.isStoicism == 1 &&
+            SaveData.isEpicuri == 1 && SaveData.isSophist == 1)
+        {
+            return result;
+        }
+
         if (result == 1013)
         {
             if (SaveData.isHippa != 1)
@@ -561,6 +567,12 @@ public class StageManager : MonoBehaviour
         else
             result = random.Next(1013, 1018);
 
+        if (SaveData.isDiog == 1 && SaveData.isProta == 1 && SaveData.isThrasy == 1 && SaveData.isGorgi == 1 &&
+            SaveData.isHippa == 1 && SaveData.isEucli == 1 && SaveData.isStoicism == 1 &&
+            SaveData.isEpicuri == 1 && SaveData.isSophist == 1)
+        {
+            return result;
+        }
 
         if (result == 1009)
         {
@@ -634,6 +646,12 @@ public class StageManager : MonoBehaviour
         else
             result = random.Next(1009, 1013);
 
+        if (SaveData.isArchi == 1 && SaveData.isThales == 1 && SaveData.isEpicuru == 1 && SaveData.isZeno == 1 &&
+            SaveData.isDiog == 1 && SaveData.isProta == 1 && SaveData.isThrasy == 1 && SaveData.isGorgi == 1)
+        {
+            return result;
+        }
+
         if (result == 1005)
         {
             if (SaveData.isArchi != 1)
@@ -689,6 +707,9 @@ public class StageManager : MonoBehaviour
     {
         int result = random.Next(1005, 1009);
 
+        if (SaveData.isArchi == 1 && SaveData.isThales == 1 && SaveData.isEpicuru == 1 && SaveData.isZeno == 1)
+            return result;
+
         if (result == 1005)
         {
             if (SaveData.isArchi != 1)
@@ -719,6 +740,11 @@ public class StageManager : MonoBehaviour
     public int EnemyRandom_Stg6()
     {
         int result = random.Next(1001, 1005);
+
+        if (SaveData.isSocra == 1 && SaveData.isPlato == 1 && SaveData.isAristo == 1 && SaveData.isPytha == 1)
+        {
+            return result;
+        }
 
         if (result == 1001)
         {

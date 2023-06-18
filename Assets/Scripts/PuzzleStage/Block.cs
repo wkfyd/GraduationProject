@@ -374,7 +374,7 @@ public class Block : MonoBehaviour
                 (enemyManager.epicuru_Sp_NomTurn >= 1 && enemyManager.epicuru_Sp_NomTurn <= 3))
         {
             float x = 2 / 3f;
-            enemyManager.enemy_DamageHP -= (float)blockDamage * x;
+            enemyManager.enemy_DamageHP -= (int)((float)blockDamage * x);
 
             enemyManager.epicuru_Sp_NomTurn--;
 
@@ -633,7 +633,7 @@ public class Block : MonoBehaviour
                 (enemyManager.epicuru_Sp_NomTurn >= 1 && enemyManager.epicuru_Sp_NomTurn <= 3))
         {
             float x = 2 / 3f;
-            enemyManager.enemy_DamageHP -= (float)blockDamage * x;
+            enemyManager.enemy_DamageHP -= (int)((float)blockDamage * x);
 
             enemyManager.epicuru_Sp_NomTurn--;
 

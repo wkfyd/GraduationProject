@@ -182,6 +182,7 @@ MonoBehaviour:
   talkIndex: 0
   beforeIndex: 0
   audioSource: {fileID: 2128996798}
+  hitClip: {fileID: 8300000, guid: 266e2ed497d53c24aa0ea54c84b78238, type: 3}
   intro00: {fileID: 8300000, guid: e9b24793f4f68b14b973bc22753b9919, type: 3}
   intro01: {fileID: 8300000, guid: c02b70864e69df94085a9ae06bc00c13, type: 3}
   intro02: {fileID: 8300000, guid: 496522f0199e8cc4b80a671fada31876, type: 3}
@@ -685,6 +686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundA: {fileID: 8300000, guid: 9e319a684c6915e4ca3f8ee340001d0d, type: 3}
   soundB: {fileID: 8300000, guid: ad1c056df61c46e488842d5bb67c87a1, type: 3}
+  buzzer: {fileID: 0}
 --- !u!4 &1207678613
 Transform:
   m_ObjectHideFlags: 0

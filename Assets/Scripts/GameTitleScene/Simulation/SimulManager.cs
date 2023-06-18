@@ -17,6 +17,7 @@ public class SimulManager : MonoBehaviour
     public GameObject extraImg_01;
     public GameObject extraImg_02;
     public GameObject extraImg_03;
+    public Sprite archi_Sim;
     public Sprite archi_Change;
     public GameObject camera;
 
@@ -30,7 +31,6 @@ public class SimulManager : MonoBehaviour
     int talkingChar = 0;
     int talkingChar_Next = 0;
 
-    public GameObject titleFade;
     public GameObject simulFade;
     public GameObject bookFade;
     public GameObject Thales_Fade;
@@ -45,14 +45,6 @@ public class SimulManager : MonoBehaviour
 
     public AudioClip footStep;
     public AudioClip hit_01;
-
-    void Start()
-    {
-        if(SaveData.isGameOver == 1)
-        {
-            StartCoroutine(TitleFadeInCorutine());
-        }
-    }
 
     public void Action()
     {
@@ -1073,6 +1065,10 @@ public class SimulManager : MonoBehaviour
         SimulDataManager.GetName(4).SetActive(false);
         SimulDataManager.GetName(5).SetActive(false);
         Thales_Fade.SetActive(false);
+
+        if(portraitImg.GetComponent<Image>().sprite == archi_Change)
+            portraitImg.GetComponent<Image>().sprite = archi_Sim;
+
         enemyId = 0;
         talkIndex = 0;
 
@@ -1149,23 +1145,6 @@ public class SimulManager : MonoBehaviour
             yield return new WaitForSeconds(0.02f);
             Thales_Fade.GetComponent<Image>().color = new Color(0, 0, 0, count);
         }
-    }
-
-    IEnumerator TitleFadeInCorutine()
-    {
-        titleFade.SetActive(true);
-
-        float count = 1;
-
-        while (count >= 0)
-        {
-            count -= 0.01f;
-            yield return new WaitForSeconds(0.01f);
-            titleFade.GetComponent<Image>().color = new Color(255, 255, 255, count);
-        }
-
-        SaveData.isGameOver = 0;
-        titleFade.SetActive(false);
     }
 
     IEnumerator ChangeBG_Pytha()

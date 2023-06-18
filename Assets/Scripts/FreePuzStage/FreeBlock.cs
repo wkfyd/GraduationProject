@@ -56,7 +56,7 @@ public class FreeBlock : MonoBehaviour
         mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //월드좌표 마우스 위치
         mouse_Pos.z = 0;
 
-        transform.position = Vector3.Lerp(transform.position, mouse_Pos, 0.2f);
+        transform.position = Vector3.Lerp(transform.position, mouse_Pos, 50f * Time.deltaTime);
 
         //블럭이 있으면 부딪히게
         BumpBlock();

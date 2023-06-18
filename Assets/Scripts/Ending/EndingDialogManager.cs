@@ -13,6 +13,9 @@ public class EndingDialogManager : MonoBehaviour
 
     public GameObject pause;
 
+    public Image textWindow;
+    public Sprite textWindow_else;
+
     public int talkIndex;
 
     public AudioSource audioSource;
@@ -106,6 +109,7 @@ public class EndingDialogManager : MonoBehaviour
 
         else if (talkIndex == 4)
         {
+            textWindow.sprite = textWindow_else;
             talkPanel.SetTrigger("Talk Up And Down");
             StartCoroutine(TextTiming(talkData, talkIndex));
         }

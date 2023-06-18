@@ -13,10 +13,13 @@ public class BookManager : MonoBehaviour
     public GameObject[] enemyPortrait;
     public GameObject[] PortraitPanel;
     public GameObject[] pageButton;
+    public GameObject[] Info;
+    public GameObject[] newBook;
     public GameObject titleEffect;
 
     void Start()
     {
+
         Color color = new Color(255, 255, 255);
 
         if (SaveData.isSocra == 1)
@@ -223,7 +226,6 @@ public class BookManager : MonoBehaviour
         bookCanvas.SetActive(true);
 
         SaveData.newBook = 0;
-        TitleManager titleManager = GameObject.FindObjectOfType<TitleManager>();
         titleManager.newCollection.SetActive(false);
 
         for (int i = 0; i < 4; i++)
@@ -242,5 +244,124 @@ public class BookManager : MonoBehaviour
     {
         bookCanvas.SetActive(false);
         titleEffect.SetActive(true);
+    }
+
+    public void SocraPanel()
+    {
+        newBook[0].SetActive(false);
+        Info[0].SetActive(true);
+        SaveData.newChar01 = 2;
+    }
+
+    public void PlatoPanel()
+    {
+        newBook[1].SetActive(false);
+        Info[1].SetActive(true);
+        SaveData.newChar02 = 2;
+    }
+
+    public void AristoPanel()
+    {
+        newBook[2].SetActive(false);
+        Info[2].SetActive(true);
+        SaveData.newChar03 = 2;
+    }
+
+    public void PythaPanel()
+    {
+        newBook[3].SetActive(false);
+        Info[3].SetActive(true);
+        SaveData.newChar04 = 2;
+    }
+
+    public void ArchiPanel()
+    {
+        newBook[4].SetActive(false);
+        Info[4].SetActive(true);
+        SaveData.newChar05 = 2;
+    }
+
+    public void ThalesPanel()
+    {
+        newBook[5].SetActive(false);
+        Info[5].SetActive(true);
+        SaveData.newChar06 = 2;
+    }
+
+    public void EpicuruPanel()
+    {
+        newBook[6].SetActive(false);
+        Info[6].SetActive(true);
+        SaveData.newChar07 = 2;
+    }
+
+    public void ZenoPanel()
+    {
+        newBook[7].SetActive(false);
+        Info[7].SetActive(true);
+        SaveData.newChar08 = 2;
+    }
+
+    public void DiogPanel()
+    {
+        newBook[8].SetActive(false);
+        Info[8].SetActive(true);
+        SaveData.newChar09 = 2;
+    }
+
+    public void ProtaPanel()
+    {
+        newBook[9].SetActive(false);
+        Info[9].SetActive(true);
+        SaveData.newChar10 = 2;
+    }
+
+    public void ThrasyPanel()
+    {
+        newBook[10].SetActive(false);
+        Info[10].SetActive(true);
+        SaveData.newChar11 = 2;
+    }
+
+    public void GorgiPanel()
+    {
+        newBook[11].SetActive(false);
+        Info[11].SetActive(true);
+        SaveData.newChar12 = 2;
+    }
+
+    public void HippaPanel()
+    {
+        newBook[12].SetActive(false);
+        Info[12].SetActive(true);
+        SaveData.newChar13 = 2;
+    }
+
+    public void EucliPanel()
+    {
+        newBook[13].SetActive(false);
+        Info[13].SetActive(true);
+        SaveData.newChar14 = 2;
+    }
+
+    public void StoicismPanel()
+    {
+        newBook[14].SetActive(false);
+        Info[14].SetActive(true);
+        SaveData.newChar15 = 2;
+    }
+
+    public void EpicuriPanel()
+    {
+        newBook[15].SetActive(false);
+        Info[15].SetActive(true);
+        SaveData.newChar16 = 2;
+    }
+
+    public void ShopistPanel()
+    {
+        newBook[16].SetActive(false);
+        Info[16].SetActive(true);
+        SaveData.newChar17 = 2;
     }
 }

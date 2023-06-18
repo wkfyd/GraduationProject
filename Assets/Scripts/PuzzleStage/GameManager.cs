@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,15 +31,16 @@ public class GameManager : MonoBehaviour
     public bool isOver;
     public bool gameWin;
     public bool isSpawn;
+    public bool time;
     public bool spawnTrigger;
 
     public AudioClip mergeClip;
     public AudioClip hitClip;
     public AudioClip hitClip1;
-    public AudioClip loseClip;
-    public AudioClip deathClip;
     public GameObject bgm;
     public GameObject winClip;
+    public GameObject loseClip;
+    public GameObject deathClip;
 
     public GameObject[] currentBlock;
     public GameObject[,] blocks = new GameObject[9, 8]; //오브젝트 2차원배열선언,초기화
@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
 
         gameWin = false;
         gameOver = false;
+        time = false;
     }
 
     void Update()
@@ -75,18 +76,20 @@ public class GameManager : MonoBehaviour
         BlockDown();
 
         //머지 할 수 있는 블럭 있는지 찾기
-        FindDuplication();
+        if(time)
+            FindDuplication();
 
         //머지 할 수 있는 블럭이 없다면 스폰 실행
         if (isSpawn)
             Spawn();
 
+        //동시 사망 시 승리
         //게임승리
         if (!gameWin && enemyManager.enemy_Health <= 0)
             GameWin();
 
         //게임패배
-        if (!gameOver && player.pc_Health <= 0 || isOver)
+        else if (!gameOver && player.pc_Health <= 0 || isOver)
             GameOver();
     }
 
@@ -146,7 +149,7 @@ public class GameManager : MonoBehaviour
             else if (SaveData.currentEnemy_Id == 1005 || SaveData.currentEnemy_Id == 1006 ||
                 SaveData.currentEnemy_Id == 1007 || SaveData.currentEnemy_Id == 1008)
                 lastBlock.level = random.Next(3, 6);
-            
+
             else
                 lastBlock.level = random.Next(0, 3);
 
@@ -166,6 +169,8 @@ public class GameManager : MonoBehaviour
             lastBlock.particle = instantEffect;
             lastBlock.gameObject.SetActive(true);
         }
+
+        time = true;
     }
 
     void FindDuplication()
@@ -394,96 +399,183 @@ public class GameManager : MonoBehaviour
         switch (SaveData.currentEnemy_Id)
         {
             case 1001:
+                if (SaveData.isSocra == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar01 = 1;
+                }
+
                 SaveData.isSocra = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1002:
+                if (SaveData.isPlato == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar02 = 1;
+                }
+
                 SaveData.isPlato = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1003:
+                if (SaveData.isAristo == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar03 = 1;
+                }
+
                 SaveData.isAristo = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1004:
+                if (SaveData.isPytha == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar04 = 1;
+                }
+
                 SaveData.isPytha = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1005:
+                if (SaveData.isArchi == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar05 = 1;
+                }
+
                 SaveData.isArchi = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1006:
+                if (SaveData.isThales == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar06 = 1;
+                }
+
                 SaveData.isThales = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1007:
+                if (SaveData.isEpicuru == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar07 = 1;
+                }
+
                 SaveData.isEpicuru = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1008:
+                if (SaveData.isZeno == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar08 = 1;
+                }
+
                 SaveData.isZeno = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1009:
+                if (SaveData.isDiog == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar09 = 1;
+                }
+
                 SaveData.isDiog = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1010:
+                if (SaveData.isProta == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar10 = 1;
+                }
+
                 SaveData.isProta = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1011:
+                if (SaveData.isThrasy == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar11 = 1;
+                }
+
                 SaveData.isThrasy = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1012:
+                if (SaveData.isGorgi == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar12 = 1;
+                }
+
                 SaveData.isGorgi = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1013:
+                if (SaveData.isHippa == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar13 = 1;
+                }
+
                 SaveData.isHippa = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1014:
+                if (SaveData.isEucli == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar14 = 1;
+                }
+
                 SaveData.isEucli = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1015:
+                if (SaveData.isStoicism == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar15 = 1;
+                }
+
                 SaveData.isStoicism = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1016:
+                if (SaveData.isEpicuri == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar16 = 1;
+                }
+
                 SaveData.isEpicuri = 1;
-                SaveData.newBook = 1;
                 break;
 
             case 1017:
+                if (SaveData.isSophist == 0)
+                {
+                    SaveData.newBook = 1;
+                    SaveData.newChar17 = 1;
+                }
+
                 SaveData.isSophist = 1;
-                SaveData.newBook = 1;
                 break;
         }
 
         //카메라 흔들기
         camera.SetActive(true);
 
+        deathClip.SetActive(true);
         StartCoroutine(DelayWinMotion());
         gameWin = true;
+        gameOver = true;
         Invoke("InvokeWinImg", 5.0f);
 
         //처치 시 다음 적 생성을 위해 id 초기화
@@ -510,7 +602,7 @@ public class GameManager : MonoBehaviour
         camera.SetActive(true);
         isOver = false;
         gameOver = true;
-        PlaySound(deathClip, 0.5f);
+        deathClip.SetActive(true);
 
         StartCoroutine(Player_DelayWinMotion());
         SaveData.isGameOver = 1;
@@ -543,7 +635,7 @@ public class GameManager : MonoBehaviour
     {
         gameOver = false;
         bgm.SetActive(false);
-        PlaySound(loseClip, 0.25f);
+        loseClip.SetActive(true);
         camera.SetActive(false);
         loseImg.SetActive(true);
     }

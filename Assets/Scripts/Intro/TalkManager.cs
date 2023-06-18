@@ -29,7 +29,7 @@ public class TalkManager : MonoBehaviour
         talkData.Add("이런, 괜찮으세요?\n죄송합니다. 제가 앞을 못 봤네요.:2");
         talkData.Add("이 파피루스 당신 거 맞죠?\n제가 지금 좀 바빠서… 빨리 가볼게요. 죄송합니다!:2");
         talkData.Add("어? 뭐라고요?\n잠시만요. 가지 마세요!!!!!!:1");
-        talkData.Add("이거 내 거 아니야!!!!!!!!!!!!!!!:3");
+        talkData.Add("이거 내 거 아니야!!!!!!!!!!!!!!!:1");
 
         nameData.Add(nameArr[0]); //빈 옵젝
         nameData.Add(nameArr[1]); //PC_Name

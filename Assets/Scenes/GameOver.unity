@@ -1108,6 +1108,8 @@ MonoBehaviour:
   talk: {fileID: 1291022571}
   talkPanel: {fileID: 2029357071}
   fadeObj: {fileID: 433517000}
+  textWindow: {fileID: 1812778941}
+  textWindow_PC: {fileID: 21300000, guid: 9c54482a1bdfe46488fa3d4002045dba, type: 3}
   talkIndex: 0
   audioSource: {fileID: 373925414}
   intro00: {fileID: 8300000, guid: ae5c7acdb13abd64ab49e3546ddee38d, type: 3}
@@ -1263,6 +1265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundA: {fileID: 8300000, guid: 9e319a684c6915e4ca3f8ee340001d0d, type: 3}
   soundB: {fileID: 8300000, guid: ad1c056df61c46e488842d5bb67c87a1, type: 3}
+  buzzer: {fileID: 0}
 --- !u!4 &1182826446
 Transform:
   m_ObjectHideFlags: 0
@@ -1462,6 +1465,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4630791889280517284, guid: 8d832b788df77e6418c9d227c4d6917b, type: 3}
   m_PrefabInstance: {fileID: 497733633}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1812778941 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4630791889280517307, guid: 8d832b788df77e6418c9d227c4d6917b, type: 3}
+  m_PrefabInstance: {fileID: 497733633}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1890454751
 GameObject:
   m_ObjectHideFlags: 0

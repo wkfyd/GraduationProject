@@ -19,12 +19,15 @@ public class FreeGameManager : MonoBehaviour
     public Transform effectGroup;
     public GameObject effectEndPrefab;
 
+    public int highScore;
+    public TextMeshProUGUI highScoreText;
     public int score;
     public TextMeshProUGUI scoreText;
     public int combo;
     public TextMeshProUGUI comboText;
     public GameObject endScoreObj;
     public TextMeshProUGUI endScoreText;
+    public GameObject newHighScoreObj;
 
     public bool isOver;
     public bool isSpawn;
@@ -32,7 +35,7 @@ public class FreeGameManager : MonoBehaviour
     public bool spawnTrigger;
 
     public AudioClip mergClip;
-    public AudioClip winClip;
+    public GameObject winClip;
     public GameObject bgm;
 
     public GameObject[] currentBlock;
@@ -54,6 +57,7 @@ public class FreeGameManager : MonoBehaviour
 
         scoreText.text = "0";
         comboText.text = "0";
+        highScoreText.text = SaveData.freeHighScore.ToString();
     }
 
     void Update()
@@ -387,7 +391,7 @@ public class FreeGameManager : MonoBehaviour
     {
         isOver = false;
 
-        SaveData.freeModeScore = score;
+        StopCoroutine(spawnRepeating);
 
         StartCoroutine("GameEndRoutine");
     }
@@ -400,9 +404,18 @@ public class FreeGameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         endScoreObj.SetActive(true);
-        PlaySound(winClip, 0.3f);
+        winClip.SetActive(true);
+
+        if (score >= SaveData.freeHighScore)
+        {
+            newHighScoreObj.SetActive(true);
+            SaveData.freeHighScore = score;
+        }
+
         endScoreText.text = "<I>"+ score + "</I>  Á¡".ToString();
         camera.SetActive(false);
+
+        SaveData.GameSave();
     }
 
     /*    IEnumerator GameEndRoutine()

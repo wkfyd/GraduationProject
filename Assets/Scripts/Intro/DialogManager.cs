@@ -25,6 +25,7 @@ public class DialogManager : MonoBehaviour
     public int beforeIndex;
 
     public AudioSource audioSource;
+    public AudioClip hitClip;
     public AudioClip intro00;
     public AudioClip intro01;
     public AudioClip intro02;
@@ -91,6 +92,7 @@ public class DialogManager : MonoBehaviour
 
             case 4:
                 audioSource.Stop();
+                audioSource.PlayOneShot(hitClip);
                 break;
 
             case 5:

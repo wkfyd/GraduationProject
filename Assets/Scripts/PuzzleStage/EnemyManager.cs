@@ -39,10 +39,10 @@ public class EnemyManager : MonoBehaviour
     public Transform playerDamageTextGroup; //대미지 텍스트 위치
     public TextMeshProUGUI comboText;       //콤보 텍스트 프리팹
 
-    public float enemy_MaxHealth;     //적 최대 체력
-    public float enemy_Health;        //적 현재 체력
+    public int enemy_MaxHealth;     //적 최대 체력
+    public int enemy_Health;        //적 현재 체력
     [HideInInspector]
-    public float enemy_DamageHP;      //적이 데미지를 받고 난 후 체력 (피격 유/무 판단 시 사용)
+    public int enemy_DamageHP;      //적이 데미지를 받고 난 후 체력 (피격 유/무 판단 시 사용)
     public int enemy_AtkTurn;       //적 일반 공격 턴 수
     public int enemy_NomAtk;        //적 일반 공격 남은 턴
     public int enemy_Atk_Damage;    //적 일반 공격 데미지
@@ -339,8 +339,8 @@ public class EnemyManager : MonoBehaviour
     {
         SpAtkObj.SetActive(true);
 
-        PlaySound(sp1, 0.5f);
-        PlaySound(sp2, 0.5f);
+        PlaySound(sp1, 0.3f);
+        PlaySound(sp2, 0.3f);
 
         spAnim.SetBool("isSpAtk", true);
 
