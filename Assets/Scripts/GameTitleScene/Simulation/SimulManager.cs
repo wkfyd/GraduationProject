@@ -1227,7 +1227,7 @@ public class SimulManager : MonoBehaviour
         while (count < 5)
         {
             yield return new WaitForSeconds(0.2f);
-            PlaySound(footStep, 1f);
+            PlaySound(footStep, 0.4f);
             count++;
         }
     }

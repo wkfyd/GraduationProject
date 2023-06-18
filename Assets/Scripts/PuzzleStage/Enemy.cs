@@ -190,22 +190,22 @@ public class Enemy : MonoBehaviour
     void GenerateData()
     {
         talkData.Add(1001, new string[] { "나는 내가 아무것도\n모른다는 것을 안다.", "유일한 선은 앎이고\n유일한 악은 무지다..." });
-        talkData.Add(1002, new string[] { "친구는\n모든 것을 나눈다.", "아아...나의 영혼은\n이제 이데아계로..." });
-        talkData.Add(1003, new string[] { "인간은 본성적으로\n사회적 동물이다.", "지나침이나 모자람엔\n중용이 없고 중용엔\n지나침이나 모자람이\n없다..." });
+        talkData.Add(1002, new string[] { "친구는\n모든 것을 나눈다.", "아아...\n나의 영혼은 이제\n이데아계로..." });
+        talkData.Add(1003, new string[] { "인간은 본성적으로\n사회적 동물이다.", "지나침이나 모자람엔\n중용이 없고, 중용엔\n지나침이나 모자람이\n없다!" });
         talkData.Add(1004, new string[] { "a²+b²=c²", "수의 조화가...\n깨져버리다니!" });
         talkData.Add(1005, new string[] { "유레카!", "내 원을 방해하지 말라!" });
         talkData.Add(1006, new string[] { "만물의 근원은\n물로 이루어져 있다.", "세상은 신들로\n가득 차 있다..." });
         talkData.Add(1007, new string[] { "빵과 물만 있다면\n신도 부럽지 않다.", "자네는 공허한 욕망에\n사로잡혀 있군..." });
-        talkData.Add(1008, new string[] { "자연과\n일치되어 사는 것이\n삶의 목적이다.", "내가 간다, 내가 간다.\n어찌하여 나를 부르느냐?" });
+        talkData.Add(1008, new string[] { "자연과\n일치되어 사는 것이\n삶의 목적이다.", "\"내가 간다, 내가 간다.\n어찌하여 나를\n부르느냐?\"" });
         talkData.Add(1009, new string[] { "따뜻한 햇빛을\n가리고 계시는군요?\n비켜주시죠?", "나는 그냥...\n아무것도 필요 없어..." });
-        talkData.Add(1010, new string[] { "인간은 만물의 척도다.", "문제는 너무나 \n불명확한 반면 \n인생은 짧다." });
+        talkData.Add(1010, new string[] { "인간은 만물의 척도다.", "문제는 너무나\n불명확한 반면\n인생은 짧다...!" });
         talkData.Add(1011, new string[] { "충분히 큰 규모의 불의는 \n정의보다 더 강하고,\n자유롭고, 지배적이오.", "정의는 강자의\n이익일 뿐이다!" });
-        talkData.Add(1012, new string[] { "수사학은 법원이나\n의회에서 의로운 것과\n불의한 것에 대해\n설득하는 기술입니다.", "아무것도 존재하지 않는다...\n존재하더라도 알 수 없다.\n알 수 있어도 전달할 수\n없다..." });
-        talkData.Add(1013, new string[] { "아니~!!!\n이렇게 계산하면\n√2 나온다니까용!?", "이런 무리수를!" });
+        talkData.Add(1012, new string[] { "수사학은 법원이나\n의회에서 의로운 것과\n불의한 것에 대해\n설득하는 기술입니다.", "아무것도 존재하지\n않는다... 존재하더라도 알 수 없다. 알 수 있어도\n전달할 수 없다..." });
+        talkData.Add(1013, new string[] { "아니~!!!\n이렇게 계산하면\n√2 나온다니까용!?", "이런 무리수를!\n<i>(irrational number!)</i>" });
         talkData.Add(1014, new string[] { "기하학엔\n왕도가 없습니다.", "기하학!" });
-        talkData.Add(1015, new string[] { "로고스 제일!", "충동을 따르는 삶을 \n살면...안 돼..." });
-        talkData.Add(1016, new string[] { "아타락시아를,,,\n추구하는,,삶,,^^*", "무엇이 진정한 쾌락을 \n가져다 주는가...!" });
-        talkData.Add(1017, new string[] { "누구지? 자네도 나의\n가르침을 얻으러 왔나?", "고소하겠어!" });
+        talkData.Add(1015, new string[] { "로고스 제일!", "충동을\n따르는 삶을 살면...\n안 돼..." });
+        talkData.Add(1016, new string[] { "아타락시아를,,,\n추구하는,,삶,,^^*", "무엇이 진정한 쾌락을\n가져다 주는가...!" });
+        talkData.Add(1017, new string[] { "누구지? 자네도 나의\n가르침을 얻으러 왔나?", "고소하겠어!!!!!!!!!" });
 
         enemyImgData.Add(1001, new Sprite[] { enemySprite[0], enemySprite[1], enemySprite[2] });
         enemyImgData.Add(1002, new Sprite[] { enemySprite[3], enemySprite[4], enemySprite[5] });

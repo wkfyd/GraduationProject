@@ -15377,7 +15377,6 @@ MonoBehaviour:
   enemyName: {fileID: 1670102160}
   enemyId: 0
   talkIndex: 0
-  titleFade: {fileID: 586623556}
   simulFade: {fileID: 1696083798}
   bookFade: {fileID: 306519652}
   Thales_Fade: {fileID: 590648240}
@@ -24688,6 +24687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notSave: {fileID: 1494842577}
   newCollection: {fileID: 104410575}
+  titleFade: {fileID: 0}
 --- !u!4 &1114337691
 Transform:
   m_ObjectHideFlags: 0

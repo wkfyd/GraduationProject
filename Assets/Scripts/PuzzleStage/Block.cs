@@ -334,7 +334,7 @@ public class Block : MonoBehaviour
         if(rand.Next(0, 2) == 0)
             manager.PlaySound(manager.hitClip, 0.5f);
         else
-            manager.PlaySound(manager.hitClip1, 0.5f);
+            manager.PlaySound(manager.hitClip1, 0.4f);
 
         //ÄÞº¸
         manager.comboAtk++;
@@ -594,7 +594,7 @@ public class Block : MonoBehaviour
         if (rand.Next(0, 2) == 0)
             manager.PlaySound(manager.hitClip, 0.5f);
         else
-            manager.PlaySound(manager.hitClip1, 0.5f);
+            manager.PlaySound(manager.hitClip1, 0.4f);
 
         //ÄÞº¸
         manager.comboAtk++;
