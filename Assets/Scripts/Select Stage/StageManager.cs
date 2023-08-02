@@ -8,6 +8,7 @@ public class StageManager : MonoBehaviour
 
     public GameObject Tutorial;
     public GameObject Tuto_Text;
+    public Animator TutoAnim;
 
     public RectTransform arrow;
     public GameObject stage_PopUp;
@@ -823,5 +824,6 @@ public class StageManager : MonoBehaviour
     void StartTutoText()
     {
         Tuto_Text.SetActive(true);
+        TutoAnim.SetTrigger("Talk Show");
     }
 }

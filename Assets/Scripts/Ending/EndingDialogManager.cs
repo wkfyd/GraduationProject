@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EndingDialogManager : MonoBehaviour
 {
@@ -37,7 +36,7 @@ public class EndingDialogManager : MonoBehaviour
         audioSource.Play();
         talk.SetMsg(endingTM.GetTalk(0).Split(':')[0], talkIndex);
         talkIndex = 1;
-        
+
     }
 
     void Update()
@@ -137,10 +136,29 @@ public class EndingDialogManager : MonoBehaviour
         {
             portraitImg.sprite = endingTM.GetPortrait(1);
             portraitImg.color = new Color(1, 1, 1, 1);
+
+            talkIndex++;
+
+            Vector3 initialPosition = portraitImg.transform.position;
+            float count = 0;
+            while(count <= 0.8f)
+            {
+                count += 0.02f;
+
+                yield return new WaitForSeconds(0.02f);
+                // 뒤흔들기 효과를 위해 무작위로 값을 생성하여 카메라 위치를 변경
+                Vector3 shakeOffset = Random.insideUnitSphere * 10f;
+                Debug.Log(shakeOffset);
+                portraitImg.transform.position = initialPosition + shakeOffset;
+
+            }
+
+            portraitImg.transform.position = initialPosition;
         }
         else
         {
             portraitImg.color = new Color(1, 1, 1, 0);
+            talkIndex++;
         }
 
         //이름 Image
@@ -154,6 +172,6 @@ public class EndingDialogManager : MonoBehaviour
             endingTM.GetName(1).SetActive(true);
         }
 
-        talkIndex++;
+       
     }
 }

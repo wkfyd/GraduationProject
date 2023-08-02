@@ -9,11 +9,13 @@ public class SimulManager : MonoBehaviour
     public SimulTypeEffect talk;
 
     public Animator talkPanel;
+
     public GameObject talkSet;
     public Image textWindow;
     public Sprite textWindow_PC;
     public Sprite textWindow_else;
     public GameObject portraitImg;
+    public Animator portraitAnim;
     public GameObject extraImg_01;
     public GameObject extraImg_02;
     public GameObject extraImg_03;
@@ -165,16 +167,19 @@ public class SimulManager : MonoBehaviour
             //일러스트 등장
             if (talkIndex == 4)
             {
-                portraitImg.SetActive(true);
                 talk.SetMsg(talkData.Split(':')[0]);
+                portraitImg.SetActive(true);
+                //Invoke("ShowPortrait", 0.08f);
                 talkIndex++;
             }
 
             //일러스트 삭제
             else if (talkIndex == 52 || talkIndex == 60)
             {
+                //portraitAnim.SetTrigger("Hide");
                 portraitImg.SetActive(false);
                 talk.SetMsg(talkData.Split(':')[0]);
+                //Invoke("HidePortrait", 0.1f);
                 talkIndex++;
             }
 
@@ -230,16 +235,19 @@ public class SimulManager : MonoBehaviour
             //일러스트 등장
             if (talkIndex == 1)
             {
-                portraitImg.SetActive(true);
                 talk.SetMsg(talkData.Split(':')[0]);
+                portraitImg.SetActive(true);
+                //Invoke("ShowPortrait", 0.08f);
                 talkIndex++;
             }
 
             //일러스트 삭제
             else if (talkIndex == 50)
             {
+                //portraitAnim.SetTrigger("Hide");
                 portraitImg.SetActive(false);
                 talk.SetMsg(talkData.Split(':')[0]);
+                //Invoke("HidePortrait", 0.1f);
                 talkIndex++;
             }
 
@@ -344,10 +352,18 @@ public class SimulManager : MonoBehaviour
             else if (talkIndex == 49)
             {
                 portraitImg.SetActive(false);
-                extraImg_03.SetActive(true);
+                StartCoroutine(Delay());
 
                 talk.SetMsg(talkData.Split(':')[0]);
                 talkIndex++;
+
+                IEnumerator Delay()
+                {
+                    talkSet.SetActive(false);
+                    yield return new WaitForSeconds(2.0f);
+                    talkSet.SetActive(true);
+                    extraImg_03.SetActive(true);
+                }
             }
 
             //엑스트라 삭제
@@ -388,10 +404,8 @@ public class SimulManager : MonoBehaviour
             {
                 portraitImg.SetActive(false);
                 StartCoroutine(FootStep());
-                talk.SetMsg(talkData.Split(':')[0]);
+                StartCoroutine(DelayTalk());
                 talkIndex++;
-
-                
             }
 
             else if (talkIndex == 40)
@@ -399,7 +413,7 @@ public class SimulManager : MonoBehaviour
                 extraImg_01.SetActive(false);
                 extraImg_02.SetActive(false);
                 StartCoroutine(FootStep());
-                talk.SetMsg(talkData.Split(':')[0]);
+                StartCoroutine(DelayTalk());
                 talkIndex++;
             }
 
@@ -416,6 +430,16 @@ public class SimulManager : MonoBehaviour
             {
                 talk.SetMsg(talkData.Split(':')[0]);
                 talkIndex++;
+            }
+
+            IEnumerator DelayTalk()
+            {
+                talkSet.SetActive(false);
+
+                yield return new WaitForSeconds(2.0f);
+
+                talkSet.SetActive(true);
+                talk.SetMsg(talkData.Split(':')[0]);
             }
         }
 
@@ -634,6 +658,17 @@ public class SimulManager : MonoBehaviour
         }
     }
 
+    public void HidePortrait()
+    {
+        portraitImg.SetActive(false);
+    }
+
+    public void ShowPortrait()
+    {
+        portraitImg.SetActive(true);
+        portraitAnim.SetTrigger("Show");
+    }
+
     public void TalkButton_Socra()
     {
         bookFade.SetActive(true);
@@ -644,6 +679,7 @@ public class SimulManager : MonoBehaviour
         enemyId = 1001;
 
         portraitImg = SimulDataManager.GetPortrait(enemyId);
+        portraitAnim = SimulDataManager.GetAnimator(enemyId);
         enemyName.text = "소크라테스";
     }
 
@@ -657,6 +693,7 @@ public class SimulManager : MonoBehaviour
         enemyId = 1002;
 
         portraitImg = SimulDataManager.GetPortrait(enemyId);
+        portraitAnim = SimulDataManager.GetAnimator(enemyId);
         enemyName.text = "플라톤";
     }
 
@@ -670,6 +707,7 @@ public class SimulManager : MonoBehaviour
         enemyId = 1003;
 
         portraitImg = SimulDataManager.GetPortrait(enemyId);
+        portraitAnim = SimulDataManager.GetAnimator(enemyId);
         enemyName.text = "아리스토텔레스";
     }
 
@@ -683,6 +721,7 @@ public class SimulManager : MonoBehaviour
         enemyId = 1004;
 
         portraitImg = SimulDataManager.GetPortrait(enemyId);
+        portraitAnim = SimulDataManager.GetAnimator(enemyId);
         enemyName.text = "피타고라스";
     }
 
@@ -696,6 +735,7 @@ public class SimulManager : MonoBehaviour
         enemyId = 1005;
 
         portraitImg = SimulDataManager.GetPortrait(enemyId);
+        portraitAnim = SimulDataManager.GetAnimator(enemyId);
         enemyName.text = "아르키메데스";
     }
 
@@ -709,6 +749,7 @@ public class SimulManager : MonoBehaviour
         enemyId = 1006;
 
         portraitImg = SimulDataManager.GetPortrait(enemyId);
+        portraitAnim = SimulDataManager.GetAnimator(enemyId);
         enemyName.text = "탈레스";
     }
 
@@ -722,6 +763,7 @@ public class SimulManager : MonoBehaviour
         enemyId = 1007;
 
         portraitImg = SimulDataManager.GetPortrait(enemyId);
+        portraitAnim = SimulDataManager.GetAnimator(enemyId);
         enemyName.text = "에피쿠로스";
     }
 
@@ -735,6 +777,7 @@ public class SimulManager : MonoBehaviour
         enemyId = 1008;
 
         portraitImg = SimulDataManager.GetPortrait(enemyId);
+        portraitAnim = SimulDataManager.GetAnimator(enemyId);
         enemyName.text = "제논";
     }
 

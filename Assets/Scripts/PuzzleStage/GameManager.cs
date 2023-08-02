@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public EnemyManager enemyManager;
     public TutorialManager tuto;
     public Player player;
+    public Pause pauseScript;
 
     public GameObject camera;
     public GameObject pause;
@@ -63,20 +64,28 @@ public class GameManager : MonoBehaviour
     {
         currentBlock = GameObject.FindGameObjectsWithTag("Block"); //현재 블럭들 배열
 
+        //puase창 열기
+        if (Input.GetKeyDown(KeyCode.Escape))
+            pause.SetActive(true);
+
+        if (pauseScript.changeLanguage)
+        {
+            //언어변경
+            ChangeLanguage();
+        }
+
+        //마지막 블럭 합쳐질때 없애기
         for (int i = 0; i < currentBlock.Length; i++)
         {
             if (currentBlock[i].GetComponent<Block>().level == 24)
                 Destroy(currentBlock[i]);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-            pause.SetActive(true);
-
         //밑 칸에 블럭이 없으면 내려주기
         BlockDown();
 
         //머지 할 수 있는 블럭 있는지 찾기
-        if(time)
+        if (time)
             FindDuplication();
 
         //머지 할 수 있는 블럭이 없다면 스폰 실행
@@ -620,6 +629,44 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         Time.timeScale = 1f;
+    }
+
+    public void ChangeLanguage()
+    {
+        for (int i = 0; i < currentBlock.Length; i++) //모든 블럭
+        {
+            Block block = currentBlock[i].gameObject.GetComponent<Block>();
+
+            int tempLevel = block.level;
+            int tempGridx = block.gridX;
+            int tempGridy = block.gridY;
+
+            Destroy(currentBlock[i]);
+
+            if (SaveData.isLanguage == 0)
+                BlockPrefab = blockEng;
+            else
+                BlockPrefab = blockGrec;
+
+            blocks[tempGridx, tempGridy] = Instantiate(BlockPrefab,
+                                    gameBoard.blockGridPos[tempGridx, tempGridy], Quaternion.identity);
+
+            lastBlock = blocks[tempGridx, tempGridy].GetComponent<Block>();
+
+            GameObject instantEffectobj = Instantiate(effectPrefab, effectGroup);
+            ParticleSystem instantEffect = instantEffectobj.GetComponent<ParticleSystem>();
+
+            lastBlock.level = tempLevel;
+            lastBlock.gridX = tempGridx;
+            lastBlock.gridY = tempGridy;
+            lastBlock.manager = this;
+            lastBlock.enemyManager = enemyManager;
+            lastBlock.tuto = tuto;
+            lastBlock.particle = instantEffect;
+            lastBlock.gameObject.SetActive(true);
+
+            pauseScript.changeLanguage = false;
+        }
     }
 
     void InvokeWinImg()

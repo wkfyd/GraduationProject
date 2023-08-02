@@ -1,11 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class FreeGameManager : MonoBehaviour
 {
     public GameObject camera;
+
+    public Pause pauseScript;
 
     public GameObject BlockPrefab;
     public GameObject blockEng;
@@ -29,10 +30,13 @@ public class FreeGameManager : MonoBehaviour
     public TextMeshProUGUI endScoreText;
     public GameObject newHighScoreObj;
 
+    public float spawnTime = 6.0f;
+    public float currentTime;
     public bool isOver;
     public bool isSpawn;
     public bool isSpawning;
     public bool spawnTrigger;
+    public bool gameStart;
 
     public AudioClip mergClip;
     public GameObject winClip;
@@ -42,8 +46,6 @@ public class FreeGameManager : MonoBehaviour
     public GameObject[,] blocks = new GameObject[9, 8]; //오브젝트 2차원배열선언,초기화
 
     public int[] currentLevels;
-
-    Coroutine spawnRepeating;
 
     GameBoard gameBoard = new GameBoard();
     System.Random random = new System.Random();
@@ -73,28 +75,80 @@ public class FreeGameManager : MonoBehaviour
         //밑 칸에 블럭이 없으면 내려주기
         BlockDown();
 
-        //머지 할 수 있는 블럭 있는지 찾기
-        //FindDuplication();
-
-        //머지 할 수 있는 블럭이 없다면 스폰 실행
-        //if (isSpawn)
-        //    Spawn();
-
         //게임 종료
         if (isOver)
             GameEnd();
 
         if (Input.GetKeyDown(KeyCode.Escape))
             pause.SetActive(true);
+
+        //언어변경
+        if (pauseScript.changeLanguage)
+        {
+            ChangeLanguage();
+        }
+
+        if (gameStart && !isOver)
+        {
+            currentTime += Time.deltaTime;
+
+            if (currentTime >= spawnTime && isSeletBlock())
+            {
+                Spawn();
+                currentTime = 0f;
+            }
+        }
     }
 
-    IEnumerator SpawnRepeating()
+    public bool isSeletBlock()
     {
-        while (!isOver)
+        for (int i = 0; i < currentBlock.Length; i++) //모든 블럭
         {
-            yield return new WaitForSeconds(6f);
-            isSpawn = true;
-            Spawn();
+            FreeBlock block = currentBlock[i].gameObject.GetComponent<FreeBlock>();
+
+            //선택중이 아닌 블럭과 그 블럭 밑 칸이 null이면
+            if (block.select)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public void ChangeLanguage()
+    {
+        for (int i = 0; i < currentBlock.Length; i++) //모든 블럭
+        {
+            FreeBlock block = currentBlock[i].gameObject.GetComponent<FreeBlock>();
+
+            int tempLevel = block.level;
+            int tempGridx = block.gridX;
+            int tempGridy = block.gridY;
+
+            Destroy(currentBlock[i]);
+
+            if (SaveData.isLanguage == 0)
+                BlockPrefab = blockEng;
+            else
+                BlockPrefab = blockGrec;
+
+            blocks[tempGridx, tempGridy] = Instantiate(BlockPrefab,
+                                    gameBoard.blockGridPos[tempGridx, tempGridy], Quaternion.identity);
+
+            lastBlock = blocks[tempGridx, tempGridy].GetComponent<FreeBlock>();
+
+            GameObject instantEffectobj = Instantiate(effectPrefab, effectGroup);
+            ParticleSystem instantEffect = instantEffectobj.GetComponent<ParticleSystem>();
+
+            lastBlock.level = tempLevel;
+            lastBlock.gridX = tempGridx;
+            lastBlock.gridY = tempGridy;
+            lastBlock.manager = this;
+            lastBlock.particle = instantEffect;
+            lastBlock.gameObject.SetActive(true);
+
+            pauseScript.changeLanguage = false;
         }
     }
 
@@ -167,55 +221,11 @@ public class FreeGameManager : MonoBehaviour
         currentLevels = new int[currentBlock.Length];   //레벨배열
     }
 
-    /*void FindDuplication()
-    {
-        if (spawnTrigger)
-        {
-            bool hasDuplicates = false;
-
-            currentLevels = new int[currentBlock.Length];   //레벨배열
-
-            //현재 블럭들 레벨배열에 참조
-            for (int i = 0; i < currentBlock.Length; i++)
-            {
-                FreeBlock block = currentBlock[i].gameObject.GetComponent<FreeBlock>();
-
-                currentLevels[i] = block.level;
-            }
-
-            //중복된 값이 있는지 없는지 확인
-            for (int i = 0; i < currentLevels.Length; i++)
-            {
-                for (int j = i + 1; j < currentLevels.Length; j++)
-                {
-                    if (currentLevels[i] == currentLevels[j])
-                    {
-                        hasDuplicates = true;
-                        break;
-                    }
-                }
-
-                if (hasDuplicates)
-                    break;
-            }
-
-            if (!hasDuplicates)
-            {
-                isSpawn = true;
-                spawnTrigger = false;
-            }
-        }
-    }*/
-
     public void Spawn()
     {
         isSpawn = false;
         isSpawning = true;
 
-        if (spawnRepeating != null)
-            StopCoroutine(spawnRepeating);
-
-        spawnRepeating = StartCoroutine(SpawnRepeating());
         StartCoroutine(SpawnRoutine());
     }
 
@@ -304,7 +314,7 @@ public class FreeGameManager : MonoBehaviour
                 {
                     if (blocks[i, j].gameObject.GetComponent<FreeBlock>().select != false)
                     {
-                        
+
                     }
                     else
                     {
@@ -380,7 +390,7 @@ public class FreeGameManager : MonoBehaviour
 
     public void StartPanel()
     {
-        spawnRepeating = StartCoroutine(SpawnRepeating());
+        gameStart = true;
         StartSpawn();
 
         spawnTrigger = true;
@@ -389,10 +399,6 @@ public class FreeGameManager : MonoBehaviour
 
     public void GameEnd()
     {
-        isOver = false;
-
-        StopCoroutine(spawnRepeating);
-
         StartCoroutine("GameEndRoutine");
     }
 
@@ -412,7 +418,7 @@ public class FreeGameManager : MonoBehaviour
             SaveData.freeHighScore = score;
         }
 
-        endScoreText.text = "<I>"+ score + "</I>  점".ToString();
+        endScoreText.text = "<I>" + score + "</I>  점".ToString();
         camera.SetActive(false);
 
         SaveData.GameSave();

@@ -26,102 +26,119 @@ public class BookManager : MonoBehaviour
         {
             enemyPortrait[0].GetComponent<Image>().color = color;
             PortraitPanel[0].SetActive(true);
+            newBook[0].SetActive(true);
         }
 
         if (SaveData.isPlato == 1)
         {
             enemyPortrait[1].GetComponent<Image>().color = color;
             PortraitPanel[1].SetActive(true);
+            newBook[1].SetActive(true);
         }
 
         if (SaveData.isAristo == 1)
         {
             enemyPortrait[2].GetComponent<Image>().color = color;
             PortraitPanel[2].SetActive(true);
+            newBook[2].SetActive(true);
         }
 
         if (SaveData.isPytha == 1)
         {
             enemyPortrait[3].GetComponent<Image>().color = color;
             PortraitPanel[3].SetActive(true);
+            newBook[3].SetActive(true);
         }
 
         if (SaveData.isArchi == 1)
         {
             enemyPortrait[4].GetComponent<Image>().color = color;
             PortraitPanel[4].SetActive(true);
+            newBook[4].SetActive(true);
         }
 
         if (SaveData.isThales == 1)
         {
             enemyPortrait[5].GetComponent<Image>().color = color;
             PortraitPanel[5].SetActive(true);
+            newBook[5].SetActive(true);
         }
 
         if (SaveData.isEpicuru == 1)
         {
             enemyPortrait[6].GetComponent<Image>().color = color;
             PortraitPanel[6].SetActive(true);
+            newBook[6].SetActive(true);
         }
 
         if (SaveData.isZeno == 1)
         {
             enemyPortrait[7].GetComponent<Image>().color = color;
             PortraitPanel[7].SetActive(true);
+            newBook[7].SetActive(true);
         }
 
         if (SaveData.isDiog == 1)
         {
             enemyPortrait[8].GetComponent<Image>().color = color;
             PortraitPanel[8].SetActive(true);
+            newBook[8].SetActive(true);
         }
 
         if (SaveData.isProta == 1)
         {
             enemyPortrait[9].GetComponent<Image>().color = color;
             PortraitPanel[9].SetActive(true);
+            newBook[9].SetActive(true);
         }
 
         if (SaveData.isThrasy == 1)
         {
             enemyPortrait[10].GetComponent<Image>().color = color;
             PortraitPanel[10].SetActive(true);
+            newBook[10].SetActive(true);
         }
 
         if (SaveData.isGorgi == 1)
         {
             enemyPortrait[11].GetComponent<Image>().color = color;
             PortraitPanel[11].SetActive(true);
+            newBook[11].SetActive(true);
         }
 
         if (SaveData.isHippa == 1)
         {
             enemyPortrait[12].GetComponent<Image>().color = color;
             PortraitPanel[12].SetActive(true);
+            newBook[12].SetActive(true);
         }
 
         if (SaveData.isEucli == 1)
         {
             enemyPortrait[13].GetComponent<Image>().color = color;
             PortraitPanel[13].SetActive(true);
+            newBook[13].SetActive(true);
         }
 
         if (SaveData.isStoicism == 1)
         {
             enemyPortrait[14].GetComponent<Image>().color = color;
             PortraitPanel[14].SetActive(true);
+            newBook[14].SetActive(true);
         }
 
         if (SaveData.isEpicuri == 1)
         {
             enemyPortrait[15].GetComponent<Image>().color = color;
             PortraitPanel[15].SetActive(true);
+            newBook[15].SetActive(true);
         }
 
         if (SaveData.isSophist == 1)
         {
             enemyPortrait[16].GetComponent<Image>().color = color;
             PortraitPanel[16].SetActive(true);
+            newBook[16].SetActive(true);
         }
     }
 

@@ -6,15 +6,18 @@ public class SimulDataManager : MonoBehaviour
 {
     Dictionary<int, string[]> talkData;
     Dictionary<int, GameObject> portraitData;
+    Dictionary<int, Animator> portAnimData;
     List<GameObject> nameData;
 
     public GameObject[] portraitImg;
+    public Animator[] portAnim;
     public GameObject[] nameArr;
 
     void Awake()
     {
         talkData = new Dictionary<int, string[]>();
         portraitData = new Dictionary<int, GameObject>();
+        portAnimData = new Dictionary<int, Animator>();
         nameData = new List<GameObject>();
         GenerateData();
     }
@@ -587,6 +590,15 @@ public class SimulDataManager : MonoBehaviour
         portraitData.Add(1007, portraitImg[6]);
         portraitData.Add(1008, portraitImg[7]);
 
+        portAnimData.Add(1001, portAnim[0]);
+        portAnimData.Add(1002, portAnim[1]);
+        portAnimData.Add(1003, portAnim[2]);
+        portAnimData.Add(1004, portAnim[3]);
+        portAnimData.Add(1005, portAnim[4]);
+        portAnimData.Add(1006, portAnim[5]);
+        portAnimData.Add(1007, portAnim[6]);
+        portAnimData.Add(1008, portAnim[7]);
+
         nameData.Add(nameArr[0]); //나래이션
         nameData.Add(nameArr[1]); //PC_Name
         nameData.Add(nameArr[2]); //NPC_Name
@@ -607,6 +619,11 @@ public class SimulDataManager : MonoBehaviour
     public GameObject GetPortrait(int id)
     {
         return portraitData[id];
+    }
+
+    public Animator GetAnimator(int id)
+    {
+        return portAnimData[id];
     }
 
     public GameObject GetName(int nameIndex)

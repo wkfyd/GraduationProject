@@ -1,18 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
-{
+{//B9AFA5
     public GameObject pause;
 
+    public Sprite yes, no;
+    public Image al, gre;
+
+    public bool changeLanguage;
     bool isPause = false;
 
     void OnEnable()
     {
         isPause = true;
         Time.timeScale = 0;
+        if (SaveData.isLanguage == 0)
+        {
+            al.sprite = yes;
+            gre.sprite = no;
+        }
+        else
+        {
+            al.sprite = no;
+            gre.sprite = yes;
+        }
     }
 
     public void FreeStopBtn()
@@ -60,6 +73,11 @@ public class Pause : MonoBehaviour
         SaveData.isLanguage = 0;
         Time.timeScale = 1;
         pause.SetActive(false);
+        al.sprite = yes;
+        gre.sprite = no;
+
+        if (SceneManager.GetActiveScene().name == "PuzzleStage" || SceneManager.GetActiveScene().name == "FreePuzStage")
+            changeLanguage = true;
     }
 
     public void Greek()
@@ -67,5 +85,10 @@ public class Pause : MonoBehaviour
         SaveData.isLanguage = 1;
         Time.timeScale = 1;
         pause.SetActive(false);
+        al.sprite = no;
+        gre.sprite = yes;
+
+        if (SceneManager.GetActiveScene().name == "PuzzleStage" || SceneManager.GetActiveScene().name == "FreePuzStage")
+            changeLanguage = true;
     }
 }
