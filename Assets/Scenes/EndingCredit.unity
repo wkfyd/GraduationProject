@@ -435,6 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundA: {fileID: 8300000, guid: 9e319a684c6915e4ca3f8ee340001d0d, type: 3}
   soundB: {fileID: 8300000, guid: ad1c056df61c46e488842d5bb67c87a1, type: 3}
+  buzzer: {fileID: 0}
 --- !u!4 &321456171
 Transform:
   m_ObjectHideFlags: 0
@@ -1052,7 +1053,7 @@ MonoBehaviour:
     BGM-</size>\n\n<size=-5>\uC138\uC774\uD0AC\uB85C\uC2A4\uC758 \uBE44\uBB38: \uC774\uC7AC\uB7C9\uB2D8</size>\n\n\n\n<size=-3>-\uD37C\uC990
     BGM-</size>\n\n<size=-5>Greece: \uC870\uACC4\uC2E0\uB2D8</size>\n\n\n\n<size=-3>-\uB300\uD654
     \uC2DC\uBBAC\uB808\uC774\uC158 BGM-</size>\n\n<size=-5>Love's Labyrinth: \uAE40\uC758\uD64D\uB2D8</size>\n\n\n\n\n\n\n\n\n[\uCE90\uB9AD\uD130
-    \uC74C\uC131]\n\n\n<size=-3>-\uC5D0\uD53C\uC2A4\uD14C\uBAA8\uB178\uC2A4-</size>\n\n<size=-5>\uC218\uACB8\uB2D8</size>\n\n\n\n<size=-3>-\uB098\uB808\uC774\uC158-</size>\n\n<size=-5>\uAE40\uD504\uD2B8\uB2D8</size>\n\n\n\n<size=-3>-???-</size>\n\n<size=-5>\uAE40\uD504\uD2B8\uB2D8</size>\n\n\n\n\n\n\n\n\n\n[SE]\n\n\n<size=-3>-\uD074\uB9AD
+    \uC74C\uC131]\n\n\n<size=-3>-\uC5D0\uD53C\uC2A4\uD14C\uBAA8\uB178\uC2A4-</size>\n\n<size=-5>\uC218\uACB8\uB2D8</size>\n\n\n\n<size=-3>-\uB0B4\uB808\uC774\uC158-</size>\n\n<size=-5>\uAE40\uD504\uD2B8\uB2D8</size>\n\n\n\n<size=-3>-???-</size>\n\n<size=-5>\uAE40\uD504\uD2B8\uB2D8</size>\n\n\n\n\n\n\n\n\n\n[SE]\n\n\n<size=-3>-\uD074\uB9AD
     \uD6A8\uACFC\uC74C-</size>\n\n<size=-10>Sound effects obtained from\r\nhttps://www.zapsplat.com
     </size>\n\n\n\n<size=-3>-\uBE14\uB85D \uD074\uB9AD \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-5>Make
     a field Music\uB2D8\r</size>\n\r\n\n\n<size=-3>-\uBE14\uB85D \uD569\uCE58\uAE30
@@ -1063,8 +1064,7 @@ MonoBehaviour:
     \uBD88\uB2A5 \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-5>\u30DF\u30EB\u30A2\u2500\u30B8\u30E5\uB2D8\r</size>\n\r\n\n\n<size=-3>-\uC2B9\uB9AC,
     \uD328\uBC30 \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-5>t.tam\uB2D8\nVeryGoodMan\uB2D8</size>\n\n\n\n<size=-3>-\uC2A4\uD14C\uC774\uC9C0
     \uC2DC\uC791 \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-5>Make a field Music\uB2D8\r</size>\n\r\n\n\n<size=-3>-\uBC1C\uC18C\uB9AC
-    \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-10>Sound effects obtained from\r\nhttps://www.zapsplat.com</size>\n\r\n\n\n<size=-3>-\uBC84\uC800
-    \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-5>\u7A3F\u5C4B \u9686\uB2D8</size>\n\n\n\n\n\n\n\n\n\n\n\n\n\n[\uD3F0\uD2B8]\r\n\r\n<size=-5>62570\uCCB4\r</size>\n<size=-15><color=#989898>\n\uAD6D\uAC00\uBCF4\uD6C8\uCC98\uC5D0\uC11C
+    \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-10>Sound effects obtained from\r\nhttps://www.zapsplat.com</size>\n\r\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[\uD3F0\uD2B8]\r\n\r\n<size=-5>62570\uCCB4\r</size>\n<size=-15><color=#989898>\n\uAD6D\uAC00\uBCF4\uD6C8\uCC98\uC5D0\uC11C
     \uC81C\uC791\uD55C '62570 \uAE00\uAF34'\uC774 \uC801\uC6A9\uB418\uC5B4 \uC788\uC2B5\uB2C8\uB2E4.\r\n62570\uCCB4\uB97C
     \uC0AC\uC6A9\uD55C \uC628/\uC624\uD504\uB77C\uC778 \uC0C1\uD488, \uAD11\uACE0
     \uB4F1 \uBAA8\uB4E0 \uC885\uB958\uC758 \uCC3D\uC791\uBB3C\uC740\r\n\uAD6D\uAC00\uBCF4\uD6C8\uCC98\uC758
