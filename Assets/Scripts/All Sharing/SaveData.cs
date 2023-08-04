@@ -20,8 +20,8 @@ public class SaveData : MonoBehaviour
     public static int isEpicuri;
     public static int isSophist;
 
-    public static int currentStage;
-    public static int currentEnemy_Id;
+    public static int currentStage = 6;
+    public static int currentEnemy_Id = 1017;
     public static int freeHighScore;
     public static int isLanguage;  //0이 영어, 1이 그리스
 

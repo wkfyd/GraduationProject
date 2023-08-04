@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject pause;
 
     public GameObject BlockPrefab;
+
     public GameObject blockEng;
     public GameObject blockGrec;
     public Block lastBlock;
@@ -20,7 +21,9 @@ public class GameManager : MonoBehaviour
     public Transform effectGroup;
 
     public GameObject winImg;
+    public ParticleSystem enemyDeadEffect;
     public GameObject loseImg;
+    public ParticleSystem playerDeadEffect;
 
     public Animator winAim;
     public Animator playerOverAim;
@@ -585,7 +588,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DelayWinMotion());
         gameWin = true;
         gameOver = true;
-        Invoke("InvokeWinImg", 5.0f);
+        Invoke("enemyDeadEffectOn", 5.0f);
+        Invoke("InvokeWinImg", 6.0f);
 
         //처치 시 다음 적 생성을 위해 id 초기화
         SaveData.currentEnemy_Id = 0;
@@ -615,8 +619,8 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(Player_DelayWinMotion());
         SaveData.isGameOver = 1;
-
-        Invoke("InvokeLoseImg", 5.0f);
+        Invoke("playerDeadEffectOn", 5.0f);
+        Invoke("InvokeLoseImg", 6.0f);
     }
 
     IEnumerator Player_DelayWinMotion()
@@ -686,6 +690,17 @@ public class GameManager : MonoBehaviour
         camera.SetActive(false);
         loseImg.SetActive(true);
     }
+
+    void playerDeadEffectOn()
+    {
+        playerDeadEffect.Play();
+    }
+
+    void enemyDeadEffectOn()
+    {
+        enemyDeadEffect.Play();
+    }
+
 
     public void PlaySound(AudioClip soundClip, float volume)
     {
