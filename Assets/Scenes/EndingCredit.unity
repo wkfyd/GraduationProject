@@ -1058,13 +1058,12 @@ MonoBehaviour:
     </size>\n\n\n\n<size=-3>-\uBE14\uB85D \uD074\uB9AD \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-5>Make
     a field Music\uB2D8\r</size>\n\r\n\n\n<size=-3>-\uBE14\uB85D \uD569\uCE58\uAE30
     \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-5>Make a field Music\uB2D8\r</size>\n\r\n\n\n<size=-3>-\uD53C\uACA9
-    \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-5>Make a field Music\uB2D8\r</size>\n\r\n\n\n<size=-3>-\uC544\uC774\uD15C
-    \uC0AC\uC6A9 \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-5>\u3072\u3075\u307F\u30BB\u30AA\u30EA\u2500\uB2D8\r</size>\n\r\n\n\n<size=-3>-\uD544\uC0B4\uAE30
+    \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-5>Make a field Music\uB2D8\r</size>\n\r\n\n\n<size=-3>-\uD544\uC0B4\uAE30
     \uC0AC\uC6A9 \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-5>\u3072\u3075\u307F\u30BB\u30AA\u30EA\u2500\uB2D8\r</size>\n\r\n\n\n<size=-3>-\uC804\uD22C
     \uBD88\uB2A5 \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-5>\u30DF\u30EB\u30A2\u2500\u30B8\u30E5\uB2D8\r</size>\n\r\n\n\n<size=-3>-\uC2B9\uB9AC,
     \uD328\uBC30 \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-5>t.tam\uB2D8\nVeryGoodMan\uB2D8</size>\n\n\n\n<size=-3>-\uC2A4\uD14C\uC774\uC9C0
     \uC2DC\uC791 \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-5>Make a field Music\uB2D8\r</size>\n\r\n\n\n<size=-3>-\uBC1C\uC18C\uB9AC
-    \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-10>Sound effects obtained from\r\nhttps://www.zapsplat.com</size>\n\r\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[\uD3F0\uD2B8]\r\n\r\n<size=-5>62570\uCCB4\r</size>\n<size=-15><color=#989898>\n\uAD6D\uAC00\uBCF4\uD6C8\uCC98\uC5D0\uC11C
+    \uD6A8\uACFC\uC74C-\r</size>\n\n<size=-10>Sound effects obtained from\r\nhttps://www.zapsplat.com</size>\n\r\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[\uD3F0\uD2B8]\r\n\r\n<size=-5>62570\uCCB4\r</size>\n<size=-15><color=#989898>\n\uAD6D\uAC00\uBCF4\uD6C8\uCC98\uC5D0\uC11C
     \uC81C\uC791\uD55C '62570 \uAE00\uAF34'\uC774 \uC801\uC6A9\uB418\uC5B4 \uC788\uC2B5\uB2C8\uB2E4.\r\n62570\uCCB4\uB97C
     \uC0AC\uC6A9\uD55C \uC628/\uC624\uD504\uB77C\uC778 \uC0C1\uD488, \uAD11\uACE0
     \uB4F1 \uBAA8\uB4E0 \uC885\uB958\uC758 \uCC3D\uC791\uBB3C\uC740\r\n\uAD6D\uAC00\uBCF4\uD6C8\uCC98\uC758
@@ -1331,7 +1330,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2007}
+  m_AnchoredPosition: {x: 0, y: 2403}
   m_SizeDelta: {x: 0, y: 800}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1153712892
