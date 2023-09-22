@@ -339,7 +339,12 @@ public class Block : MonoBehaviour
         //ÄÞº¸
         manager.comboAtk++;
 
-        if (manager.comboAtk >= 3)
+        if (manager.comboAtk % 15 == 0)
+        {
+            blockDamage = blockDamage * 2;
+        }
+
+        else if (manager.comboAtk >= 3)
         {
             blockDamage = blockDamage + (int)(blockDamage * 0.1);
         }
