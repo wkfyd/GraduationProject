@@ -298,6 +298,11 @@ public class FreeBlock : MonoBehaviour
         manager.combo++;
         manager.comboText.text = manager.combo.ToString();
 
+        if (manager.combo % 15 == 0)
+        {
+            blockScore = blockScore * 2;
+        }
+
         if (manager.combo >= 3)
         {
             blockScore = blockScore + (int)(blockScore * 0.1);

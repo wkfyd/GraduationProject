@@ -856,7 +856,7 @@ public class SimulManager : MonoBehaviour
         {
             choice.SetActive(true);
             choice_01.text = "진정해요!";
-            choice_02.text = "다른 이야기로 화제를 돌린다.";
+            choice_02.text = "다른 이야기로 화제를 돌린다";
         }
     }
 
